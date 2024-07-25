@@ -268,6 +268,7 @@ import { EditarEmpresaClienteComponent } from "./modulo-1-admin/empresa/editar-e
 import { EditarFuncionarioEmpresaComponent } from "./modulo-1-admin/empresa/funcionario/editar-funcionario-empresa/editar-funcionario-empresa.component";
 import { ConsultarFuncionarioPerfilEmpresaComponent } from "./modulo-1-admin/empresa/funcionario/consultar-funcionario-perfil-empresa/consultar-funcionario-perfil-empresa.component";
 import { ConsultarFuncaoDasUnidadesComponent } from "./modulo-2-relatorios/unidadedoc/consultar-funcao-das-unidades/consultar-funcao-das-unidades.component";
+import { GerarLaudoErgonomicoComponent } from "./modulo-3-documentos/documentos-unidades/laudo_ergonomico/gerar-laudo-ergonomico/gerar-laudo-ergonomico.component";
 
 const routes: Routes = [
 
@@ -311,6 +312,7 @@ const routes: Routes = [
     { path: 'gerar-programa-de-gerenciamento-de-riscos-ocupacionais/:id', component: GerarPgrFuncaodocComponent},
     { path: 'gerar-programa-de-controle-medico-ocupacional/:id', component: GerarPcmsoComponent},
     { path: 'gerar-laudo-tecnico-das-condicoes-do-meio-ambiente/:id', component: GerarLtcatComponent},
+    { path: 'gerar-laudo-ergonomico/:id', component: GerarLaudoErgonomicoComponent},
 
     { path: 'gerar-apr/:id', component: GerarAprComponent, canActivate: [AuthGuardsMaster]},
     { path: 'gerar-permissao-de-trabalho/:id', component: GerarPermissaoDeTrabalhoComponent, canActivate: [AuthGuardsMaster]},

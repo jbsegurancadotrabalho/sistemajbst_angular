@@ -282,6 +282,7 @@ import { EditarEmpresaClienteComponent } from './modulo-1-admin/empresa/editar-e
 import { EditarFuncionarioEmpresaComponent } from './modulo-1-admin/empresa/funcionario/editar-funcionario-empresa/editar-funcionario-empresa.component';
 import { ConsultarFuncionarioPerfilEmpresaComponent } from './modulo-1-admin/empresa/funcionario/consultar-funcionario-perfil-empresa/consultar-funcionario-perfil-empresa.component';
 import { ConsultarFuncaoDasUnidadesComponent } from './modulo-2-relatorios/unidadedoc/consultar-funcao-das-unidades/consultar-funcao-das-unidades.component';
+import { GerarLaudoErgonomicoComponent } from './modulo-3-documentos/documentos-unidades/laudo_ergonomico/gerar-laudo-ergonomico/gerar-laudo-ergonomico.component';
 
 @NgModule({
   declarations: [
@@ -554,6 +555,7 @@ import { ConsultarFuncaoDasUnidadesComponent } from './modulo-2-relatorios/unida
      EditarFuncionarioEmpresaComponent,
      ConsultarFuncionarioPerfilEmpresaComponent,
      ConsultarFuncaoDasUnidadesComponent,
+     GerarLaudoErgonomicoComponent,
 
   ],
   imports: [

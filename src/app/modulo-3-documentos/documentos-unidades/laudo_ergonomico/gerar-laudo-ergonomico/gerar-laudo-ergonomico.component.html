@@ -1,0 +1,348 @@
+<div data-bs-spy="scroll" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+
+    <div  *ngFor="let a of associacoes">
+      <header style="font-family:
+        Arial; font-size: 11pt; 
+         text-align: center;
+         margin-top: 6;
+         ">
+        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" 
+        alt="Logo" class="print-logo mx-auto" />
+      </header>
+      <div class="content" >
+    
+      <br>
+      <p>
+        <strong class="d-flex justify-content-center text-center">LAUDO DE AVALIAÇAO ERGONOMICA</strong>
+        <strong class="d-flex justify-content-center text-center">Portaria 3.214/78</strong>
+        <strong class="d-flex justify-content-center text-center">Norma Regulamentadora - 17</strong>
+        <strong class="d-flex justify-content-center text-center">AET – ANALISE ERGONOMICA DO TRABALHO</strong>
+
+      </p>
+      <br><br><br><br><br><br>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th style="font-size: 12px;">Empresa</th>
+              <th style="font-size: 12px;">CNPJ</th>
+              <th style="font-size: 12px;">Data de Inicio</th>
+              <th style="font-size: 12px;">Vigência</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of associacoes">
+              <td style="font-size: 12px;">{{ a?.unidadedoc?.nomefantasia }}</td>
+              <td style="font-size: 12px;">{{ a?.unidadedoc?.cnpj }}</td>
+              <td style="font-size: 12px;">{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}</td>
+              <td style="font-size: 12px;">{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <br><br><br><br>      <br><br><br><br><br><br>
+
+        <p style="font-family: Arial; font-size: 11pt; text-align: justify;">
+
+          <strong>SUMÁRIO</strong><br>
+          1 - CARACTERIZAÇÃO DA EMPRESA AVALIADA SUMÁRIO <br>
+          2 - INTRODUÇÃO GERAL <br>
+          3 - OBJETIVO <br>
+          4 - METODOLOGIA <br>
+          5 - LEVANTAMENTO, TRANSPORTE E DESCARGA INDIVIDUAL DE MATERIAIS <br>
+          6 - MOBILIÁRIO DOS POSTOS DE TRABALHO <br>
+          7 - EQUIPAMENTOS DOS POSTOS DE TRABALHO <br>
+          8 - CONDIÇÕES AMBIENTAIS DE TRABALHO<br>
+          9 - AGENTES AMBIENTAIS PARA AS ÁREAS OPERACIONAIS <br>
+          10 - CONFORTO EM ÁREAS ADMINISTRATIVAS <br>
+          11 - ORGANIZAÇÃO DO TRABALHO<br>
+          12 - FERRAMENTAS BIOMECÂNICAS APLICADAS <br>
+          13 - ANÁLISES ERGONÔMICAS DO TRABALHO <br>
+          CONSIDERAÇÕES FINAIS<br>
+          </p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br>
+    
+    
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+          <strong>1 – IDENTIFICAÇÃO DA EMPRESA</strong><br>
+               <strong>Empresa:</strong> {{ a?.unidadedoc?.empresadoc?.razaosocial }} 
+               <br>
+             <strong>CNPJ:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+             <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.empresadoc?.status  }}<br>      
+             <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.horario_empresa  }}<br>      
+             <strong>Inscrição Estadual:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaoestadual  }}<br>      
+             <strong>Inscrição Municipal:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaomunicipal }}<br>      
+             <strong>Responsável:</strong> {{   a?.unidadedoc?.empresadoc?.responsavel_sistema}}<br>      
+             <strong>Email:</strong> {{   a?.unidadedoc?.empresadoc?.email_usuario}}<br>      
+             <strong>Telefone:</strong> {{   a?.unidadedoc?.empresadoc?.telefone_responsavel}}<br>      
+             <strong>Endereço:</strong> {{   a?.unidadedoc?.endereco?.logradouro}}, {{   a?.unidadedoc?.endereco?.numero}}
+             {{   a?.unidadedoc?.endereco?.bairro}}, {{   a?.unidadedoc?.endereco?.localidade}}, {{   a?.unidadedoc?.endereco?.uf}}.
+             <br>      
+             <strong>CEP:</strong>  {{   a?.unidadedoc?.endereco?.cep}}<br>      
+             <strong>1.1 – RESPONSÁVEL PELA ELABORAÇÃO DO PCMSO</strong><br>
+             <strong>Nome:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+             <strong>Endereço:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+             <strong>Telefone:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+    
+              </p>
+    
+         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    
+    
+         <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+          <strong>2 - INTRODUÇÃO GERAL           </strong><br><br>
+    
+          A ergonomia estuda a adaptação do trabalho ao homem. Envolve tanto o ambiente
+          físico como os aspectos organizacionais e cognitivos. A ergonomia abrange
+          atividades de planejamento e projeto, que ocorre antes do trabalho ser realizado, e
+          aqueles de controle e avaliação, que ocorrem durante e após o trabalho.
+          A mesma pode ser ainda caracterizada como a ocupação de pessoas qualificadas
+          em grupos de pesquisa e formação que atuam em equipes de projeto e consultoria
+          para responder às demandas acerca da atividade de trabalho na sociedade
+          mediante metodologias de análises e projeto de bases científica e devidamente
+          inseridas num universo normativo e contratual.
+    </p>
+    
+    
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+                 
+      2.2 Portaria nº 3.214, de 08 de junho de 1978 – Aprova as Normas Regulamentadoras – NR –
+      do Capítulo V do Título II, da Consolidação das Leis do Trabalho, relativas à Segurança e
+      Medicina do Trabalho, e suas subsequentes modificações (tendo como base: portaria nº 24, de
+      29 de dezembro de 1994, do Ministério do Trabalho e Emprego – Programa de Controle
+      Médico de Saúde Ocupacional e Portaria n 8, da SSST/MTE, de 08 de maio de 1996,
+      republicada em 13 de maio do mesmo ano, estabelece a obrigatoriedade por parte das
+      empresas, da elaboração e implementação de um Programa de Controle Médico de Saúde
+      Ocupacional (PCMSO) – NR 7).
+                  </p>
+               
+    
+    
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+           <strong> 3 - OBJETIVO    </strong><br><br>
+           Este estudo tem como objetivo avaliar os postos de trabalho da produção da
+           empresa especificada conforme caracterização da mesma (item 1), para
+           promover analise ergonômica das atividades e funções da empresa, sendo que para
+           este estudo serão adotados alguns métodos de analise aplicados para fins de
+           analise ergonômicos.
+           BASE LEGAL: Portaria 3.214/78 do Ministério do Trabalho – NR-17.<br>
+                </p>
+                <br><br>
+    
+                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                  <strong>4- METODOLOGIA</strong> <br>               
+                  Durante o trabalho realizado, foram avaliadas todas as funções conforme sugerido
+                  pela Metodologia da AET, excluindo-se dessa forma a metodologia por amostragem,
+                  uma vez que cada função de trabalho caracteriza um desenvolvimento laboral de
+                  forma diferenciada. O objetivo foi utilizar a METODOLOGIA DA AET aplicada a
+                  projetos de transformação das condições de trabalho, bem como a avaliação das demandas existentes nas atividades dos setores avaliados, para a realização de
+                  ações na área de ergonomia com vistas à melhoria efetiva das condições de
+                  trabalho, redução de riscos à saúde dos colaboradores e aumento da produtividade.
+                  </p>
+                  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                    A AET tem por finalidade, transformar as condições de trabalho e adaptar às
+                    características psicofisiológicas dos trabalhadores, buscando conciliar dois
+                    universos: saúde e produtividade.
+                  </p>
+                  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                    A metodologia da AET utiliza-se de observações da situação de trabalho, análise da
+                    tarefa, entrevistas e verbalizações com os diferentes níveis hierárquicos, buscando
+                    compreender em detalhes as atividades nas suas diferentes dimensões (física,
+                    cognitiva, mental e social). A AET parte da análise da demanda. Estuda o
+                    funcionamento geral, as características da população e então as atividades de
+                    trabalho. Na compreensão das atividades dos colaboradores, identifica seus
+                    aspectos críticos, as condições de trabalho e o desempenho. As observações e
+                    registros globais, aliados à descrição dos processos produtivos e aos dados
+                    técnicos do funcionamento geral dos setores analisados constituem a base para o
+                    diagnóstico e as recomendações propostas.
+                  </p>
+                  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                    A análise ergonômica do trabalho foi realizada com base nas diretrizes da Norma
+                    Regulamentadora nº 17 aprovada pela Portaria nº 3.751, de 23/11/90, e “Manual de
+                    Aplicação da NR-17”, 2ª edição, editado pelo Ministério do Trabalho e Emprego em
+                    2002, sendo observados os seguintes itens/aspectos:
+                    <br>
+                    
+                    Comentários a Norma:
+                    <br>
+                    17.1. Esta Norma Regulamentadora visa estabelecer parâmetros que permitam a
+adaptação das condições de trabalho às características psicofisiológicas dos
+trabalhadores, de modo a proporcionar um máximo de conforto, segurança e
+desempenho eficiente.
+                    
+                  </p>
+    
+                  
+                  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                    Algumas características psicofisiológicas do ser humano:
+                    - prefere escolher livremente sua postura, dependendo das exigências da tarefa e
+                    do estado de seu meio interno;                    <br>
+                    - prefere utilizar alternadamente toda a musculatura corporal e não apenas
+                    determinados segmentos corporais;                  </p>
+                  <br><br>
+    
+    
+                  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                    - tolera más tarefas fragmentadas com tempo exíguo para execução e, pior ainda,
+                    quando esse tempo é imposto por uma máquina, pela gerência, pelos clientes ou
+                    colegas de trabalho, ou seja, prefere impor sua própria cadência ao trabalho;
+                    <br>
+
+
+              - é compelido a acelerar sua cadência quando estimulado pecuniariamente ou por
+               outros meios, não levando em conta os limites de resistência de seu sistema
+                musculoesquelético;
+                    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    
+                        - sentem-se bem quando solicitado a resolver problemas ligados à execução das
+                        tarefas, logo, não pode ser encarado como uma mera máquina, mas sim como um
+                        ser que pensa e age;                    
+                        <br>
+                        - tem capacidades sensitivas e motoras que funcionam dentro de certos limites, que
+                        variam de um indivíduo a outro e ao longo do tempo para um mesmo indivíduo;                <br>
+                        
+
+                        - suas capacidades sensorimotoras modificam-se com o processo de
+                        envelhecimento, mas perdas eventuais são amplamente compensadas por
+                        melhores estratégias de percepção e resolução de problemas desde que possa
+                        acumular e trocar experiência;              
+                          <br>
+                        
+                          - organiza-se coletivamente para gerenciar a carga de trabalho, ou seja, nas
+                          atividades humanas a cooperação tem um papel importante, muito mais que a
+                          competitividade.
+             
+    
+              </p>
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                5 - LEVANTAMENTO, TRANSPORTE E DESCARGA INDIVIDUAL DE MATERIAIS              </p>
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                Deverão ser executados de forma que o esforço físico realizado pelo trabalhador
+                seja compatível com sua capacidade de força e não comprometa a sua saúde ou
+                sua segurança.
+                <br>
+                Para manipulações ocasionais, isto é, não repetitivas, o limite de 25 quilos para
+homens e 15 quilos para mulheres é sugerido por vários autores (listados abaixo)
+desde que observadas boas praticas para a manipulação.
+              </p>
+    
+        
+        <br>
+        
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+                6 - MOBILIÁRIO DOS POSTOS DE TRABALHO             
+                   </p>
+             
+             <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+            
+                A análise ergonômica do trabalho através dos subitens deste item leva em
+                consideração que:
+              <br>
+              - Sempre que possível o trabalho deve ser executado na posição sentada;
+              <br>
+              - O mobiliário deve prover condições para que o trabalho seja executado dentro da
+              <br>
+              zona de conforto dos segmentos corporais, isto é, em boa condição confortável,
+            onde o momento aplicado à articulação tenda a zero;
+              <br>
+              - Os comandos sejam de fácil acionamento;
+              <br>
+              - Os assentos sejam adequados.
+
+                   </p>
+    
+                   <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                    <strong>7 - EQUIPAMENTOS DOS POSTOS DE TRABALHO</strong><br>
+    
+                    A análise ergonômica do trabalho através dos subitens deste item leva em
+                    consideração que o mobiliário/equipamentos, em particular aqueles envolvendo
+                    atividades com microcomputador/processamento de dados, devem prover
+                    condições para que o trabalho seja executado dentro da zona de conforto dos
+                    segmentos corporais, isto é, em boa condição postural e livre de reflexos.            <br>
+    
+            <br>
+            <strong>8 - CONDIÇÕES AMBIENTAIS DE TRABALHO</strong><br>
+
+    
+            O estudo da exposição ocupacional dos trabalhadores aos agentes ambientais está
+            contemplado no Programa de Gerenciamento de Riscos Ambientais – PGR da
+            empresa.            <br>
+    
+        
+          </p>  
+    
+      
+                                     
+                                 <br>
+                                    
+                   <ng-container *ngFor="let a of associacoes; let iA = index">
+                    <ng-container *ngFor="let funcaoDoc of a?.unidadedoc?.funcaodoc; let iF = index">
+                      <ng-container *ngFor="let risco of funcaoDoc?.riscos; let iR = index">
+                  
+                        <p></p>
+                        <p>
+                          <strong>LEVANTAMENTO DA FUNÇÃO  DE {{ funcaoDoc?.funcao?.nome_da_funcao | uppercase}}</strong><br>  
+                          <strong>1 - Função: </strong>{{ funcaoDoc?.funcao?.nome_da_funcao }}</p>
+                           <p><strong>2 - CBO: </strong> {{ funcaoDoc?.funcao?.cbo }}</p>
+                          <p> <strong>3 - Descrição: </strong>{{ funcaoDoc?.funcao?.descricao }}</p>
+                          <p> <strong>4 - Grupo de Risco: </strong>{{ risco?.grupo }}</p>
+                           <p><strong>5 - Tipo: </strong>{{ risco?.tipo }}</p>
+                          <p> <strong>6 - Fonte Geradora: </strong>{{ risco?.fonte_geradora }}</p>
+                          <p> <strong>7 - Meios de Propagação: </strong> {{ risco?.meios_de_propagacao }}</p>
+                          <p> <strong>8 - Categoria do Potencial de Severidade: </strong> {{ risco?.potencial_severidade_danos?.categoria_potencial_severidade }}</p>
+                          <p> <strong>9 - Tipo do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.tipo }}</p>
+                          <p> <strong>10 - Características do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.caracteristicas_potencial_severidade }}</p>
+                           <p><strong>11 - Nível de Severidade: </strong>{{ risco?.nivel_severidade?.nivel_risco_MedidasDeControle }}</p>
+                          <p> <strong>12 - Número do Nível de Severidade: </strong> {{ risco?.nivel_severidade?.numero_risco_MedidasDeControle }}</p>
+                         <p>  <strong>13 - Descrição do Nível de Severidade: </strong>{{ risco?.nivel_severidade?.descricao_MedidasDeControle }}</p>
+                          <p> <strong>14 - Nível de Permissão: {{ risco?.nivel_severidade?.nivel_permissao_MedidasDeControle}} </strong></p>
+                          <p *ngFor="let c of funcaoDoc?.avaliacoesocupacionaisfuncoes;"> <strong >
+                            15 - Avaliações Ocupacionais:   </strong> {{ c?.nome_avaliacoes_funcao }}, {{c?.tipo_avaliacoes_funcao}}. {{ c?.descricao_avaliacoes_funcao}}
+                       
+                          </p>
+                          <p> <strong>16 - Categoria da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.categoria }}</p>
+                          <p> <strong>17 - Denominação da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.denominacao }}</p>
+                          <p> <strong>18 - Descrição da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.descricao }}</p>
+                          <p> <strong *ngFor="let epi of funcaoDoc?.epi; let iE = index">
+                            19 - Epis para Esta Função: {{ epi?.nome_epi }} - CA: {{ epi?.ca }}
+                          </strong></p>
+                         <p>  <strong *ngFor="let c of funcaoDoc?.cursodenrs; let iCNR = index">
+                           20 -  Curso de NR'S para Esta Função: {{ c?.nomeCurso }} - {{ c?.descricaoCurso }}
+                          </strong>
+                        </p>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                  
+                  <br>
+    
+                  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                    <strong>  CONSIDERAÇÕES FINAIS:</strong><br><br>
+                      
+                    A preocupação dos setores avaliados em obter para seus colaboradores o
+                    conhecimento ergonômico e estar investindo em qualidade de trabalho, a busca por
+                    melhor produtividade dos mesmos com saúde e qualidade no trabalho.
+                    Portanto torna-se extremamente necessário o dimensionamento concreto da relação
+                    custo-benefício, a empresa caracteriza nesta analise ergonômica deverá atentar-se
+                    as recomendações técnicas estabelecendo metas e prioridades, este estudo deverá
+                    ser reavaliado anualmente para que possamos avaliar o cumprimento das ações
+                    propostas e caso necessário sugerir novas adequações.
+                                                    </p>  
+            
+                                <br>
+                       
+                              </div>
+                  
+    </div>
+    </div>
+    
+    
+    <div class="row button-row fixed-button">
+      <div class="col-md-5"></div>
+      <div class="col-md-2 text-center">
+        <button class="btn btn-success" onclick="window.print()">Imprimir o Laudo Ergonômico</button>
+      </div>
+      <div class="col-md-5"></div>
+    </div>
+    
