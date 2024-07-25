@@ -1,0 +1,668 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+        <div class="card-body">
+
+
+ 
+          <div class="modal fade" id="IncluirAssinaturaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Incluir Assinatura do Instrutor </h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                  <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+    <form [formGroup]="formIncluirAssinatura" (ngSubmit)="IncluirAssinaturaSubmit()">
+      <input type="hidden" formControlName="idinstrutor" [(ngModel)]="id" />
+
+    
+      <div class="mb-2">             
+    </div>
+      <div class="row">  
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <label>Envie a Assinatura do Instrutor:</label>
+            <input type="file" class="form-control" (change)="onFileChange1($event)" />
+            <span class="text-danger">
+              {{ arquivoMsgErro }}
+            </span>
+          </div>
+        </div>
+      
+        
+    </div>
+    <div class="modal-footer">
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-success" 
+          
+          (click)="IncluirAssinaturaSubmit()" data-bs-dismiss="modal">
+            Incluir Assinatura
+          </button>            
+    </div>
+    </div>
+    </div>               
+    </form>
+  </div>
+</div>
+</div>
+</div>
+ 
+
+
+
+
+          <div class="modal fade" id="editarproficienciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Formação do Instrutor </h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                  <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+    <form [formGroup]="formIncluirProficiencia" (ngSubmit)="IncluirProficienciaSubmit()">
+      <input type="hidden"  formControlName="idProficiencia" [(ngModel)]="id" />
+
+    
+      <div class="mb-2">             
+    </div>
+      <div class="row">  
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <label>Envie a Proficiência do Instrutor:</label>
+            <input type="file" class="form-control" (change)="onFileChange($event)" />
+            <span class="text-danger">
+              {{ arquivoMsgErro }}
+            </span>
+          </div>
+        </div>
+      
+        
+    </div>
+    <div class="modal-footer">
+      <div class="row mb-2">
+        <div class="col-md-12">
+          
+          <button type="button" class="btn btn-success"
+          (click)="IncluirProficienciaSubmit()"
+          
+          data-bs-dismiss="modal"
+          
+          >
+          Incluir Proficiência
+      </button>                  
+    </div>
+    </div>
+    </div>               
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+          <div class="modal fade" id="EdiçãoDeProficienciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Proficiência do Instrutor</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                  <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+    <form [formGroup]="formEditarProficiencia" (ngSubmit)="EditarProficienciaSubmit()">
+   
+      <input type="hidden" formControlName="idinstrutor" />
+      <input type="hidden" formControlName="idProficiencia" />
+      <div class="mb-2">             
+    </div>
+      <div class="row">  
+      <div class="col-md-12">
+        <label for="recipient-name" class="col-form-label">Proficiência:</label>
+        <input type="text" class="form-control" id="recipient-name"
+        formControlName="proficiencia">
+      </div>
+      <div class="col-md-12">
+        <label for="recipient-name" class="col-form-label">Descrição:</label>
+        <input type="text" class="form-control" id="recipient-name"
+        formControlName="descricao">
+      </div>
+        
+    </div>
+    <div class="modal-footer">
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-success"
+          (click)="EditarProficienciaSubmit()" data-bs-dismiss="modal">
+          Incluir Proficiência
+      </button>                  
+    </div>
+    </div>
+    </div>               
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+          <div class="modal" tabindex="-1"  id="proficienciaModal"  >
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>   
+              
+
+                <div class="modal-body">    
+                  <div *ngIf="instrutorSelecionado">
+                    <h5>Formaçao do Instrutor {{ instrutorSelecionado.instrutor }}</h5>
+                    <div class="row">
+
+                      <div class="col-md-6 mt-3">
+                     
+                    </div>
+
+                    <div class="col-md-5 mt-3">
+                      <input type="text" class="form-control" [(ngModel)]="filtro.proficiencia"
+                          placeholder="Pesquisar por Proficiencia" />
+                  </div>
+                  <div class="col-md-1 mt-3">
+                     
+                  </div>
+                </div>
+
+                    <table id="consulta_empresas" class="table table-sm table-hover mt-3">
+                    <thead>
+                        <tr>
+                            <th>Nome da Proficiencia</th>
+                            <th>Descricao</th>
+                            <th>Operações</th>
+
+
+                        </tr>
+                    </thead>
+                        <tbody>      
+                          <tr *ngFor="let p of instrutorSelecionado.proficiencias | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.proficiencia" >    
+                              <td>{{ p.proficiencia }}</td>
+                              <td>{{ p.descricao }}</td>
+                                
+                             
+                                  <td> 
+                                    <button class="btn btn-sm btn-outline-danger me-2" 
+                                    (click)="downloadProficiencia(p)">
+                                    Dowload da Proficiência </button>
+
+                                    <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                </button>
+
+                                <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                                  
+                                  <li> 
+                                    
+                                    <a 											
+            data-bs-toggle="modal" 
+            data-bs-target="#EdiçãoDeProficienciaModal"
+            class="dropdown-item btn btn-sm btn-success"  		
+            (click)="setProficiencia(instrutorSelecionado)"
+            (click)="setInstrutor(p)"
+                    >               
+                       Editar Proficiencia</a></li>
+                                
+                                  
+                       <li> 
+                                    
+                        <a 											
+data-bs-toggle="modal" 
+class="dropdown-item btn btn-sm btn-success"  		
+(click)="ProficienciaDelete
+(p.idProficiencia, p.proficiencia)"
+        >               
+           Excluir Proficiencia</a></li>                 
+                                  
+           <li> 
+                                    
+            <a 											
+data-bs-toggle="modal" 
+data-bs-target="#editarproficienciaModal"
+class="dropdown-item btn btn-sm btn-success"  		
+(click)="setProficiencia(instrutorSelecionado)"
+(click)="setInstrutor(p)"
+
+>               
+Incluir o PDF da Proficiencia</a></li>   
+
+
+                                </ul >
+
+
+                          </td>
+                        </table>                                 
+              </div>   
+              <div class="text-center">
+                
+            </div>
+                </div>
+                <div class="modal-footer">
+                  Quantidade de Formações: {{ instrutorSelecionado?.proficiencias?.length || 0 }}
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <pagination-controls 
+(pageChange)="paginaAtual = $event"
+previousLabel="Página anterior"
+nextLabel="Próxima página"
+[maxSize]="5" 
+[itemsPerPage]="itensPorPagina" 
+></pagination-controls>         
+                </div>                              
+                
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>                  
+              </div>
+            </div>
+          </div>
+        <div>
+
+
+
+          <div class="modal fade" id="cadastrarproficienciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Formação do Instrutor </h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                  <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+    <form [formGroup]="formCadastrarProficiencia" (ngSubmit)="CadastrarProficienciaSubmit()">
+      <input type="hidden" formControlName="idinstrutor" />
+
+   
+      <div class="mb-2">             
+    </div>
+      <div class="row">  
+      <div class="col-md-12">
+        <label for="recipient-name" class="col-form-label">Formacao:</label>
+        <input type="text" class="form-control" id="recipient-name"
+        formControlName="proficiencia">
+      </div>
+      <div class="col-md-12">
+        <label for="recipient-name" class="col-form-label">Descrição:</label>
+        <input type="text" class="form-control" id="recipient-name"
+        formControlName="descricao">
+      </div>
+        
+    </div>
+    <div class="modal-footer">
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-success"
+          (click)="CadastrarProficienciaSubmit()" data-bs-dismiss="modal"
+          
+          
+          >
+          Incluir Proficiência
+      </button>                  
+    </div>
+    </div>
+    </div>               
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+            
+                    <div class="modal" tabindex="-1"  id="formacaoModal"  >
+                        <div class="modal-dialog modal-xl">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title"></h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>   
+                          
+
+                            <div class="modal-body">    
+                              <div *ngIf="instrutorSelecionado">
+                                <h5>Formaçao do Instrutor {{ instrutorSelecionado.instrutor }}</h5>
+                                <div class="row">
+
+                                  <div class="col-md-6 mt-3">
+                                 
+                                </div>
+      
+                                <div class="col-md-5 mt-3">
+                                  <input type="text" class="form-control" [(ngModel)]="filtro.formacao"
+                                      placeholder="Pesquisar por Formações" />
+                              </div>
+                              <div class="col-md-1 mt-3">
+                                 
+                              </div>
+                            </div>
+      
+                                <table id="consulta_empresas" class="table table-sm table-hover mt-3">
+                                <thead>
+                                    <tr>
+                                        <th>Formacao</th>
+                                        <th>Conselho</th>
+                                        <th>Registro</th>
+                                        <th>Estado</th>
+                                        <th>Operações</th>
+
+                                    </tr>
+                                </thead>
+                                    <tbody>      
+                                      <tr *ngFor="let f of instrutorSelecionado.formacoes | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.formacao" >    
+                                          <td>{{ f.formacao }}</td>
+                                          <td>{{ f.conselho }}</td>
+                                          <td>{{ f.registro }}</td>
+                                          <td>{{ f.estado }}</td>
+                                              <td>   
+                                                <button class="btn btn-sm btn-success" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#editarformacaoModal"
+                                                data-bs-whatever="@mdo"          		
+                                                 (click)="setFormacao(instrutorSelecionado)"
+                                                 (click)="setInstrutor(f)"
+                                                class="btn btn-success
+                                                py-1 px-md-1 border">
+                                                Editar</button>
+                                          <button class="btn btn-sm btn-outline-danger me-2"
+                                          (click)="FormacaoDelete (f.idFormacao, f.formacao)"
+                                          >
+                                            Excluir
+                                        </button> 
+                                      </td>
+                                    </table>                                 
+                          </div>   
+                          <div class="text-center">
+                            
+                        </div>
+                            </div>
+                            <div class="modal-footer">
+                              Quantidade de Formações: {{ instrutorSelecionado?.formacoes?.length || 0 }}
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                              <pagination-controls 
+        (pageChange)="paginaAtual = $event"
+        previousLabel="Página anterior"
+        nextLabel="Próxima página"
+        [maxSize]="15" 
+        [itemsPerPage]="itensPorPagina" 
+      ></pagination-controls>         
+                            </div>                              
+                            
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            </div>                  
+                          </div>
+                        </div>
+                      </div>
+                    <div>
+
+                        <div class="modal fade" id="cadastrarformacaoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Formação do Instrutor </h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                  <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                                    <strong>{{mensagem}}</strong>
+                                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                                </div>
+                    <form [formGroup]="formCadastrarFormacao" (ngSubmit)=" CadastroFormacaoSubmit()">
+                    <div class="mb-2">             
+                    </div>
+                      <div class="row">  
+                      <div class="col-md-12">
+                        <label for="recipient-name" class="col-form-label">Formacao:</label>
+                        <input type="text" class="form-control" id="recipient-name"
+                        formControlName="formacao">
+                      </div>
+                      <div class="col-md-12">
+                        <label for="recipient-name" class="col-form-label">Conselho:</label>
+                        <input type="text" class="form-control" id="recipient-name"
+                        formControlName="conselho">
+                      </div>
+                      <div class="col-md-12">
+                        <label for="recipient-name" class="col-form-label">Registro:</label>
+                        <input type="text" class="form-control" id="recipient-name"
+                        formControlName="registro">
+                      </div>           
+                      <div class="col-md-12">
+                        <label for="recipient-name" class="col-form-label">Estado:</label>
+                        <input type="text" class="form-control" id="recipient-name"
+                        formControlName="estado"> 
+                      </div>      
+                    </div>
+                    <div class="modal-footer">
+                      <div class="row mb-2">
+                        <div class="col-md-12">
+                          <button type="button" class="btn btn-success"
+                          (click)="CadastroFormacaoSubmit()" data-bs-dismiss="modal">
+                          Incluir Formação
+                      </button>                  
+                    </div>
+                    </div>
+                    </div>               
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="editarformacaoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Formação do Instrutor </h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>              
+                    <div class="modal-body">
+                      <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                        <strong>{{mensagem}}</strong>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                    </div>
+        <form [formGroup]="formEditarFormacao" (ngSubmit)=" EditarFormacaoSubmit()">
+        <div class="mb-2">     
+             <input type="hidden" formControlName="idinstrutor" />
+              <input type="hidden" formControlName="idFormacao" />
+
+        </div>
+          <div class="row">  
+          <div class="col-md-12">
+            <label for="recipient-name" class="col-form-label">Formacao:</label>
+            <input type="text" class="form-control" id="recipient-name"
+            formControlName="formacao">
+          </div>
+          <div class="col-md-12">
+            <label for="recipient-name" class="col-form-label">Conselho:</label>
+            <input type="text" class="form-control" id="recipient-name"
+            formControlName="conselho">
+          </div>
+          <div class="col-md-12">
+            <label for="recipient-name" class="col-form-label">Registro:</label>
+            <input type="text" class="form-control" id="recipient-name"
+            formControlName="registro">
+          </div>
+          <div class="col-md-12">
+            <label for="recipient-name" class="col-form-label">Estado:</label>
+            <input type="text" class="form-control" id="recipient-name"
+            formControlName="estado"> 
+          </div>      
+        </div>
+        <div class="modal-footer">
+          <div class="row mb-2">
+            <div class="col-md-12">
+              <button type="button" class="btn btn-success"
+              (click)="EditarFormacaoSubmit()" data-bs-dismiss="modal">
+              Editar Formação
+          </button>                  
+        </div>
+        </div>
+        </div>       
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+            
+<div class="row">
+             <div class="col-md-9 mt-1">
+                    <h5>Lista de Instrutores</h5>
+                </div>
+
+                <div class="col-md-3 mt-1">
+                    <a href="cadastrar-instrutor" class="btn btn-success">Cadastrar Instrutor</a>
+                </div>
+
+                <div class="col-md-7 mt-4 ">
+                  <a href="https://www.iloveimg.com/pt/redimensionar-imagem#resize-options,pixels" class="btn btn-success">Clique aqui para Acertar a Assinatura para 68 x 36 pixels aproximadamente</a>
+              </div>
+
+            <div class="col-md-5 mt-4
+            ">
+              <input type="text" class="form-control" [(ngModel)]="filtro.instrutor"
+                  placeholder="Pesquisar por Instrutor" />
+          </div>
+        </div>
+
+
+
+            <div class="table-responsive mt-5">
+                <table id="consulta_empresas" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Instrutor</th>
+                            <th>Rg</th>
+                            <th>Cpf</th>
+                            <th>Telefone</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of instrutores | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.instrutor">
+                            <td>{{i.instrutor | uppercase}}</td>
+                            <td>{{i.rg | uppercase}}</td>
+                            <td>{{i.cpf | uppercase}}</td>
+                            <td>{{i.telefone_1 | uppercase}}</td>
+                           
+                            
+                            <td>
+
+                              <button class="btn btn-sm btn-outline-danger me-2"
+                              data-bs-toggle="modal" 
+                              data-bs-target="#IncluirAssinaturaModal"
+                               data-bs-whatever="@mdo"
+                              (click)="setInstrutor(i)"                 
+                              
+                              > 
+                              Incluir Assinatura </button>
+                                 <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Ações
+                                        </button>
+                                        <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                                            <li> <a href="/editar-instrutor"
+                                                    class="dropdown-item btn btn-success"
+                                                    [routerLink]="['/editar-instrutor', i.idinstrutor]"
+                                                    >Editar</a></li>
+                                            <li><a 
+                                                
+                                                class="dropdown-item btn btn-sm btn-success"
+                                                (click)="onDelete(i.idinstrutor, i.instrutor)"
+                                                > Excluir</a>
+                                                <li><a
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#cadastrarformacaoModal"
+                                                     data-bs-whatever="@mdo"
+                                                    (click)="setFormacao(i)"
+                                                    class="dropdown-item btn btn-sm btn-success"
+                                                    >Incluir Formação</a>
+                                                    <li><a 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#formacaoModal"
+                                                         data-bs-whatever="@mdo"
+                                                        class="dropdown-item btn btn-sm btn-success"
+                                                        (click)="exibirFormacao(i)"
+                                                        >Ver Formação</a> 
+                                                      
+                                                      
+                                                        <li><a
+                                                          data-bs-toggle="modal" 
+                                                          data-bs-target="#cadastrarproficienciaModal"
+                                                           data-bs-whatever="@mdo"
+                                                          (click)="setProficiencia(i)"
+                                                          class="dropdown-item btn btn-sm btn-success"
+                                                          >Incluir Proficiencia</a>
+      
+                                                         
+                                                         
+                                                         
+                                                          <li><a 
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#proficienciaModal"
+                                                             data-bs-whatever="@mdo"
+                                                            class="dropdown-item btn btn-sm btn-success"
+                                                            (click)="exibirFormacao(i)"
+                                                            class="dropdown-item btn btn-sm btn-success">Ver Proficiência</a>
+                                            </li>
+                                        </ul>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <td colspan="5">
+    
+                            Quantidade de Instrutores: {{(instrutores).length}}
+                            <pagination-controls 
+      (pageChange)="paginaAtual = $event"
+      previousLabel="Página anterior"
+      nextLabel="Próxima página"
+      [maxSize]="15" 
+      [itemsPerPage]="itensPorPagina" 
+    ></pagination-controls>         
+                                                    </td>
+                      </tr>
+                  </tfoot>
+                </table>
+            </div>
+        </div>   
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Função Específica Unidades</h5>
+                    <p>Preencha os campos para a edição da função.</p>
+                </div>
+                <div class="col-md-2">
+                    <a href="consultar-unidadedoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="edicaoSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ edicaoSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="edicaoSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="edicaoErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ edicaoErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="edicaoErro = null"></button>
+            </div>
+            <hr />
+
+            <form [formGroup]="funcaodocForm" (ngSubmit)="enviarEdicao()">
+                <input type="hidden" formControlName="idFuncaoEspecifica">
+            
+                <div class="row mb-2">
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="setor_gho">Setor:</label>
+                        <input type="text" id="setor_gho" formControlName="setor_gho" class="form-control">
+                    </div>
+            
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="nome_da_funcao">Função:</label>
+                        <input type="text" id="nome_da_funcao" formControlName="nome_da_funcao" class="form-control">
+                    </div>
+            
+                    <div class="form-group col-md-4 mt-3" >
+                        <label for="cenario_funcaodoc">Cenário:</label>
+                        <input type="text" id="cenario_funcaodoc" formControlName="cenario_funcaodoc" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3" >
+                        <label for="cbo">CBO:</label>
+                        <input type="text" id="cbo" formControlName="cbo" class="form-control">
+                    </div>
+
+
+                    <div class="form-group col-md-4 mt-3" >
+                        <label for="gro">Grau de Risco Ocupacional:</label>
+                        <input type="text" id="gro" formControlName="gro" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3" >
+                        <label for="gp">Grau de Periculosidade:</label>
+                        <input type="text" id="gp" formControlName="gp" class="form-control">
+                    </div>
+
+                <div class="form-group col-md-12 mt-3">
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" formControlName="descricao" class="form-control" rows="5"></textarea>
+</div>
+
+
+                </div>
+            
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Editar Função Específica Unidades</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

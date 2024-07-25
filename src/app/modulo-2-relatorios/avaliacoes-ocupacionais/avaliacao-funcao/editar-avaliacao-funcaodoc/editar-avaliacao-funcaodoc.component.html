@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Avaliação Ocupacional para a Função</h5>
+                    <p>Preencha os campos para criar a Avaliação Ocupacional.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="enviarEdicao()" [formGroup]="avaliacaoForm">
+                <input type="hidden" formControlName="idAvaliacoes_funcao">
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-6 mt-1">
+                        <label for="nome_avaliacoes_funcao">Nome da Avaliação Ocupacional</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="nome_avaliacoes_funcao" class="form-control">
+                    </div>
+                    
+                    <div class="col-md-6 mt-1">
+                        <label for="grupo">Tipo de Avaliação:</label>
+                        <select class="form-select" 
+                        formControlName="tipo_avaliacoes_funcao"
+                        aria-label="Default select example">
+                            <option value="Quantitativa">Quantitativa</option>
+                            <option value="Qualitativa">Qualitativa</option>
+                            <option value="Visual">Visual</option>
+                            <option value="Quantitativa e Qualitativa">Quantitativa e Qualitativa</option>
+                            <option value="Visual, Quantitativa e Qualitativa">Visual, Quantitativa e Qualitativa</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-2 mt-1">
+                        <label for="nome_avaliacoes_funcao">Valor Obtido</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="valor_obtido" class="form-control">
+                    </div>
+                    <div class="form-group col-md-2 mt-1">
+                        <label for="nome_avaliacoes_funcao">Tolerância</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="limite_de_tolerancia" class="form-control">
+                    </div>
+                    <div class="form-group col-md-2 mt-1">
+                        <label for="nome_avaliacoes_funcao">Exposição</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="tempo_de_exposicao" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 mt-1">
+                        <label for="nome_avaliacoes_funcao">Método</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="metodo" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 mt-1">
+                        <label for="nome_avaliacoes_funcao">Conclusão</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="conclusao_da_exposicao" class="form-control">
+                    </div>
+
+
+
+
+                    <div class="form-group col-md-2 mt-1">
+                        <label for="nome_avaliacoes_funcao">Equipamento</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="equipamento_de_medicao" class="form-control">
+                    </div>
+                    <div class="form-group col-md-2 mt-1">
+                        <label for="nome_avaliacoes_funcao">Modelo</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="modelo" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-2 mt-1">
+                        <label for="nome_avaliacoes_funcao">Série</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="serie" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-6 mt-1">
+                        <label for="nome_avaliacoes_funcao">Calibração</label>
+                        <input type="text" id="nome_avaliacoes_funcao" formControlName="calibracao" class="form-control">
+                    </div>
+                </div>
+
+
+
+                    <div class="form-group col-md-12 mt-1">
+                        <label for="descricao_avaliacoes_funcao">Descrição</label>
+                        <textarea id="descricao_avaliacoes_funcao" formControlName="descricao_avaliacoes_funcao" class="form-control" rows="5"></textarea>
+                    </div>
+                    
+                  
+             
+                <div class="form-group col-md-6 mt-3">
+                    <button type="submit" class="btn btn-success">Editar Avaliação</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+		
+    <div class="card">
+        <div class="card-body">
+        
+            <div class="row mb-2 mt-4">
+                <div class="col-md-7 mt-1">
+                    <h5>Lista de Endereços</h5>
+                            </div>
+
+
+                                  <div class="col-md-5 mt-1">
+                                    <button  [routerLink]="['/cadastrar-todos-enderecos']" type="button" class="btn btn-success m-1">Incluir Endereço</button>
+                                    <button  [routerLink]="['/cadastrar-endereco']" type="button" class="btn btn-success m-1">Incluir Endereço para Local do Curso</button>
+
+                                  
+                                        </div>
+
+                                        <div class="col-md-7 mt-4">
+                                           
+                                        </div>
+                                        <div class="col-md-5 mt-3">
+                                            <input type="text" class="form-control" [(ngModel)]="filtro.logradouro"
+                                                placeholder="Pesquisar Endereço" />
+                                        </div>
+                                                   </div>
+                                                            <hr />
+        
+                            
+            <div class="table-responsive mt-2">
+                <table id="consulta_empresas" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Rua</th>
+                            <th>Nº</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                            <th>CEP</th>
+                            <th>Estado</th>
+
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                            <tr *ngFor="let e of endereco | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.logradouro">
+                                <td>{{e.logradouro}}</td>
+                                <td>{{e.numero}}</td>
+                                <td>{{e.bairro}}</td>
+                                <td>{{e.localidade}}</td>
+                                <td>{{e.cep}}</td>
+                                <td>{{e.uf}}</td>                    
+                                 <td>
+                                    <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                </button>
+                                <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                                    <li> <a 
+                                            class="dropdown-item btn btn-success" [routerLink]="['/editar-endereco', e.idEndereco]" >Editar Endereço Unidade de Curso</a></li>
+                                   
+                                            <li> <a 
+                                                class="dropdown-item btn btn-success" [routerLink]="['/editar-todos-enderecos', e.idEndereco]" >Editar Endereço</a></li>
+                                         
+                                                <li><a class="dropdown-item btn btn-sm btn-success"  (click)="onDelete(e.idEndereco, e.logradouro)"> Excluir</a>
+                                        <li><a class="dropdown-item btn btn-sm btn-primary"  href="cadastrar-endereco"> Cadastrar</a>
+
+                                        
+                                    </li>
+                                </ul>
+                                </td>
+                            </tr>                     
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                          <td colspan="5">
+
+                            Quantidade de Endereco: {{(endereco).length}}
+                            <pagination-controls 
+      (pageChange)="paginaAtual = $event"
+      previousLabel="Página anterior"
+      nextLabel="Próxima página"
+      [maxSize]="5" 
+      [itemsPerPage]="itensPorPagina" 
+    ></pagination-controls>         
+                                                    </td>
+                      </tr>
+                  </tfoot>
+                </table>
+            </div>			
+            
+
+        </div>
+    </div>
+
+</div>

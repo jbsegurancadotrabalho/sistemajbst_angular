@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Função Relatórios</h5>
+                    <p>Atualize os campos da função de relatórios.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a routerLink="/consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="edicaoSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ edicaoSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="edicaoSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="edicaoErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ edicaoErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="edicaoErro = null"></button>
+            </div>
+            <hr />
+
+            <form [formGroup]="funcaodocForm" (ngSubmit)="enviarEdicao()">
+                <input type="hidden" formControlName="idFuncaoDoc">
+              
+                <div class="row mb-2">
+                  <div class="form-group col-md-6 mt-3">
+                    <label for="nome_da_funcao">Nome da Função:</label>
+                    <input type="text" id="nome_da_funcao" formControlName="nome_da_funcao" class="form-control">
+                  </div>
+              
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="setor_gho">Setor:</label>
+                    <input type="text" id="setor_gho" formControlName="setor_gho" class="form-control">
+                  </div>
+              
+                  <div class="form-group col-md-3 mt-3" >
+                    <label for="cenario_funcaodoc">Cenário:</label>
+                    <input type="text" id="cenario_funcaodoc" formControlName="cenario_funcaodoc" class="form-control">
+                  </div>
+                </div>
+              
+                <div class="form-group col-md-6 mt-4">
+                  <button type="submit" class="btn btn-success">Atualizar Função Relatórios</button>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+
+
+<app-perfil-empresa></app-perfil-empresa>
+<div class="container mt-5">
+
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+              
+                <div class="col md-8">
+                 <h5>Editar Funcionario</h5>
+                      <p>Preencha os campos para Editar o Funcionario.</p>
+                             </div>
+
+                             <div class="col md-2">
+                           
+                                            </div>
+
+            <div class="col md-2">
+                <a href="minha-empresa" class="btn btn-success">Voltar</a>
+                        </div>
+                    
+                    
+                    </div>
+                    <hr />
+
+                    <div class="text-success">
+                        <strong></strong>
+                    </div>
+                    
+                    <div class="text-danger">
+                        <strong></strong>
+                    </div>
+                    <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                        <strong>{{mensagem}}</strong>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                    </div>
+
+                    <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ errorMessage }}</strong>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="errorMessage = ''"></button>
+                      </div>
+                      
+
+                    <form [formGroup]="formEditarFuncionario" (ngSubmit)="CadastroSubmit()">
+                        <input type="hidden" formControlName="idEmpresa" />
+                        <input type="hidden" formControlName="idFuncionario" />
+                        <input type="hidden" formControlName="idFuncao" />
+
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label>Nome do Funcionario:</label>
+                        <input type="text" name="nome" id="nome" class="form-control" 
+                        formControlName="nome" 
+                        />
+                    </div>
+                    <div class="col-md-3">
+                        <label>CPF:</label>
+                        <input type="text" name="valor" id="valor" class="form-control"
+                        formControlName="cpf" 
+                        />
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <label>RG:</label>
+                        <input type="text" name="valor" id="valor" class="form-control" 
+                        formControlName="rg" 
+
+                        />
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label for="formFile" class="form-label">Função</label>
+
+                        <ng-select
+                        [items]="funcoes"
+                        bindLabel="funcao"
+                        bindValue="idFuncao"
+                        class="form-select custom-ng-select"
+                        formControlName="idFuncao"
+                        [ngClass]="{'is-invalid': formEditarFuncionario.get('idFuncao')?.invalid && formEditarFuncionario.get('idFuncao')?.touched}"
+                      >
+                        <ng-template ng-label-tmp let-item="item">
+                          <div class="custom-bg" style="z-index: 1000;">
+                            {{ item.funcao | uppercase }}
+                          </div>
+                        </ng-template>
+                      </ng-select>
+                      
+
+                    </div>
+
+            
+                        <div class="col-md-6 mt-2">
+                          <label for="formFile" class="form-label">Status</label>
+
+                        <select class="form-select" aria-label="Default select example"
+                                                formControlName="status">
+                                                <option value="ATIVO">ATIVO</option>
+                                                <option value="INATIVO">INATIVO</option>
+                         
+                        </select>
+                      </div>
+                </div>
+
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" 
+                        value="Realizar Cadastro"              
+                        />
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

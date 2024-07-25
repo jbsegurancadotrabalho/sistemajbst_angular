@@ -1,0 +1,268 @@
+<div class=" mt-3" *ngFor="let a of documentosfree">
+     
+    <div>             
+        <div class="row">
+  
+   
+            <div class="col-md-2 mt-1 text-center text-success ">
+                        </div>
+   
+                                            
+   
+                       <div class="col-md-2 mt-1 text-center text-success ">
+                                </div>
+
+                                   </div>
+                                   <div class="container mt-3" *ngFor="let a of documentosfree">
+                                          
+                                        <div class="text-center">
+                                            
+
+                            <img
+                            src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" />
+                   
+         <!-- Centralizando o texto -->
+                                          <strong>PTA - PERMISSÃO DE TRABALHO EM ALTURA</strong>
+                                        </div>
+                                      </div>
+                               
+                                  <br> 
+
+
+
+<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="font-size: 12px;">Empresa</th>
+                        <th style="font-size: 12px;">CNPJ</th>
+                        <th style="font-size: 12px;">Setor</th>
+                        <th style="font-size: 12px;">Cenário</th>
+                        <th style="font-size: 12px;">Serviço</th>
+                        <th style="font-size: 12px;">TIPO DE DOCUMENTO</th>
+                        <th style="font-size: 12px;">Data Inicio</th>
+                        <th style="font-size: 12px;">Data Fim</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 12px;"> {{a?.razaosocial}}</td>
+                        <td style="font-size: 12px;"> {{a?.cnpj}}</td>
+                        <td style="font-size: 12px;"> {{a?.setor}}</td>
+                        <td style="font-size: 12px;"> {{a?.cenario}}</td>
+                        <td style="font-size: 12px;"> {{a?.servico}}</td>
+                        <td style="font-size: 12px;">Permissão de Trabalho</td>                      
+                        <td style="font-size: 12px;">{{a?.datainicio | date: 'dd/MM/yyyy'}}</td>
+                        <td style="font-size: 12px;">{{a?.vigencia | date: 'dd/MM/yyyy'}}</td>
+
+                    </tr>                  
+                </tbody>    
+            </table>
+            
+            
+<table class="table table-bordered">
+    <thead>
+        <tr>
+    
+            <th style="font-size: 12px;">Endereço da Unidade</th>
+            <th style="font-size: 12px;">Descrição do Serviço que está sendo Realizado</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+         
+            <td style="font-size: 12px;">
+
+                {{a?.endereco}},
+            
+
+                </td>                      
+    
+                <td style="font-size: 12px;"> {{a?.servico}}</td>
+
+        </tr>                  
+    </tbody>    
+</table>
+     
+    
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    <strong>PROCEDIMENTOS QUE DEVEM SER COMPLETADOS ANTES DA ATIVIDADE</strong>                             <br>
+    1. O trabalho é acima de 2 (dois) metros ?		SIM(   )	NÃO (   )
+                                <br>
+    2. Oferece risco de queda pro trabalhador ?	SIM(   )	NÃO(   ) <br>
+    3. O treinamento em altura do(s) Trabalhado(res) está(ão) em dia ?	SIM (   )	NÃO (   ) <br>
+    4. Há procedimento para o trabalho a ser exercido ?	SIM(   )	NÃO(   )  NÃO SE APLICA (   )<br>
+    5. Foi feito isolamento de área? Ele oferece proteção adequada para as demais pessoas SIM(   ) 	NÃO(   )  NÃO SE APLICA (   )
+    <br>
+    6. Há pontos de ancoragem? E eles são seguros ? SIM (   )	NÃO(   )  NÃO SE APLICA (   )<br>
+
+    <strong>7. Equipamentos:<br></strong>
+    -> Capacete:	SIM(   ) Não APLICA(   )		NÃO(   )	<br>
+    -> Trava quedas adequado	NÃO APLICA(   )	SIM(   )	NÃO(   )<br>
+    -> Óculos:	SIM(   )	 NÃO APLICA(   )	NÃO(   )<br>	
+    -> Talabarte adequado	NÃO APLICA(   )	SIM(   )	NÃO(   )<br>
+    -> Cinturão paraquedista: SIM(   ) NÃO(   ) NÃO APLICA(   )		
+    <br>
+    -> Luvas: SIM(   ) 	NÃO APLICA(   )		NÃO(   )<br>
+    -> Corda/Cabo de aço: SIM(   ) 	NÃO APLICA(   )		NÃO(   )	<br>
+    -> Outros: ___________________________	NÃO APLICA(   )	SIM(   )	NÃO(   )<br>
+                                
+        8. Os EPI estão adequados ao risco de queda ? SIM(   )	NA(   )		N(   )<br>
+        9. Há riscos adicionais como choque elétrico ou riscos mecânicos ? Outros: _________________ SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+        10. Foi tomada medida contra queda de objetos ou ferramentas ? SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+        11. Para atividades exercidas em área externa, há boas condições climáticas ? SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+                                
+    </p>  
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+<strong> PROCEDIMENTOS QUE DEVEM SER COMPLETADOS CASO A ATIVIDADE EXIJA O USO DE ESCADA  </strong>                     
+
+                            <br>
+12. As escadas a serem usadas estão dentro de padrões de segurança?	SIM(   ) NÃO SE APLICA(   )	NÃO(   )<br>
+13. A escada está apoiada em piso resistente, nivelado e não escorregadio?	SIM(   )NÃO SE APLICA(   )		NÃO(   )<br>
+14. As escadas contem antiderrapantes?	SIM(   ) NÃO SE APLICA(   )	NÃO(   )<br>
+15. A escada de abrir possui sistema que a mantenha com abertura constante?	SIM(   ) NÃO SE APLICA(   )		NÃO(   )<br>
+<br>
+<strong>PROCEDIMENTOS QUE DEVEM SER COMPLETADOS CASO A ATIVIDADE EXIJA O USO DE ANDAIME SIMPLESMENTE APOIADO </strong>     
+<br>
+16. O andaime foi montado por equipe qualificada? SIM(   )	NÃO SE APLICA(   )		NÃO(   )<br>
+17. O andaime está nivelado? SIM(   ) NÃO SE APLICA(   )		NÃO(   )<br>
+18. A base é no mínimo ¼ da altura total do andaime? SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+19. A ancoragem é independente da estrutura do andaime? SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+20. As tabuas do andaime estão fixas e em perfeitas condições de uso? SIM(   )	NÃO SE APLICA(   )		NÃO(   )<br>
+21. Há guarda corpo no andaime?	NA(   )	S(   )	N(   )<br>    
+<strong>PROCEDIMENTOS DE EMERGÊNCIA E RESGATE/CONTATOS (RAMAL - TELEFONE)</strong><br>      
+22. Para situações de emergência, há uma equipe e equipamentos em condições para resgate? <br>  SIM(   )	NÃO SE APLICA(   ) NÃO(   )
+<br> 
+<br>   
+-> Resgate: {{a?.resgate}} <br> <br>  
+  -> Ambulância: {{a?.ambulancia}} <br>  <br> 
+  -> Segurança: {{a?.seguranca}}<br>  <br> 
+  <strong> OBSERVAÇÕES</strong><br><br>
+  - A atividade não pode ser permitida se algum campo não for preenchido ou contiver a marca na coluna “não”.<br>
+  - Os campos preenchidos como “sim”, deverão estar de acordo com a Análise de Risco da atividade.
+  
+</p>  
+   
+          
+<br><br><br>
+
+
+            
+<strong>SUPERVISOR DE TRABALHOS EM ALTURA</strong><br><br>
+
+<table class="table table-bordered">
+
+
+    <thead>
+        <tr>
+            <th style="font-size: 13px; text-align: justify;">Nome</th>
+            <th style="font-size: 13px; text-align: justify;">Data</th>
+            <th style="font-size: 13px; text-align: justify;">Assinatura</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of documentosfree"> 
+         <td style="font-size: 12px;">{{a?.responsavel}}</td>
+         <td style="font-size: 12px;">{{a?.datainicio | date: 'dd/MM/yyyy'}}</td>
+            <td style="font-size: 13px; text-align: justify;"> </td>
+
+        </tr>                  
+    </tbody>    
+    
+</table>
+
+     
+    <strong>Todas as Assinaturas</strong>
+    <table class="table table-bordered">
+        <thead>
+            <tr>    
+                <th style="font-size: 13px; text-align: justify;">NOME</th>
+                <th style="font-size: 13px; text-align: justify;">RG</th>
+                <th style="font-size: 13px; text-align: justify;">CPF</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr> 
+                
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+              <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>                 
+        </tbody>    
+    </table>      
+
+    </div>
+</div>
+
+
+
+
+
+      
+<div class="row">
+
+    <div class="col-md-5 mt-1 mb-1 center">
+    </div>
+    <div class="col-md-4 mt-1 mb-1 center">
+        <button (click)="printPage()">Permissão de Trabalho em Altura</button>
+    </div>   
+    <div class="col-md-3 mt-1 mb-1 center">
+    </div>
+</div>
+
+
+
+

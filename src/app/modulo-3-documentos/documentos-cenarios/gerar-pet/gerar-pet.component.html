@@ -1,0 +1,239 @@
+<div class=" mt-3" *ngFor="let a of associacoes">
+     
+    <div>             
+        <div class="row">
+  
+   
+            <div class="col-md-2 mt-1 text-center text-success ">
+                        </div>
+   
+                                            
+   
+                       <div class="col-md-2 mt-1 text-center text-success ">
+                                </div>
+
+                                   </div>
+                                   <div class="container mt-3" *ngFor="let a of associacoes">
+                                          
+                                        <div class="text-center">
+                                            
+
+                            <img
+                            src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" />
+                   
+         <!-- Centralizando o texto -->
+                                          <strong>ANEXO II - Permissão de Entrada e Trabalho - PET</strong>
+                                        </div>
+                                      </div>
+                               
+                                  <br>
+<strong>
+CARÁTER INFORMATIVO PARA ELABORAÇÃO DA PERMISSÃO DE ENTRADA E TRABALHO EM ESPAÇO CONFINADO
+</strong> 
+<br>  <br>                                 
+                               
+<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="font-size: 12px;">Empresa</th>
+                        <th style="font-size: 12px;">CNPJ</th>
+                        <th style="font-size: 12px;">Setor</th>
+                        <th style="font-size: 12px;">Cenário</th>
+                        <th style="font-size: 12px;">TIPO DE DOCUMENTO</th>
+                        <th style="font-size: 12px;">Data Inicio</th>
+                        <th style="font-size: 12px;">Data Fim</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 12px;"> {{a?.cenario?.gho_setor?.unidadedoc?.nomeEspecificoUnidade}}</td>
+                        <td style="font-size: 12px;"> {{a?.cenario?.gho_setor?.unidadedoc?.cnpj}}</td>
+                        <td style="font-size: 12px;"> {{a?.cenario?.gho_setor?.nome_gho_setor}}</td>
+                        <td style="font-size: 12px;"> {{a?.cenario?.nomeAtividade}}</td>
+                        <td style="font-size: 12px;">PET - Permissão de Entrada em Espaço Confinado</td>                      
+                        <td style="font-size: 12px;">{{a?.relatorios?.datainicio | date: 'dd/MM/yyyy'}}</td>
+                        <td style="font-size: 12px;">{{a?.relatorios?.vigencia | date: 'dd/MM/yyyy'}}</td>
+
+                    </tr>                  
+                </tbody>    
+            </table>
+ <strong>LOCAL DO ESPAÇO CONFINADO</strong> 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+    
+            <th style="font-size: 12px;">Endereço da Unidade</th>
+            <th style="font-size: 12px;">Local do Espaço Confinado</th>
+            <th style="font-size: 12px;">Trabalho a ser realizado:</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+         
+            <td style="font-size: 12px;">
+
+                {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.logradouro}},
+                {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.numero}} -
+                 {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.bairro}} -
+                 {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.localidade}} -
+                 {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.uf }} -
+                CEP: {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.cep }}
+
+                </td>                      
+                <td style="font-size: 12px;"> {{a?.cenario?.descricaoAtividade}}</td>
+
+                <td style="font-size: 12px;"> {{a?.cenario?.descricaoAtividade}}</td>
+
+        </tr>                  
+    </tbody>    
+</table>
+<strong>TRABALHADORES AUTORIZADOS</strong> 
+
+     <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="font-size: 12px;">Vigia</th>
+                <th style="font-size: 12px;">Supervisor de Entrada</th>
+                <th style="font-size: 12px;">Equipe de resgate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr> 
+             
+                <td style="font-size: 12px;">
+    
+     
+    
+                    </td>                      
+                    <td style="font-size: 12px;"> </td>
+    
+                    <td style="font-size: 12px;"></td>
+    
+            </tr>                  
+        </tbody>    
+    </table>
+ 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+<strong> PROCEDIMENTOS QUE DEVEM SER COMPLETADOS ANTES DA ENTRADA </strong>                              <br>
+
+1. Isolamento	SIM(   )	NÃO (   )
+                             <br>
+2. Teste inicial da atmosfera: horário___________ <br>
+Oxigênio % O2<br>
+Inflamáveis % LIE<br>
+Gases/vapores tóxicos ppm<br>
+Poeiras/fumos/névoas tóxicas mg/m3<br>
+<strong>NOME LEGÍVEL / ASSINATURA DO SUPERVISOR DOS TESTES:</strong><br>
+3. Bloqueios, travamento e etiquetagem  SIM(   )	NA(   )		N(   )<br>
+4. Purga e/ou lavagem SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+5. Ventilação/exaustão – tipo, equipamento e tempo  SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>                            
+</p>  
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+6. Teste após ventilação e isolamento: horário ___________<br>
+ Oxigênio % O2 > 19,5% ou < 23,0 %<br>
+Inflamáveis %LIE < 10%<br>
+Gases/vapores tóxicos ppm<br>
+Poeiras/fumos/névoas tóxicas mg/m3<br>
+Nome legível / assinatura do Supervisor dos testes:______________________________________________
+<br>
+7. Iluminação geral SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+8. Procedimentos de comunicação: SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+9. Procedimentos de resgate: SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+10. Procedimentos e proteção de movimentação vertical: SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+11. Treinamento de todos os trabalhadores? É atual? SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+<br>   
+Equipamentos:<br>   
+13. Equipamento de monitoramento contínuo de gases aprovados e certificados por um Organismo de
+Certificação Credenciado (OCC) pelo INMETRO para trabalho em áreas potencialmente explosivas de leitura
+SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+</p>  
+   
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+          
+Lanternas SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Roupa de proteção SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Extintores de incêndio SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Capacetes, botas, luvas SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Equipamentos de proteção respiratória/autônomo ou sistema de ar mandado com cilindro de escape SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Cinturão de segurança e linhas de vida para os trabalhadores autorizado SIM(   ) NÃO(   )<br>
+Cinturão de segurança e linhas de vida para a equipe de resgate SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Escada SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Equipamentos de movimentação vertical/suportes externos SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Equipamentos de comunicação eletrônica aprovados e certificados por um Organismo de
+Certificação Credenciado (OCC) pelo INMETRO para trabalho em áreas potencialmente
+explosivas_______________________________________
+<br>
+Equipamento de proteção respiratória autônomo ou sistema de ar mandado com cilindro de escape para a
+equipe de resgate _________________________________
+SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Equipamentos elétricos e eletrônicos aprovados e certificados por um Organismo de Certificação
+Credenciado (OCC) pelo INMETRO para trabalho em áreas potencialmente explosivas
+_______________________________________
+SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+</p>   
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+<strong>
+PROCEDIMENTOS QUE DEVEM SER COMPLETADOS DURANTE O DESENVOLVIMENTO DOS TRABALHOS
+</strong> 
+<br>
+Permissão de trabalhos a quente SIM(   )	NÃO SE APLICA(   )	NÃO(   )<br>
+Telefones e contatos:<br>
+Ambulância:_____________________<br>
+Bombeiros:_______________________<br>
+Segurança:_______________________<br>
+
+OBSERVAÇÕES:<br>
+• A entrada não pode ser permitida se algum campo não for preenchido ou contiver a marca na coluna “não”.<br>
+• A falta de monitoramento contínuo da atmosfera no interior do espaço confinado, alarme, ordem do Vigia ou qualquer
+situação de risco à segurança dos trabalhadores, implica no abandono imediato da área.<br>
+• Qualquer saída de toda equipe por qualquer motivo implica a emissão de nova permissão de entrada. Esta permissão de
+entrada deverá ficar exposta no local de trabalho até o seu término. Após o trabalho, esta permissão deverá ser arquivada.
+<br>
+</p>   
+
+<table class="table table-bordered">
+
+
+    <thead>
+        <tr>
+            <th style="font-size: 13px; text-align: justify;">Nome</th>
+            <th style="font-size: 13px; text-align: justify;">Data</th>
+            <th style="font-size: 13px; text-align: justify;">Assinatura</th>
+
+
+        </tr>
+    </thead>
+
+    
+</table>
+
+           
+
+    </div>
+</div>
+
+
+
+
+
+      
+<div class="row">
+
+    <div class="col-md-5 mt-1 mb-1 center">
+    </div>
+    <div class="col-md-4 mt-1 mb-1 center">
+        <button (click)="printPage()">PET - Permissão de Entrada em Espaços Confinados</button>
+    </div>   
+    <div class="col-md-3 mt-1 mb-1 center">
+    </div>
+</div>
+
+
+
+

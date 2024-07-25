@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de Todos os Setores</h5>
+                </div>
+
+                <div class="col-md-3 mt-1">
+                    <a href="consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+           
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Setor" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_perigo" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Operações</th>
+                            <th>Cadastrar</th>
+                            <th>Consultar</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let r of setor  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{r?.nome_gho_setor | uppercase}}</td>
+                            <td>{{r?.descricao_gho_setor | uppercase}}</td>
+                            <td>
+                             
+
+                                 
+                            <button href="/editar-setor" type="button" class="btn btn-warning m-1"  [routerLink]="['/editar-setor', r.id_gho_setor]">Editar</button>
+                            <button  type="button" class="btn btn-danger m-1"  (click)="excluirSetor(r.id_gho_setor, r.nome_gho_setor)">Excluir</button>
+                        </td>
+                    <td>
+
+                            
+                            <button href="/criar-cenario" type="button" class="btn btn-success m-1"  [routerLink]="['/criar-cenario', r.id_gho_setor]">Cenário</button>
+                            <button href="/criar-postura" type="button" class="btn btn-success m-1"  [routerLink]="['/criar-postura', r.id_gho_setor]">Postura</button>
+
+                            </td>
+
+                        <td>
+                            <button href="/consultar-cenario" type="button" class="btn btn-primary"  [routerLink]="['/consultar-cenario', r.id_gho_setor]"> Cenário</button>
+                            <button href="/consultar-postura" type="button" class="btn btn-primary m-1"  [routerLink]="['/consultar-postura', r.id_gho_setor]"> Postura</button>
+
+                    </td>
+
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Setor: {{(setor).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

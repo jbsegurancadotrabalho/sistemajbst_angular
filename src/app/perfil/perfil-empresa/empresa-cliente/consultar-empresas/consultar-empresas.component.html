@@ -1,0 +1,162 @@
+<app-perfil-empresa></app-perfil-empresa>
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-body">    
+      <div class="modal fade" id="IncluirAssinaturaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Incluir Assinatura do Aluno </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+              <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{mensagem}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+            </div>
+      <form [formGroup]="formIncluirAssinatura" (ngSubmit)="IncluirAssinaturaSubmit()">
+      <input type="hidden" formControlName="idFuncionario" [(ngModel)]="idFuncionario" />
+      
+      
+      <div class="mb-2">             
+      </div>
+      <div class="row">  
+      <div class="row mb-2">
+      <div class="col-md-6">
+        <label>Envie a Assinatura do Aluno:</label>
+        <input type="file" class="form-control" (change)="onFileChange1($event)" />
+        <span class="text-danger">
+          {{ arquivoMsgErro }}
+        </span>
+      </div>
+      </div>
+      
+      
+      </div>
+      <div class="modal-footer">
+      <div class="row mb-2">
+      <div class="col-md-12">
+      <button type="button" class="btn btn-success" (click)="IncluirAssinaturaSubmit()" data-bs-dismiss="modal">
+        Incluir Assinatura
+      </button>            
+      </div>
+      </div>
+      </div>               
+      </form>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-9 mt-3">
+         </div>
+
+      <div class="col-md-3 mt-3" *ngIf="usuario">
+        <a href="cadastrar-minha-empresa"
+         class="btn btn-success"
+         [routerLink]="['/cadastrar-minha-empresa',  usuario.id]" 
+         
+         >Cadastar Empresa</a>
+       </div>
+
+      </div>
+
+      
+
+      <div class="table-responsive mt-5">
+        <table class="table table-sm table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>CNPJ</th>
+              <th>Responsável</th>
+              <th>Usuário</th>
+              <th>Senha</th>
+              <th>Operações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of empresas | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe: filtro.nome_contato">
+              <td>{{ e.razaosocial }}</td>
+              <td>{{ e.cnpj }}</td>
+              <td>{{ e.responsavel_sistema }}</td>
+              <td>{{ e.email_usuario }}</td>
+              <td>{{ e.senha_sistema }}</td>
+              <td>
+                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+              Ações
+            </button>
+
+
+            <ul class="dropdown-menu btn-sm border dropdown-menu-succes">
+
+              <li><a   class="dropdown-item btn btn-success" 
+                [routerLink]="['/editar-empresa-cliente', e.idEmpresa]">Editar Empresa</a></li>
+                
+
+<li><a href="/cadastro-funcionario-minha-empresa"  class="dropdown-item btn btn-success" 
+  [routerLink]="['/cadastro-funcionario-minha-empresa', e.idEmpresa]">Cadastrar Funcionário</a></li>
+  
+  <li><a  class="dropdown-item btn btn-success" 
+    [routerLink]="['/consultar-meus-funcionarios', e.idEmpresa]">
+     Consultar Funcionário</a></li>     
+
+<li><a href="/cadastrar-funcao-minha-empresa"  class="dropdown-item btn btn-success" 
+  >Cadastrar Funcão</a></li>       
+  
+  
+  <li><a href="/consultar-funcao-minha-empresa"  class="dropdown-item btn btn-success" 
+    >Consultar Funcão</a></li>  
+    <li> <a 							
+      [routerLink]="['/criar-documentosfree', e.idEmpresa]"                
+                     class="dropdown-item btn  btn-success">                               
+                               Criar Documentos Free</a></li> 
+
+                               <li> <a 							
+                                [routerLink]="['/consultar-documentosfree', e.idEmpresa]"                
+                                class="dropdown-item btn  btn-success">                               
+                                Consultar Documentos Free</a></li>  
+    
+    <li> <a 							
+      [routerLink]="['/consultar-unidades-desta-empresa', e.idEmpresa]"                
+                     class="dropdown-item btn  btn-success">                               
+                     Minhas Unidades</a></li> 
+
+                  
+                                                
+                
+
+                 
+
+            </ul>
+         
+
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+                <td colspan="5">
+                    Quantidade de  Empresas: {{(empresas).length}}
+                    <pagination-controls 
+                    (pageChange)="paginaAtual = $event"
+                    previousLabel="Página anterior"
+                    nextLabel="Próxima página"
+                    [maxSize]="10" 
+                    [itemsPerPage1]="itensPorPagina" 
+                  ></pagination-controls> 
+                </td>
+            </tr>
+        </tfoot>
+        </table>
+      </div>
+
+      
+
+      </div>
+      </div>
+    </div>

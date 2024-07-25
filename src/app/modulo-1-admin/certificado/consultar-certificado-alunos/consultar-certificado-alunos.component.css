@@ -1,0 +1,60 @@
+/* Estilos gerais para o certificado */
+.certificado {
+    width: 297mm; /* Largura em milímetros */
+    height: 210mm; /* Altura em milímetros */
+    margin: 0 auto; /* Centraliza o certificado na página horizontalmente */
+    padding: 20px; /* Adiciona preenchimento interno conforme necessário */
+    box-sizing: border-box; /* Garante que o preenchimento não aumente as dimensões do certificado */
+    font-family: 'Arial', sans-serif; /* Escolha uma fonte adequada */
+    border: 5mm solid #28a745; /* Borda sólida de 5mm (ajuste conforme necessário) */
+  }
+  
+  /* Estilos para o título */
+  .certificado-title {
+    font-size: 24px; /* Tamanho da fonte do título */
+    color: #28a745; /* Cor do texto (verde no exemplo) */
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+  }
+  
+  /* Estilos para o conteúdo do certificado */
+  .certificado-content {
+    font-size: 16px; /* Tamanho da fonte do conteúdo */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+  }
+  
+  /* Estilos para as imagens no certificado */
+  .certificado img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do certificado */
+    height: auto; /* Mantém a proporção original da imagem */
+    display: block; /* Remove margens adicionais em torno da imagem */
+    margin: 0 auto; /* Centraliza a imagem dentro do certificado */
+  }
+  
+/* Estilos específicos para o card com borda fixa */
+.card-border-fix {
+    width: 297mm; /* Largura em milímetros */
+    margin: 0 auto; /* Centraliza o card na página horizontalmente */
+    font-family: 'Arial', sans-serif; /* Escolha uma fonte adequada */
+    border: 5mm solid #28a745; /* Borda sólida de 5mm (ajuste conforme necessário) */
+    box-sizing: border-box; /* Garante que o preenchimento não aumente as dimensões do card */
+  }
+  
+/* Estilos para a div com a classe "border-container" */
+.border-container-fix {
+    width: 297mm; /* Largura em milímetros */
+
+  }
+  
+
+  
+  @media print {
+    .no-page-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
+      margin-bottom: 1cm; /* Ajuste este valor conforme necessário */
+    }
+  }
+  
+
+  

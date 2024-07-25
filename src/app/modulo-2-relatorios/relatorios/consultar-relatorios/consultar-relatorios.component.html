@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5>Lista de Todos os Relatórios</h5>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <a href="criar-relatorios" class="btn btn-success">Criar Relatório</a>
+                    
+                </div>
+
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar por Relatórios" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_epi" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Número</th>
+                            <th>Data de Início</th> <!-- Nova coluna -->
+                            <th>Vigência</th> 
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of  relatorios  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{e.nome_relatorio}}</td>
+                            <td>{{e.descricao_relatorio }}</td>
+                            <td>{{e.numeroRelatorio }}</td>
+                            <td>{{e.datainicio | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{e.vigencia | date: 'dd/MM/yyyy'}}</td>
+
+                         
+
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+              
+                                <li><a   class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/criar-documentos', e.idRelatorios]">
+                                    Criar Documentos Unidades</a></li>
+
+                                    <li><a   class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-documentos-cenarios', e.idRelatorios]">
+                                        Criar Documentos Cenarios</a></li>
+
+                                        
+                                    <li><a  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-documentos-funcionarios', e.idRelatorios]">
+                                        Criar Documentos Funcionários</a></li>
+                                
+                              <li><a href="/editar-relatorios"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/editar-relatorios', e.idRelatorios]">
+                                Editar</a></li>
+
+                                
+                                <li><a class="dropdown-item btn btn-success" (click)="excluirRelatorio(e.idRelatorios, e.nome_relatorio)">Excluir</a></li>
+
+                             
+                                  
+
+                        
+                            </ul>   
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Relatórios: {{(relatorios).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

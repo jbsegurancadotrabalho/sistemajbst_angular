@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-lg bg-success mb-3  ">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">Sistema JBST</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-white"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="dropdown">
+        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+          Perfil
+        </button>
+        <div class="dropdown-menu p-4" *ngIf="usuario">
+
+
+          <strong>Olá  {{usuario.nome}} ({{usuario.email}})</strong>
+
+          <li><a href="/registrar-conta">Clique aqui e crie uma conta</a></li>
+          <li><a href="/consultar-chamado">Meus Chamados</a></li>
+          <li><a href="/consultar-pessoa-fisica">Incluir Pessoa Fisica</a></li>
+          <li><a href="/consultar-unidade-de-treinamento">Incluir Local do Curso</a></li>
+          <li><a href="/consultar-endereco">Incluir Endereço</a></li>
+          <li><a href="" (click)="sair()">Sair do Sistema</a></li>
+
+
+        </div>
+      </div>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Empresas
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/consultar-empresa">Todas as Empresas</a></li>
+            <li><a class="dropdown-item" href="/consultar-empresa-relatorios">Empresas Relatórios</a></li>
+            <li><a class="dropdown-item" href="/consultar-unidadedoc">Unidades</a></li>
+
+          </ul>
+        </li>
+
+ 
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="success" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Funções
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/consultar-funcaodoc">Funções para Relatórios</a></li>
+            <li><a class="dropdown-item" href="/consultar-funcao">Todas as Funções</a></li>
+
+
+          </ul>
+        </li>
+
+      
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Secretaria          
+                    </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/consultar-turmas">Todas as Turmas</a></li>
+            <li><a class="dropdown-item" href="/consultar-turmas-por-unidades">Turmas por Unidades</a></li>
+            <li><a class="dropdown-item" href="/consultar-instrutores"> Instrutor</a></li>
+            <li><a class="dropdown-item" href="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/02/ART-DO-ENGENHEIRO-DE-SEGURANCA-DO-TRABALHO-JB.pdf">Baixar ART</a></li>
+            <li><a class="dropdown-item" href="/gerar-certificado-pessoa-fisica">Matriculas Pessoa Fisica</a></li>
+            <li><a class="dropdown-item" href="/gerar-certificado-pessoa-juridica">Matriculas Pessoa Juridica</a></li>
+            <li><a class="dropdown-item" href="/consultar-cursos">Cursos para Turmas</a></li>
+
+            <li>
+          </ul>
+        </li>         
+       
+
+       
+
+       
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Financeiro
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="consultar-pedido-de-compras">Pedidos de Compras</a></li>
+            <li><a href="consultar-faturamentopj" class="dropdown-item btn btn-sm btn-primary">Faturamento PJ</a>
+              <li><a class="dropdown-item" href="consultar-faturamentopf">Faturamento Pf</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            SMS
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="consultar-relatorios">Relatorios</a></li>
+            <li><a class="dropdown-item" href="consultar-documentos">Documentos</a></li>
+
+
+          </ul>
+        </li>
+
+      </ul>
+
+    
+    </div>
+  </div>
+</nav>

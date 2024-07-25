@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de Todas as Medidas de Controle</h5>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="consultar-riscos" class="btn btn-success">Consultar Riscos</a>
+                </div>
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Medidas de Controle" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_perigo" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Valor</th>
+                            <th>Tipo</th>
+                            <th>Descrição</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let r of riscos | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 }">
+                            <tr *ngFor="let ri of r.medidasdecontrole; let i = index">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ ri.valor_MedidasDeControle }}</td>
+                                <td>{{ ri.tipo_MedidasDeControle }}</td>
+                                <td>{{ ri.descricao_MedidasDeControle }}</td>
+
+                                <td>
+                                    <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Ações
+                                    </button>
+                                    <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                                        <li>
+                                            <a href="/editar-medidas-de-controle" class="dropdown-item btn btn-danger"
+                                                [routerLink]="['/editar-medidas-de-controle', ri.idMedidasDeControle]">
+                                                Editar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item btn btn-success"
+                                                (click)="excluirMedidasDeControle(ri.idMedidasDeControle, ri.tipo_MedidasDeControle)">
+                                                Excluir
+                                            </a>
+                                        </li>
+                                     
+                                    </ul>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                Quantidade de Perigos: {{ riscos.length }}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

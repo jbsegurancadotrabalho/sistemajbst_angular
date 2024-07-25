@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de CNAES da Empresa Selecionada</h5>
+                </div>
+               
+            </div>
+			
+			  <div class="row mb-2">
+
+                <div class="col-md-7">
+                  
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar CNAES" />
+                </div>
+            </div>
+            <hr />
+
+
+         
+              <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_chamados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Código</th>
+                            <th>Denominação</th>
+                            <th>Grau de Risco</th>
+                            <th>Operações</th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of empresas  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{e.codigo}}</td>
+                            <td>{{e.denominacao | uppercase}}</td>
+                            <td>{{e.grau_de_risco}}</td>
+                        
+                            <td>
+
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                       
+
+                                
+                              <li><a href="/editar-cnae"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/editar-cnae', e.idCnae]">
+                                Editar</a></li>
+
+                                <li><a class="dropdown-item btn btn-success" (click)="excluirCnae(e.idCnae, e.codigo)">Excluir</a></li>
+
+                             
+                                  
+                          
+
+
+                        
+                            </ul>
+                         
+                            </td>
+
+
+                          
+                        </tr>
+                    </tbody>
+                       <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                Quantidade de CNAES: {{(empresas).length}}
+                                <pagination-controls 
+                                (pageChange)="paginaAtual1 = $event"
+                                previousLabel="Página anterior"
+                                nextLabel="Próxima página"
+                                [maxSize]="10" 
+                                [itemsPerPage1]="itensPorPagina" 
+                              ></pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

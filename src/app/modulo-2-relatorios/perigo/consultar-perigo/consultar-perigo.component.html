@@ -1,0 +1,149 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de Todos os Perigos</h5>
+                </div>
+
+                <div class="col-md-3 mt-1">
+                    <a href="consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+           
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Perigo" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_perigo" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Nome</th>
+                            <th>Causas</th>
+                            <th>Consequências</th>
+                            <th>Classificação</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let r of funcaoid  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+
+                            <td>{{i + 1}}</td>
+                            <td>{{r?.nomePerigo}}</td>
+                            <td>{{r?.causasPerigo | uppercase}}</td>
+                            <td>{{r?.consequencias_perigo | uppercase}}</td>
+                            <td>{{r?.classificacao}}</td>
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+              
+
+                                
+                              <li><a href="/editar-riscos"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/editar-perigo', r.idPerigo]">
+                                Editar</a></li>
+
+                                
+                                <li><a class="dropdown-item btn btn-success" (click)="excluirPerigo( r.idPerigo, r.nomePerigo)">Excluir</a></li>
+
+                                  
+                                <li><a href="/criar-danos"  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/criar-danos', r.idPerigo]">
+                                    Criar Danos</a></li>
+    
+                                <li><a href="/criar-probabilidade-de-ocorrencia"  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/criar-probabilidade-de-ocorrencia', r.idPerigo]">
+                                    Criar Probabilidade de Ocorrência</a></li>
+    
+                                    
+    
+                                    <li><a href="/criar-nivel-de-severidade"  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-nivel-de-severidade', r.idPerigo]">
+                                       Criar Nivel de Severidade</a></li>
+        
+                                        <li><a href="/criar-medidas-de-controle"  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/criar-medidas-de-controle', r.idPerigo]">
+                                       Criar Medidas de Controle</a></li>
+                                            
+                                            <li><a href="/criar-potencial-de-severidade"  class="dropdown-item btn btn-success" 
+                                                [routerLink]="['/criar-potencial-de-severidade', r.idPerigo]">
+                                               Criar Potencial de Severidade</a></li>
+        
+                                  
+
+                        
+                            </ul>   
+
+                            <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                          Consultar
+                        </button>
+
+
+                        <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+
+                              
+                            <li><a href="/consultar-danos"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/consultar-danos', r.idPerigo]">
+                                Danos</a></li>
+
+                            <li><a href="/consultar-probabilidade-de-ocorrencia"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/consultar-probabilidade-de-ocorrencia', r.idPerigo]">
+                                Probabilidade de Ocorrência</a></li>
+
+                                
+
+                                <li><a href="/consultar-nivel-de-severidade"  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/consultar-nivel-de-severidade', r.idPerigo]">
+                                    Nivel de Severidade</a></li>
+    
+                                    <li><a href="/consultar-medidas-de-controle"  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/consultar-medidas-de-controle', r.idPerigo]">
+                                    Medidas de Controle</a></li>
+                                        
+                                        <li><a href="/consultar-potencial-de-severidade"  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/consultar-potencial-de-severidade', r.idPerigo]">
+                                            Potencial de Severidade</a></li>
+    
+                              
+
+                    
+                        </ul>   
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Perigos: {{(funcaoid).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

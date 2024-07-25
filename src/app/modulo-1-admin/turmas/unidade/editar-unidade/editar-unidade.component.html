@@ -1,0 +1,57 @@
+
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+
+    <div class="card mt-5">
+        <div class="card-body">
+           
+
+<h5>Editar Local do Curso</h5>
+<p>Preencha o formulário para incluir um cliente</p>
+<hr />
+
+<div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+  <strong>{{mensagem}}</strong>
+  <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+</div>
+
+
+<form [formGroup]="formEditarUnidade" (ngSubmit)="onSubmit()" >
+    <input type="hidden" formControlName="idUnidadedetreinamento" />
+
+
+  <div class="row mb-2">
+    <div class="col-md-4">
+      <label>Inserir Local do Curso:</label>
+      <input type="text" class="form-control" formControlName="unidadedetreinamento" />
+      
+    </div>
+    <div class="col-md-4">
+      <label>CNPJ:</label>
+      <input type="text" class="form-control" formControlName="cnpj"  />
+           </div>
+
+
+    <div class="col-md-4 ">
+      <label>Nome Fantasia do Local do Curso:</label>
+      <input  type="text"  class="form-control" formControlName="unidade"  />
+    </div>
+    </div>
+  <div class="row mb-2 mt-4">
+    <div class="col-md-3">
+      <input
+        type="submit"
+        class="btn btn-success"
+        value="Realizar Cadastro"
+        [disabled]="!formEditarUnidade.valid"
+      />
+    </div>
+  </div>
+</form>
+</div>
+</div>
+
+
+
+

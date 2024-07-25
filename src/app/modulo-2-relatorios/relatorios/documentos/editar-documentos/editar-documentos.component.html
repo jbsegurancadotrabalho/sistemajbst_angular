@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="card mt-5">
+    <div class="card-body">
+      <div class="row mb-2 mt-4">
+        <div class="col-md-10 mt-1">
+          <h5>Editar Documentos</h5>
+          <p>Preencha os campos para editar os documentos.</p>
+        </div>
+
+        <div class="col-md-2 mt-1">
+          <a href="consultar-documentos" class="btn btn-success">Voltar</a>
+        </div>
+      </div>
+      <div *ngIf="cadastroSucesso" class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>{{cadastroSucesso}}</strong>
+        <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = ''"></button>
+      </div>
+
+      <div *ngIf="cadastroErro" class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>{{cadastroErro}}</strong>
+        <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = ''"></button>
+      </div>
+
+      <hr />
+
+      <form [formGroup]="formularioDocumentos" (ngSubmit)="criarRelatorios()">
+        <input type="hidden" formControlName="idAssociacoes">
+
+        <div class="row">
+          <div class="form-group col-md-3 mt-3">
+            <label for="venda">Venda</label>
+            <input type="text" id="venda" formControlName="venda" class="form-control">
+          </div>
+
+          <div class="form-group col-md-3 mt-3">
+            <label for="valor">Valor</label>
+            <input type="text" id="valor" formControlName="valor" class="form-control">
+          </div>
+
+          <div class="form-group col-md-3 mt-3">
+            <label for="status">Status</label>
+            <input type="text" id="status" formControlName="status" class="form-control">
+          </div>
+
+          <div class="form-group col-md-3 mt-3">
+            <label for="tipo_de_pagamento">Tipo de Pagamento</label>
+            <input type="text" id="tipo_de_pagamento" formControlName="tipo_de_pagamento" class="form-control">
+          </div>
+
+
+
+          <div class="col-md-12 mt-4">
+            <label>Observações:</label>
+            <textarea class="form-control" id="observacoes" rows="5" formControlName="observacoes"></textarea>
+          </div>
+        </div>
+
+        <div class="row mb-2 mt-5">
+          <div class="col-md-12">
+            <input type="submit" class="btn btn-success" value="Editar Documentos" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

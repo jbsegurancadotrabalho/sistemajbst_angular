@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar unidade para Relatórios</h5>
+                    <p>Preencha os campos para editar uma unidade para relatórios.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-unidadedoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <!-- Correção: Vinculando o método criarUnidade() ao evento (ngSubmit) -->
+            <form [formGroup]="unidadeForm" (ngSubmit)="editarUnidade()">
+                <input type="hidden" formControlName="idunidadeDoc">
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="unidadeDoc">Nome da Unidade da Empresa:</label>
+                        <input type="text" id="unidadeDoc" formControlName="nomefantasia" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="cnpj">CNPJ:</label>
+                        <input type="text" id="cnpj" formControlName="cnpj" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="unidadeDoc">Nome Específico Unidade:</label>
+                        <input type="text" id="unidadeDoc" formControlName="nomeEspecificoUnidade" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="horario_empresa">Horário da Empresa:</label>
+                        <input type="text" id="horario_empresa" formControlName="horario_empresa" class="form-control">
+                    </div>
+
+                </div>
+
+                <div class="form-group col-md-6 mt-3">
+                    <button type="submit" class="btn btn-success">Editar Unidade</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

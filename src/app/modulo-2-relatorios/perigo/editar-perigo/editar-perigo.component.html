@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Perigo</h5>
+                    <p>Preencha os campos para editar o Perigo.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-perigo" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="enviarEdicao()" [formGroup]="perigoForm">
+                <input type="hidden" formControlName="idPerigo">
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="fonte_geradora">Perigo</label>
+                        <input type="text" id="fonte_geradora" formControlName="nomePerigo" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Causas do Perigo</label>
+                        <input type="text" id="causasPerigo" formControlName="causasPerigo" class="form-control">
+                    </div>  
+                    
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="consequencias_perigo">Consequências</label>
+                        <input type="text" id="consequencias_perigo" formControlName="consequencias_perigo" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="classificacao">Classificação</label>
+                        <input type="text" id="classificacao" formControlName="classificacao" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="form-group col-md-12 mt-3">
+                        <label for="medidasPreventivas">Medidas Preventivas</label>
+                        <textarea id="medidasPreventivas" formControlName="medidasPreventivas" class="form-control" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Editar Perigo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

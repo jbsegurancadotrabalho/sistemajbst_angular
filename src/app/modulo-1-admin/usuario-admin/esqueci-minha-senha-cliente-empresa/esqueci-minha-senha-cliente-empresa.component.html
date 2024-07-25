@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card mt-5">
+
+                <div class="card-body mb-2">
+                    <div class="text-center">
+                        
+                        <h4 class="card-title mt-3">Esqueci Minha Senha</h4>
+                        <p>Favor inserir o email  de Recuperação de Senha.</p>
+                    </div>
+                    <hr />
+
+                   
+
+                    <div *ngIf="mensagemSucesso" class="alert alert-info alert-dismissible fade show" role="alert">
+                        *   <strong>{{mensagemSucesso}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagemSucesso = ''"></button>
+            </div>
+
+            <div *ngIf="mensagemErro" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{mensagemErro}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagemErro = ''"></button>
+            </div> 
+            
+ 
+
+                    <form [formGroup]="formularioSenha" (ngSubmit)="esqueciMinhaSenha()">
+
+
+
+                       
+
+                        <div class="mb-2">
+                            <label for="inputEmail" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="inputEmail" formControlName="email">
+                    
+                        </div>
+
+                       
+                  
+                          
+                            <div class="d-grid mb-2 mt-3">
+                                <button type="submit" class="btn btn-success">Enviar</button>
+                            </div>
+                 
+
+
+                    </form>
+
+                    <div class="row md-2 text-left mt-3">
+                        <div class="col-md-6">
+                            <a [routerLink]="['/acessar-conta']">Voltar</a>
+                             <br>
+
+                        </div>
+                       
+                          
+                    </div>
+                    
+
+                  
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

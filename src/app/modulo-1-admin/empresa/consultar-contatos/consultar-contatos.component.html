@@ -1,0 +1,89 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Chamados</h5>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="criar-chamado" class="btn btn-primary">Criar Chamado</a>
+
+                </div>
+            </div>
+            <hr />
+
+
+            <div class="row mb-2">
+
+                <div class="col-md-7">
+                  
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_contato"
+                        placeholder="Pesquisar pelo nome do contato" />
+                </div>
+            </div>
+
+            <div class="table-responsive mt-2">
+                <table id="consulta_chamados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Atendente</th>
+                            <th>Descriçao</th>
+                            <th>Status</th>
+                            <th>Operações</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div *ngIf="empresaSelecionada">
+                            <h5>Contatos da Empresa {{empresaSelecionada.razaosocial}}</h5>
+                            <table id="consulta_empresas" class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Contato</th>
+                                    <th>Telefone</th>
+                                    <th>Celular</th>
+                                    <th>Email</th>
+                                    <th>operações</th>
+                                </tr>
+                            </thead>
+                                <tbody>   
+                                  <tr *ngFor="let contato of empresaSelecionada.contatos">    
+                                      <td>{{ contato.contato }}</td>
+                                          <td>{{ contato.telefone_1 }}</td>
+                                          <td>{{ contato.telefone_2 }}</td>
+                                          <td>{{ contato.email }}</td>
+        
+                                          <td>
+                                            <a href="/editar-contato"
+                                            class="btn btn-primary
+                                            py-1 px-md-1 border"   
+                                            (click)="setContato(contato)"
+                                            [routerLink]="['/editar-contato', contato.idContato]"
+        
+                                                >
+                                                Editar
+                                            </a>
+                  <a href="" class="btn btn-sm btn-outline-danger"
+                                        class="btn btn-danger
+                                          py-1 px-md-1 border" 
+                                        onclick="return confirm('Deseja realmente excluir a Empresa: ${item.nome}?');">
+                                        Excluir </a></td></table>
+                                        
+                      </div>
+                          
+    <!-- componente de paginação -->
+    <div class="text-center">
+        <pagination-controls (pageChange)="pageChange($event)" previousLabel="Página anterior"
+            nextLabel="Próxima página">
+        </pagination-controls>
+    </div>
+

@@ -1,0 +1,255 @@
+
+
+<div class=" mt-3" *ngFor="let a of funcionario">
+     
+    <div>             
+        <div class="row">
+  
+   
+            <div class="col-md-2 mt-1 text-center text-success ">
+                        </div>
+   
+                                            
+   
+                       <div class="col-md-2 mt-1 text-center text-success ">
+                                </div>
+
+                                   </div>
+                                   <div class="container mt-3" *ngFor="let a of funcionario">
+                                          
+                                        <div class="text-center">
+                                            
+
+                            <img
+                            src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" />
+                   
+         <!-- Centralizando o texto -->
+                                          <strong>FICHA  DE EPI</strong>
+                                        </div>
+                                        <!-- Restante do conteúdo ... -->
+                                      </div>
+                               
+                                  <br> 
+
+
+
+<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="font-size: 12px;">EMPRESA</th>
+                        <th style="font-size: 12px;">CNPJ</th>
+                        <th style="font-size: 12px;">TIPO DE DOCUMENTO</th>
+                        <th style="font-size: 12px;">DATA INICIO</th>
+                        <th style="font-size: 12px;">VIGÊNCIA</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 12px;"> {{a?.funcionario?.empresa?.razaosocial}}</td>
+                        <td style="font-size: 12px;"> {{a?.funcionario?.empresa?.cnpj}}</td>
+                        <td style="font-size: 12px;">Ficha de EPI - Equipamento de Proteção Individual</td>                      
+                        <td style="font-size: 12px;">{{ a?.datainicio | date: 'dd/MM/yyyy' }}</td>
+                        <td style="font-size: 12px;">{{ a?.vigencia | date: 'dd/MM/yyyy' }}</td>                   
+                    </tr>                  
+                </tbody>    
+            </table>
+            <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      
+                      <th style="font-size: 13px; text-align: justify;">
+                          
+                          ENDEREÇO</th>
+                   
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr> 
+                    <td style="font-size: 12px;"> {{a?.endereco}}</td>
+
+  
+                  </tr>                  
+              </tbody>    
+          </table> 
+            
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th style="font-size: 13px; text-align: justify;">FICHA DE EPI</th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 13px; text-align: justify;">
+                            Nos termos da Lei 6.514 DE 22/12/1977, Art. 158 da CLT, da Portaria 3.214 DE 08/06/1978, NR. 6.7.1, o Colaborador, fica responsável pelo equipamento recebido da Empresa, estando ainda certo que, em caso de DANOS e PERDAS pôr comprovada negligência e/ou imprudência, ficará obrigado ao ressarcimento do patrimônio. O Funcionário Declara ainda estar ciente da obrigatoriedade do uso dos equipamentos ora recebidos e das penalidades cabíveis no caso de infração ao Art. 158 da CLT estando sujeito às sanções do ART 482 (Ato faltoso)
+                            
+                            </td>
+    
+                    </tr>                  
+                </tbody>    
+            </table> 
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th style="font-size: 13px; text-align: justify;">
+                            
+                            OBRIGAÇÕES DO EMPREGADO</th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 13px; text-align: justify;">
+
+                            Cabe ao Empregado Cumprir as disposições legais e regulamentares sobre Segurança e Medicina do Trabalho. Usar o EPI, fornecido pelo empregador apenas para a finalidade a que se destinam e mantê-los sob a sua guarda e conservação. 
+                        </td>
+    
+                    </tr>                  
+                </tbody>    
+            </table> 
+
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th style="font-size: 13px; text-align: justify;">FUNCIONÁRIO</th>
+                    <th style="font-size: 13px; text-align: justify;">CPF</th>
+                    <th style="font-size: 13px; text-align: justify;">RG</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-size: 12px;">{{ a?.funcionario?.nome }}</td>
+                    <td style="font-size: 12px;">{{ a?.funcionario?.cpf }}</td>
+                    <td style="font-size: 12px;">{{ a?.funcionario?.rg }}</td>
+                  </tr>
+                </tbody>
+              </table>
+       
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th style="font-size: 13px; text-align: justify;">FUNÇÃO</th>
+                    <th style="font-size: 13px; text-align: justify;">CBO</th>
+                    <th style="font-size: 13px; text-align: justify;">SETOR</th>
+                    <th style="font-size: 13px; text-align: justify;">DESCRIÇÃO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let funcaoDoc of a?.funcionario?.funcao?.funcaodoc">
+                      <td style="font-size: 12px;">{{ a?.funcionario?.funcao?.nome_da_funcao }}</td>
+                      <td style="font-size: 12px;">{{ a?.funcionario?.funcao?.cbo }}</td>
+                      <td style="font-size: 12px;">{{ funcaoDoc?.setor_gho }}</td>
+                      <td style="font-size: 12px;">{{ a?.funcionario?.funcao?.descricao }}</td>
+        
+                    </tr>
+                </tbody>
+              </table>
+
+
+  
+
+    
+
+
+
+      
+<strong style="font-size: 13px; text-align: justify;">EPI´S ASSOCIADOS A FUNÇÃO</strong>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th style="font-size: 13px; text-align: justify;">NOME</th>
+        <th style="font-size: 13px; text-align: justify;">CA</th>
+        <th style="font-size: 13px; text-align: justify;">VALIDADE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let funcao of a?.funcionario?.funcao?.funcaodoc">
+        <ng-container *ngFor="let epi of funcao?.epi">
+          <tr>
+            <td style="font-size: 12px;">{{ epi?.nome_epi }}</td>
+            <td style="font-size: 12px;">{{ epi?.ca }}</td>
+            <td style="font-size: 12px;">{{ epi?.descricao_epi }}</td>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+                    
+
+   
+
+
+
+<h6 style="font-size: 13px; text-align: justify;">RESPONSÁVEL</h6>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            
+            <th style="font-size: 13px; text-align: justify;">PROFISSIONAL</th>
+          
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td style="font-size: 12px;"> {{a?.responsavel}}</td>
+
+
+        </tr>                  
+    </tbody>    
+</table>  
+<h6 style="font-size: 13px; text-align: justify;">ASSINATURAS</h6>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            
+            <th style="font-size: 13px; text-align: justify;">RESPONSÁVEL</th>
+            <th style="font-size: 13px; text-align: justify;">FUNCIONÁRIO</th>
+            <th style="font-size: 13px; text-align: justify;">DATA</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td style="font-size: 12px;"> </td>
+            <td style="font-size: 12px;"> </td>
+
+            <td style="font-size: 12px;">{{ a?.datainicio | date: 'dd/MM/yyyy' }}</td>
+
+        </tr>                  
+    </tbody>    
+</table>  
+    </div>
+</div>
+
+
+
+      
+                <div class="row">
+
+                    <div class="col-md-5 mt-1 mb-1 center">
+                    </div>
+                    <div class="col-md-4 mt-1 mb-1 center">
+                        <button (click)="printPage()">FICHA DE EPI</button>
+                    </div>   
+                    <div class="col-md-3 mt-1 mb-1 center">
+                    </div>
+</div>
+
+
+
+
+
+<script>
+$(document).ready(function () {
+$("#meu-card").click(function () {
+window.location.href = "https://www.google.com.br/url?sa=i&url=https%3A%2F%2Fwww.rgid.com.br%2FMLB-1434275770-papel-moeda-para-certificado-e-diplomas-100-un-_JM&psig=AOvVaw0fkAtfo8qdPwHz9q30zrZC&ust=1696169652883000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPjr-MfC0oEDFQAAAAAdAAAAABAE";
+});
+});
+</script>

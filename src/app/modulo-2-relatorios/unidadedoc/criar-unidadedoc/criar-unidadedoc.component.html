@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Criar Empresa para Relatórios</h5>
+                    <p>Preencha os campos para incluir uma empresa para relatórios.</p>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="consultar-empresa" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <!-- Correção: Vinculando o método criarUnidade() ao evento (ngSubmit) -->
+            <form [formGroup]="unidadeForm" (ngSubmit)="criarUnidade()">
+                <input type="hidden" formControlName="idEmpresa_doc">
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-6">
+                        <label for="nomefantasia">Nome da Unidade da Empresa:</label>
+                        <input type="text" id="nomefantasia" formControlName="nomefantasia" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="cnpj">CNPJ:</label>
+                        <input type="text" id="cnpj" formControlName="cnpj" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="nomeEspecificoUnidade">Nome Específico Unidade:</label>
+                        <input type="text" id="nomeEspecificoUnidade" formControlName="nomeEspecificoUnidade" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="horario_empresa">Horário da Empresa:</label>
+                        <input type="text" id="horario_empresa" formControlName="horario_empresa" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mt-3">
+                        <label for="idEndereco">Endereço:</label>
+                        <ng-select
+                        [items]="enderecos"
+                        bindLabel="cep"
+                        bindValue="idEndereco"
+                        class="form-select custom-ng-select"
+                        formControlName="idEndereco"
+                        [ngClass]="{'is-invalid': unidadeForm.get('idEndereco')?.invalid && unidadeForm.get('idEndereco')?.touched}">
+                        <ng-template ng-label-tmp let-item="item">
+                          <div class="custom-bg" style="z-index: 1000;">
+                            <span>Cep: {{ item.cep | uppercase }} </span>  <span> {{ item.logradouro }} </span>
+                            <span> {{ item.numero }} </span> <span> {{ item.bairro }}</span>
+                            <span>{{ item.localidade }} </span>  <span> {{ item.uf }} </span>
+                          </div>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                          <div>
+                            <span>Cep: {{ item.cep | uppercase }} </span> <span> {{ item.logradouro }} </span>,
+                            <span> {{ item.numero }} </span> <span> {{ item.bairro }} </span>,
+                            <span> {{ item.localidade }} </span> <span> {{ item.uf }} </span>
+                          </div>
+                        </ng-template>
+                      </ng-select>
+                      
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Unidade</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,250 @@
+<app-perfil-aluno></app-perfil-aluno>
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+        <div class="card-body">
+
+
+ 
+          <div class="modal" tabindex="-1"  id="proficienciaModal"  >
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>   
+              
+
+                <div class="modal-body">    
+                  <div *ngIf="instrutorSelecionado">
+                    <h5>Formaçao do Instrutor {{ instrutorSelecionado.instrutor }}</h5>
+                    <div class="row">
+
+                      <div class="col-md-6 mt-3">
+                     
+                    </div>
+
+                    <div class="col-md-5 mt-3">
+                      <input type="text" class="form-control" [(ngModel)]="filtro.proficiencia"
+                          placeholder="Pesquisar por Proficiencia" />
+                  </div>
+                  <div class="col-md-1 mt-3">
+                     
+                  </div>
+                </div>
+
+                    <table id="consulta_empresas" class="table table-sm table-hover mt-3">
+                    <thead>
+                        <tr>
+                            <th>Nome da Proficiencia</th>
+                            <th>Descricao</th>
+                            <th>Operações</th>
+
+
+                        </tr>
+                    </thead>
+                        <tbody>      
+                          <tr *ngFor="let p of instrutorSelecionado.proficiencias | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.proficiencia" >    
+                              <td>{{ p.proficiencia }}</td>
+                              <td>{{ p.descricao }}</td>
+                                
+                             
+                                  <td> 
+                                    <button class="btn btn-sm btn-outline-danger me-2" 
+                                    (click)="downloadProficiencia(p)">
+                                    Dowload da Proficiência </button>
+
+                              
+
+                      
+
+
+                          </td>
+                        </table>                                 
+              </div>   
+              <div class="text-center">
+                
+            </div>
+                </div>
+                <div class="modal-footer">
+                  Quantidade de Formações: {{ instrutorSelecionado?.proficiencias?.length || 0 }}
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <pagination-controls 
+(pageChange)="paginaAtual = $event"
+previousLabel="Página anterior"
+nextLabel="Próxima página"
+[maxSize]="5" 
+[itemsPerPage]="itensPorPagina" 
+></pagination-controls>         
+                </div>                              
+                
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>                  
+              </div>
+            </div>
+          </div>
+        <div>
+
+
+
+      
+
+
+
+
+
+            
+                    <div class="modal" tabindex="-1"  id="formacaoModal"  >
+                        <div class="modal-dialog modal-xl">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title"></h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>   
+                          
+
+                            <div class="modal-body">    
+                              <div *ngIf="instrutorSelecionado">
+                                <h5>Formaçao do Instrutor {{ instrutorSelecionado.instrutor }}</h5>
+                                <div class="row">
+
+                                  <div class="col-md-6 mt-3">
+                                 
+                                </div>
+      
+                                <div class="col-md-5 mt-3">
+                                  <input type="text" class="form-control" [(ngModel)]="filtro.formacao"
+                                      placeholder="Pesquisar por Formações" />
+                              </div>
+                              <div class="col-md-1 mt-3">
+                                 
+                              </div>
+                            </div>
+      
+                                <table id="consulta_empresas" class="table table-sm table-hover mt-3">
+                                <thead>
+                                    <tr>
+                                        <th>Formacao</th>
+                                        <th>Conselho</th>
+                                        <th>Registro</th>
+                                        <th>Estado</th>
+
+                                    </tr>
+                                </thead>
+                                    <tbody>      
+                                      <tr *ngFor="let f of instrutorSelecionado.formacoes | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.formacao" >    
+                                          <td>{{ f.formacao }}</td>
+                                          <td>{{ f.conselho }}</td>
+                                          <td>{{ f.registro }}</td>
+                                          <td>{{ f.estado }}</td>
+                                         
+                                    </table>                                 
+                          </div>   
+                          <div class="text-center">
+                            
+                        </div>
+                            </div>
+                            <div class="modal-footer">
+                              Quantidade de Formações: {{ instrutorSelecionado?.formacoes?.length || 0 }}
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                              <pagination-controls 
+        (pageChange)="paginaAtual = $event"
+        previousLabel="Página anterior"
+        nextLabel="Próxima página"
+        [maxSize]="5" 
+        [itemsPerPage]="itensPorPagina" 
+      ></pagination-controls>         
+                            </div>                              
+                            
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            </div>                  
+                          </div>
+                        </div>
+                      </div>
+                    <div>       
+            
+<div class="row">
+             <div class="col-md-6 ">
+                    <h5>Lista de Instrutores</h5>
+                </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" [(ngModel)]="filtro.instrutor"
+                  placeholder="Pesquisar por Instrutor" />
+          </div>
+        </div>
+
+
+
+            <div class="table-responsive mt-5">
+                <table id="consulta_empresas" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Instrutor</th>
+                            <th>Rg</th>
+                    
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of instrutores | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.instrutor">
+                            <td>{{i.instrutor | uppercase}}</td>
+                            <td>{{i.rg | uppercase}}</td>
+                           
+                            
+                            <td>
+
+                                 <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Ações
+                                        </button>
+                                        <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                                        
+                                                    <li><a 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#formacaoModal"
+                                                         data-bs-whatever="@mdo"
+                                                        class="dropdown-item btn btn-sm btn-primary"
+                                                        (click)="exibirFormacao(i)"
+                                                        >Ver Formação</a> 
+                                                      
+                                                      
+                                                
+      
+                                                         
+                                                         
+                                                         
+                                                          <li><a 
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#proficienciaModal"
+                                                             data-bs-whatever="@mdo"
+                                                            class="dropdown-item btn btn-sm btn-primary"
+                                                            (click)="exibirFormacao(i)"
+                                                            class="dropdown-item btn btn-sm btn-primary">Ver Proficiência</a>
+                                            </li>
+                                        </ul>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <td colspan="5">
+    
+                            Quantidade de Instrutores: {{(instrutores).length}}
+                            <pagination-controls 
+      (pageChange)="paginaAtual = $event"
+      previousLabel="Página anterior"
+      nextLabel="Próxima página"
+      [maxSize]="5" 
+      [itemsPerPage]="itensPorPagina" 
+    ></pagination-controls>         
+                                                    </td>
+                      </tr>
+                  </tfoot>
+                </table>
+            </div>
+        </div>   
+    </div>
+</div>

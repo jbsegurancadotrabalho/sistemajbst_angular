@@ -1,0 +1,178 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Máquina</h5>
+                    <p>Preencha os campos para Editar a Máquina.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-maquina" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="criarMaquina()" [formGroup]="formularioMaquina">
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="nome_maquina">Nome da Máquina</label>
+                        <input type="text" id="nome_maquina" formControlName="nome_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="local_maquina">Local da Máquina</label>
+                        <input type="text" id="local_maquina" formControlName="local_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="descricao_maquina">Descrição da Máquina</label>
+                        <input type="text" id="descricao_maquina" formControlName="descricao_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="descricao_funcao_maquina">Descrição da Função</label>
+                        <input type="text" id="descricao_funcao_maquina" formControlName="descricao_funcao_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="patrimonio_maquina">Patrimônio da Máquina</label>
+                        <input type="text" id="patrimonio_maquina" formControlName="patrimonio_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="fabricante_maquina">Fabricante</label>
+                        <input type="text" id="fabricante_maquina" formControlName="fabricante_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="fabricacao_maquina">Ano de Fabricação</label>
+                        <input type="text" id="fabricacao_maquina" formControlName="fabricacao_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="serie_maquina">Série da Máquina</label>
+                        <input type="text" id="serie_maquina" formControlName="serie_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="modelo_maquina">Modelo da Máquina</label>
+                        <input type="text" id="modelo_maquina" formControlName="modelo_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="posicaotrabalho_maquina">Posição de Trabalho</label>
+                        <input type="text" id="posicaotrabalho_maquina" formControlName="posicaotrabalho_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="peso_maquina">Peso da Máquina</label>
+                        <input type="text" id="peso_maquina" formControlName="peso_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="historico_acidente_maquina">Histórico de Acidentes</label>
+                        <input type="text" id="historico_acidente_maquina" formControlName="historico_acidente_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="voltagem_maquina">Voltagem</label>
+                        <input type="text" id="voltagem_maquina" formControlName="voltagem_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="comando_maquina">Comando</label>
+                        <input type="text" id="comando_maquina" formControlName="comando_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="potencia_maquina">Potência</label>
+                        <input type="text" id="potencia_maquina" formControlName="potencia_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="qtdOperadores_maquina">Quantidade de Operadores</label>
+                        <input type="text" id="qtdOperadores_maquina" formControlName="qtdOperadores_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="turno_maquina">Turno</label>
+                        <input type="text" id="turno_maquina" formControlName="turno_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="dias_turno_maquina">Dias no Turno</label>
+                        <input type="text" id="dias_turno_maquina" formControlName="dias_turno_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="capacidade_maquina">Capacidade</label>
+                        <input type="text" id="capacidade_maquina" formControlName="capacidade_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="carga_maquina">Carga</label>
+                        <input type="text" id="carga_maquina" formControlName="carga_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="descarga_maquina">Descarga</label>
+                        <input type="text" id="descarga_maquina" formControlName="descarga_maquina" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="arranjo_fisico">Arranjo Físico</label>
+                        <input type="text" id="arranjo_fisico" formControlName="arranjo_fisico" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="instalacoes">Instalações</label>
+                        <input type="text" id="instalacoes" formControlName="instalacoes" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="dispositivos_eletricos">Dispositivos Elétricos</label>
+                        <input type="text" id="dispositivos_eletricos" formControlName="dispositivos_eletricos" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="aterramento_maquinas">Aterramento</label>
+                        <input type="text" id="aterramento_maquinas" formControlName="aterramento_maquinas" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="condutores_maquinas">Condutores</label>
+                        <input type="text" id="condutores_maquinas" formControlName="condutores_maquinas" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="dispositivos_partida">Dispositivos de Partida</label>
+                        <input type="text" id="dispositivos_partida" formControlName="dispositivos_partida" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="sistema_seguranca">Sistemas de Segurança</label>
+                        <input type="text" id="sistema_seguranca" formControlName="sistema_seguranca" class="form-control">
+                    </div>
+                </div>
+
+               
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Máquina</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

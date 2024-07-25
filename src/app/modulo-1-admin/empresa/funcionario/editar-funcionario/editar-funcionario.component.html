@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Funcionario</h5>
+                    <p>Preencha os campos para editar o Funcionário.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="enviarEdicao()" [formGroup]="funcionarioForm">
+                <input type="hidden" formControlName="idFuncionario">
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="fonte_geradora">Nome</label>
+                        <input type="text" id="fonte_geradora" formControlName="nome" class="form-control" [ngClass]="{'is-invalid': funcionarioForm.get('nome')?.invalid && funcionarioForm.get('nome')?.touched}">
+                    </div>
+                    
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">RG</label>
+                        <input type="text" id="causasPerigo" formControlName="rg" class="form-control" [ngClass]="{'is-invalid': funcionarioForm.get('rg')?.invalid && funcionarioForm.get('rg')?.touched}">
+                    </div>  
+
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Cpf</label>
+                        <input type="text" id="causasPerigo" formControlName="cpf" class="form-control" [ngClass]="{'is-invalid': funcionarioForm.get('cpf')?.invalid && funcionarioForm.get('cpf')?.touched}">
+                    </div>     
+                    
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Matrícula</label>
+                        <input type="text" id="causasPerigo" formControlName="matricula" class="form-control" [ngClass]="{'is-invalid': funcionarioForm.get('matricula')?.invalid && funcionarioForm.get('matricula')?.touched}">
+                    </div>                     
+
+                    <div class="col-md-3 mt-2">
+                        <label for="formFile" class="form-label">Status</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="status" [ngClass]="{'is-invalid': funcionarioForm.get('status')?.invalid && funcionarioForm.get('status')?.touched}">
+                            <option value="ATIVO">ATIVO</option>
+                            <option value="INATIVO">INATIVO</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label for="formFile" class="form-label">Função</label>
+                        <ng-select
+                            [items]="funcoes"
+                            bindLabel="funcao"
+                            bindValue="idFuncao"
+                            class="form-select custom-ng-select"
+                            formControlName="idFuncao"
+                            [ngClass]="{'is-invalid': funcionarioForm.get('idFuncao')?.invalid && funcionarioForm.get('idFuncao')?.touched}"
+                            [matchFn]="customMatchFn"
+                            >
+
+                            <ng-template ng-label-tmp let-item="item">
+                              <div class="custom-bg" style="z-index: 1000;">
+                                {{ item.funcao | uppercase }}
+                              </div>
+                            </ng-template>
+
+                            <ng-template ng-option-tmp let-item="item">
+                                <div>
+                                    {{ item.funcao | uppercase }}
+                               
+                                </div>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                </div>
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Editar Funcionário</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

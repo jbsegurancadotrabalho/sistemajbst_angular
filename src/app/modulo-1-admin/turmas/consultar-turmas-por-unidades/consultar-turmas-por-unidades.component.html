@@ -1,0 +1,132 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="card mt-5">
+    <div class="card-body">
+      <form [formGroup]="formConsultarTurmas" (ngSubmit)="consultarTurmas()">
+       
+        <div class="row">
+          <div class="col-md-6 mt-3">
+            <label for="fim" class="form-label">Unidade de Treinmento</label>
+            <ng-select
+              [items]="unidades"
+              bindLabel="cnpj"
+              bindValue="idUnidadedetreinamento"
+              class="form-select custom-ng-select"
+              formControlName="unidadeId"
+              [ngClass]="{'is-invalid': formConsultarTurmas.get('idUnidadeDeTreinamento')?.invalid && formConsultarTurmas.get('idUnidadeDeTreinamento')?.touched}">
+              <ng-template ng-label-tmp let-item="item">
+                <div class="custom-bg" style="z-index: 1000;">
+                  {{ item.unidadedetreinamento | uppercase }}
+                  {{ item.cnpj | uppercase }}
+                  {{ item.unidade | uppercase }}
+                </div>
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item">
+                <div>
+                  {{ item.unidadedetreinamento | uppercase }}
+                  {{ item.cnpj | uppercase }}
+                  {{ item.unidade | uppercase }}
+                </div>
+              </ng-template>
+            </ng-select>
+          </div>
+        
+          <div class="col-md-2 mt-3">
+            <label for="fim" class="form-label">Data de Inicio</label>
+            <input type="datetime-local" class="form-control" formControlName="inicio" id="inicio">
+          </div>
+        
+          <div class="col-md-2 mt-3">
+            <label for="fim" class="form-label">Data de Fim</label>
+            <input type="datetime-local" class="form-control" formControlName="fim" id="fim">
+          </div>
+          <div class="col-md-2 mt-5">
+            <button type="submit" class="btn btn-success">Buscar</button>
+          </div>
+        </div>
+
+      </form>
+      
+    </div>
+  </div>
+
+  <div class="card mt-5" id="card-to-print">
+    <div class="card-body text-center">
+      <strong>LISTA GERAL DE TURMAS - P = Presente e F = Falta </strong>
+      <div class="table-responsive mt-3">
+        <table class="table table-sm table-striped table-hover">
+         
+         
+         
+         
+          <thead>
+              <tr>
+                <th style="font-size: 12px;">Nº</th>
+                <th style="font-size: 12px;">Data</th>
+                <th style="font-size: 12px;">Curso</th>
+                <th style="font-size: 12px;">Turma</th>
+                <th style="font-size: 12px;">Mat</th>
+                <th style="font-size: 12px;">Observaçoes</th>
+                <th style="font-size: 12px;">Empresa e CNPJ</th>
+                <th style="font-size: 12px;">Usuario</th>
+                <th style="font-size: 12px;">Aluno</th>
+                <th style="font-size: 12px;">Status</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let t of turmas;">
+                <ng-container *ngIf="t.matricula && t.matricula.length > 0">
+                  <tr *ngFor="let matricula of t.matricula  let i = index">
+                    <td style="font-size: 12px;">{{ i + 1 }}</td>
+                    <td style="font-size: 12px;">{{ t.datainicio | date: 'dd/MM/yyyy' }} a {{ t.datafim | date: 'dd/MM/yyyy' }}</td>
+                    <td style="font-size: 12px;">{{ t.curso?.curso || 'N/A' }}
+                    {{ t.tipo || 'N/A' }}
+                    {{ t.nivel || 'N/A' }}
+                    {{ t.modalidade || 'N/A' }} Instrutor {{ t.instrutor || 'N/A' }}</td>
+                    <td style="font-size: 12px;">{{ t.numeroTurma || 'N/A' }}</td>
+                    <td style="font-size: 12px;">{{ matricula.numeroMatricula || 'N/A' }}</td>
+                    <td style="font-size: 12px;">{{ matricula.observacoes || 'N/A' }}</td>
+                    <td style="font-size: 12px;">{{ matricula.funcionario?.empresa?.razaosocial || 'N/A' }}
+                    {{ matricula.funcionario?.empresa?.cnpj || 'N/A' }}</td>
+                    <td style="font-size: 12px;">{{ matricula.funcionario?.empresa?.email_usuario || 'N/A' }}
+                      
+                      {{ matricula.funcionario?.empresa?.responsavel_sistema || 'N/A' }}
+                      {{ matricula.funcionario?.empresa?.telefone_responsavel || 'N/A' }}
+
+                      </td>
+
+                    <td style="font-size: 12px;">{{ matricula.funcionario?.nome }}{{ matricula?.pessoafisica?.pessoafisica }} CPF: {{ matricula.funcionario?.cpf }}{{ matricula?.pessoafisica?.cpf }}</td>
+                    <td style="font-size: 12px;">{{ matricula.status || 'N/A' }}</td>
+
+                  </tr>
+                </ng-container>
+                <ng-container *ngIf="!(t.matricula && t.matricula.length > 0)">
+                  <tr>
+                    <td colspan="12">Nenhuma matrícula encontrada para a turma {{ t.numeroTurma || 'N/A' }}</td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+            </tbody>
+            
+            
+            <tbody>
+              <tr>
+                <td colspan="11">Não há dados disponíveis.</td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="row">
+
+        <div class="col-md-12 mt-1 mb-1 center">
+            <button (click)="printPage()">Gerar Lista Geral</button>
+        </div>
+    
+    </div>  
+</div>
+</div>
+</div>
+

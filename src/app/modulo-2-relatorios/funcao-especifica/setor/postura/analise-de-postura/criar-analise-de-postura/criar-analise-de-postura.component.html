@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Postura</h5>
+                    <p>Preencha os campos para criar uma postura para o setor da Unidade Selecionada.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-unidadedoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form [formGroup]="formularioPostura" (ngSubmit)="criarAnalisePostura()">
+                <input type="hidden" formControlName="idPostura">
+            
+                <div class="row mb-2">
+                    <div class="col-md-12 mt-3">
+                        <select class="form-select" 
+                        formControlName="titulo"
+                        aria-label="Default select example">
+                            <option value="Postura:">Postura:</option>
+                            <option value="Organização do Trabalho">Organização do Trabalho</option>
+                            <option value="Exigência de Tempo">Exigência de Tempo</option>
+                            <option value="Ritimo de Trabalho">Ritmo de Trabalho</option>
+                            <option value="Conteudo de Tarefas">Conteudo de Tarefas</option>
+                            <option value="Adoção de Rodizios - Ergonomico:">Adoção de Rodizios - Ergonomico:</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-12 mt-3">
+                        <select class="form-select" 
+                        formControlName="pergunta"
+                        aria-label="Default select example">
+                            <option value="Há registros de levantamento, transporte e descarga de materiais nesta atividade acima do limite recomendado?">Há registros de levantamento, transporte e descarga de materiais nesta atividade acima do limite recomendado?</option>
+                            <option value="Posturas forçadas, caso existente ocorrem de que forma?">Posturas forçadas, caso existente ocorrem de que forma?</option>
+                            <option value="O trabalho executado durante aos chamados decorrentes do dia-dia, são realizados
+                            preponderantemente de qual forma?">O trabalho executado durante aos chamados decorrentes do dia-dia, são realizados preponderantemente de qual forma?</option>
+                            <option value="Caso a resposta anterior seja “em pé” a empresa oferece pausas para descanso ou disponibiliza cadeiras do tipo semi-sentado?">Caso a resposta anterior seja “em pé” a empresa oferece pausas para descanso ou disponibiliza cadeiras do tipo semi-sentado?</option>
+                            <option value="Para execução das atividades do dia-dia é disponibilizado o uso de cadeira?">Para execução das atividades do dia-dia é disponibilizado o uso de cadeira?</option>
+            
+                        <option value="A cadeira é estofada e revestida, possui conformação de base giratória, o assento possui altura ajustável, possui ajustes de altura e inclinação, bordas do assento e apoio de coluna arredondadas e em formato anatômico?">A cadeira é estofada e revestida, 
+                            possui conformação de base giratória, o assento possui altura
+                                ajustável, possui ajustes de altura e inclinação, 
+                                bordas do assento e apoio de coluna
+                                arredondadas e em formato anatômico?</option>
+                                <option value="A Atividade necessita uso de monitor fixo sobre a mesa, caso positivo este apresenta regulagens de altura e inclinação? ">A Atividade necessita uso de monitor fixo sobre a mesa, caso positivo este apresenta regulagens
+                                de altura e inclinação ?</option>
+                        </select>
+                    </div>
+        
+            
+                    <div class="col-md-12 mt-3">
+                        <select class="form-select" 
+                        formControlName="resposta"
+                        aria-label="Default select example">
+                          
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                            <option value="Ocasionais">Ocasionais</option>
+                            <option value="Eventuais">Eventuais</option>
+                            <option value="Habituais">Habituais</option>
+                            <option value="Não Aplica">Não Aplica</option>
+                            <option value="Em pé">Em pé</option>
+                            <option value="Sentado">Sentado</option>
+                            <option value="Altenando entre postura em pé e sentado">Altenando entre postura em pé e sentado</option>
+
+                        </select>
+                    </div>
+                </div>
+            
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Postura</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

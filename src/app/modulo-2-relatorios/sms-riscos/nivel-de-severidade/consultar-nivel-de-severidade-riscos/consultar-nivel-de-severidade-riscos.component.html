@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Nivel de Severidade do Risco</h5>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="consultar-riscos" class="btn btn-success">Consultar Riscos</a>
+                </div>
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Nivel de Severidade" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_perigo" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Risco</th>
+                            <th>Número</th>
+                            <th>Nível</th>
+                            <th>Controle</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let perigoItem of riscos | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 }">
+                            <td>{{ perigoItem?.nivel_severidade?.nivel_risco_MedidasDeControle}}</td>
+                            <td>{{ perigoItem?.nivel_severidade?.numero_risco_MedidasDeControle}}</td>
+                            <td>{{ perigoItem?.nivel_severidade?.nivel_permissao_MedidasDeControle}}</td>
+                            <td>{{ perigoItem?.nivel_severidade?.descricao_MedidasDeControle}}</td>
+
+                                <td>
+                                    <div class="btn-group">
+
+                                    <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Ações
+                                      </button>
+                                    <ul class="dropdown-menu  border dropdown-menu-success">
+                                        <li>
+                                            <a href="/editar-nivel-de-severidade" class="dropdown-item  btn-success"
+                                                [routerLink]="['/editar-nivel-de-severidade', perigoItem?.nivel_severidade?.idNivelSeveridade]">
+                                                Editar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item btn btn-success"
+                                                (click)="excluirNivelDeSeveridade(perigoItem?.nivel_severidade?.idNivelSeveridade, perigoItem?.nivel_severidade?.nivel_risco_MedidasDeControle)">
+                                                Excluir
+                                            </a>
+                                        </li>
+                                     
+                                    </ul>
+                                </div>
+
+                                </td>
+                        </ng-container>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

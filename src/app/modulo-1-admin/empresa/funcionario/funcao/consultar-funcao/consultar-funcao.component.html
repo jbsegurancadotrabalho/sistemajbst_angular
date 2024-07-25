@@ -1,0 +1,101 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-3">
+                    <h5>Lista de Funções</h5>
+                            </div>
+                                  <div class="col-md-2 mt-3">
+                                <a href="cadastrar-funcao" class="btn btn-success">Cadastrar Função</a>
+
+                                        </div>
+                                                   </div>
+
+                                                   <div class="row mb-2">
+                                                    <div class="col-md-7">
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                                                            placeholder="Pesquisar por Funções" />
+                                                    </div>
+                                                </div>
+                                                   <hr>
+                                                   <div class="table-responsive mt-2">
+                                                    <table id="consulta_chamados" class="table table-sm table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>QTD</th>
+                                                                <th>Funçao</th>
+                                                                <th>CBO</th>
+                                                                <th>Periculosidade</th>
+                                                                <th>Insalubridade</th>
+
+                                                                <th>Operações</th>
+                                    
+                                    
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let f of funcoes | paginate: { itemsPerPage: itensPorPaginas, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                                                                <td>{{i + 1}}</td>
+
+                                                                <td>{{f.funcao| uppercase}}</td>
+                                                                <td>{{f.cbo}}</td>
+                                                                <td>{{f.gp}}</td>
+                                                                <td>{{f.gro}}</td>
+
+                                    
+                                                                <td>
+                                    
+                                          
+                                      <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                      data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                  </button>
+
+
+                                  <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+								  
+					
+                                    <li><a class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/cadastrar-funcaodoc', f.idFuncao]">Cadastrar Função para Relatórios</a></li>
+                                      
+
+								     <li><a class="dropdown-item btn btn-success" 
+                        [routerLink]="['/editar-funcao', f.idFuncao]">Editar Função</a></li>
+						
+                        <li><a class="dropdown-item btn btn-sm btn-success" 
+                           (click)="onDelete(f.idFuncao, f.funcao)">
+                              Excluir Função</a></li>
+
+                                  </ul>
+                                                                </td>
+                                    
+                                    
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td colspan="5">
+                                                                    Quantidade de Funções: {{(funcoes).length}}
+                                                                    <pagination-controls 
+                                                                    (pageChange)="paginaAtual1 = $event"
+                                                                    previousLabel="Página anterior"
+                                                                    nextLabel="Próxima página"
+                                                                    [maxSize]="5" 
+                                                                    [itemsPerPage1]="itensPorPaginas" 
+                                                                  ></pagination-controls>   
+                                                                </td>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

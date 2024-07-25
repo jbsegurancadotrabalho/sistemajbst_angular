@@ -1,0 +1,112 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">                
+
+            <h5>Edite a Matricula</h5>
+            <p>Preencha os campos para editar a matricula do aluno.</p>
+            <hr/>
+            
+        <div class="text-success">
+                    <strong></strong>
+                </div>
+                
+                <div class="text-danger">
+                    <strong></strong>
+                </div>
+                <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+                <form [formGroup]=" EditarMatriculas" (ngSubmit)="onSubmit()">
+                 <input type="hidden" formControlName="idTurmas">
+                 <input type="hidden" formControlName="id">
+
+                
+                <div class="row " >
+                    <div class="col-md-6 mb-1">
+                        <label for="formFile" class="form-label">Número da Turma aqui ou aloque-o para outra Turma</label>
+                        <ng-select 
+                        [items]="turmas"
+                        bindLabel="numeroTurma" 
+                        bindValue="idTurmas"
+                        class="form-select custom-ng-select"
+                        formControlName="idTurmas"
+                        [ngClass]="{'is-invalid': EditarMatriculas.get('idTurmas')?.invalid && EditarMatriculas.get('idTurmas')?.touched}"
+                        [matchFn]="customMatchFn"
+                    >
+                        <ng-template ng-label-tmp let-item="item">
+                            <div class="custom-bg" style="z-index: 1000;">
+                                {{ item?.numeroTurma }} 
+                            </div>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                            <div>
+                                Nº: {{ item?.numeroTurma }} -
+                                Data: {{ item?.datainicio | date: 'dd/MM/yyyy' }} -
+                                {{ item?.curso?.curso }}
+                                {{ item?.status }}
+                            </div>
+                        </ng-template>
+                    </ng-select>
+                    
+                    </div>
+                    
+                    
+                    <div class="col-md-1 mt-1">
+                        <label>Venda:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="venda"/>
+                    </div>
+
+                    <div class="col-md-1 mt-1">
+                        <label>Valor:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="valor" name="FaturamentoPj" required="FaturamentoPj"/>
+                    </div>
+				
+                    <div class="col-md-2 mt-1">
+                        <label> Faturamento:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="tipo_de_pagamento" name="FaturamentoPj" required="FaturamentoPj"/>
+                    </div>
+                 
+
+                    <div class="col-md-2 mt-4">
+
+                        <select class="form-select" placeholder="status" aria-label="Default select example" formControlName="status"
+                            name="valor" id="valor" required>
+                            <option value="Aluno Aguardando">Aluno Aguardando</option>
+                            <option value="Aluno Compareceu">Aluno Compareceu</option>
+                            <option value="Aluno Faltou">Aluno Faltou</option>
+
+                        </select>
+                    </div>
+                
+                    
+                  
+                
+
+                        	
+
+                        <div class="row">
+                          <div class="col-md-12 mt-3" >
+                              <label>Observaçoes:</label>                      
+                             <textarea class="form-control" id="exampleTextarea" rows="5" formControlName="observacoes"></textarea>
+                        </div>
+                      </div>
+			
+                <div class="row mb-2 mt-3">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Editar Matricula"/>
+                    </div>
+                </div>
+            </div>
+
+            </form>
+         
+        </div>
+    </div>
+
+</div>

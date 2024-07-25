@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5>Lista de Todas as Posturas do Setor Selecionada</h5>
+                </div>
+
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+           
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Posturas do Setor Selecionado" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_perigo" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Operações</th>
+                           
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let r of posturas  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{r?.nomePostura | uppercase}}</td>
+                            <td>{{r?.descricaoPostura | uppercase}}</td>
+                            <td>       
+                            <button href="/editar-postura" type="button" class="btn btn-warning m-1"  [routerLink]="['/editar-postura', r.idPostura]">Editar</button>
+                            <button  type="button" class="btn btn-danger m-1"  (click)="excluirPostura(r.idPostura, r.nomePostura)">Excluir</button>
+                            <button href="/criar-analise-postura" type="button" class="btn btn-success"  [routerLink]="['/criar-analise-postura', r.idPostura]">Criar Análise de Postura</button>
+                            <button href="/ver-analise-postura" type="button" class="btn btn-primary m-1"  [routerLink]="['/ver-analise-postura', r.idPostura]">Ver Análise de Postura</button>
+                    </td>
+
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Posturas: {{(posturas).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-9">
+                    <h5>Cadastrar Riscos Função Específica</h5>
+                    <p>Preencha os campos para incluir os Riscos.</p>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="criarRisco()" [formGroup]="formularioRiscos">
+                <input type="hidden" formControlName="idFuncaoEspecifica">
+
+                <div class="row mb-2">
+                    <div class="col-md-3 mt-3">
+                        <label for="grupo">Grupo de Riscos:</label>
+                        <select class="form-select" 
+                        formControlName="grupo"
+                        aria-label="Default select example">
+                            <option value="Quimico">Quimico</option>
+                            <option value="Fisico">Fisico</option>
+                            <option value="Biológico">Biológico</option>
+                            <option value="Altura">Altura</option>
+                            <option value="Espaço Confinado">Espaço Confinado</option>
+                            <option value="Elétrico">Elétrico</option>
+                            <option value="Mecânico">Mecânico</option>
+                            <option value="Ergonomia">Ergonomia</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-3 mt-3">
+                        <label for="grupo">Tipo Riscos:</label>
+                        <select class="form-select" 
+                        formControlName="tipo"
+                        aria-label="Default select example">
+                            <option value="Ruído">Ruído</option>
+                            <option value="Frio">Frio</option>
+                            <option value="Calor">Calor</option>
+                            <option value="Virus">Virus</option>
+                            <option value="Bactérias">Bactérias</option>
+                            <option value="Queda">Queda</option>
+                            <option value="Choque Elétrico">Choque Elétrico</option>
+                            <option value="Benzeno">Benzeno</option>
+
+                        </select>
+                    </div>    
+                    
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="fonte_geradora">Fonte Geradora:</label>
+                        <input type="text" id="fonte_geradora" formControlName="fonte_geradora" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="meios_de_propagacao">Meios de Propagação:</label>
+                        <input type="text" id="meios_de_propagacao" formControlName="meios_de_propagacao" class="form-control">
+                    </div> 
+                    
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="cor">Cor:</label>
+                        <input type="text" id="cor" formControlName="cor" class="form-control">
+                    </div>
+                </div>
+				
+				  
+				
+					    <div class="row mb-2">
+                 
+                            <div class="form-group col-md-12 mt-3">
+                                <label for="meios_de_controles">Meios de Controle:</label>
+                                <textarea id="meios_de_controles" formControlName="meios_de_controles" class="form-control" rows="10"></textarea>
+                            </div>
+                                     
+                </div>
+				
+						
+	  
+
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Riscos Função Específica</button>
+                </div>
+            </form>
+  
+        </div>
+    </div>
+</div>

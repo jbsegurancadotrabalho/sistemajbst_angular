@@ -1,0 +1,75 @@
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+
+
+        
+            <div class="row mb-2 mt-4">
+            
+                <div class="col-md-12 mt-1 text-center">
+                    <h5>RELATÓRIO ANALITICO DA EMPRESA {{ relatorio?.empresa?.razaosocial}}- CNPJ: {{ relatorio?.empresa?.cnpj}}
+                    </h5>          
+                </div>
+            
+            </div>
+        <p class="text-center">Este relatório está relacionado ao período de inicio de: {{ relatorio?.data_inicio | date: 'dd/MM/yyyy' }}
+                                    tendo o seu término no dia: {{ relatorio?.data_fim | date: 'dd/MM/yyyy' }}</p> 
+                                
+    
+
+
+
+
+
+
+            <hr />
+            <div class="table-responsive mt-2">
+                <table class="table table-sm table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Matrícula</th>
+                            <th>Status</th>
+                            <th>Venda</th>
+                            <th>Turma</th>
+                            <th>Data</th>
+                            <th>Funcionário</th>
+                            <th>CPF</th>
+                            <th>Curso</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let matricula of relatorio?.matriculas">
+                            <tr *ngIf="matricula">
+                                <td>{{ matricula?.numeroMatricula }}</td>
+                                <td>{{ matricula?.status }}</td>
+                                <td>{{ matricula?.venda }}</td>
+                                <td>{{ matricula?.turmas?.numeroTurma }}</td>
+                                <td>{{ matricula?.turmas?.datainicio | date: 'dd/MM/yyyy' }}</td>
+                                <td>{{ matricula?.funcionario?.nome }}</td>
+                                <td>{{ matricula?.funcionario?.cpf }}</td>
+                                <td>{{ matricula?.turmas?.curso?.curso }}</td>
+                                <td>{{ matricula?.valor }}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                    <tfoot>
+                        <div class="col-md-5 mt-1 mb-1 center">
+                        </div>
+                        <tr>
+                            <td colspan="8" class="text-center">Valor Total do Faturamento: R$ {{ relatorio?.total || 0 }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+    <div class="row">
+
+    <div class="col-md-5 mt-1 mb-1 center">
+    </div>
+    <div class="col-md-6 mt-1 mb-1 center">
+        <button (click)="printPage()">Relatório Analitico</button>
+    </div>
+
+    <div class="col-md-1 mt-1 mb-1 center">
+    </div>
+</div>

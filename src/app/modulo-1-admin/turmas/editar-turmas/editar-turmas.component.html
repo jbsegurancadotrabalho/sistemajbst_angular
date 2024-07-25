@@ -1,0 +1,379 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5 ">
+
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5>Editar Turmas</h5>
+                    <p>Preencha os campos para editar uma Turma.</p>
+                </div>
+             
+            </div>
+            <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{mensagem}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+            </div>
+            <hr />
+
+            <form [formGroup]="formEdicaoTurmas" (ngSubmit)="onSubmit()">
+                <input type="hidden" formControlName="idTurmas">
+
+            <div class="row">
+ <div class="col-md-6 mt-3">
+                <label for="formFile" class="form-label">Unidade</label>
+                <ng-select
+                    [items]="unidades"
+                    bindLabel="cnpj"
+                    bindValue="idUnidadedetreinamento"
+                    class="form-select custom-ng-select"
+                    formControlName="idUnidadedetreinamento"
+                    [ngClass]="{'is-invalid': formEdicaoTurmas.get('idUnidadedetreinamento')?.invalid && formEdicaoTurmas.get('idUnidadedetreinamento')?.touched}">
+                    <ng-template ng-label-tmp let-item="item">
+                        <div class="custom-bg" style="z-index: 1000;">
+                            {{ item.unidadedetreinamento | uppercase }} {{ item.cnpj | uppercase }} {{ item.unidade | uppercase }}
+                        </div>
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item">
+                        <div>
+                            {{ item.unidadedetreinamento | uppercase }} {{ item.cnpj | uppercase }} {{ item.unidade | uppercase }}
+                        </div>
+                    </ng-template>
+                </ng-select>
+            </div>
+
+            <div class="col-md-2 mt-4">
+                <label>Data de Inicio</label>
+                <input type="datetime-local" formControlName="datainicio" class="form-control" />
+            </div>
+
+            <div class="col-md-2 mt-4">
+                <label>Data de Fim</label>
+                <input type="datetime-local" formControlName="datafim" class="form-control" />
+            </div>
+
+            <div class="col-md-2 mt-4">
+                <label>Data de Validade</label>
+                <input type="datetime-local" formControlName="validadedocurso" class="form-control" />
+            </div>
+        </div>
+
+            <div class="row">
+              <div class="col-md-8 mt-3">
+                <ng-select
+                [items]="cursos"
+                bindLabel="curso"
+                bindValue="idcurso"
+                class="form-select custom-ng-select"
+                formControlName="idcurso"
+                [ngClass]="{'is-invalid': formEdicaoTurmas.get('idcurso')?.invalid && formEdicaoTurmas.get('idcurso')?.touched}">
+              
+                <ng-template ng-label-tmp let-item="item">
+                  <div class="custom-bg" style="z-index: 1000;">
+                    {{ item.curso | uppercase }}
+                    {{ item.status | uppercase }}
+                    {{ item.modelo_certificado | uppercase }}
+                    {{ item.campo_especifico | uppercase }}
+                  </div>
+                </ng-template>
+              
+                <ng-template ng-option-tmp let-item="item">
+                  <div>
+                    {{ item.curso | uppercase }}
+                    {{ item.status | uppercase }}
+                    {{ item.modelo_certificado | uppercase }}
+                    {{ item.campo_especifico | uppercase }}
+                  </div>
+                </ng-template>
+              </ng-select>            
+            </div>
+           
+  
+            
+              <div class="col-md-2 mt-4">
+                <select class="form-select" 
+                formControlName="nivel"
+                aria-label="Default select example">
+                    <option selected>Nivel do Curso</option>
+                    <option value="Inicial">Inicial</option>
+                    <option value="Periodico">Períodico</option>
+                    <option value="Eventual">Eventual</option>
+                    <option value="Formação">Formação</option>
+                    <option value="Reciclagem">Reciclagem</option>
+
+                </select>
+            </div>
+
+            <div class="col-md-2 mt-4">
+                <select class="form-select" 
+                formControlName="tipo"
+                aria-label="Default select example">
+                    <option selected>Tipo</option>
+                    <option value="Básico">Básico</option>
+                    <option value="Intermediário">Intermediário</option>
+                    <option value="Avançado">Avançado</option>
+				 	          <option value="Supervisor">Supervisor</option>
+                    <option value="Operador">Operador</option>
+                    <option value="Resgate em Altura">Resgate em Altura</option>
+                    <option value="Resgate em Espaço Confinado">Resgate em Espaço Confinado</option>
+                    <option value="Resgate Técnico Industrial em Espaço Confinado">Resgate Técnico Industrial em Espaço Confinado</option>
+                    <option value="Resgate Técnico Industrial em Altura">Resgate Técnico Industrial em Altura</option>                  
+                    <option value="Trabalhador Autorizado e Vigia">Trabalhador Autorizado e Vigia</option>
+                    <option value="Operador de Motoserra">Operador de Motoserra</option>
+                    <option value="Operador de Motopoda">Operador de Motopoda</option>
+                    <option value="Operador de Roçadeira">Operador de Roçadeira</option>
+                    <option value="Operador de Empilhadeira">Operador de Empilhadeira</option>
+                    <option value="Operador de Plataforma de Trabalho Aéreo">Operador de Plataforma de Trabalho Aéreo</option>
+                    <option value="Montador de Andaimes">Montador de Andaimes</option>
+
+
+
+
+                </select>
+            </div>
+            </div>	
+
+            <div class="row">
+                <div class="col-md-8 mt-4">
+                    <ng-select
+                    [items]="descricaoOptions"
+                    bindLabel="value"
+                    bindValue="value"
+                    class="form-select custom-ng-select"
+                    formControlName="descricao"
+                    [ngClass]="{'is-invalid': formEdicaoTurmas.get('descricao')?.invalid && formEdicaoTurmas.get('descricao')?.touched}">
+                  
+                    <ng-template ng-label-tmp let-item="item">
+                      <div class="custom-bg" style="z-index: 1000;">
+                        {{ item.value | uppercase }}
+                      </div>
+                    </ng-template>
+                  
+                    <ng-template ng-option-tmp let-item="item">
+                      <div>
+                        {{ item.value | uppercase }}
+                      </div>
+                    </ng-template>
+                  </ng-select>
+                </div>
+
+
+         
+                <div class="col-md-4 mt-4">
+                    <ng-select
+                    [items]="descricaoOptionsCargaHoraria"
+                    bindLabel="value"
+                    bindValue="value"
+                    class="form-select custom-ng-select"
+                    formControlName="cargahoraria"
+                    [ngClass]="{'is-invalid': formEdicaoTurmas.get('cargahoraria')?.invalid && formEdicaoTurmas.get('cargahoraria')?.touched}">
+                  
+                    <ng-template ng-label-tmp let-item="item">
+                      <div class="custom-bg" style="z-index: 1000;">
+                        {{ item.value | uppercase }}
+                      </div>
+                    </ng-template>
+                  
+                    <ng-template ng-option-tmp let-item="item">
+                      <div>
+                        {{ item.value | uppercase }}
+                      </div>
+                    </ng-template>
+                  </ng-select>
+                </div>                   
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-5 mt-4">
+                    <input placeholder="Ex: 1, 2, 3 e 4 de Maio de 2023." 
+                    formControlName="diasespecificos"
+                    type="text" name="nome" id="nome"
+                        class="form-control" />
+                </div>
+                <div class="col-md-3 mt-4">
+
+                    <ng-select
+                    [items]="diasOptions"
+                    bindLabel="value"
+                    bindValue="value"
+                    class="form-select custom-ng-select"
+                    formControlName="dia"
+                    [ngClass]="{'is-invalid': formEdicaoTurmas.get('dia')?.invalid && formEdicaoTurmas.get('dia')?.touched}">
+                  
+                    <ng-template ng-label-tmp let-item="item">
+                      <div class="custom-bg" style="z-index: 1000;">
+                        {{ item.value | uppercase }}
+                      </div>
+                    </ng-template>
+                  
+                    <ng-template ng-option-tmp let-item="item">
+                      <div>
+                        {{ item.value | uppercase }}
+                      </div>
+                    </ng-template>
+                  </ng-select>
+                </div>
+
+                <div class="col-md-2 mt-4">
+
+                    <ng-select
+                    [items]="mesOptions"
+                    bindLabel="value"
+                    bindValue="value"
+                    class="form-select custom-ng-select"
+                    formControlName="mes"
+                    [ngClass]="{'is-invalid': formEdicaoTurmas.get('mes')?.invalid && formEdicaoTurmas.get('mes')?.touched}">
+                  
+                    <ng-template ng-label-tmp let-item="item">
+                      <div class="custom-bg" style="z-index: 1000;">
+                        {{ item | uppercase }}
+                      </div>
+                    </ng-template>
+                  
+                    <ng-template ng-option-tmp let-item="item">
+                      <div>
+                        {{ item | uppercase }}
+                      </div>
+                    </ng-template>
+                  </ng-select>
+                </div>
+
+                <div class="col-md-2 mt-4">
+
+   
+                    <ng-select
+                    [items]="anoOptions"
+                    bindLabel="value"
+                    bindValue="value"
+                    class="form-select custom-ng-select"
+                    formControlName="ano"
+                    [ngClass]="{'is-invalid': formEdicaoTurmas.get('ano')?.invalid && formEdicaoTurmas.get('ano')?.touched}">
+                  
+                    <ng-template ng-label-tmp let-item="item">
+                      <div class="custom-bg" style="z-index: 1000;">
+                        {{ item | uppercase }}
+                      </div>
+                    </ng-template>
+                  
+                    <ng-template ng-option-tmp let-item="item">
+                      <div>
+                        {{ item | uppercase }}
+                      </div>
+                    </ng-template>
+                  </ng-select>
+                </div>
+
+              
+            </div>
+            <div class="row">
+
+                <div class="col-md-5 mt-4">
+                    <select class="form-select" 
+                    formControlName="modalidade"
+                    aria-label="Default select example">
+                        <option selected>Modalidade</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="EAD">EAD</option>
+                        <option value="Hibrido">Hibrido</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 mt-4">
+                    <select class="form-select" 
+                    formControlName="status"
+                    aria-label="Default select example">
+                        <option selected>Status da Turma</option>
+                        <option value="agendada">Agendada</option>
+                        <option value="acontecendo">Acontecendo</option>
+                        <option value="finalizada">Finalizada</option>
+                    </select>
+                </div> 
+                
+                  <div class="col-md-2 mt-4">
+                <select class="form-select" 
+                formControlName="validade"
+                aria-label="Default select example">
+                    <option selected>Validade</option>
+                    <option value="1 Ano"> 1 Ano </option>
+                    <option value="2 Anos"> 2 Anos</option>
+                    <option value="3 Anos"> 3 Anos </option>
+                </select>
+            </div>
+            <div class="col-md-2 mt-4">
+              <input placeholder="Principais Instrutores" 
+              formControlName="instrutor"
+              type="text" name="nome" id="nome"
+                  class="form-control" />
+          </div>
+        </div>
+        <div class="row mt-3 text-danger">
+
+            <Strong>Preencha os campos para incluir os dias especificos de curso para a lista de Presença como no Exemplo abaixo.</Strong>
+            <Strong >OBSERVAÇÃO: Preenchimento obrigatório ! Só alimentar os dias de curso !</Strong>
+    
+        </div>
+    
+    
+       <div class="row">
+        <div class="col-md-3 mt-2">
+                         <input placeholder="Ex: 1 de Maio de 2023." 
+                         formControlName="primeirodia"
+                         type="text" name="nome" id="nome"
+                             class="form-control" />
+                     </div>
+                     
+                     
+                        <div class="col-md-2 mt-2">
+                         <input placeholder="2 de Maio de 2023." 
+                         formControlName="segundodia"
+                         type="text" name="nome" id="nome"
+                             class="form-control" />
+                     </div>
+                     
+                        <div class="col-md-3 mt-2">
+                         <input placeholder="3 de Maio de 2023." 
+                         formControlName="terceirodia"
+                         type="text" name="nome" id="nome"
+                             class="form-control" />
+                     </div>
+                     
+                            <div class="col-md-2 mt-2">
+                         <input placeholder="4 de Maio de 2023." 
+                         formControlName="quartodia"
+                         type="text" name="nome" id="nome"
+                             class="form-control" />
+                     </div>
+                     
+                            <div class="col-md-2 mt-2">
+                         <input placeholder="5 de Maio de 2023." 
+                         formControlName="quintodia"
+                         type="text" name="nome" id="nome"
+                             class="form-control" />
+                     </div>
+         </div>
+                
+                
+         <div class="row">
+
+          <div class="col-md-12 mt-3" >
+           <label>Observações Gerais:</label>                      
+          <textarea class="form-control" id="exampleTextarea" rows="5" formControlName="observacoes"></textarea>
+     </div>
+   </div>
+                      
+ 
+
+                <div class="row mb-2 mt-5">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Editar Turmas" />
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

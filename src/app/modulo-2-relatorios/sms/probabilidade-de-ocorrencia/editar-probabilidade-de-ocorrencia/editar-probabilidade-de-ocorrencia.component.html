@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Probabilidade de Ocorrencia</h5>
+                    <p>Preencha os campos para editar a Probabilidade de Ocorrencia.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+
+
+                    <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Voltar
+                </button>
+                <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                    <li>
+                        <a href="/consultar-riscos" class="dropdown-item btn btn-success"
+                           >
+                            Riscos
+                        </a>
+                    </li>
+                 
+                    <li>
+                        <a href="/consultar-perigo" class="dropdown-item btn btn-success"
+                           >
+                    Perigo
+                        </a>
+                    </li>
+                </ul>
+
+
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="enviarEdicao()" [formGroup]="probabilidadeForm">
+                <input type="hidden" formControlName="idprobabilidadeOcorrencia">
+                
+                <div class="row mb-2">
+                    <div class="col-md-6 mt-3">
+                        <label for="grupo">Categoria:</label>
+                        <select class="form-select" 
+                        formControlName="categoria"
+                        aria-label="Default select example">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6 mt-3">
+                        <label for="grupo">Denominação:</label>
+                        <select class="form-select" 
+                        formControlName="denominacao"
+                        aria-label="Default select example">
+                            <option value="Extremamente Remota">Extremamente Remota</option>
+                            <option value="Remota">Remota</option>
+                            <option value="Improvavel">Improvavel</option>
+                            <option value="Provavel">Provavel</option>
+                            <option value="Frequente">Frequente</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12 mt-3">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" formControlName="descricao" class="form-control" rows="5"></textarea>
+                    </div>
+                    
+                </div>
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Editar Probabilidade de Ocorrencia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

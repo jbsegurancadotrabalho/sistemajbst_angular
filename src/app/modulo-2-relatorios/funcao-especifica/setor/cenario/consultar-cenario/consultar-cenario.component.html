@@ -1,0 +1,99 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <button type="button" class="btn btn-light">Lista de Todos os Cenários do Setor Selecionado</button>
+                </div>
+
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+           
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Setor" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_perigo" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Area</th>
+                            <th>Operações</th>
+                         
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let r of cenarios  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{r?.nomeAtividade | uppercase}}</td>
+                            <td>{{r?.descricaoAtividade | uppercase}}</td>
+                            <td>{{r?.area | uppercase}}</td>
+
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">  
+                                <li><a  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/documentos-deste-cenario', r.idCenario]">
+                                    Meus Documentos</a></li>
+                                                                  
+                              <li><a href="/editar-cenario"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/editar-cenario', r.idCenario]">
+                                Editar</a></li>
+
+                                <li><a class="dropdown-item btn btn-success" 
+                                    (click)="excluirCenario(r.idCenario, r.nomeAtividade)">
+                                Excluir
+                                </a></li>      
+
+                            
+                            </ul>   
+
+                            <button href="/criar-etapas" type="button" class="btn btn-warning m-1"  [routerLink]="['/criar-etapas',  r.idCenario]">Criar Etapas</button>
+                            <button href="/criar-funcao-unidade" type="button" class="btn btn-success"  [routerLink]="['/criar-funcao-unidade', r.idCenario]">Criar Função</button>                 
+                        <button href="/consultar-etapas" type="button" class="btn btn-primary m-1"  [routerLink]="['/consultar-etapas',  r.idCenario]">Ver Etapas</button>
+                        <button href="/consultar-funcao-unidade" type="button" class="btn btn-danger"  [routerLink]="['/consultar-funcao-unidade', r.idCenario]"> Ver Função</button>
+
+
+                    
+
+        
+                            
+                                    </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Cenário: {{(cenarios).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

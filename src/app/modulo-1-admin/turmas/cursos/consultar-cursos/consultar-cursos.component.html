@@ -1,0 +1,376 @@
+
+<app-navbar></app-navbar>
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+
+          <div class="modal" tabindex="-1"  id="verCursosModal">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">    
+                  <div *ngIf="cursoSelecionado">
+                    <strong>{{ cursoSelecionado.curso }} {{ cursoSelecionado.descricao}}</strong>
+                    <hr>
+                
+                
+                    <strong>Conteúdo Programático do Curso</strong>
+                    <p> {{ cursoSelecionado.conteudo}}</p>
+
+                    <p> <strong>Valor Formação:</strong> {{ cursoSelecionado.valorFormacao}} por Aluno
+                      <strong>Valor Reciclagem</strong> {{ cursoSelecionado.valorReciclagem}} por Aluno                    
+                      <strong>Valor EAD</strong>  {{ cursoSelecionado.valorEad}} por Aluno
+        
+        </p>
+
+        <p> <strong>Composição Orçamentária: </strong> {{ cursoSelecionado.composicaoOrcamentaria}}</p>
+
+        <p> <strong>Observações Gerais: </strong>{{ cursoSelecionado.observacoesGerais}}</p>
+
+
+
+                    <strong>Horários</strong>
+                    <p>Todos os nossos cursos na unidade Rio de Janeiro iniciam as 8:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                      para o almoço de 12:00 as 13:00 e Voltamos até o Horário das 17:00 Horas  </p>
+  
+                      <p>Todos os nossos cursos na unidade São Paulo iniciam as 9:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                        para o almoço de 12:00 as 13:00 e Voltamos até o Horário das 17:30 Horas  </p>
+  
+                        <p>Todos os nossos cursos na Empresa Parceira iniciam as 9:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                          para o almoço de 12:00 as 13:00 e Voltamos até o Horário das 17:30 Horas  </p>
+
+                  <div class="text-center">
+                  </div>
+                </div>
+        
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="modal fade" id="IncluirAvaliacaoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Insira a Avaliação do Curso </h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                  <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+    <form [formGroup]="formIncluirAvaliacao" (ngSubmit)="IncluirAvaliacaoSubmit()">
+      <input type="hidden" formControlName="idcurso" [(ngModel)]="id" />
+
+    
+      <div class="mb-2">             
+    </div>
+      <div class="row">  
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <label>Envie a Avaliação:</label>
+            <input type="file" class="form-control"  formControlName="incluiravaliacao" (change)="onFileChange($event)" />
+            <span class="text-danger">
+              {{ arquivoMsgErro }}
+            </span>
+          </div>
+        </div>
+      
+        
+    </div>
+    <div class="modal-footer">
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-success" 
+          
+          (click)="IncluirAvaliacaoSubmit()" data-bs-dismiss="modal"
+          
+          
+          >
+            Incluir Avaliação
+          </button>            
+    </div>
+    </div>
+    </div>               
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="IncluirMaterialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Insira o Material do Curso </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+          <strong>{{mensagem}}</strong>
+          <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+      </div>
+<form [formGroup]="formIncluirMaterial" (ngSubmit)="IncluirMaterialSubmit()">
+<input type="hidden" formControlName="idcurso" [(ngModel)]="id" />
+
+
+<div class="mb-2">             
+</div>
+<div class="row">  
+<div class="row mb-2">
+<div class="col-md-6">
+  <label>Envie a Avaliação:</label>
+  <input type="file" class="form-control"  formControlName="incluirmaterial" (change)="onFileChange1($event)" />
+  <span class="text-danger">
+    {{ arquivoMsgErro }}
+  </span>
+</div>
+</div>
+
+
+</div>
+<div class="modal-footer">
+<div class="row mb-2">
+<div class="col-md-12">
+<button type="button" class="btn btn-success" 
+
+(click)="IncluirMaterialSubmit()" data-bs-dismiss="modal"
+
+
+>
+  Incluir Material
+</button>            
+</div>
+</div>
+</div>               
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="IncluirGabaritoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Insira o Gabarito da Avaliação</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+          <strong>{{mensagem}}</strong>
+          <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+      </div>
+<form [formGroup]="formIncluirGabarito" (ngSubmit)="IncluirGabaritoSubmit()">
+<input type="hidden" formControlName="idcurso" [(ngModel)]="id" />
+
+
+<div class="mb-2">             
+</div>
+<div class="row">  
+<div class="row mb-2">
+<div class="col-md-6">
+  <label>Envie o Gabarito da Avaliação:</label>
+  <input type="file" class="form-control"  formControlName="incluirgabarito" (change)="onFileChange2($event)" />
+  <span class="text-danger">
+    {{ arquivoMsgErro }}
+  </span>
+</div>
+</div>
+
+
+</div>
+<div class="modal-footer">
+<div class="row mb-2">
+<div class="col-md-12">
+<button type="button" class="btn btn-success" 
+
+(click)="IncluirGabaritoSubmit()" data-bs-dismiss="modal"
+
+
+>
+  Incluir Avaliação
+</button>            
+</div>
+</div>
+</div>               
+</form>
+</div>
+</div>
+</div>
+</div>
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Nossos Cursos</h5>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="cadastrar-curso" class="btn btn-success">Cadastrar Cursos</a>
+
+                </div>
+            </div>
+            <hr />
+
+
+            <div class="row mb-2">
+
+                <div class="col-md-7">
+                  
+                </div>
+                <div class="col-md-5 mt-3">
+                  <input type="text" class="form-control" [(ngModel)]="filtro.curso"
+                      placeholder="Pesquisar Curso" />
+              </div>
+            </div>
+
+            <div class="table-responsive mt-3">
+              <table id="consulta_chamados" class="table table-sm table-hover table-bordered">
+                 
+                
+                 
+                  <thead>
+                    <tr>
+
+                      <th>Codigo</th>
+                      <th>Curso</th>
+                      <th>Certificado</th>
+                      <th>Formação</th>
+                      <th>Reciclagem</th>
+                      <th>EAD</th>
+                      <th>Operaçoes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let c of cursos | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.curso">
+                      <td>{{c.codigo}}</td>
+                      <td>{{c.curso}}</td>
+                      <td>{{c.modelo_certificado}}</td>
+                      <td>{{c.valorFormacao}} por Aluno</td>
+                      <td>{{c.valorReciclagem}} por Aluno</td>
+                      <td>{{c.valorEad}} por Aluno</td>
+                      <td>
+                        <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Ações
+                    </button>
+
+                    <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+
+                      <li><a  class="dropdown-item btn btn-success" 
+
+                        data-bs-toggle="modal" 
+                              data-bs-target="#verCursosModal"
+                               data-bs-whatever="@mdo"
+                                (click)="exibirCursos(c)"   
+                        
+                        >Ver Ementa do Curso</a></li>
+
+
+	                       <li> <a 
+                        class="dropdown-item btn btn-primary"
+                        [routerLink]="['/editar-curso', c.idcurso]"
+                        >Editar</a></li>
+
+                        <li> <a 
+                          class="dropdown-item btn btn-primary"
+                            data-bs-toggle="modal" 
+                          data-bs-target="#IncluirMaterialModal"
+                           data-bs-whatever="@mdo"
+                           (click)="setCurso(c)"
+                          >Inserir Material Didático</a></li>
+
+
+   <li> <a 
+                        class="dropdown-item btn btn-primary"
+                        (click)="downloadMaterial(c)"
+                        >Baixar Material Didático</a></li>
+                        
+                     	 <li> <a 
+                        class="dropdown-item btn btn-primary"
+                          data-bs-toggle="modal" 
+                      data-bs-target="#IncluirAvaliacaoModal"
+                       data-bs-whatever="@mdo"
+                       (click)="setCurso(c)"
+                        >Inserir Avaliação</a></li>
+						
+						    <li> <a 
+                          class="dropdown-item btn btn-primary"
+                        (click)="downloadAvaliacao(c)"
+                          >Baixar Avaliação</a></li>
+						  
+						  
+						 
+						
+						
+					
+						  
+						  
+						     <li> <a 
+                          class="dropdown-item btn btn-primary"
+                               data-bs-toggle="modal" 
+                        data-bs-target="#IncluirGabaritoModal"
+                         data-bs-whatever="@mdo"
+                         (click)="setCurso(c)"
+                          >Incluir Gabarito da Avaliação</a></li>
+						  
+						    <li> <a 
+                          class="dropdown-item btn btn-primary"
+                        (click)="downloadGabarito(c)"
+                          >Baixar Gabarito da Avaliação</a></li>
+						  
+                          <li> <a 
+                            class="dropdown-item btn btn-primary"
+                            (click)="onDelete(c.idcurso, c.curso)"
+                            >Excluir</a></li>         
+
+                     </ul>
+
+                     
+
+                      </td>
+                      
+                    </tr>
+                  </tbody>
+                  
+                  <tfoot>
+                    <tr>
+                      <td colspan="15">
+
+                        Quantidade de Cursos: {{(cursos).length}}
+                        <pagination-controls 
+  (pageChange)="paginaAtual = $event"
+  previousLabel="Página anterior"
+  nextLabel="Próxima página"
+  [maxSize]="5" 
+  [itemsPerPage]="itensPorPagina" 
+></pagination-controls>         
+                                                </td>
+                  </tr>
+              </tfoot>
+                </table>
+              </div>
+              
+            </div>
+
+    <!-- componente de paginação -->
+    <div class="text-center">
+       
+    </div>
+        </div>
+    </div>
+

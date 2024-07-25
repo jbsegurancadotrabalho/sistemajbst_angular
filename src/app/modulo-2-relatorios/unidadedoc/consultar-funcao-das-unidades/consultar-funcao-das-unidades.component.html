@@ -1,0 +1,122 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Unidades Relatórios</h5>
+                </div>
+            
+            </div>
+            
+            <div class="row mb-2">
+
+                <div class="col-md-7">
+                
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar todas as Funções desta Unidade" />
+                </div>
+            </div>
+            <hr />
+
+
+        
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_chamados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Função</th>
+                            <th>Cenário</th>
+                            <th>Setor</th>
+                            <th>Operações</th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let f of funcoes  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{f.nome_da_funcao}}</td>
+                            <td>{{f.cenario_funcaodoc | uppercase}}</td>
+                            <td>{{f.setor_gho | uppercase}}</td>    
+                            <td>
+
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+            
+
+                                
+                                <li>
+                                    <a
+                                      class="dropdown-item btn btn-success"
+                                      (click)="excluirFuncao(f.idFuncaoDoc)"
+                                    >
+                                      Excluir
+                                    </a>
+                                  </li>
+
+                           
+
+                                   
+                            </ul>    
+                            
+                           
+
+
+                        <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                        
+        
+
+                                      
+                            
+                        
+
+                                   
+                    
+                        </ul>                  
+
+                        </td>                  
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            Quantidade de Unidades: {{(funcoes).length}}
+                            <pagination-controls 
+                            (pageChange)="paginaAtual1 = $event"
+                            previousLabel="Página anterior"
+                            nextLabel="Próxima página"
+                            [maxSize]="10" 
+                            [itemsPerPage1]="itensPorPagina" 
+                        ></pagination-controls> 
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+     
+
+
+
+
+      
+          
+    </div>
+</div>
+</div>

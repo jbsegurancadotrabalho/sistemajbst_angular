@@ -1,0 +1,69 @@
+
+
+<app-perfil-empresa></app-perfil-empresa>
+<div class="container mt-5">
+
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+              
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-9 mt-1">
+                        <h5>Cadastre Aqui a Função do Colaborador</h5>
+                                </div>
+                                      <div class="col-md-3 mt-1">
+                                    <a href="minha-empresa" class="btn btn-success">Voltar</a>
+    
+                                            </div>
+                                                 </div>
+                                                                <hr/>
+            
+                    <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                        <strong>{{mensagem}}</strong>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                    </div>
+                    
+                    
+                    <form [formGroup]="formFuncao" (ngSubmit)="onSubmit()">
+                <div class="row mb-2">
+                    <div class="col-md-9">
+                        <label>Função:</label>
+                        <input type="text" name="nome" id="nome" class="form-control" 
+                        formControlName="funcao"
+                        />
+                    </div>
+                    <div class="col-md-3">
+                        <label>CBO:</label>
+                        <input type="text" name="valor" 
+                        id="valor" class="form-control"
+                        formControlName="cbo"
+
+                        />
+                    </div>
+
+
+                    <div class="col-md-12 mb-3 mt-3">
+                        <label class="form-label">Descreva a Função</label>
+
+                        <input type="text" name="valor" 
+                        id="valor" class="form-control"
+                        formControlName="descricao"
+                        rows="10"
+                        />
+                      </div>
+
+
+                </div>
+
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Realizar Cadastro" />
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

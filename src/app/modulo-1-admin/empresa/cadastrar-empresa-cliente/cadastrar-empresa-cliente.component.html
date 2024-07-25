@@ -1,0 +1,103 @@
+<app-perfil-empresa></app-perfil-empresa>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">
+        
+           
+
+            <div class="row">
+            <div class="col-md-10 mt-3" >
+                <h5>Cadastrar Minha Empresa</h5>
+                <p>Preencha os campos para incluir a empresa.</p>             
+               </div>
+            
+            <div class="col-md-2 mt-3" *ngIf="usuario">
+                <a href="/minha-empresa"
+                 class="btn btn-success"                
+                 >Voltar</a>
+               </div>
+            </div>
+
+
+        <div class="text-success">
+                    <strong></strong>
+                </div>
+                
+                <div class="text-danger">
+                    <strong></strong>
+                </div>
+                <div *ngIf="cadastroSucesso" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{ cadastroSucesso }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = ''"></button>
+                  </div>
+                  
+                  <div *ngIf="cadastroErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ cadastroErro }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = ''"></button>
+                  </div>
+                  
+                <form [formGroup]="empresaForm" (ngSubmit)="criarEmpresa()">
+                    <input type="hidden" formControlName="id" />
+
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label>Nome da empresa:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="razaosocial"/>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label>Nome Fantasia:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="nomefantasia"/>
+                    </div>
+
+                    <div class="col-md-2 mt-4">
+                        <select class="form-select" 
+                        formControlName="status"
+                        aria-label="Default select example">
+                            <option value="Ativo">Ativo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6 mt-3">
+                        <label>CNPJ:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="cnpj" 
+                        
+                        />
+                    </div>
+        
+                
+                    
+                
+                    <div class="col-md-4 mt-3">
+                        <label>Responsável pelo Sistema:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="responsavel_sistema" 
+                        
+                        />
+                    </div>
+
+                    <div class="col-md-2 mt-3">
+                        <label>Telefone Responsavel:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="telefone_responsavel"/>
+                    </div>      
+                               
+                    </div>
+                
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Realizar Cadastro"/>
+                    </div>
+                </div>
+               
+
+            </form>
+          
+        </div>
+    </div>
+
+</div>

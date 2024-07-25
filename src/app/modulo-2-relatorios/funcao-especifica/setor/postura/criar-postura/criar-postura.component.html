@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Postura</h5>
+                    <p>Preencha os campos para criar uma postura para o setor da Unidade Selecionada.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-unidadedoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form [formGroup]="formularioPostura" (ngSubmit)="criarPostura()">
+                <input type="hidden" formControlName="id_gho_setor">
+            
+                <div class="row mb-2">
+              
+                    <div class="col-md-4 mt-3">
+                        <select class="form-select" 
+                        formControlName="nomePostura"
+                        aria-label="Default select example">
+                            <option value="Postura das Costas:">Postura das Costas</option>
+                            <option value="Postura dos Braços">Postura dos Braços</option>
+                            <option value="Postura das Pernas">Postura das Pernas</option>
+                            <option value="Esforço">Esforço</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-8 mt-3">
+                        <select class="form-select" 
+                        formControlName="descricaoPostura"
+                        aria-label="Default select example">
+                        <option value="">SELECIONE A POSTURA DAS COSTAS CORRETA</option>
+                            <option value="1- Ereta">1- Ereta</option>
+                            <option value="2- Inclinada">2- Inclinada</option>
+                            <option value="3- Ereta e Torcida">3- Ereta e Torcida</option>
+                            <option value="4- Inclinada e Torcida">4- Inclinada e Torcida</option>
+                            <option value="">SELECIONE A POSTURA DOS BRAÇOS CORRETA</option>
+                            <option value="1- Os dois Braços abaixo dos Ombros">1 - Os dois Braços abaixo dos Ombros</option>
+                            <option value="2- Um braço no Nível ou Acima dos Ombros">2 - Um braço no Nível ou Acima dos Ombros</option>
+                            <option value="3- Ambos Braços no nível ou Acima dos ombros">3 - Ambos Braços no nível ou Acima dos ombros</option>
+                            <option value="">SELECIONE A POSTURA DAS PERNAS</option>
+                            <option value="1- Sentado"> 1 - Sentado</option>
+                            <option value="2 - De Pé com ambas as pernas Esticadas"> 2 - De Pé com ambas as pernas Esticadas</option>
+                            <option value="3 - De Pé com o peso de uma das pernas esticada"> 3 - De Pé com o peso de uma das pernas esticada</option>
+                            <option value="4 - De Pé ou agachado com ambos os joelhos Flexionados"> 4 - De Pé ou agachado com ambos os joelhos Flexionados </option>
+                            <option value="5 - De Pé ou agachado com um dos Joelhos dobrados"> 5 - De Pé ou agachado com um dos Joelhos dobrados</option>
+                            <option value="6 - Ajoelhado em um ou ambos os Joelhos"> 6 - Ajoelhado em um ou ambos os Joelhos</option>
+                            <option value="7 - Andando ou se movendo"> 7 - Andando ou se movendo</option>
+                            <option value="">SELECIONE O ESFORÇO</option>
+                            <option value="1- Carga Menor ou Igual a 10 kg">1- Carga Menor ou Igual a 10 kg</option>
+                            <option value="2 - Carga maior que 10 Kg e Menor ou Igual a 20 Kg"> 2 - Carga maior que 10 Kg e Menor ou Igual a 20 Kg</option>
+                            <option value="2 - Carga maior que 20 Kg"> 2 - Carga maior que 10 Kg</option>
+
+                        </select>
+                    </div>
+
+                    <div class="card col-md-4 mt-4 m-1" style="width: 18rem;">
+                        <h5 class="card-title">Postura das Costas</h5>
+                        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/06/Postura-das-Costas.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                      </div>
+
+                      <div class="card col-md-4 mt-4 m-1" style="width: 18rem;">
+                        <h5 class="card-title">Postura dos Braços</h5>
+                        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/06/Postura-dos-Bracos.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                      </div>
+
+                      <div class="card col-md-4 mt-4 m-1" style="width: 18rem;">
+                        <h5 class="card-title">Postura das Pernas</h5>
+                        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/06/Postura-das-Pernas.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                      </div>
+
+                      <div class="card col-md-4 mt-4 m-1" style="width: 18rem;">
+                        <h5 class="card-title">Postura das Pernas</h5>
+                        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/06/Postura-das-Pernas2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                      </div>
+
+                      <div class="card col-md-4 mt-4 m-1" style="width: 18rem;">
+                        <h5 class="card-title">Esforço</h5>
+                        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/06/esforco.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                      </div>
+           
+                </div>
+
+     
+            
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Postura</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

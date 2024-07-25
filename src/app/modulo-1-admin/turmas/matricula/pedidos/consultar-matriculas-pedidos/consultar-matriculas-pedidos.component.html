@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Alunos Matriculados Empresas Faturamento PJ</h5>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="cadastrar-matriculas-faturamentopj" class="btn btn-primary">Criar Matriculas</a>
+
+                </div>
+            </div>
+            <hr />
+
+            <div class="table-responsive mt-2">
+                        <table class="table table-sm table-striped table-hover" datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger">
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>CNPJ</th>
+						    <th>Matricula</th>
+                            <th>Data</th>
+                            <th>Venda</th>
+                            <th>Valor</th>
+                            <th>Funcionario</th>
+                            <th>RG</th>
+                            <th>Funcão</th>
+                            <th>Curso</th>
+                            <th>Status</th>
+                            <th>Operações</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let m of matriculas">
+                            <td>{{ m.funcionario?.empresa?.nomefantasia }}</td> <!-- Usar operador de navegação segura '?' -->
+                            <td>{{ m.funcionario?.empresa?.cnpj }}</td> <!-- Usar operador de navegação segura '?' -->
+                            <td>{{m.numeroMatricula}}</td>
+                             <td>{{m.dataHoraCriacao| date: 'dd/MM/yyyy'}}</td>
+                            <td>{{m.venda}}</td>
+							<td>{{m?.valor}}</td>
+                            <td>{{ m.funcionario?.nome }}</td>
+                            <td>{{ m.funcionario?.rg }}</td>
+                            <td>{{ m.funcionario?.funcao?.funcao }}</td>
+                            <td>{{ m.turmas?.curso?.curso }}</td> <!-- Use o operador de navegação segura '?.' -->
+                            <td>{{ m.status }}</td>
+
+
+                            <td>
+
+                                <button class="btn btn-sm btn-outline-primary" >
+                                    Editar
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger me-2" >
+                                    Excluir
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                
+                </table>
+            </div>
+
+  
+        </div>
+    </div>
+
+</div>

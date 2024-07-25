@@ -1,0 +1,121 @@
+
+<app-perfil-aluno></app-perfil-aluno>
+
+<div class="row">
+<div class="col-md-6 mt-5">
+</div>
+
+
+<div class="col-md-6 mt-5">
+  <a href="https://www.iloveimg.com/pt/redimensionar-imagem#resize-options,pixels" class="btn btn-success">Clique aqui para Acertar a Assinatura para 68 x 36 pixels aproximadamente</a>
+</div>
+</div>
+
+<div class="modal fade" id="IncluirAssinaturaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Incluir Assinatura do Instrutor </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+          <strong>{{mensagem}}</strong>
+          <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+      </div>
+<form [formGroup]="formIncluirAssinatura" (ngSubmit)="IncluirAssinaturaSubmit()">
+<input type="hidden" formControlName="idpessoafisica" [(ngModel)]="id" />
+
+
+<div class="mb-2">             
+</div>
+<div class="row">  
+<div class="row mb-2">
+<div class="col-md-6">
+  <label>Envie a Assinatura do Instrutor:</label>
+  <input type="file" class="form-control" (change)="onFileChange1($event)" />
+  <span class="text-danger">
+    {{ arquivoMsgErro }}
+  </span>
+</div>
+</div>
+
+
+</div>
+<div class="modal-footer">
+<div class="row mb-2">
+<div class="col-md-12">
+<button type="button" class="btn btn-success" 
+
+(click)="IncluirAssinaturaSubmit()" data-bs-dismiss="modal">
+  Incluir Assinatura
+</button>            
+</div>
+</div>
+</div>               
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+
+      <div class="table-responsive mt-5">
+        <table class="table table-sm table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>RG</th>
+              <th>EMAIL</th>
+              <th>Senha</th>
+              <th>Operações</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of aluno | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe: filtro.nome_contato">
+              <td>{{ a.pessoafisica}}</td>
+              <td>{{ a.cpf}}</td>
+              <td>{{ a.rg}}</td>
+              <td>{{ a.email}}</td>
+              <td>{{ a.senha_sistema}}</td>
+
+        
+              <td>
+                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+              Ações
+            </button>
+
+
+            <ul class="dropdown-menu btn-sm border dropdown-menu-succes">
+
+ 
+ 
+              <li><a href="/cartao-de-acesso-cliente-empresa"  class="dropdown-item btn btn-danger" 
+                data-bs-toggle="modal" 
+                          data-bs-target="#IncluirAssinaturaModal"
+                           data-bs-whatever="@mdo"
+                           (click)="setPessoa(a)"
+              
+              >
+                               Incluir Assinatura</a></li>
+
+
+            </ul>
+         
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+   
+      <div class="table-responsive mt-2">
+      
+        <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Página anterior" nextLabel="Próxima página" [maxSize]="10" [itemsPerPage]="itensPorPagina"></pagination-controls>
+      </div>
+  

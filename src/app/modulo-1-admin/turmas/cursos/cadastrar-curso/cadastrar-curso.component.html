@@ -1,0 +1,191 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">		
+    <div class="card mt-5">
+        <div class="card-body">
+
+
+            <div class="row mb-2">
+                <div class="col-md-10">
+            <h5>Cadastrar Curso</h5>
+            <p>Preencha os campos para incluir o curso </p>
+        </div>
+        <div class="col-md-2">
+            <a href="consultar-cursos" class="btn btn-success">Voltar</a>
+        </div>
+
+    </div>
+  
+            
+            <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{mensagem}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+            </div>
+           
+
+           
+            <form [formGroup]="formCurso" (ngSubmit)="onSubmit()" >
+                <div class="row">
+                <div class="col-md-4 mt-4">
+                    <select class="form-select" aria-label="Default select example" 
+                    formControlName="curso">
+						<option value="Curso de Gestão">Curso de Gestão</option>
+                        <option value="Curso NR-1">Curso de NR-1</option>
+                        <option value="Curso NR-5">Curso de NR-5</option>
+                        <option value="Curso NR-6">Curso de NR-6</option>
+                        <option value="Curso NR-7">Curso de NR-7</option>
+                        <option value="Curso NR-10">Curso de NR-10</option>
+                        <option value="Curso NR-10 SEP">Curso de NR10-SEP</option>
+                        <option value="Curso NR-11">Curso de NR-11</option>
+                        <option value="Curso NR-12">Curso de NR-12</option>
+                        <option value="Curso NR-13">Curso de NR-13</option>
+                        <option value="curso de NR-17">Curso de NR-17</option> 
+                        <option value="Curso NR-18">Curso de NR-18</option>
+                        <option value="Curso NR-19">Curso de NR-19</option>
+                        <option value="Curso NR-20">Curso de NR-20</option>
+                        <option value="Curso NR-23">Curso de NR-23</option>
+                        <option value="curso de NR-26">Curso de NR-26</option>
+                        <option value="Curso NR-30">Curso de NR-30</option>
+                        <option value="Curso NR-31">Curso de NR-31</option>
+                        <option value="Curso NR-32">Curso de NR-32</option>
+                        <option value="Curso NR-33">Curso de NR-33</option>
+                        <option value="Curso NR-34">Curso de NR-34</option>
+                        <option value="Curso NR-35">Curso de NR-35</option>
+                        <option value="curso de NR-36">Curso de NR-36</option>
+                        <option value="Curso NR-37">Curso de NR-37</option>
+					    <option value="Curso de Supervisor de NR-33">Curso de Supervisor de NR-33</option>
+						<option value="Curso de Supervisor de NR-35">Curso de Supervisor de NR-35</option>
+						<option value="Curso Instrutor NR-11">Curso de Instrutor NR-11</option>
+						<option value="Curso Instrutor NR-12">Curso de Instrutor NR-12</option>
+						<option value="Curso Instrutor NR-20">Curso de Instrutor NR-20</option>
+						<option value="Curso Instrutor NR-20">Curso de Instrutor NR-20</option>
+                        <option value="Curso Instrutor NR-33">Curso de Instrutor NR-33</option>
+                        <option value="Curso Instrutor NR-35">Curso de Instrutor NR-35</option>
+						<option value="Curso de Porteiro">Curso de Porteiro</option>
+                        <option value="Curso de Zelador">Curso de Zelador</option>
+
+
+                    </select>
+                </div>
+
+          
+                <div class="col-md-4 mt-4">
+                    <select class="form-select"
+                    formControlName="descricao"
+                    aria-label="Default select example">
+				        <option value="de Saúde e Segurança do Trabalho">de Saúde e Segurança do Trabalho</option>
+						<option value="de Normas Regulamentadoras - NR´S">de Normas Regulamentadoras - NR´S</option>
+                        <option value="Disposições Gerais">Disposições Gerais</option>
+                        <option value="Comissão Interna de Prevenção de Acidentes e de Assédio">Comissão Interna de Prevenção de Acidentes e de Assédio</option>
+                        <option value="EPI e EPC">EPI e EPC</option>
+                        <option value="Primeiros Socorros">Primeiros Socorros</option>
+                        <option value="Segurança em Instalações Elétricas">Segurança em Instalações e Serviços Elétricos</option>
+                        <option value="Sistema Elétrico de Potência">Sistema Elétrico de Potência</option>
+                        <option value="Transporte e Movimentação de Cargas">Transporte e Movimentação de Cargas</option>
+                        <option value="Segurança em Máquinas e Equipamentos">Segurança em Máquinas e Equipamentos</option>
+                        <option value="Insalubridade">Insalubridade</option>
+                        <option value="Periculosidade">Periculosidade</option>
+                        <option value="Ergonomia">Ergonomia</option>
+                        <option value="Integração com a Construção Civil">Integração com a Construção Civil</option>
+                        <option value="Atmosferas Explosivas">Atmosferas Explosivas</option>
+                        <option value="Liquidos Inflamáveis">Liquidos Inflamáveis</option>
+                        <option value="Príncipio de Combate a Incêndio">Príncipio de Combate a Incêndio</option>
+                        <option value="Brigada de Incendio">Brigada de Incendio</option>
+                        <option value="Sinalização de Segurança">Sinalização de Segurança</option>
+                        <option value="Segurança em Navios">Segurança em Navios</option>
+                        <option value="Seguranca no Setor Rural">Seguranca no Setor Rural</option>
+                        <option value="Seguranca na Saúde">Seguranca na Saúde</option>
+                        <option value="Segurança em Espaço Confinado">Segurança em Espaço Confinado</option>
+                        <option value="Segurança no Setor Naval">Segurança no Setor Naval</option>
+                        <option value="Segurança em Trabalhos em Altura">Segurança em Trabalhos em Altura</option>
+                        <option value="Segurança e Saúde no Trabalho em Empresas de Abate e Processamento de Carnes e Derivados">Segurança e Saúde no Trabalho em Empresas de Abate e Processamento de Carnes e Derivados</option>
+                        <option value="Segurança em Plataformas">Segurança em Plataformas</option>
+					 <option value="Predial, Residencial e Industrial">Predial, Residencial e Industrial</option>
+
+                    </select>
+                </div>
+
+            
+
+                <div class="col-md-4 " >
+                    <label>Padrão:</label>
+                    <input   placeholder="Ex: Padrão JB" name="valor" id="valor" class="form-control"  formControlName="modelo_certificado"/>
+                </div>     
+            </div>
+           
+            <div class="row">
+
+           
+            
+             <div class="col-md-6 mt-3" >
+                <label>Texto Especifico:</label>
+                <input   type="text" name="valor" id="valor" class="form-control" formControlName="campo_especifico"/>
+            </div>
+
+            <div class="col-md-2 mt-3" >
+                <label>Valor Formação:</label>
+                <input   type="text" name="valor" id="valor" class="form-control" formControlName="valorFormacao"/>
+            </div>
+    
+            <div class="col-md-2 mt-3" >
+                <label>Valor Reciclagem:</label>
+                <input   type="text" name="valor" id="valor" class="form-control" formControlName="valorReciclagem"/>
+            </div>
+
+            <div class="col-md-2 mt-3" >
+                <label>Valor EAD:</label>
+                <input   type="text" name="valor" id="valor" class="form-control" formControlName="valorEad"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-3" >
+                <label>Conteudo Programático:</label>                      
+               <textarea class="form-control" id="exampleTextarea" rows="10" formControlName="conteudo"></textarea>
+          </div>
+
+        </div>
+        <div class="row">
+
+          <div class="col-md-6 mt-3" >
+            <label>Titulo da Autorização:</label>
+            <input   type="text" name="valor" id="valor" class="form-control" formControlName="tituloautorizacao"/>
+        </div>
+
+        <div class="col-md-6 mt-3" >
+            <label>Item da Autorização:</label>
+            <input   type="text" name="valor" id="valor" class="form-control" formControlName="itemdaautorizacao"/>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-3" >
+                <label>Conteudo da Autorização:</label>                      
+               <textarea class="form-control" id="exampleTextarea" rows="10" formControlName="conteudodaautorizacao"></textarea>
+          </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 mt-3" >
+                   <label>Composição Orçamentaria:</label>                      
+                  <textarea class="form-control" id="exampleTextarea" rows="10" formControlName="composicaoOrcamentaria"></textarea>
+             </div>
+             
+               <div class="col-md-6 mt-3" >
+                   <label>Observações Gerais:</label>                      
+                  <textarea class="form-control" id="exampleTextarea" rows="10" formControlName="observacoesGerais"></textarea>
+             </div>
+       </div>
+
+        <div class="row mb-2 mt-4">
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-success" value="Realizar Cadastro"/>
+            </div>
+        </div>
+
+            </form>
+
+
+
+        </div>
+    </div>
+ 

@@ -1,0 +1,119 @@
+<app-perfil-empresa></app-perfil-empresa>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+          
+              
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de Faturamentos</h5>
+                </div>
+            
+            </div>
+            <div class="row d-flex justify-content-center ">             
+              <div class="col-11 d-flex justify-content-center bg-light mb-5">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <span class="navbar-brand">Período: </span>
+                  <button class="btn btn-outline-secondary" (click)="mudarMes(-1)">&lt; Anterior</button>
+                  
+                  <!-- Adição do dropdown para selecionar o mês -->
+                  <div class="dropdown mx-3">
+                   <button class="btn btn-success m-1 dropdown-toggle" type="button" id="mesDropdown"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                          MESES  DO ANO
+                                        </button>
+                      <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                       <li> <a class="dropdown-item" (click)="selecionarMes(0)">Janeiro</a></li>
+                      <a class="dropdown-item" (click)="selecionarMes(1)">Fevereiro</a>
+                      <a class="dropdown-item" (click)="selecionarMes(2)">Março</a>
+                      <a class="dropdown-item" (click)="selecionarMes(3)">Abril</a>
+                      <a class="dropdown-item" (click)="selecionarMes(4)">Maio</a>
+                      <a class="dropdown-item" (click)="selecionarMes(5)">Junho</a>
+                      <a class="dropdown-item" (click)="selecionarMes(6)">Julho</a>
+                      <a class="dropdown-item" (click)="selecionarMes(7)">Agosto</a>
+                      <a class="dropdown-item" (click)="selecionarMes(8)">Setembro</a>
+                      <a class="dropdown-item" (click)="selecionarMes(9)">Outubro</a>
+                      <a class="dropdown-item" (click)="selecionarMes(10)">Novembro</a>
+                      <a class="dropdown-item" (click)="selecionarMes(11)">Dezembro</a>
+      
+                      </ul>
+                  </div>
+                
+                  <span class="navbar-text mx-3">{{ periodoAtual }}</span>
+                  <button class="btn btn-outline-secondary" (click)="mudarMes(1)">Próximo &gt;</button>      
+                </nav> 
+                      </div>          
+          </div>
+      
+               
+            
+            <hr />
+            <div class="table-responsive mt-2">
+                <table class="table table-sm table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Empresa</th>
+							<th>cnpj</th>
+						    <th>PC</th>
+						   <th>venda</th>
+						    <th>NF</th>
+						    <th>R$</th>
+					        <th>creditos</th>
+							<th>matriculas</th>
+							<th>comprador</th>
+                           <th>Status do Pedido</th>
+                           <th>Matriculas Pedidos</th>
+                            <th>Relatórios</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tbody>
+                            <tr *ngFor="let p of pedidos"  [class]="getTableRowClass(p)">
+                                <td>{{p.dataHoraCriacao | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{p?.empresa?.nomefantasia}}</td>
+                                <td>{{p?.empresa?.cnpj}}</td>
+                                <td>{{p.numerodopedido}}</td>
+                                <td>{{p.venda}}</td>
+                                <td>{{p.notafiscal}}</td>
+                                <td>{{p.valor}}</td>
+                                <td>{{p.creditos}}</td>
+                                <td>{{p.matriculasrealizadas}}</td>
+                                <td>{{p.comprador}}</td>
+                                <td [ngClass]="{'text-success': !p.pedidoFechado, 'text-danger': p.pedidoFechado}" style="font-size: larger; text-transform: uppercase;">
+                                  <strong>{{ getStatusFatura(p) }}</strong>
+                              
+
+
+                                  <td>
+                                    <button type="button" class="btn btn-outline-success"
+                                  [routerLink]="['/fazer-matriculas-pedidos-minha-empresa', p.idPedidos]">
+                                  Fazer Matrículas
+                              </button>                              </td>
+
+
+                            <td>
+
+                               
+                            
+                                    <button type="button" class="btn btn-outline-success"
+                                        [routerLink]="['/gerar-relatorio-pedidos-minha-empresa', p.idPedidos]">
+                                        Gerar Relatório
+                                    </button>
+
+                              </td>
+                        </tr>
+                    </tbody>
+               
+                </table>
+   
+                
+
+
+               
+        
+                </div>  
+            </div>
+

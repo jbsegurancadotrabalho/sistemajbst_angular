@@ -1,0 +1,182 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+
+    <div class="card mt-5">
+        <div class="card-body">
+
+
+            <div class="row">
+                <div class="col md-6">
+
+                    <h5>Criar Chamado</h5>
+                    <p>Preencha os campos para incluir um Chamado.</p>
+                </div>
+
+                <div class="col-md-3 mt-1">
+                    <a href="consultar-chamado" class="btn btn-success">Consultar Chamados</a>
+
+                </div>
+            </div>
+            <hr />
+
+            <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{mensagem}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+            </div>
+
+
+            <form [formGroup]="formChamado" (ngSubmit)="onSubmit()">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Nome do Cliente JBST:</label>
+                        <input type="text" name="valor" id="nome" class="form-control" formControlName="nome_contato" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Email:</label>
+                        <input type="text" name="valor" id="nome" class="form-control" formControlName="email" />
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <label>Telefone:</label>
+                        <input type="text" name="valor" id="valor" class="form-control" formControlName="telefone" />
+                    </div>
+
+                        <div class="col-md-3">
+                            <label>Setor:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="setor"
+                            name="valor" id="valor">
+                            <option value="Comercial">Comercial</option>
+                            <option value="Adm">Adm</option>
+                            <option value="SMS">SMS</option>
+                            <option value="Secretaria">Secretaria</option>
+                            <option value="Credenciados">Credenciados</option>
+                            <option value="Financeiro">Financeiro</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                
+
+                    <div class="col-md-3 ">
+                        <label>Empresa ou Particular ?</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="pessoa"
+                            name="valor" id="valor">
+                            <option value="Particular">Particular</option>
+                            <option value="Empresa">Empresa</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Empresa:</label>
+                        <input type="text" name="valor" id="nome" class="form-control" formControlName="empresa" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>CNPJ:</label>
+                        <input type="text" name="valor" id="nome" class="form-control" formControlName="cnpj" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Como Chegou:</label>
+                        <select class="form-select" name="valor" aria-label="Default select example"
+                            formControlName="canal">
+                            <option value="Whatsapp">Whatsapp</option>
+                            <option value="Email">Email</option>
+                            <option value="Telefone">Telefone</option>
+                            <option value="Loja">Loja</option>
+                            <option value="Indicação">Indicação</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                   
+                    <div class="col-md-3">
+                        <label>Nome do Atendente da JB:</label>
+                        <input placeholder="Ex: Naira" type="text" name="valor" class="form-control"
+                            formControlName="nome_atendente" />
+                    </div>
+
+                
+
+                    <div class="col-md-3">
+                        <label>Escreva quem irá atender o cliente:</label>
+
+                        <select class="form-select" aria-label="Default select example" formControlName="executante"
+                            name="valor" id="valor">
+                            <option value="Márcia">Márcia</option>
+                            <option value="Jessé">Jessé</option>
+                            <option value="Adeilton">Adeilton</option>
+                            <option value="Nayra">Nayra</option>
+                            <option value="Ricardo">Ricardo</option>
+                            <option value="Eduardo">Eduardo</option>
+                            <option value="Leandro">Leandro</option>
+                 
+
+
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Como que está o Chamado:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="status_chamado"
+                            name="valor" id="valor">
+                            <option value="Em Andamento">Em Andamento</option>
+                            <option value="Finalizado por">Finalizado por</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Quem resolveu este chamado:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="status_executante"
+                            name="valor" id="valor">
+                            <option value="Márcia">Márcia</option>
+                            <option value="Jessé">Jessé</option>
+                            <option value="Adeilton">Adeilton</option>
+                            <option value="Nayra">Nayra</option>
+                            <option value="Ricardo">Ricardo</option>
+                            <option value="Eduardo">Eduardo</option>
+                            <option value="Leandro">Leandro</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-12 mt-3">
+                        <label class="form-label">Descreva com Riquezas de Detalhes o Chamado</label>
+                    
+                        <textarea class="form-control" formControlName="descreva_chamado" name="descreva_chamado" id="descreva_chamado"
+                            placeholder="Ex: 5 Alunos para o curso de NR-35" rows="5"></textarea>
+                    </div>
+                    
+                 
+                </div>
+
+
+
+                <div class="row mb-2 mt-3">
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-success" value="Criar Chamado" />
+                    </div>
+
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

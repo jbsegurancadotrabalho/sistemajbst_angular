@@ -1,0 +1,213 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Unidades Relatórios</h5>
+                </div>
+               
+            </div>
+			
+			  <div class="row mb-2">
+
+                <div class="col-md-7">
+                  
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar unidades para Relatórios" />
+                </div>
+            </div>
+            <hr />
+
+
+         
+              <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_chamados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Unidade</th>
+                            <th>CNPJ</th>
+                            <th>Localidade</th>
+                            <th>Horário da Empresa</th>
+                            <th>Operações</th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of unidades  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{e.nomefantasia}}</td>
+                            <td>{{e.cnpj | uppercase}}</td>
+                            <td>{{e.nomeEspecificoUnidade | uppercase}}</td>
+                            <td>{{e.horario_empresa}}</td>
+                        
+                            <td>
+
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                             
+                              <li><a href="/editar-unidadedoc"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/editar-unidadedoc', e.idunidadeDoc]">
+                                Editar</a></li>
+
+                                <li><a   class="dropdown-item btn btn-success" 
+                                  [routerLink]="['/documentos-desta-unidade', e.idunidadeDoc]">
+                                  Meus Documentos</a></li>
+
+                                <li><a 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#incluirFuncao"
+                                    class="dropdown-item btn btn-success" 
+                                    (click)="setFuncao(e)"  
+                                    (click)="setFuncao(unidadeSelecionada)"  
+                                 
+                                >
+                                    Incluir Funcao</a></li>
+
+                                    <li><a 
+                                      data-bs-toggle="modal" 
+                                      class="dropdown-item btn btn-success" 
+                                      [routerLink]="['/consultar-funcao-desta-unidade', 
+                                      e.idunidadeDoc]">
+                                       Ver Funções desta Unidade
+                                      </a>
+                                    </li>
+
+                                <li><a class="dropdown-item btn btn-success" 
+                                (click)="confirmarExclusao(e.idunidadeDoc, e.nomeEspecificoUnidade)">
+                               Excluir
+                             </a></li>  
+                             
+                       
+                             
+                                  
+                            </ul> 
+                            
+                            <button href="/consultar-setor" type="button" class="btn btn-danger m-1"  [routerLink]="['/consultar-setor', e.idunidadeDoc]">Ver Setor</button>
+                            <button href="/criar-setor" type="button" class="btn btn-primary"  [routerLink]="['/criar-setor', e.idunidadeDoc]">Criar Setor</button>
+
+                        
+                        </td>                  
+                    </tr>
+                </tbody>
+                   <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            Quantidade de Unidades: {{(unidades).length}}
+                            <pagination-controls 
+                            (pageChange)="paginaAtual1 = $event"
+                            previousLabel="Página anterior"
+                            nextLabel="Próxima página"
+                            [maxSize]="10" 
+                            [itemsPerPage1]="itensPorPagina" 
+                          ></pagination-controls> 
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+        <div class="modal fade" id="incluirFuncao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Incluir a Função de Documentos a esta Unidade</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              
+           
+              
+              <div class="modal-body">
+                <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                  <strong>{{ cadastroSucesso }}</strong>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+                </div>
+                
+                <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>{{ cadastroErro }}</strong>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+                </div>
+                <form [formGroup]="formIncluirFuncao" (ngSubmit)="incluirFuncaoDoc()">
+                  <input type="hidden" formControlName="idunidadeDoc" />
+                  <div formArrayName="idsFuncaodoc">
+                    <div *ngFor="let item of formFuncao.controls; let i = index">
+                      <div class="row mb-2" [formGroupName]="i">
+                        <div class="col-md-8">
+                          <label for="formFile" class="form-label">Funções</label>
+                          <ng-select
+                            [items]="funcoes"
+                            bindLabel="nome_da_funcao"
+                            bindValue="idFuncaoDoc"
+                            class="form-select custom-ng-select"
+                            formControlName="idFuncaoDoc"
+                            [ngClass]="{'is-invalid': formIncluirFuncao.get('idFuncaoDoc')?.invalid && formIncluirFuncao.get('idFuncaoDoc')?.touched}"
+                            [appendTo]="'#incluirFuncao .modal-content'"
+                            >
+                            <ng-template ng-label-tmp let-item="item">
+                              <div class="custom-bg" style="z-index: 1050;">
+                                {{ item.nome_da_funcao }}
+                              </div>
+                            </ng-template>
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="mt-4">
+                            <button type="button" class="btn btn-outline-danger" (click)="removerFuncao(i)">
+                              Remover
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="mt-4">
+                      <button class="btn btn-outline-success" type="button" (click)="adicionarFuncao()">
+                        Adicionar Função
+                      </button>
+                      &nbsp;
+                      <button type="button" class="btn btn-outline-danger" [disabled]="formFuncao.length == 0" (click)="removerUltimaFuncao()">
+                        Remover Última Função
+                      </button>
+                      <button class="btn btn-outline-success m-1" type="submit">
+                        Salvar Funções
+                      </button>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="row mb-2">
+                      <div class="col-md-12"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+		
+
+      
+     
+        
+        
+                        </div>
+                      </div>
+                    </div>
+          
+
+
+     
+

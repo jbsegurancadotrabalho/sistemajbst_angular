@@ -1,0 +1,139 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">
+        
+            <h5>Editar Pedidos de Compras</h5>
+            <p>Preencha os campos para editar o Pedido de Compras.</p>
+            <hr/>
+            
+        <div class="text-success">
+                    <strong></strong>
+                </div>
+                
+                <div class="text-danger">
+                    <strong></strong>
+                </div>
+                <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+                <form [formGroup]="formEditarPedidos" (ngSubmit)="onSubmit()">
+                    <input type="hidden" formControlName="idPedidos" />
+
+                    <div class="row">
+
+            
+                    
+                        <div class="col-md-3 mt-3">
+                            <label>Comprador:</label>
+                            <input  type="text" name="nome" id="nome" class="form-control"
+                            formControlName="comprador"/>
+                        </div>
+    
+                        <div class="col-md-3 mt-3">
+                            <label>Telefone:</label>
+                            <input  type="text" name="nome" id="nome" class="form-control"
+                            formControlName="telefone"/>
+                        </div>
+    
+                        <div class="col-md-3 mt-3">
+                            <label>Data Pagamento</label>
+                            <input type="date" formControlName="data_de_pagamento" class="form-control"/>
+                          </div>
+        
+                          <div class="col-md-3 mt-3">
+                            <label>Email:</label>
+                            <input  type="text" name="nome" id="nome" class="form-control"
+                            formControlName="email"/>
+                        </div>
+                      </div>
+
+                    
+            
+                   
+            
+                   
+                      <div class="row">
+
+                      <div class="col-md-1 mt-3">
+                            <label>Venda:</label>
+                            <input  type="text" name="valor" id="valor" class="form-control"
+                            formControlName="venda" 
+                            
+                            />
+                        </div>
+                        
+                    
+                            <div class="col-md-1 mt-3">
+                            <label>Nota Fiscal:</label>
+                            <input  type="text" name="valor" id="valor" class="form-control"
+                            formControlName="notafiscal" />
+                        </div>
+                            <div class="col-md-1 mt-3">
+                            <label>Valor:</label>
+                            <input  type="text" name="valor" id="valor" class="form-control"
+                            formControlName="valor" 
+                            
+                            />
+                        </div>
+    
+                        
+                      
+    
+    
+                    <div class="col-md-3">
+                        <label>Responsável Financeiro:</label>
+                        <input type="text" class="form-control" formControlName="responsavelfinanceiro"/>
+                      </div>
+                      <div class="col-md-3">
+                        <label>Telefone Financeiro:</label>
+                        <input type="text" class="form-control" formControlName="telefonefinanceiro"/>
+                      </div>
+                      <div class="col-md-3">
+                        <label>WhatsApp:</label>
+                        <input type="text" class="form-control" formControlName="whatsapp"/>
+                      </div>
+                    </div>
+                    <div class="row">
+
+                      <div class="col-md-3">
+                        <label>Email Financeiro:</label>
+                        <input type="text" class="form-control" formControlName="emailfinanceiro"/>
+                      </div>
+    
+            
+                        <div class="col-md-1">
+                          <label>Parcelas:</label>
+                          <input type="text" class="form-control" formControlName="parcelas"/>
+                        </div>
+            
+                        <div class="col-md-2">
+                          <label>Forma de Pagamento:</label>
+                          <input type="text" class="form-control" formControlName="forma_de_pagamento"/>
+                        </div>
+            
+            
+                      <div class="col-md-6">
+                        <label>Observações:</label>
+                        <textarea class="form-control" formControlName="observacoes"></textarea>
+                      </div>
+                    </div>
+            
+                    
+                    <div class="row mb-2 mt-3">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-success" value="Atualizar Cadastro"/>
+                        </div>
+                    </div>
+                   
+    
+                </form>
+            <div class="col-md-12">
+                <button (click)="printPage()">Gerar PDF</button>
+            </div>
+        </div>
+    </div>
+
+</div>

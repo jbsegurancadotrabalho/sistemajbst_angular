@@ -1,0 +1,378 @@
+
+
+<div class=" mt-3" *ngFor="let a of documentosfree">
+     
+    <div>             
+        <div class="row">
+  
+   
+            <div class="col-md-2 mt-1 text-center text-success ">
+                        </div>
+   
+                                            
+   
+                       <div class="col-md-2 mt-1 text-center text-success ">
+                                </div>
+
+                                   </div>
+                                   <div class="container mt-3" *ngFor="let a of documentosfree">
+                                          
+                                        <div class="text-center">
+                                            
+
+                            <img
+                            src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" />
+                   
+         <!-- Centralizando o texto -->
+                                          <strong>APR - ANÁLISE PRELIMINAR DE RISCOS</strong>
+                                        </div>
+                                      </div>
+                               
+                                  <br> 
+
+
+
+<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="font-size: 12px;">Empresa</th>
+                        <th style="font-size: 12px;">CNPJ</th>
+                        <th style="font-size: 12px;">Setor</th>
+                        <th style="font-size: 12px;">Cenário</th>
+                        <th style="font-size: 12px;">TIPO DE DOCUMENTO</th>
+                        <th style="font-size: 12px;">Data Inicio</th>
+                        <th style="font-size: 12px;">Data Fim</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 12px;"> {{a?.razaosocial}}</td>
+                        <td style="font-size: 12px;"> {{a?.cnpj}}</td>
+                        <td style="font-size: 12px;"> {{a?.setor}}</td>
+                        <td style="font-size: 12px;"> {{a?.cenario}}</td>
+                        <td style="font-size: 12px;">Análise Preliminar de Riscos</td>                      
+                        <td style="font-size: 12px;">{{a?.datainicio | date: 'dd/MM/yyyy'}}</td>
+                        <td style="font-size: 12px;">{{a?.vigencia | date: 'dd/MM/yyyy'}}</td>
+
+                    </tr>                  
+                </tbody>    
+            </table>
+            
+            
+<table class="table table-bordered">
+    <thead>
+        <tr>
+    
+            <th style="font-size: 12px;">Endereço da Unidade</th>
+            <th style="font-size: 12px;">Descrição do Serviço que está sendo Realizado</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+         
+            <td style="font-size: 12px;">
+
+                {{a?.endereco}},
+               
+
+                </td>                      
+    
+                <td style="font-size: 12px;"> {{a?.servico}}</td>
+
+        </tr>                  
+    </tbody>    
+</table>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th style="font-size: 13px; text-align: justify;">REGRAS GERAIS DE SEGURANÇA                        </th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 13px; text-align: justify;">
+                            Todo o pessoal que irá trabalhar na {{a?.cenario?.nomeAtividade}} deve aplicar e zelar pelo respeito às Regras Gerais de
+                            Segurança do Trabalho.<br>
+                           <strong>FORMAÇÃO DAS PESSOAS: </strong> As pessoas devem ser formadas para realizar suas atividades profissionais com
+                            segurança tendo a devida chancela da empresa e certificação em dia.<br>
+                        <strong>  INTEGRIDADE DOS DISPOSITIVOS DE SEGURANÇA:</strong>  Nenhum dispositivo ou equipamento de segurança pode ser
+                            desativado ou ter sua eficiência reduzida. Qualquer intervenção deve ser submetida a uma análise prévia de riscos
+                            por pessoal e método autorizado.<br>
+                        <strong>   FONTES DE ENERGIAS: </strong> As intervenções de montagem ou desmontagem devem ser realizadas aplicando
+                            criteriosamente as instruções de segurança elétrica onde houver esse risco, de acordo com a NR 10 e
+                            procedimentos de trabalho da empresa para o risco de choque elétrico.<br>
+                        <strong>   CIRCULAÇÃO:</strong>  Os colaboradores devem respeitar o plano e as regras de circulação em todo o local de trabalho.
+                            TRABALHOS ESPECIAIS: Os trabalhos em espaço confinado, em altura ou com pontos quentes só devem ser
+                            realizados com a emissão da permissão de trabalho ou APR, segundo procedimento em vigor.<br>
+                        <strong>  TRABALHOS ESPECIAIS (NR 35 - Trabalho em Altura): </strong> Todo trabalho em altura deverá ser precedido de
+                            APR e permissão para trabalho – PT para serviços não rotineiros;
+                            Todos os trabalhadores realizam trabalhos em altura devem ter certificado de treinamento em dia de cordo
+                            com a NR 35; Verificar em primeiro lugar todo o sistema de ancoragem com as respectivas linhas de vida onde for
+                            necessário de acordo com a NR 35 para que os colaboradores permaçam conectados todo o tempo de
+                            trabalho;
+                             As linhas de vida provisórias sejam instaladas por profissional competente na confecção das mesmas e
+                            testadas sua resistencia mecânica;
+                             Garantir que todos os equipamentos para trabalho em altura sejam inspecionados previamente por
+                            profissional competente em Segurança do Trabalho e trabalho em altura;
+                            Prover medidas coletivas e individuais para evitar a queda de ferramentas/equipamentos de trabalho;                            
+                            </td>
+    
+                    </tr>                  
+                </tbody>    
+            </table> 
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th style="font-size: 13px; text-align: justify;">
+                            
+                            CIRCULAÇÃO</th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 13px; text-align: justify;">
+
+                            # Uniformes com sinalização ou coletes amarelo florescentes onde forem necessários. <br>
+                            # Respeitar as regras de circulação como (não falar no celular enquanto se realiza trabalhos, subir e descer escadas).<br>
+                            # Atenção às áreas de coabitação (locais identificados com pintura laranja no piso e sinalização).<br>
+                        </td>
+    
+                    </tr>                  
+                </tbody>    
+            </table> 
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th style="font-size: 13px; text-align: justify;">
+                            
+                            FUNÇÕES ENVOLVIDAS NA REALIZAÇÃO DO TRABALHO   
+                        </th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 13px; text-align: justify;">
+                            {{a?.funcoesenvolvidas}}
+
+                        </td>
+    
+                    </tr>                  
+                </tbody>    
+            </table> 
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th style="font-size: 13px; text-align: justify;">
+                            EQUIPAMENTOS - FERRAMENTAS A SEREM UTILIZADOS
+                        </th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 13px; text-align: justify;">
+                            {{a?.equipamentos}}
+                        </td>
+    
+                    </tr>                  
+                </tbody>    
+            </table> 
+            
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th style="font-size: 13px; text-align: justify;">
+                            
+                            “TODAS AS ORIENTAÇÕES DE SEGURANÇA CONTIDAS NESTA A.P.R. DEVERÃO SER SEGUIDAS RIGOROSAMENTE”. 
+    
+                        </th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 13px; text-align: justify;">
+                            (O serviço deve ser paralisado na identificação de qualquer risco que não foi 
+                            identificado na APR ou mudança na condição do serviço. A APR deve ser refeita). <br>
+                             NOTA: Todos os riscos identificados
+                             devem ser enumerados e as medidas preventivas, deveram estar correlacionadas na 
+                             respectiva linha de identificação do risco, uma tarefa pode ter vários riscos e um risco 
+                             poderá ter várias medidaspreventivas.
+                        </td>
+    
+                    </tr>                  
+                </tbody>    
+            </table> 
+
+            
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th style="font-size: 13px; text-align: justify;">           
+                 <strong>Descrever abaixo as Etapas dos Serviços por Linhas<br></strong>
+            </th>
+
+        </tr>
+    </thead>
+ 
+ 
+</table>
+
+<table class="table table-bordered">
+
+
+    <thead>
+        <tr>
+            <th style="font-size: 13px; text-align: justify;">Etapas</th>
+            <th style="font-size: 13px; text-align: justify;">Nome</th>
+            <th style="font-size: 13px; text-align: justify;">Descrição</th>
+            <th style="font-size: 13px; text-align: justify;">Ações</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let etapa of a.etapas">
+            <td style="font-size: 12px;">Etapa: {{etapa.numero_etapa}}</td>
+            <td style="font-size: 12px;">{{etapa.nome_etapa}}</td>
+            <td style="font-size: 12px;">{{etapa.descricao_etapa}}</td>
+            <td style="font-size: 12px;">{{etapa.acoes}}</td>
+        </tr>                
+    </tbody>
+</table>
+
+<h6 style="font-size: 13px; text-align: justify;">RESPONSÁVEL</h6>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            
+            <th style="font-size: 13px; text-align: justify;">Nome do Profissional</th>
+            <th style="font-size: 13px; text-align: justify;">Assinatura</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td style="font-size: 12px;">{{a?.responsavel}}</td>
+            <td style="font-size: 12px;"></td>
+        </tr>                  
+    </tbody>    
+</table>  
+<h6 style="font-size: 13px; text-align: justify;">EMITENTES</h6>
+<table class="table table-bordered">
+    <thead>
+        <tr>      
+            <th style="font-size: 13px; text-align: justify;">NOMES DOS EMITENTES</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td style="font-size: 12px;">{{a?.emitentes}}</td>
+            
+
+        </tr>                  
+    </tbody>    
+</table>  
+    </div>
+
+    <strong>Todas as Assinaturas</strong>
+    <table class="table table-bordered">
+        <thead>
+            <tr>    
+                <th style="font-size: 13px; text-align: justify;">NOME</th>
+                <th style="font-size: 13px; text-align: justify;">RG</th>
+                <th style="font-size: 13px; text-align: justify;">CPF</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr> 
+                
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+              <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>
+            <tr> 
+                <td style="font-size: 14px; color: transparent;">dddddddddd</td>
+                <td style="font-size: 12px;"></td>
+                <td style="font-size: 12px;"></td>
+            </tr>                 
+        </tbody>    
+    </table>
+    
+</div>
+
+
+
+
+
+      
+<div class="row">
+
+    <div class="col-md-5 mt-1 mb-1 center">
+    </div>
+    <div class="col-md-4 mt-1 mb-1 center">
+        <button (click)="printPage()">APR</button>
+    </div>   
+    <div class="col-md-3 mt-1 mb-1 center">
+    </div>
+</div>
+
+
+
+

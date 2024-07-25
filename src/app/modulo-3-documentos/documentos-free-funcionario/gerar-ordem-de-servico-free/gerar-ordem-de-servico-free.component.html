@@ -1,0 +1,203 @@
+<div class=" mt-3" *ngFor="let a of funcionario">
+  <div class="row">
+      <div class="col-md-2 mt-1 text-center text-success"></div>
+      <div class="col-md-2 mt-1 text-center text-success"></div>
+    </div>
+  
+    <div class="container mt-3">
+      <div class="text-center">
+        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" />
+        <strong>ORDEM DE SERVIÇO</strong>
+      </div>
+      <br> <!-- Pulando uma linha -->
+  
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 12px;">EMPRESA</th>
+            <th style="font-size: 12px;">CNPJ</th>
+            <th style="font-size: 12px;">TIPO DE DOCUMENTO</th>
+            <th style="font-size: 12px;">DATA INICIO</th>
+            <th style="font-size: 12px;">VIGENCIA</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size: 12px;">{{ a?.funcionario?.empresa?.razaosocial }}</td>
+            <td style="font-size: 12px;">{{ a?.funcionario?.empresa?.cnpj }}</td>
+            <td style="font-size: 12px;">ORDEM DE SERVIÇO (O.S.) POR ATIVIDADE SEGURANÇA DO TRABALHO - Item 1.4, Portaria SEPRT 6.730/2020.</td>
+            <td style="font-size: 12px;">{{ a?.datainicio | date: 'dd/MM/yyyy' }}</td>
+            <td style="font-size: 12px;">{{ a?.vigencia | date: 'dd/MM/yyyy' }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-bordered">
+        <thead>
+            <tr>
+                
+                <th style="font-size: 13px; text-align: justify;">
+                    
+                    ENDEREÇO</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            <tr> 
+              <td style="font-size: 12px;"> {{a?.endereco}}</td>
+
+
+            </tr>                  
+        </tbody>    
+    </table> 
+      
+  
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 13px; text-align: justify;">ORDEM DE SERVIÇO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size: 13px; text-align: justify;">
+              Considerando interesse da Empresa sobre Segurança e Medicina do Trabalho cumprir o estabelecido no Art. 157 item II da CLT e Lei 6514 de 22 de dezembro de 1977 item 1.7 da NR 01, Portaria 3214/78 de 08 de junho de 1978, fica a partir desta data determinado que: o funcionário que aqui subscrever estará consciente das normas de segurança inerentes a sua função.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 13px; text-align: justify;">OBRIGAÇÕES DO EMPREGADO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size: 13px; text-align: justify;">
+              Cabe ao Empregado Cumprir as disposições legais e regulamentares sobre Segurança e Medicina do Trabalho, inclusive as Ordens de Serviços expedidas pelo empregador. Usar o EPI, fornecido pelo empregador apenas para a finalidade a que se destinam e mantê-los sob a sua guarda e conservação. Submeter-se aos exames médicos previstos nas normas regulamentadoras; Observar atentamente o meio ambiente do trabalho ao circular nas frentes de serviços e corrigir ou comunicar a chefia imediata as condições inseguras encontradas; Antes de iniciar o trabalho verifique as condições das ferramentas manuais, mecânicas e elétricas; Respeitar e atender as sinalizações nas frentes de trabalhos; Participar dos treinamentos a que for convocado; Seguir as recomendações de segurança contidas nas APR’s (Análise Preliminar de Riscos); Colaborar com a Empresa na aplicação das normas regulamentadoras.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 13px; text-align: justify;">FUNCIONÁRIO</th>
+            <th style="font-size: 13px; text-align: justify;">CPF</th>
+            <th style="font-size: 13px; text-align: justify;">RG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size: 12px;">{{ a?.funcionario?.nome }}</td>
+            <td style="font-size: 12px;">{{ a?.funcionario?.cpf }}</td>
+            <td style="font-size: 12px;">{{ a?.funcionario?.rg }}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 13px; text-align: justify;">FUNÇÃO</th>
+            <th style="font-size: 13px; text-align: justify;">CBO</th>
+            <th style="font-size: 13px; text-align: justify;">SETOR</th>
+            <th style="font-size: 13px; text-align: justify;">DESCRIÇÃO</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let funcaoDoc of a?.funcionario?.funcao?.funcaodoc">
+              <td style="font-size: 12px;">{{ a?.funcionario?.funcao?.nome_da_funcao }}</td>
+              <td style="font-size: 12px;">{{ a?.funcionario?.funcao?.cbo }}</td>
+              <td style="font-size: 12px;">{{ funcaoDoc?.setor_gho }}</td>
+              <td style="font-size: 12px;">{{ a?.funcionario?.funcao?.descricao }}</td>
+
+            </tr>
+        </tbody>
+      </table>
+  
+      <strong style="font-size: 13px; text-align: justify;">PERIGOS ASSOCIADOS A FUNÇÃO</strong>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 13px; text-align: justify;">GRUPO</th>
+            <th style="font-size: 13px; text-align: justify;">TIPO</th>
+            <th style="font-size: 13px; text-align: justify;">DANOS</th>
+            <th style="font-size: 13px; text-align: justify;">CONTROLE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container  *ngFor="let funcao of a?.funcionario?.funcao?.funcaodoc">
+            <ng-container *ngFor="let perigo of funcao?.perigo">
+              <tr>
+                <td style="font-size: 12px;">{{ perigo?.nomePerigo }}</td>
+                <td style="font-size: 12px;">{{ perigo?.causasPerigo }}</td>
+                <td style="font-size: 12px;">{{ perigo?.consequencias_perigo }}</td>
+                <td style="font-size: 12px;">{{ perigo?.medidasPreventivas }}</td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+  
+      <strong style="font-size: 13px; text-align: justify;">RISCOS ASSOCIADOS A ATIVIDADES</strong>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 13px; text-align: justify;">GRUPO</th>
+            <th style="font-size: 13px; text-align: justify;">TIPO</th>
+            <th style="font-size: 13px; text-align: justify;">FONTE</th>
+            <th style="font-size: 13px; text-align: justify;">CONTROLE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let funcao of a?.funcionario?.funcao?.funcaodoc">
+            <ng-container *ngFor="let risco of funcao?.riscos">
+              <tr>
+                <td style="font-size: 12px;">{{ risco?.grupo }}</td>
+                <td style="font-size: 12px;">{{ risco?.tipo }}</td>
+                <td style="font-size: 12px;">{{ risco?.fonte_geradora }}</td>
+                <td style="font-size: 12px;">{{ risco?.meios_de_controles }}</td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+  
+      <strong style="font-size: 13px; text-align: justify;">EPI´S ASSOCIADOS A FUNÇÃO</strong>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 13px; text-align: justify;">NOME</th>
+            <th style="font-size: 13px; text-align: justify;">CA</th>
+            <th style="font-size: 13px; text-align: justify;">VALIDADE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let funcao of a?.funcionario?.funcao?.funcaodoc">
+            <ng-container *ngFor="let epi of funcao?.epi">
+              <tr>
+                <td style="font-size: 12px;">{{ epi?.nome_epi }}</td>
+                <td style="font-size: 12px;">{{ epi?.ca }}</td>
+                <td style="font-size: 12px;">{{ epi?.descricao_epi }}</td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+  
+      <div class="row">
+        <div class="col-md-5 mt-1 mb-1 center"></div>
+        <div class="col-md-4 mt-1 mb-1 center">
+          <button (click)="printPage()">ORDEM DE SERVIÇO</button>
+        </div>
+        <div class="col-md-3 mt-1 mb-1 center"></div>
+      </div>
+    </div>
+  </div>
+  

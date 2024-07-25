@@ -1,0 +1,55 @@
+<app-perfil-empresa></app-perfil-empresa>
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-4">
+                    <h5>Lista de Funções cadastradas</h5>
+                            </div>
+                            <div class="col-6">
+                                <input type="text" class="form-control" [(ngModel)]="filtro.nome_contato" placeholder="Pesquisar por Funções já cadastradas" />
+                              </div>
+
+                              <div class="col-md-2">
+                                <a href="minha-empresa" class="btn btn-success">Voltar</a>
+
+                                        </div>
+                                    
+                                                   <div class="table-responsive mt-2">
+                                                    <table id="consulta_funcoes" class="table table-sm table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>QTD</th>
+                                                                <th>Funçao</th>
+                                                                <th>CBO</th>
+                                    
+                                    
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let f of funcoes  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe: filtro.nome_contato, index as i">
+                                                                <td>{{i + 1}}</td>
+                                                                <td>{{f.funcao| uppercase}}</td>
+                                                                <td>{{f.cbo}}</td>
+                                                              
+                                    
+                                                               
+                                    
+                                    
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td colspan="5">
+                                                                    Quantidade de Funções: {{(funcoes).length}}
+                                                                </td>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                    <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Página anterior" nextLabel="Próxima página" [maxSize]="10" [itemsPerPage]="itensPorPagina"></pagination-controls>
+                                                  </div>           
+                                                 </div>
+                                                </div>
+                                             </div>

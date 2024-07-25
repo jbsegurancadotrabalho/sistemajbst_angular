@@ -1,0 +1,72 @@
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+
+
+        
+            <div class="row mb-2 mt-4">
+            
+                <div class="col-md-12 mt-1 text-center">
+                    <h5>RELATÓRIO ANALITICO DA EMPRESA {{ relatorio?.empresa?.razaosocial | uppercase}} - CNPJ: {{ relatorio?.empresa?.cnpj}}
+                    </h5>          
+                </div>
+            
+            </div>
+        <p>Este relatório teve seu inicio no dia: {{ relatorio?.dataHoraCriacao | date: 'dd/MM/yyyy' }} 
+                                   e se refere ao pedido de número: {{ relatorio?.numerodopedido }} venda: {{ relatorio?.venda}} e nota fiscal de número: {{ relatorio?.notafiscal}}.
+                                   O valor total do pedido é de: R$ {{ relatorio?.valor}}. Neste Pedido já foram feitas {{ relatorio?.matriculasrealizadas}} Matrículas tendo a empresa um crédito de {{ relatorio?.creditos}} matrículas que estão disponíveis para serem realizadas.
+                                   Qualquer Dúvida a respeito do Pedido verifique com o comprador (a) {{ relatorio?.comprador}} - Telefone: {{ relatorio?.telefone}} - Email: {{ relatorio?.email}}.
+Abaixo está o relatório analitico de todos os colaboradores que foram matriculados. Qualquer dúvida nos mande um email pelo operacional@jbsegurancadotrabalho.com.br.
+            <hr />
+            <div class="table-responsive mt-2">
+                <table class="table table-sm table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Matrícula</th>
+                            <th>Status</th>
+                            <th>Venda</th>
+                            <th>Turma</th>
+                            <th>Data</th>
+                            <th>CNPJ</th>
+                            <th>Funcionário</th>
+                            <th>CPF</th>
+                            <th>Curso</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let matricula of relatorio?.matricula">
+                            <tr *ngIf="matricula">
+                                <td>{{ matricula?.numeroMatricula }}</td>
+                                <td>{{ matricula?.status }}</td>
+                                <td>{{ matricula?.venda }}</td>
+                                <td>{{ matricula?.turmas?.numeroTurma }}</td>
+                                <td>{{ matricula?.turmas?.datainicio | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{ matricula?.funcionario?.empresa?.cnpj }}</td>
+                                <td>{{ matricula?.funcionario?.nome }}</td>
+                                <td>{{ matricula?.funcionario?.cpf }}</td>
+                                <td>{{ matricula?.turmas?.curso?.curso }}</td>
+                                <td>{{ matricula?.valor }}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                    <tfoot>
+                        <div class="col-md-5 mt-1 mb-1 center">
+                        </div>
+                        <tr>
+                            <td colspan="8" class="text-center">Valor Total do Pedido que já foram utilizados: R$ {{ relatorio?.total || 0 }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+    <div class="row">
+
+    <div class="col-md-5 mt-1 mb-1 center">
+    </div>
+    <div class="col-md-6 mt-1 mb-1 center">
+        <button (click)="printPage()">Relatório Analitico</button>
+    </div>
+
+    <div class="col-md-1 mt-1 mb-1 center">
+    </div>
+</div>

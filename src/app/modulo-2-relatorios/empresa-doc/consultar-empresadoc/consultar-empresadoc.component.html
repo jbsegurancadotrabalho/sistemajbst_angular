@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Empresa Relatórios</h5>
+                </div>
+               
+            </div>
+			
+			  <div class="row mb-2">
+
+                <div class="col-md-7">
+                  
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Empresas Relatórios" />
+                </div>
+            </div>
+            <hr />
+
+
+         
+              <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_chamados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Empresa</th>
+                            <th>CNPJ</th>
+                            <th>Responsavel</th>
+                            <th>Telefone</th>
+                            <th>Email</th>
+                            <th>Operações</th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of empresas  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{e.nomefantasia}}</td>
+                            <td>{{e.cnpj | uppercase}}</td>
+                            <td>{{e.responsavel_sistema}}</td>
+                            <td>{{e.telefone_responsavel | uppercase}}</td>
+                            <td>{{e.email_usuario | uppercase}}</td>
+                            <td>
+
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                       
+
+                                
+                              <li><a href="/editar-empresa-relatorios"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/editar-empresa-relatorios', e.idEmpresa_doc]">
+                                Editar</a></li>
+
+                                
+                                <li><a class="dropdown-item btn btn-success" 
+                                (click)="confirmarExclusao(e.idEmpresa_doc, e.nomefantasia)">
+                               Excluir
+                             </a> </li>
+                             
+                                  
+                             <li><a href="/criar-unidadedoc"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/criar-unidadedoc', e.idEmpresa_doc]">
+                                Cadastrar Unidade de Relatório</a></li>
+
+                             <li><a href="/cadastrar-cnae"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/cadastrar-cnae', e.idEmpresa_doc]">
+                                Cadastrar CNAE</a></li>
+
+                                <li><a href="/consultar-cnae"  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/consultar-cnae', e.idEmpresa_doc]">
+                                    Ver CNAE</a></li>
+                        
+                            </ul>
+                         
+                            </td>
+
+
+                          
+                        </tr>
+                    </tbody>
+                       <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                Quantidade de Chamados: {{(empresas).length}}
+                                <pagination-controls 
+                                (pageChange)="paginaAtual1 = $event"
+                                previousLabel="Página anterior"
+                                nextLabel="Próxima página"
+                                [maxSize]="10" 
+                                [itemsPerPage1]="itensPorPagina" 
+                              ></pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

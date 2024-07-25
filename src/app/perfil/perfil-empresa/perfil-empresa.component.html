@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-lg   bg-success mb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">Sistema JBST</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+  
+  
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+  
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+  
+          <li class="nav-item dropdown">
+       
+              
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Empresa                   
+                 </a> 
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/minha-empresa">Minha Empresa</a></li>
+                <li>
+              </ul>
+            </li>
+              
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Turmas                     
+               </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/consultar-turmas-empresa">Nossas Turmas</a></li>
+              <li>
+            </ul>
+          </li>
+     
+    
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Minhas Matriculas         
+                      </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/consultar-matriculas-empresa">Gerar Todos os Documentos</a></li>
+              <li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Instrutores         
+                      </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/consultar-instrutor-perfil-empresa"> Proficiência dos Instrutores</a></li>
+              <li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+Preços                      </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/consultar-cursos-empresa"> Valor dos Cursos</a></li>
+              <li>
+            </ul>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Baixar ART        
+                      </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/02/ART-DO-ENGENHEIRO-DE-SEGURANCA-DO-TRABALHO-JB.pdf">Baixar ART do Curso</a></li>
+              <li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Financeiro                      </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/faturamentos-da-minha-empresa">Meus  Faturamentos</a></li>
+              <li><a class="dropdown-item" href="/pedidos-de-compras-minha-empresa">Meus  Pedidos de Compras</a></li>
+
+              <li>
+            </ul>
+          </li>  
+        </ul>
+        <ul class="navbar-nav" *ngIf="usuario">
+          <li class="nav-item">
+            <div class="nav-link text-white ms-auto">
+              <strong>Olá {{usuario.nome | lowercase}} Perfil: {{usuario.perfil.nome}} ({{usuario.email}})</strong>
+            </div>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link text-light" (click)="sair()">
+              Sair do sistema
+            </button>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>

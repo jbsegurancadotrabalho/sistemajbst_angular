@@ -1,0 +1,284 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="modal" tabindex="-1"  id="contatoModal"  >
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title"></h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>                
+                    <div class="modal-body">    
+                      <div *ngIf="unidadeSelecionada">
+                        <h5>Contatos da Unidade {{ unidadeSelecionada.unidade }}</h5>
+                        <div class="row">
+
+                          <div class="col-md-6 mt-3">
+                         
+                        </div>
+
+                        <div class="col-md-5 mt-3">
+                          <input type="text" class="form-control" [(ngModel)]="filtro.contato"
+                              placeholder="Pesquisar por Contatos" />
+                      </div>
+                      <div class="col-md-1 mt-3">
+                         
+                      </div>
+                    </div>
+                        <table id="consulta_empresas" class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>Contato</th>
+                                <th>Telefone</th>
+                                <th>Celular</th>
+                                <th>Email</th>
+                                <th>operações</th>
+                            </tr>
+                        </thead>
+                            <tbody>      
+                              <tr *ngFor="let contato of unidadeSelecionada.contatos | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.contato" >    
+                                  <td>{{ contato.contato }}</td>
+                                      <td>{{ contato.telefone_1 }}</td>
+                                      <td>{{ contato.telefone_2 }}</td>
+                                      <td>{{ contato.email }}</td>
+                                      <td>
+                                       
+
+                                        <button class="btn btn-sm btn-success" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#editarcontatoModal"
+                                        data-bs-whatever="@mdo"
+                                        (click)="setContato(contato)"
+                                        (click)="setUnidade(unidadeSelecionada)"
+                                        class="btn btn-primary
+                                        py-1 px-md-1 border">
+                                        Editar</button>
+                                  <button class="btn btn-sm btn-outline-danger me-2" (click)="onDelete (contato.idContato, contato.contato)">
+                                    Excluir
+                                </button> 
+                              </td>
+                            </table>                                 
+                  </div>   
+                  <div class="text-center">
+                    
+                </div>
+                    </div>
+                    <div class="modal-footer">
+                      Quantidade de Formações: {{ unidadeSelecionada?.contatos?.length || 0 }}
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                      <pagination-controls 
+(pageChange)="paginaAtual = $event"
+previousLabel="Página anterior"
+nextLabel="Próxima página"
+[maxSize]="5" 
+[itemsPerPage]="itensPorPagina" 
+></pagination-controls>         
+
+</div>                  
+                  </div>
+                </div>
+              </div>
+            <div>
+
+                <div class="modal fade" id="cadastrarcontatoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Contato da Unidade </h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        
+                        <div class="modal-body">
+                          <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>{{mensagem}}</strong>
+                            <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                        </div>
+            <form [formGroup]="formCadastrarContato" (ngSubmit)="CadastroSubmit()">
+            <div class="mb-2">     
+              <input type="hidden" formControlName="idUnidadedetreinamento" />
+ 
+            </div>
+              <div class="row">  
+              <div class="col-md-12">
+                <label for="recipient-name" class="col-form-label">Nome:</label>
+                <input type="text" class="form-control" id="recipient-name"
+                formControlName="contato">
+              </div>
+              <div class="col-md-12">
+                <label for="recipient-name" class="col-form-label">Telefone Fixo:</label>
+                <input type="text" class="form-control" id="recipient-name"
+                formControlName="telefone_1">
+              </div>
+              <div class="col-md-12">
+                <label for="recipient-name" class="col-form-label">Telefone Celular:</label>
+                <input type="text" class="form-control" id="recipient-name"
+                formControlName="telefone_2">
+              </div>
+    
+              <div class="col-md-12">
+                <label for="recipient-name" class="col-form-label">Email:</label>
+                <input type="text" class="form-control" id="recipient-name"
+                formControlName="email"> 
+              </div>      
+            </div>
+            <div class="modal-footer">
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <button type="button" class="btn btn-primary"
+                  (click)="CadastroSubmit()" data-bs-dismiss="modal">
+                  Incluir Contato
+              </button>                  
+            </div>
+            </div>
+            </div>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editarcontatoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+              <strong>{{mensagem}}</strong>
+              <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>  
+            </div>               
+<form [formGroup]="formEditarContato" (ngSubmit)="EditarContatoSubmit()">    
+<input type="hidden" formControlName="idContato">
+<input type="hidden" formControlName="idEmpresa">
+<div class="mb-2">      
+</div>
+<div class="row">  
+<div class="col-md-12">
+  <label for="recipient-name" class="col-form-label">Nome:</label>
+  <input type="text" class="form-control" id="recipient-name"
+  formControlName="contato">
+</div>
+<div class="col-md-12">
+  <label for="recipient-name" class="col-form-label">Telefone Fixo:</label>
+  <input type="text" class="form-control" id="recipient-name"
+  formControlName="telefone_1">
+</div>
+<div class="col-md-12">
+  <label for="recipient-name" class="col-form-label">Telefone Celular:</label>
+  <input type="text" class="form-control" id="recipient-name"
+  formControlName="telefone_2">
+</div>  
+<div class="col-md-12">
+  <label for="recipient-name" class="col-form-label">Email:</label>
+  <input type="text" class="form-control" id="recipient-name"
+  formControlName="email">  
+</div>
+</div>
+<div class="modal-footer">
+<div class="row mb-2">
+  <div class="col-md-12">
+    <button type="button" class="btn btn-primary"
+    (click)="EditarContatoSubmit()" data-bs-dismiss="modal">
+    Editar Contato
+</button>                  
+</div>
+</div>
+</div>     
+</form>
+</div>
+</div> 
+</div>
+</div>
+</div>                    
+
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-9 mt-1">
+                        <h5>Lista de Unidades de Treinamento</h5>
+                    </div>
+                    <div class="col-md-3 mt-1">
+                        <a href="cadastrar-unidade-de-treinamento" class="btn btn-success">Local do Curso</a>
+                    </div>
+                    
+
+                </div>
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-7">
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" 
+                            placeholder="Pesquisar turmas por curso" />
+                    </div>
+                </div>
+                <div class="table-responsive mt-2">
+                    <div >
+                        <table class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                  <th>Qtd</th>
+                                    <th>Razão Social</th>
+                                    <th>Cnpj</th>
+                                    <th>Unidade</th>
+                                    <th>Bairro</th>
+                                    <th>Cidade</th>
+                                    <th>Estado</th>
+                                    <th>Açoes</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let u of unidades; index as i">
+                                  <td>{{i + 1}}</td>
+                                    <td>{{u.unidadedetreinamento}}</td>
+                                    <td>{{u.cnpj}}</td>
+                                    <td>{{u.unidade}}</td>
+                                    <td>{{u.endereco?.bairro}}</td>
+                                    <td>{{u.endereco?.localidade}}</td>
+                                       <td>{{u.endereco?.uf}}</td>
+                                      
+
+                                    <td>
+                                      
+                                        <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Ações
+                                        </button>
+                                        <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                                            <li> <a href="/editar-empresa"
+                                                    class="dropdown-item btn btn-primary" [routerLink]="['/editar-unidade-de-treinamento', u.idUnidadedetreinamento]" >Editar</a></li>
+                                            <li><a class="dropdown-item btn btn-sm btn-primary" (click)="onDelete(u.idUnidadedetreinamento, u.unidadedetreinamento)"> Excluir</a>
+                                                <li><a 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#contatoModal"
+                                                     data-bs-whatever="@mdo"
+                                                    class="dropdown-item btn btn-sm btn-primary" 
+                                                    (click)="exibirContatos(u)"
+                                                    >Ver Contatos</a></li>
+
+                                                    <li><a 
+                                                      data-bs-toggle="modal" 
+                                                      data-bs-target="#cadastrarcontatoModal"
+                                                       data-bs-whatever="@mdo"
+                                                      class="dropdown-item btn btn-sm btn-primary" (click)="setUnidade(u)"
+                                                      >Incluir Contatos</a></li>
+  
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <!-- Table footer content -->
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>

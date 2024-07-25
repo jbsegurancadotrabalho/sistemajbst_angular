@@ -1,0 +1,515 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+
+          <div class="modal" tabindex="-1"  id="verCursosModal">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">    
+                  <div *ngIf="turmaSelecionada">
+                    <strong> Valor do Curso Formação: {{ turmaSelecionada.curso.valorFormacao }} por Aluno. Valor do Curso Reciclagem:  {{ turmaSelecionada.curso.valorReciclagem }} por Aluno.   </strong>
+                    <hr>
+                    <strong> Turma {{ turmaSelecionada.numeroTurma }}  {{ turmaSelecionada.curso.curso }} {{ turmaSelecionada.curso.descricao }} {{ turmaSelecionada.tipo }} {{ turmaSelecionada.nivel }} carga horária de {{ turmaSelecionada.cargahoraria }}</strong>
+                    <hr>
+
+                    <p>   <strong>  Observações Gerais :</strong> {{ turmaSelecionada.observacoes }}  </p> 
+
+                
+                 
+                  <p> <strong>Horários:</strong> Todos os nossos cursos na unidade Rio de Janeiro iniciam as 8:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                    para o almoço de 12:00 as 13:00 e Voltamos até o Horário das 17:00 Horas. Todos os nossos cursos na unidade São Paulo iniciam as 9:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                      para o almoço de 12:00 as 13:00. No Turno da tarde é das 13:10 até as 17:30 Horas. Nas Empresas Parceiras iniciamos as 9:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                        para o almoço de 12:00 as 13:00 e Voltamos até o Horário das 17:30 Horas  </p>
+                 <hr>
+                    <p><strong>Conteúdo Programático do Curso: </strong> {{ turmaSelecionada.curso.conteudo}}</p>
+
+                    <hr>
+                    <strong>Instrutor {{ turmaSelecionada.instrutor}}</strong>
+                    <hr>
+                    <strong>Data do Curso: Curso iniciando no dia {{turmaSelecionada.datainicio | date: 'dd/MM/yyyy'}} tendo seu
+                      término no dia {{turmaSelecionada.datafim | date: 'dd/MM/yyyy'}}  </strong>
+                    
+                    <hr>
+                    <strong>Validade do Curso de {{turmaSelecionada.validade}}. Curso Vigente até o dia {{turmaSelecionada.validadedocurso | date: 'dd/MM/yyyy'}} </strong>
+                 
+                    <hr>
+
+                    <strong>Local do Curso: O Curso será realizado na {{turmaSelecionada.unidadeDeTreinamento.unidadedetreinamento}} {{turmaSelecionada.unidadeDeTreinamento.unidade}} 
+                      na  {{turmaSelecionada.unidadeDeTreinamento.endereco.logradouro }}, {{turmaSelecionada.unidadeDeTreinamento.endereco.numero }} {{turmaSelecionada.unidadeDeTreinamento.endereco.complemento }}
+                      {{turmaSelecionada.unidadeDeTreinamento.endereco.bairro }}
+                      {{turmaSelecionada.unidadeDeTreinamento.endereco.localidade }}
+                      {{turmaSelecionada.unidadeDeTreinamento.endereco.uf}}       
+                      Cep: {{turmaSelecionada.unidadeDeTreinamento.endereco.cep }}     </strong>
+                    
+                    <hr>
+
+                  <div class="text-center">
+                  </div>
+                </div>
+        
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="modal" tabindex="-1"  id="verMatriculasModal">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">    
+                  <div *ngIf="turmaSelecionada">
+                    <strong>Matrículas da Turma de Número {{ turmaSelecionada.numeroTurma }}, do {{ turmaSelecionada.curso.curso }}</strong>
+                    <div class="row">
+                      <div class="col-md-6 mt-3">
+
+                      </div>
+                     
+                    </div>
+                    <table id="myTable" class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th>QTD</th>
+                          <th>Empresa</th>
+                          <th>CNPJ</th>
+                          <th>Status</th>
+                          <th>Matrícula</th>
+                          <th>Venda</th>
+                          <th>Valor</th>
+                          <th>Aluno</th>
+                          <th>CPF</th>
+                          <th>Observações</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>      
+                        <tr *ngFor="let m of turmaSelecionada.matricula  | paginate: { itemsPerPage: itensPorPagina1, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.matriculas; index as i">    
+                          <td>{{i + 1}}</td>
+                          <td>{{ m.funcionario?.empresa?.nomefantasia || 'Aluno Particular' }}  </td>
+                          <td>{{ m.funcionario?.empresa?.cnpj  || 'Aluno Particular' }}</td> 
+                          <td>{{  turmaSelecionada.status }}</td>
+                          <td>{{ m.numeroMatricula }}</td>
+                          <td>{{ m.venda }}</td>
+                          <td>{{ m?.valor }}</td>
+                          <td>{{ m.funcionario?.nome }} {{ m.pessoafisica?.pessoafisica }}</td>
+                          <td>{{ m.funcionario?.cpf }} {{ m.pessoafisica?.cpf }}</td>
+                          <td>{{ m?.observacoes }} </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="text-center">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  			  
+                    Quantidade de Alunos para esta Turma:  {{ turmaSelecionada?.matricula?.length || 0 }} Alunos Matriculados
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <pagination-controls 
+(pageChange)="paginaAtual1 = $event"
+previousLabel="Página anterior"
+nextLabel="Próxima página"
+[maxSize]="5" 
+[itemsPerPage]="itensPorPagina1" 
+></pagination-controls>         
+
+</div>   
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          
+
+          <div class="modal" tabindex="-1"  id="ConsultarInstrutores"  >
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>                
+                <div class="modal-body">    
+                  <div *ngIf="turmaSelecionada">
+                    <h5>Instrutores da Turma do  {{ turmaSelecionada.curso.curso }}</h5>
+                    <table id="consulta_empresas" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Instrutor</th>
+                            <th>RG</th>
+                            <th>CPF</th>
+                            <th>Curso</th>
+                            <th>Operaçoes</th>
+
+                        </tr>
+                    </thead>
+                        <tbody>      
+                          <tr *ngFor="let it of turmaSelecionada.instrutores let i = index" >    
+                              <td>{{ it.instrutor }}</td>
+                              <td>{{ it.rg}}</td>
+                              <td>{{ it.cpf}}</td>
+                              <td>{{ turmaSelecionada.curso.curso }}</td>
+
+
+                              <td>
+                           
+
+                              <button class="btn btn-sm btn-outline-danger me-2"
+                              (click)="excluirInstrutor(turmaSelecionada.idTurmas, it.idinstrutor)"
+                              >
+                                  Excluir
+                              </button>
+                              </td>                                               
+                        </table>                                 
+              </div>   
+       
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>                  
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal fade" id="incluirInstrutor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Instrutores a esta Turma</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{ mensagem }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                  </div>
+                 
+                 
+                  <form [formGroup]="formIncluirInstrutor" (ngSubmit)="IncluirInstrutorSubmit()">
+                    <input type="hidden" formControlName="idTurmas" />       
+                    <div formArrayName="instrutores">
+                      <div *ngFor="let item of formInstrutores.controls; let i = index">
+                        <div class="row mb-2" [formGroupName]="i">
+                          <div class="col-md-8">
+                            <label for="formFile" class="form-label">Instrutor</label>
+                            <select class="form-select" formControlName="idinstrutor">
+                                <option [value]="i.idinstrutor" *ngFor="let i of instrutores">
+                                  {{ i.instrutor| uppercase }}
+                                  {{ i.rg| uppercase }}
+                                  {{ i.cpf | uppercase }} 
+                                </option>
+                              </select>
+                        </div>	
+
+                        
+
+                            <div class="col-md-4">
+                              <div class="mt-4">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger"
+                                  (click)="removerInstrutor(i)"
+                                >
+                                  Remover
+                                </button>
+                              </div>
+                            </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="mt-4">
+                        <button
+                          class="btn btn-outline-primary"
+                          type="button"
+                          (click)="adicionarIntrutor()"
+                        >
+                          Adicionar Instrutor
+                        </button>
+                        &nbsp;
+                        <button
+                          type="button"
+                          class="btn btn-outline-danger"
+                          [disabled]="formInstrutores.length == 0"
+                          (click)="removerUltimoInstrutor()"
+                        >
+                          Remover último Instrutor
+                        </button>
+
+                        <button
+                        class="btn btn-outline-primary m-1"
+                        type="button"
+                        (click)="IncluirInstrutorSubmit()"
+                      >
+                        Salvar Instrutores
+                      </button>
+
+                      </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                      <div class="row mb-2">
+                        <div class="col-md-12">
+                      
+                        </div>
+                      </div>
+                    </div>
+                  
+                  </form>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          
+            <div>
+                <div class="row mb-2 mt-4">
+
+                  <div class="col-md-1 mt-1">
+                </div>
+                    <div class="col-md-8 mt-1">
+                        <h5>Lista de Turmas</h5>
+                    </div>
+                    <div class="col-md-3 mt-1">
+                        <a href="cadastrar-turmas" class="btn btn-success">Cadastar Turmas</a>
+                    </div>
+                    
+
+                </div>
+                  <div class="row d-flex justify-content-center ">             
+                    <div class="col-11 d-flex justify-content-center bg-light mb-5">
+                      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <span class="navbar-brand">Período: </span>
+                        <button class="btn btn-outline-secondary" (click)="mudarMes(-1)">&lt; Anterior</button>
+                        
+                        <!-- Adição do dropdown para selecionar o mês -->
+                        <div class="dropdown mx-3">
+                         <button class="btn btn-success m-1 dropdown-toggle" type="button" id="mesDropdown"
+                                                  data-bs-toggle="dropdown" aria-expanded="false">
+                                                MESES  DO ANO
+                                              </button>
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                             <li> <a class="dropdown-item" (click)="selecionarMes(0)">Janeiro</a></li>
+                            <a class="dropdown-item" (click)="selecionarMes(1)">Fevereiro</a>
+                            <a class="dropdown-item" (click)="selecionarMes(2)">Março</a>
+                            <a class="dropdown-item" (click)="selecionarMes(3)">Abril</a>
+                            <a class="dropdown-item" (click)="selecionarMes(4)">Maio</a>
+                            <a class="dropdown-item" (click)="selecionarMes(5)">Junho</a>
+                            <a class="dropdown-item" (click)="selecionarMes(6)">Julho</a>
+                            <a class="dropdown-item" (click)="selecionarMes(7)">Agosto</a>
+                            <a class="dropdown-item" (click)="selecionarMes(8)">Setembro</a>
+                            <a class="dropdown-item" (click)="selecionarMes(9)">Outubro</a>
+                            <a class="dropdown-item" (click)="selecionarMes(10)">Novembro</a>
+                            <a class="dropdown-item" (click)="selecionarMes(11)">Dezembro</a>
+            
+                            </ul>
+                        </div>
+                      
+                        <span class="navbar-text mx-3">{{ periodoAtual }}</span>
+                        <button class="btn btn-outline-secondary" (click)="mudarMes(1)">Próximo &gt;</button>      
+                      </nav>
+                      
+            
+                            </div>
+            
+            
+            
+                            
+                
+                </div>
+                <div class="table-responsive">
+                    <div >
+                        <table class="table table-sm table-striped table-hover" datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger">
+                            <thead>
+                                <tr>
+                                    <th>QTD</th>
+                                    <th>Nº</th>
+                                    <th>Inicio</th>
+                                    <th>Fim</th>
+                                    <th>Curso</th>
+                                    <th>Tipo</th>
+                                    <th>Nivel</th>
+                                    <th>Status</th>
+                                    <th>Modalidade</th>
+                                    <th>CERT</th>
+                                    <th>Unidade</th>
+                                    <th>C.H</th>
+                                    <th>Disponibilidade</th>
+                                    <th>Matriculas</th>
+                                    <th>Turmas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <tr *ngFor="let t of turmas  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual }, index as i" [class]="getTableRowClass(t)"
+                             >
+
+                                     <td>{{i + 1}}</td>
+                                    <td>Turma: {{t.numeroTurma}}</td>
+                                    <td>{{t.datainicio | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{t.datafim | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{t.curso.curso}}</td>
+                                    <td>{{t.tipo}}</td>
+                                    <td>{{t.nivel}}</td>
+                                    <td>{{t.status}}</td>
+                                    <td>{{t.modalidade}}</td>
+                                    <td>{{t.curso.modelo_certificado}}</td>
+                                    <td>{{t.unidadeDeTreinamento.unidade}}</td>
+                                    <td>{{t.cargahoraria}}</td>
+                                   
+   <td [ngClass]="{'text-success': !t.turmaFechada, 'text-danger': t.turmaFechada}" style="font-size: larger; text-transform: uppercase;">
+    <strong>{{ getStatusTurma(t) }}</strong>
+  </td>
+                                    <td>
+                                      <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                      data-bs-toggle="dropdown" aria-expanded="false">
+                                      Matriculas
+                                  </button>
+
+
+                                  <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                                    <li> <a href="cadastrar-matriculas-faturamentopj"
+                                            class="dropdown-item btn btn-primary"
+                                            [routerLink]="['/cadastrar-matriculas-faturamentopj', t.idTurmas]"                                 
+                                            >Fazer Matriculas Faturamento Empresa</a></li>
+                  
+                                    <li> <a href="consultar-matriculas-faturamentopf"
+                                            class="dropdown-item btn btn-primary"
+                                            [routerLink]="['/cadastrar-matriculas-faturamentopf', t.idTurmas]"
+                                            >Fazer Matriculas Faturamento Pessoa Fisica</a></li>
+                  
+
+                                            <li> <a href="consultar-todas-matriculas"
+                                              class="dropdown-item btn btn-primary"  
+                                              >Todas Matriculas</a></li>
+
+                                              
+                                              <li><a 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#verMatriculasModal"
+                                                 data-bs-whatever="@mdo"
+                                                class="dropdown-item btn btn-sm btn-primary" 
+                                                (click)="exibirMatriculas(t)"
+                                                >Ver Alunos Matriculados</a></li>
+
+                                                <li><a 
+                                                  data-bs-toggle="modal" 
+                                                  data-bs-target="#verCursosModal"
+                                                   data-bs-whatever="@mdo"
+                                                   class="dropdown-item btn btn-sm btn-primary" 
+                                                  (click)="exibirInstrutores(t)"> Ver Ementa do Curso </a></li>
+
+                                  </ul>
+                               
+
+
+                  
+                                    </td>
+
+                                    <td>
+                                      
+                                        <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Ações
+                                        </button>
+                                        <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                                            <li> <a href="/editar-turmas"
+                                                    class="dropdown-item btn btn-primary"
+                                                    [routerLink]="['/editar-turmas', t.idTurmas]"
+                                                    >Editar</a></li>
+                                            <li><a class="dropdown-item btn btn-sm btn-primary"
+                                                (click)="onDelete(t.idTurmas, t.numeroTurmas)"
+                                                > Excluir</a>
+
+
+
+                                                            <li><a
+                                                                data-bs-toggle="modal" 
+                                                                data-bs-target="#incluirInstrutor"
+                                                                data-bs-whatever="@mdo"
+                                                               (click)="setTurma(t)"
+                                                               class="dropdown-item btn btn-sm btn-primary"
+                                                              >Incluir Instrutor</a>
+                                                              
+							                                    <li><a
+                                                    data-bs-toggle="modal" 
+                                                   data-bs-target="#ConsultarInstrutores"
+                                                    data-bs-whatever="@mdo"
+                                      (click)="exibirInstrutores(t)"
+                                                   class="dropdown-item btn btn-sm btn-primary"
+                                                  >Consultar Instrutores</a>
+
+         
+
+                                            </li>
+                                            <li><a 
+
+                                            class="dropdown-item btn btn-sm btn-primary" 
+                                            (click)="abrirTurma(t.idTurmas)"
+                                            >Abrir Turmas</a></li>
+                                            <li><a 
+                                          
+                                              class="dropdown-item btn btn-sm btn-primary" 
+                                              (click)=" fecharTurma(t.idTurmas)"
+                                              >Fechar Turmas</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+
+
+                                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>  
+                                <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+
+                                <script>
+
+                           var table = new DataTable('#myTable', {
+                                   language: {
+                               url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json',
+                                        },
+                                             });
+                                </script>
+                            </tbody>
+                             
+                            <tfoot>
+                              <tr>
+                                <td colspan="5">
+                  
+                                Quantidade de Turmas: {{(turmas).length}}
+                                <pagination-controls 
+                      (pageChange)="paginaAtual = $event"
+                      previousLabel="Página anterior"
+                      nextLabel="Próxima página"
+                      [maxSize]="5" 
+                      [itemsPerPage]="itensPorPagina" 
+                    ></pagination-controls>         
+                                            </td>
+                              </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+     
+
+    

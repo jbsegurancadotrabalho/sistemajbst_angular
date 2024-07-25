@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Probabilidade de Ocorrencia</h5>
+                    <p>Preencha os campos para criar a Probabilidade de Ocorrencia.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-riscos" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="criarProbabilidadeDeOcorrencia()" [formGroup]="formularioProbabilidadeDeOcorrencia">
+                <input type="hidden" formControlName="idRisco">
+                
+                <div class="row mb-2">
+                    <div class="col-md-6 mt-3">
+                        <label for="grupo">Categoria:</label>
+                        <select class="form-select" 
+                        formControlName="categoria"
+                        aria-label="Default select example">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6 mt-3">
+                        <label for="grupo">Denominação:</label>
+                        <select class="form-select" 
+                        formControlName="denominacao"
+                        aria-label="Default select example">
+                            <option value="Extremamente Remota">Extremamente Remota</option>
+                            <option value="Remota">Remota</option>
+                            <option value="Improvavel">Improvavel</option>
+                            <option value="Provavel">Provavel</option>
+                            <option value="Frequente">Frequente</option>
+
+                        </select>
+                    </div>
+                    
+                    <div class="form-group col-md-12 mt-3">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" formControlName="descricao" class="form-control" rows="5"></textarea>
+                    </div>
+                    
+                </div>
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar criar ProbabilidadeDeOcorrencia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

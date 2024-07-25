@@ -1,0 +1,183 @@
+<app-perfil-aluno></app-perfil-aluno>
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+          <div class="modal" tabindex="-1"  id="verCursosModal">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">    
+                  <div *ngIf="cursoSelecionado">
+                    <strong>{{ cursoSelecionado.curso }} {{ cursoSelecionado.descricao}}</strong>
+                    <hr>
+                
+                
+                    <strong>Conteúdo Programático do Curso</strong>
+                    <p> {{ cursoSelecionado.conteudo}}</p>
+
+                    <p> <strong>Valor Formação:</strong> {{ cursoSelecionado.valorFormacao}} por Aluno
+                      <strong>Valor Reciclagem</strong> {{ cursoSelecionado.valorReciclagem}} por Aluno                    
+                      <strong>Valor EAD</strong>  {{ cursoSelecionado.valorEad}} por Aluno
+        
+        </p>
+
+        <p> <strong>Composição Orçamentária: </strong> {{ cursoSelecionado.composicaoOrcamentaria}}</p>
+
+        <p> <strong>Observações Gerais: </strong>{{ cursoSelecionado.observacoesGerais}}</p>
+
+
+
+                    <strong>Horários</strong>
+                    <p>Todos os nossos cursos na unidade Rio de Janeiro iniciam as 8:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                      para o almoço de 12:00 as 13:00 e Voltamos até o Horário das 17:00 Horas  </p>
+  
+                      <p>Todos os nossos cursos na unidade São Paulo iniciam as 9:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                        para o almoço de 12:00 as 13:00 e Voltamos até o Horário das 17:30 Horas  </p>
+  
+                        <p>Todos os nossos cursos na Empresa Parceira iniciam as 9:00 Horas. Temos um Intervalo de 10:00 as 10:20 e paramos
+                          para o almoço de 12:00 as 13:00 e Voltamos até o Horário das 17:30 Horas  </p>
+
+                  <div class="text-center">
+                  </div>
+                </div>
+        
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Nossos Cursos</h5>
+                </div>
+                <div class="col-md-3 mt-1">
+
+                </div>
+            </div>
+            <hr />
+
+
+            <div class="row mb-2">
+
+                <div class="col-md-7">
+                  
+                </div>
+                <div class="col-md-5 mt-3">
+                  <input type="text" class="form-control" [(ngModel)]="filtro.curso"
+                      placeholder="Pesquisar Curso" />
+              </div>
+            </div>
+
+            <div class="table-responsive mt-3">
+              <table id="consulta_chamados" class="table table-sm table-hover table-bordered">
+                 
+                
+                 
+                  <thead>
+                    <tr>
+
+                      <th>QTD</th>
+                      <th>Curso</th>
+                      <th>Formação (R$)</th>
+                      <th>Reciclagem (R$) </th>
+                      <th>EAD (R$)</th>
+                     <th>Codigo JB</th>
+                      <th>Operaçoes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let c of cursos | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.curso, index as i">
+                      <td>{{i + 1}}</td>
+                      <td>{{c.curso}}</td>
+                      <td>{{c.valorFormacao}} por Aluno</td>
+                      <td>{{c.valorReciclagem}} por Aluno</td>
+                      <td>{{c.valorEad}} por Aluno</td>                   
+                       <td>{{c.codigo}}</td>
+                      <td>
+                        <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Ações
+                    </button>
+
+                    <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+
+                      <li><a  class="dropdown-item btn btn-success" 
+
+                        data-bs-toggle="modal" 
+                              data-bs-target="#verCursosModal"
+                               data-bs-whatever="@mdo"
+                                (click)="exibirCursos(c)"   
+                        
+                        >Ver Ementa do Curso</a></li>
+
+
+
+   <li> <a 
+                        class="dropdown-item btn btn-primary"
+                        (click)="downloadMaterial(c)"
+                        >Baixar Material Didático</a></li>
+                        
+                     
+                        
+                            <li> <a 
+                          class="dropdown-item btn btn-primary"
+                        (click)="downloadAvaliacao(c)"
+                          >Baixar Avaliação</a></li>
+                          
+                          
+                         
+                        
+                        
+                    
+        
+                          
+                            <li> <a 
+                          class="dropdown-item btn btn-primary"
+                        (click)="downloadGabarito(c)"
+                          >Baixar Gabarito da Avaliação</a></li>
+                          
+                 
+
+                     </ul>
+
+                     
+
+                      </td>
+                      
+                    </tr>
+                  </tbody>
+                  
+                  <tfoot>
+                    <tr>
+                      <td colspan="5">
+
+                        Quantidade de Cursos: {{(cursos).length}}
+                        <pagination-controls 
+  (pageChange)="paginaAtual = $event"
+  previousLabel="Página anterior"
+  nextLabel="Próxima página"
+  [maxSize]="5" 
+  [itemsPerPage]="itensPorPagina" 
+></pagination-controls>         
+                                                </td>
+                  </tr>
+              </tfoot>
+                </table>
+              </div>
+              
+            </div>
+
+    <!-- componente de paginação -->
+    <div class="text-center">
+       
+    </div>
+        </div>
+    </div>
+

@@ -1,0 +1,131 @@
+
+
+<div class="container mt-3" *ngFor="let a of autorizacao">
+    <div class="card card brilho  mr-5">
+        <div class="card-body">       
+            <div>             
+                <div class="row">
+          
+           
+                    <div class="col-md-2 mt-1 text-center text-success ">
+                                </div>
+           
+                               <div class="col-md-8 mt-1 text-center text-success ">
+                                <h6>{{a?.turmas?.curso?.tituloautorizacao | uppercase }}</h6>
+								 <p>{{a?.turmas?.curso?.itemdaautorizacao | uppercase }}</p>
+                                        </div>                                  
+           
+                               <div class="col-md-2 mt-1 text-center text-success ">
+                                        </div>
+
+                                           </div>
+
+        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                              
+                                <th style="font-size: 12px;">Aluno</th>
+                                <th style="font-size: 12px;">RG</th>
+                                <th style="font-size: 12px;"> CPF</th>
+                                <th style="font-size: 12px;">Matricula</th>
+                                <th style="font-size: 12px;">Turma</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr> 
+                                <td style="font-size: 12px;">{{a?.pessoafisica?.pessoafisica}}</td>
+                                <td style="font-size: 12px;">{{a?.pessoafisica?.rg}}</td>
+                                <td style="font-size: 12px;">{{a?.pessoafisica?.cpf}}</td>
+                                <td style="font-size: 12px;">{{ a?.numeroMatricula}}</td>
+                                <td style="font-size: 12px;">{{ a?.turmas?.numeroTurma}}</td>
+                            </tr>                  
+                        </tbody>    
+                    </table>
+ 
+            
+
+              
+                    <div class="row">
+
+                        <div class="col-12 p-3 ">
+                          <p style="font-size: 12px;">  {{a?.turmas?.curso.conteudodaautorizacao}} </p> 
+                        </div>   
+                                 
+                </div>
+                       
+				  <div class="row">
+
+                        <div class="col-md-5">
+                            <img *ngIf="a?.turmas?.instrutores[0]?.assinatura_instrutor" [src]="'data:image/png;base64,' + a?.turmas?.instrutores[0]?.assinatura_instrutor" />
+                            <strong>  <hr style="background-color: black;"></strong>
+                            <strong style="font-size: 10px;">RESPONSAVEL PELA {{a?.turmas?.curso?.tituloautorizacao | uppercase }}</strong> 
+                            <br>
+                            {{ a?.turmas?.instrutores[0]?.instrutor }}
+                            <br>
+                            {{ a?.turmas?.instrutores[0]?.formacoes[0]?.formacao }}
+                            <br>
+                            {{ a?.turmas?.instrutores[0]?.formacoes[0]?.conselho }} - {{ a?.turmas?.instrutores[0]?.formacoes[0]?.registro }} - {{ a?.turmas?.instrutores[0]?.formacoes[0]?.estado }}
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    
+                        <div class="col-md-3">
+                           
+                        </div>
+                    
+                        <div class="col-md-4">
+                            <img *ngIf="a?.pessoafisica?.assinaturaPessoaFisica" [src]="'data:image/png;base64,' + a?.pessoafisica?.assinaturaPessoaFisica" />
+                            <hr style="background-color: black;">
+                            <strong style="font-size: 10px;"> Aluno (A) DO {{a?.turmas?.curso?.curso | uppercase}}</strong>
+                            <br>
+                           {{ a?.pessoafisica?.pessoafisica}}
+                            <br>
+                            RG: {{ a?.pessoafisica?.rg}} - CPF: {{a?.pessoafisica?.cpf}}
+                            <br>
+                            Matricula: {{ a?.numeroMatricula}} 
+                            <br>
+                            Turma: {{ a?.turmas?.numeroTurma}}
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    
+                    </div>
+                    
+                  </div>
+                </div>
+
+                
+           
+
+            </div>
+        </div>
+
+ 
+
+              
+                        <div class="row">
+
+                            <div class="col-md-5 mt-1 mb-1 center">
+                            </div>
+                            <div class="col-md-4 mt-1 mb-1 center">
+                                <button (click)="printPage()">Autorização</button>
+                            </div>   
+                            <div class="col-md-3 mt-1 mb-1 center">
+                            </div>
+</div>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+      $("#meu-card").click(function () {
+        window.location.href = "https://www.google.com.br/url?sa=i&url=https%3A%2F%2Fwww.rgid.com.br%2FMLB-1434275770-papel-moeda-para-certificado-e-diplomas-100-un-_JM&psig=AOvVaw0fkAtfo8qdPwHz9q30zrZC&ust=1696169652883000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPjr-MfC0oEDFQAAAAAdAAAAABAE";
+      });
+    });
+  </script>

@@ -1,0 +1,110 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">
+        
+            <h5>Editar Pessoa Fisica</h5>
+            <p>Preencha os campos para Editar a Pessoa Fisica.</p>
+            <hr/>
+            
+        <div class="text-success">
+                    <strong></strong>
+                </div>
+                
+                <div class="text-danger">
+                    <strong></strong>
+                </div>
+                <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+                <form [formGroup]=" formPessoaFisica" (ngSubmit)="onSubmit()">
+                            <input type="hidden" formControlName="idpessoafisica" />
+
+            
+            
+
+
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label>Nome da Pessoa Fisica:</label>
+                                    <input  type="text" name="nome" id="nome" class="form-control"
+                                    formControlName="pessoafisica"/>
+                                </div>
+            
+                                <div class="col-md-3">
+                                    <label>RG:</label>
+                                    <input  type="text" name="nome" id="nome" class="form-control"
+                                    formControlName="rg"/>
+                                </div>
+                            
+                                <div class="col-md-3">
+                                    <label>CPF:</label>
+                                    <input  type="text" name="nome" id="nome" class="form-control"
+                                    formControlName="cpf"/>
+                                </div>
+                                
+                                       <div class="col-md-3">
+                                    <label>Telefone Fixo:</label>
+                                    <input  type="text" name="nome" id="nome" class="form-control"
+                                    formControlName="telefone_1"/>
+                                </div>
+                        
+                               <div class="col-md-3">
+                                    <label>Telefone Celular:</label>
+                                    <input  type="text" name="nome" id="nome" class="form-control"
+                                    formControlName="telefone_2"/>
+                                </div>
+                                
+                                       <div class="col-md-3">
+                                    <label>Email:</label>
+                                    <input  type="text" name="nome" id="nome" class="form-control"
+                                    formControlName="email"/>
+                                </div>
+            
+                                
+                                       <div class="col-md-3">
+                                        <label>Senha:</label>
+                                        <input  type="text" name="nome" id="nome" class="form-control"
+                                        formControlName="senha_sistema"/>
+                                    </div>
+            
+                                <div class="col-md-3 mb-1">
+                                    <label for="formFile" class="form-label">Digite o Email do Usuário cadastrado</label>
+                                    <ng-select 
+                                    [items]="usuarios"
+                                    bindLabel="email" 
+                                    bindValue="id"
+                                    class="form-select custom-ng-select"
+                                    formControlName="id"
+                                    [ngClass]="{'is-invalid': formPessoaFisica.get('id')?.invalid && formPessoaFisica.get('id')?.touched}"
+                                    [matchFn]="customMatchFn"
+                                >
+                                    <ng-template ng-label-tmp let-item="item">
+                                        <div class="custom-bg" style="z-index: 1000;">
+                                            {{ item?.email }} 
+                                        </div>
+                                    </ng-template>
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div>
+                                        {{ item?.email }} 
+                                       
+                                        </div>
+                                    </ng-template>
+                                </ng-select>
+                                
+                                </div>
+                            <div class="row mb-2 mt-3">
+                                <div class="col-md-12">
+                                    <input type="submit" class="btn btn-success" value="Realizar Cadastro"/>
+                                </div>
+                            </div>
+                        </div>
+            
+            
+                        </form>          
+        </div>
+    </div>
+
+</div>

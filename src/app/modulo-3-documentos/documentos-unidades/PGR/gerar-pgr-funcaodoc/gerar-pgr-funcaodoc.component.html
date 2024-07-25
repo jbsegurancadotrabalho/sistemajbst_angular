@@ -1,0 +1,724 @@
+  <div  *ngFor="let a of associacoes">
+  <header style="font-family:
+    Arial; font-size: 11pt; 
+     text-align: center;
+     margin-top: 6;
+     ">
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" 
+    alt="Logo" class="print-logo mx-auto" />
+  </header>
+  <div class="content" >
+
+  <br>
+  <p>
+    <strong class="d-flex justify-content-center text-center">P.G.R - PROGRAMA DE GERENCIAMENTO DE RISCOS</strong>
+  </p>
+  <br><br><br><br><br><br><br><br><br>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="font-size: 12px;">Empresa</th>
+          <th style="font-size: 12px;">CNPJ</th>
+          <th style="font-size: 12px;">Data de Inicio</th>
+          <th style="font-size: 12px;">Vigência</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of associacoes">
+          <td style="font-size: 12px;">{{ a?.unidadedoc?.nomefantasia }}</td>
+          <td style="font-size: 12px;">{{ a?.unidadedoc?.cnpj }}</td>
+          <td style="font-size: 12px;">{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}</td>
+          <td style="font-size: 12px;">{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <br><br><br><br>
+  <p style="font-family: Arial; font-size: 11pt; text-align: justify;">
+    <strong>SUMÁRIO</strong><br>
+    1 - IDENTIFICAÇÃO DA EMPRESA <br>
+    2 - AVALIADORES <br>
+    3 - APRESENTAÇÃO <br>
+    4 - OBJETIVOS <br>
+    5 - CONSIDERAÇÕES PRELIMINARES <br>
+    6 - ÁREA DE ABRANGÊNCIA DO PGR NA EMPRESA <br>
+    7 - AVALIAÇÃO DOS RISCOS <br>
+    &nbsp;&nbsp;7.1 Critérios utilizados para definição do nível do risco <br>
+    &nbsp;&nbsp;7.2 Níveis de risco possíveis <br>
+    &nbsp;&nbsp;7.3 Matriz para determinação dos níveis de riscos <br>
+    &nbsp;&nbsp;7.4 Classificações de prioridade de risco <br>
+    8 - INSTRUMENTO(S) UTILIZADO(S) NA AVALIAÇÃO DOS RISCOS <br>
+    9 - METODOLOGIA DE USO DO(S) INSTRUMENTO(S) <br>
+    10 - ANTECIPAÇÃO DOS RISCOS <br>
+    11 - INVENTÁRIO DE RISCOS <br>
+    12 - RECONHECIMENTO E ANÁLISE DOS RISCOS DO AMBIENTE DE TRABALHO <br>
+    13 - PREPARAÇÃO PARA EMERGÊNCIA <br>
+    14 - METAS E PRIORIDADES DE CONTROLE <br>
+    15 - REGISTRO E DIVULGAÇÃO DOS DADOS <br>
+    16 - RECOMENDAÇÕES A EMPRESA <br>
+    17 - CONSIDERAÇÕES FINAIS <br>
+    18 - ENCERRAMENTO <br>
+    19 - CONTROLE DE REVISÕES DO PGR
+    </p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+    <p>
+      <strong>IDENTIFICAÇÃO DA EMRESA</strong><br>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+      <strong>Empresa:</strong> {{ a?.unidadedoc?.empresadoc?.razaosocial }} <code></code>
+      <br>
+    <strong>CNPJ:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+    <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.empresadoc?.status  }}<br>      
+    <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.horario_empresa  }}<br>      
+    <strong>Inscrição Estadual:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaoestadual  }}<br>      
+    <strong>Inscrição Municipal:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaomunicipal }}<br>      
+    <strong>Responsável:</strong> {{   a?.unidadedoc?.empresadoc?.responsavel_sistema}}<br>      
+    <strong>Email:</strong> {{   a?.unidadedoc?.empresadoc?.email_usuario}}<br>      
+    <strong>Telefone:</strong> {{   a?.unidadedoc?.empresadoc?.telefone_responsavel}}<br>      
+    <strong>Endereço:</strong> {{   a?.unidadedoc?.endereco?.logradouro}}, {{   a?.unidadedoc?.endereco?.numero}}
+    {{   a?.unidadedoc?.endereco?.bairro}}, {{   a?.unidadedoc?.endereco?.localidade}}, {{   a?.unidadedoc?.endereco?.uf}}.
+    <br>      
+    <strong>CEP:</strong>  {{   a?.unidadedoc?.endereco?.cep}}<br>      
+
+     </p>
+
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+     <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+      <strong> 1.1 INTRODUÇÃO</strong><br><br>
+
+      O Documento Base do Programa de Gerenciamento de Riscos (PGR) se insere no contexto da Política
+      de Gestão da Empresa  {{ a?.unidadedoc?.empresadoc?.razaosocial }} buscando a melhoria contínua 
+      do ambiente de trabalho e a preservação da saúde dos seus colaboradores e contratados. Está 
+      estruturado conforme disposto na NR-1, Portaria 3214 de 08 de junho de 1978, com redação atualizada 
+  </p>
+
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong> 1.2 OBJETIVO</strong><br><br>
+    O Programa de Gerenciamento de Riscos – PGR – visa “estabelecer as disposições gerais, o campo de aplicação, os termos e as definições comuns às Normas Regulamentadoras - NR relativas à segurança e saúde no trabalho”.
+    Este Documento Base tem o objetivo estabelecer as “diretrizes para o Gerenciamento de Riscos Ocupacionais (GRO) e as medidas de prevenção em Segurança e Saúde no Trabalho – SST”.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>1.3 TERMOS E DEFINIÇÕES</strong><br><br>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Risco Ambiental ou ocupacional: Combinação da probabilidade de ocorrer lesão ou agravo à saúde causados por um evento perigoso, exposição a agente nocivo ou exigência da atividade de trabalho e da severidade dessa lesão ou agravo à saúde.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Agentes físicos: Agente físico: Qualquer forma de energia que, em função de sua natureza, intensidade e exposição, são capazes de causar lesão ou agravo à saúde do trabalhador. Exemplos: ruído, vibrações, pressões anormais, temperaturas extremas, radiações ionizantes, radiações não ionizantes.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Agente químico: Substância química, por si só ou em misturas, quer seja em seu estado natural, quer seja produzida, utilizada ou gerada no processo de trabalho, que em função de sua natureza, concentração e exposição, é capaz de causar lesão ou agravo à saúde do trabalhador. Exemplos: fumos de cádmio, poeira mineral contendo sílica cristalina, vapores de tolueno, névoas de ácido sulfúrico.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Agente biológico: Microrganismos, parasitas ou materiais originados de organismos que, em função de sua natureza e do tipo de exposição, são capazes de acarretar lesão ou agravo à saúde do trabalhador. Exemplos: bactéria Bacillus anthracis, vírus linfotrópico da célula T humana, príon agente de doença de Creutzfeldt-Jakob, fungo Coccidioides immitis.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Limite de Tolerância – LT (NR-15 / Brasil): A concentração ou intensidade máxima ou mínima, relacionada com a natureza e o tempo de exposição ao agente, que não causará dano à saúde do trabalhador, durante a sua vida laboral.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Limite de Exposição - Média Ponderada pelo tempo – TLV-TWA1 (Threshold Limit Value / Time Weighted Average - ACGIH-EUA): A concentração média ponderada pelo tempo para uma jornada normal de 8h diárias e 40h semanais, para a qual a maioria dos trabalhadores pode estar repetidamente exposta, dia após dia, sem sofrer efeitos adversos a sua saúde.
+    </p>
+
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Limite de Exposição - Curta Duração – TLV-STEL (Threshold Limit Value-Short Term Exposure ACGIH-EUA): A concentração máxima a que os trabalhadores podem estar expostos continuamente por um período curto, de até 15 minutos, sem sofrer irritação, lesão tissular crônica ou irreversível, narcose em grau suficiente para aumentar a predisposição a acidentes, impedir auto-salvamento ou reduzir significativamente a eficiência no trabalho, desde que não sejam permitidas mais de 4 exposições diárias, com pelo menos 60 minutos de intervalo entre os períodos de exposição e também que não seja excedido o TLV-TWA.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Limite de Exposição - Valor Teto (NR-15/Brasil), TLV-C (Threshold Limit Value – Ceiling - ACGIH-EUA): Concentração que não deverá ser excedida durante nenhum momento de exposição na jornada.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • IDLH: Concentração máxima imediatamente perigosa para a vida ou saúde, da qual o trabalhador poderá escapar, dentro de 30 minutos, sem sintomas graves nem efeitos irreversíveis para a saúde (NIOSH/OSHA/EUA).
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Mobilidade: Percentual de tempo de permanência nos diversos locais durante a rotina de trabalho, em relação ao número de horas trabalhadas.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Nível de Ação: Valor acima do qual devem ser iniciadas ações preventivas (monitoramento periódico, informação aos trabalhadores e controle médico) de forma a minimizar a probabilidade de que as exposições a agentes ambientais ultrapassem os limites de exposição. Para agentes químicos corresponde a metade dos limites de exposição ocupacional (NR-15, ACGIH, acordos coletivos) e para o ruído a dose de 0,5 (superior a 50%), conforme estabelecido na NR-15, Anexo 1, item 6.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Grupos Similares de Exposição - GSE: Grupos de trabalhadores que experimentam exposição semelhante, de forma que o resultado fornecido pela avaliação de qualquer membro do grupo seja representativo do grupo como um todo.
+    </p>
+
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • NR-15: Norma Regulamentadora n° 15 - Portaria 3214.<br>
+      • ACGIH: American Conference of Governamental Industrial Hygiene.<br>
+      • NIOSH: National Institute for Occupational Safety and Health.<br>
+      • AIHA: American Industrial Hygiene Association.<br>
+      • ABNT: Associação Brasileira de Normas Técnicas.<br>
+      • OSHA: Occupational Safety and Health Administration.
+    </p>
+
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+     
+      A Empresa {{ a?.unidadedoc?.empresadoc?.razaosocial }}, cumpridora de requisitos legais, vem através de este Documento Base, implantar o seu PGR – Programa de Gerenciamento de Riscos, 
+      conforme preconiza a Lei nº 6514 de 22 de dezembro de 1977 e a Portaria n.º 6730 de 12 de Março de 2020 que traz a redação da Norma Regulamentadora 01 – NR 01.
+            </p>
+      
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+      A reavaliação deste PGR é de responsabilidade da Empresa, que se compromete dar continuidade ao programa supracitado, implementando e assegurando o cumprimento das medidas de controle que se
+      fizerem necessárias, de acordo com o cronograma de ações estabelecido, bem como seu monitoramento contínuo a Empresa {{ a?.unidadedoc?.empresadoc?.razaosocial }}
+      promoverá uma análise global deste PGR,
+      anualmente ou sempre que necessário, mesmo porque a NR-01 não cita a validade deste PGR, para reavaliação de seu desenvolvimento e a realização dos ajustes, estabelecendo novas metase prioridades.
+      <br></p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              Empregador
+              <br>
+        
+             • Assumir responsabilidade no que se refere às medidas técnicas e operacionais, que devem ser implantadas para atender as exigências registradas no presente documento (PGR) constantes na NR - 1;
+             <br>
+        
+             • Esclarecer que os resultados obtidos no presente levantamento e as recomendações citadas neste documento implicam parecer essencialmente técnicos e científicos das condições de Segurança,
+             Higiene e Medicina do Trabalho, constatados durante a avaliação de cada cargo/local de trabalho na ocasião em que exerciam suas atividades laborais.
+             <br>
+             Vice-Presidência e Diretoria<br>
+            
+             • Estabelecer, implementar e assegurar recursos para o cumprimento do PGR conforme preconiza a
+      legislação.<br>
+
+      Coordenador Geral do PGR:<br>
+      • Coordenar a implantação e desenvolvimento do PGR;<br>
+      • Rever informações sobre o controle do programa;<br>
+      • Delegar responsabilidade e autoridade;<br>
+
+</p>
+
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Elaborar os orçamentos anuais do Programa, alocando recursos financeiros necessários à execução do Relatório Anual de Atividades.<br>
+      • Supervisionar os trabalhadores para assegurar que os procedimentos corretos de trabalho estão sendo observados;     <br>
+      <br>
+    • Assegurar que os equipamentos e máquinas estão em perfeito estado de funcionamento;
+    <br>
+    • Garantir a ordem e limpeza de seu setor/área de trabalho;
+    <br>
+    • Comunicar informações sobre os riscos ambientais e procedimentos de controle adotados;
+    <br>
+    • Consultar os trabalhadores sobre questões de segurança e saúde e orientá-los quando necessário;
+    <br>
+    • Manter a área de Segurança Industrial informada das questões de segurança e saúde do seu setor/área;
+    <br>
+    • Colaborar com a CIPA na investigação de acidentes ou doenças e na adoção de medidas preventivas de Segurança do Trabalho;       
+    <br>
+    • Assessorar a empresa no desenvolvimento e implantação do PGR;
+    <br>
+
+    • Realizar anualmente junto com a administração da Empresa e a CIPA com seus membros a reavaliação do PGR;
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    • Manter registros de toda documentação relativa ao programa;
+    <br>
+    • Assegurar que todos os trabalhadores recebam treinamento adequado para as funções que desempenham ou venham a desempenhar relativos ao escopo do PGR presentes no inventário de riscos;
+    <br>
+    • Manter a integridade dos equipamentos de Segurança e Higiene Ocupacional no que se refere à manutenção, calibração e guarda;
+    <br>
+    • Prever e manter disponíveis os recursos financeiros para a execução das atividades deste programa, seja por recursos próprios ou de terceiros;
+    <br>
+    • Divulgar os dados e resultados relativos ao programa.<br><br>
+    Empregados
+    <br></p>
+
+            
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Colaborar e participar na implantação do PGR, como agentes de melhoria, com permanente
+      vigilância as Condições de Segurança e Saúde nos Ambientes de Trabalho;       <br>
+ 
+      • Seguir as orientações recebidas nos treinamentos previstos no PGR;       <br>
+ 
+      • Cumprir as Normas de Segurança e Saúde Ocupacional, visando seu bem-estar físico e mental;       <br>
+ 
+      • Comunicar o responsável imediato, todas as ocorrências de condições inseguras encontradas, que possam implicar riscos à saúde;
+      • Cooperar com a CIPA na prevenção de acidentes;       <br>
+ 
+      • Utilizar obrigatoriamente o Equipamento de Proteção Individual - EPI, onde sinalizado e quando julgar necessário;
+      • Estar ciente sobre a implementação do PGR e os resultados das avaliações;       <br>
+ 
+      • Participar do processo de identificação de situações de risco e proposição de medidas de controle
+      através do diálogo contínuo com seus Líderes, Área de Segurança/Higiene e membros da CIPA;       <br>
+ 
+      • Participar da etapa de reconhecimento de riscos quanto à priorização de ações, através do Mapa de Riscos, elaborado pela CIPA;       <br>
+ 
+      • Estar ciente dos riscos relacionados com suas atividades, através das integrações e durante os treinamentos recebidos, bem como através de orientações de seus Líderes e atualizações periódicas do PGR.
+      CIPA - Comissão Interna de Prevenção de Acidentes
+      <br>
+      • Acompanhar e avaliar o desempenho deste programa;          <br>
+
+      • Zelar pelo cumprimento das medidas preventivas e corretivas;          <br>
+
+      • Manter uma cópia atualizada do Relatório Anual de Atividades no livro Ata;          <br>            
+    </p>
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Estar ciente das informações contidas no PGR para desenvolver o Mapa de Risco da Empresa e demais atividades prevencionistas que a legislação (NR – 5) determina.
+      <br><br>
+
+      <strong>1.5 DOCUMENTOS COMPLEMENTARES</strong><br>
+      • Inventário de Riscos do PGR<br>
+      • Matriz de Riscos do PGR<br>
+      • Plano de Ação no Gerenciamento de Riscos<br><br>
+      <strong>1.6 ESTRATÉGIA E METODOLOGIA DE AÇÃO</strong><br><br>
+      O presente programa foi elaborado com base na ANTECIPAÇÃO, RECONHECIMENTO e AVALIAÇÃO
+      dos RISCOS AMBIENTAIS existentes nas atividades dos empregados da Empresa, levando em
+      consideração os diversos locais de trabalho. Esses dados foram realizados por profissionais do Serviço
+      Especializado em Engenharia de Segurança e em Medicina do Trabalho – SESMT e inseridos no
+      INVENTÁRIO DE RISCOS deste PGR.<br>
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      O Controle desses Riscos Ambientais foi inserido para Gerenciamento dos Riscos Ocupacionais na Planilha de Ação também conhecida como Planilha de Gerenciamento de Riscos.
+Como suporte técnico para o reconhecimento dos riscos foi consideradas as constatações provenientes
+do exercício dos trabalhos que estão sendo realizadas nas instalações / áreas / setores da Empresa {{ a?.unidadedoc?.empresadoc?.razaosocial | uppercase}}, informações prestadas pelos profissionais da empresa e
+ representante da Comissão Interna de Prevenção de Acidentes – CIPA. A estratégia tem como finalidade alcançar os seguintes objetivos:
+ <br> 
+
+  • Reconhecimento dos Riscos Ambientais - referente ao processo de trabalho executado e a condição
+  de exposição dos funcionários; 
+
+  • Avaliação quantitativa – Com base na NR-09.4.2, sempre que se constate a possibilidade de o
+  trabalhador estar submetido à exposição ao agente de risco, cujo limite de tolerância possa estar
+  superior ao previsto na legislação;       <br>
+
+  
+  • Interpretação dos resultados - avaliação e julgamento profissional com proposição de medidas de
+  controle;       <br>
+
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+  • A metodologia aplicada será a da legislação atualizada das Normas Regulamentadoras – NR do
+  Ministério do Trabalho e Emprego - MTE, Lei 6514 de 22 de dezembro de 1977, onde se encontram
+  estabelecidos os parâmetros mínimos e diretrizes gerais, as quais foram aplicadas neste PGR.
+  <br>
+
+  • Com base na NR-09.6.1.1, na ausência de limites de tolerância previstos na NR-15 e seus anexos ou
+  quando necessário, serão utilizados “Critérios Técnicos“ adotados pela American Conference of
+  Governamental Hygienist (ACGIH) tomando como base os limites de tolerância (TLV – TWA, TLV – STEL e TLV – C) adotados por essa Associação.
+  <br>
+
+  <br>
+
+  <strong>2. PARTE II – ANTECIPAÇÃO, RECONHECIMENTO AVALIAÇÃO DOS RISCOS AMBIENTAIS.</strong>
+  <br>
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      2.1 Antecipação
+           <br>
+           <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            A antecipação visa identificar riscos potenciais. As informações que deverão ser consideradas para a elaboração ou revisão do PGR são originadas de:
+            
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • Projetos de novas instalações: Projeto Conceitual, a Engenharia, com apoio das áreas de Segurança  do Trabalho, deverá avaliar, dentro das estratégias de segurança e de saúde, quais os riscos 
+            ambientais que estão previstos no projeto, prevendo, se possível, medidas de redução e controle já na fase do projeto, bem como os recursos necessários para monitoramento das exposições. Estes riscos 
+            deverão ser incorporados na revisão do PGR quando da conclusão do projeto.
+            <br>
+            • Modificações de projetos: A área de Segurança do Trabalho deve avaliar os novos riscos ambientais se estão previstos, ou se ocorreram à eliminação dos mesmos. Estas alterações deverão ser 
+            incorporadas na revisão do PGR quando da conclusão da modificação.
+            <br>
+            • Manipulação de novos produtos químicos: Todo produto novo para ser armazenado deverá ter como base as informações sobre a toxicologia e suas especificações de segurança contidas na FISPQ
+            do produto. Se após a análise crítica das áreas envolvidas forem favoráveis para a manipulação e armazenamento do referido produto, deverá ser feita avaliação ambiental.
+            <br></p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+            2.2 Reconhecimento dos Riscos Ambientais
+            <br>
+        O reconhecimento dos riscos ambientais é realizado através de inspeções / auditorias nas diversas áreas / locais da Empresa; ocasião em que são consolidadas as constatações técnicas, levando em
+               
+        consideração as percepções que os trabalhadores têm do processo produtivo e riscos ambientais;
+                     
+        informações / registros realizados pela Comissão Interna de Prevenção de Acidentes – CIPA, bem como tudo que venha a contribuir como suporte técnico para o enriquecimento do reconhecimento.
+        O reconhecimento visa o registro / avaliação das possíveis interferências na saúde / integridade física do trabalhador em razão da relação entre exposição e riscos ambientais oriundos da área / setor como um todo, somado aos riscos provenientes das atividades realizadas pelo trabalhador no seu posto/local de
+        trabalho.
+		        <br>
+
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            2.3 Avaliação dos Riscos Ambientais
+            <br>
+          A avaliação dos riscos ambientais é realizada após a Antecipação e Reconhecimento do agente, da fonte geradora, do Grupo Homogêneo ou Similar de Exposição, da função e atividade desses, das
+          medidas de controle existentes e das medidas de controle propostas. Somente o resultado das avaliações devem ser inseridos no Inventário de Riscos deste PGR conforme NR-09.4.3.
+                <br>
+  
+          A antecipação, o reconhecimento e a avaliação dos Riscos Ambientais estão registrados Inventário de Riscos presentes nesse PGR.
+                    <br>
+  
+          2.4 Matriz de Risco do PGR
+                   <br>
+  
+          A avaliação da Classificação de Risco é realizada para cada GSE em relação a cada agente de risco E Atividade no Inventário de Riscos, possibilitando conhecer, em função do risco da exposição qual a
+          consequência para a saúde. A classificação de Risco é obtida relacionando-se as informações anteriormente obtidas pela interação da Probabilidade x Severidade do Risco, conforme a Matriz de Risco
+          da Matriz de Risco conforme imagem a Seguir. 
+    </p>
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      <strong>PARTE III – AVALIAÇÃO QUANTITATIVA DOS RISCOS AMBIENTAIS</strong>                       <br>
+      <br>
+      3.1 Objetivos e Critérios
+      <br>
+      O objetivo das determinações quantitativas é o de dimensionar a exposição dos trabalhadores e subsidiar o equacionamento das medidas de controle. Estas avaliações devem ser planejadas conforme
+      cronograma e critérios estabelecidos do PGR, segundo os critérios:<br>
+      • Para a determinação das avaliações quantitativas das exposições dos GSE, deverão ser consideradas as atividades que apresentem Grau de Exposição ao risco Alto e Muito Alto. A não existência destes 
+      graus implica na determinação de graus considerados Moderados, Baixo e Muito Baixo, com o objetivo de obter dados estatísticos e subsidiar a necessidade de avaliações futuras.
+      <br>
+      • Serão priorizadas as atividades onde existe contato direto com os agentes mais agressivos, e que possuem Limite de Exposição Ocupacional para curta duração (STEL), Valor Teto (VT) e dos agentes
+      que estão presentes em altas concentrações sem que haja controles eficazes de exposição.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      A avaliação deverá considerar as seguintes atividades:
+          <br>
+      • Definir e planejar a estratégia de quantificação dos riscos, com base nos dados e informações coletadas anteriormente relativas às atividades e frequências, se existirem.<br>
+          <br>
+• A quantificação da concentração ou intensidade deve ser feita com equipamentos e instrumentos calibrados e compatíveis aos riscos identificados e utilizando técnicas e metodologias validadas e
+      reconhecidas.
+        <br>
+      3.1.1 Critérios para amostragem dos Agentes Químicos
+      <br>
+      Os métodos para coleta de amostras e determinação analítica dos agentes químicos, sempre que possível, devem ser baseadas nas NHO’s da Fundacentro, NIOSH ou OSHA.
+      O número de amostragens deve ser representativo e que permita um tratamento estatístico dos valores.
+         <br>
+        </p>
+              
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      3.2 Critérios para amostragem do Agente Físico (Ruído)
+      <br>
+      A dose e o nível de pressão sonora deverão ser obtidos através de utilização de dosímetro de ruído e medidor de pressão sonora, adotando-se:
+       <br>
+        • Os limites de tolerância definidos no Quadro Anexo I da NR-15 do MTE;
+              <br>
+        • As metodologias e os procedimentos definidos na NHO-01 da FUNDACENTRO.
+        <br>
+        O colaborador portador do dosímetro de ruído deverá ser conscientizado quanto ao não desvio de sua rotina de trabalho para que não haja alterações no resultado real da exposição.
+              Os valores encontrados deverão estar em conformidade com os limites de tolerância estabelecidos e o tempo de exposição dos trabalhadores.
+              <br>
+            </p>
+
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              3.3 Critérios para amostragem do Agente Físico (Vibração)
+              <br>
+             Deverão ser obtidas informações técnicas e administrativas relacionadas aos veículos, às máquinas e aos equipamentos, às operações e demais parâmetros (ambientais, de processos de trabalho etc.) envolvidos
+             nas condições detrabalho avaliadas. Tais informações serãocoletadas através de observações de campo, necessárias para a identificação dos grupos de exposição similar e para a caracterização da exposição 
+             dos trabalhadores com base no critério utilizado.
+                        <br>
+             Os sistemas de medição devem ser compostos basicamente de medidores integradores e de transdutores (incluindo acelerômetros de assento) do tipo triaxial. Esses transdutores serão posicionados nos pontos
+             de medição.
+                       <br>
+             Para fins de elaboração do PGR, respeitando-se o contido no item 9.6.1.1. da NR-9, uma vez que não há limites estabelecidos no anexo nº 8 da NR-15, tampouco pela norma ISO 5349, a solução é a utilização 
+             dos limites da ACGIH.
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              3.4 Interpretação dos Resultados
+     
+              NOTAS:
+           
+              • Para qualquer agente de risco, cujo monitoramento seja realizado com mais de 1 (uma) amostra, caso os resultados obtidos apresentem um desvio padrão elevado, recomenda-se nova avaliação
+              quantitativa, com maior número de amostragens, e realização de tratamento estatístico por meio de “Média Ponderada”. O resultado do tratamento estatístico será considerado como “representativo” do
+              risco de exposição para o respectivo GSE.
+              <br>
+
+              • Caso o resultado da Avaliação Quantitativa mais recente confirme o resultado obtido na matriz de Análise Qualitativa do ano vigente, permanece como válida a priorização definida nas Planilhas de
+              Avaliação Qualitativa do presente documento.
+              <br>
+     
+            • Caso o resultado da Avaliação Quantitativa mais recente seja diferente do resultado obtido na matriz de Análise Qualitativa do ano vigente, permanece como válido o resultado obtido nos Monitoramentos
+            Ambientais realizados (resultado real).
+            <br>
+
+            • O resultado das avaliações quantitativas devem ser inseridos no inventário de riscos do PGR.
+            3.5 Medidas de Controle
+     </p>
+     <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      As Medidas de Controle devem ser adotadas para a eliminação, a minimização ou o controle dos riscos ambientais sempre que forem verificadas uma ou mais das seguintes situações:
+      <br>
+      • Identificação, na fase de antecipação, de um risco potencial à saúde;
+      <br>
+      • Constatação, na fase de reconhecimento de risco evidente à saúde;
+           <br>
+       • Quando os resultados das avaliações quantitativas da exposição dos trabalhadores excederem os 
+       valores dos limites previstos na norma de referência;                  <br>
+       • Quando, através do controle médico da saúde, ficar caracterizado o nexo entre danos observados na 
+       saúde e a situação de trabalho. Neste caso, as medidas de controle devem ser discutidas pelas áreas 
+       de engenharia, segurança e serviço médico e incorporadas ao Plano Anual de Atividades. 
+       <br>
+ 
+       Quando os valores de exposição apresentar resultados acima dos Níveis de Ação, as medidas de controle 
+       devem ser sistemáticas de forma a reduzir as exposições.                  
+       <br>
+       </p>
+
+       <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        3.6 Níveis de Ação                   
+                              <br>
+        • Agentes químicos: metade dos limites de exposição ocupacional (NR-15, ACGIH, NIOSH, OSHA, 
+        ou acordos coletivos).                  
+         <br>
+
+
+
+
+         • Medidas que previnam a liberação ou disseminação desses agentes no ambiente de trabalho; 
+         <br>
+
+         • Medidas que reduzam os níveis ou a concentração desses agentes no ambiente de trabalho. 
+         <br>
+
+         Seguem exemplos de algumas medidas de controle: 
+         <br>
+
+         • Substituição do agente agressivo; 
+         <br>
+
+         • Mudança ou alteração do processo ou operação; 
+         <br>
+
+         • Enclausuramento da fonte; 
+         <br>
+
+         • Segregação do processo ou operação; 
+         <br>
+
+         • Modificação de projetos; 
+         <br>
+
+         • Limitação do tempo de exposição; 
+         <br>
+
+         • Utilização de equipamento de proteção individual. 
+         <br>
+        </p>
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+         Caso medidas de controle coletivo não possam ser implementadas de imediato por motivos técnicos ou 
+         financeiros, uma justificativa deve ser registrada no Plano Anual de Atividades e medidas de 
+         contingenciamento devem ser estudadas. Neste caso o uso de Equipamento de Proteção Individual pode 
+         ser adotado desde que a seleção do EPI seja tecnicamente adequada ao risco a que o colaborador está exposta e a atividade exercida. 
+
+   </p>
+
+   <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    3.8 Treinamentos sobre as Medidas de Controle
+  <br>
+    Todos os colaboradores devem receber treinamentos sobre as Medidas de Controle adotadas e ações preventivas quanto a riscos potenciais que possam ser evidenciados. Os treinamentos devem ser
+    devidamente registrados.
+    <br>
+
+    3.9 Eficácia das Medidas de Controle
+    <br>
+
+    Critérios e mecanismos de avaliação da eficácia das Medidas de Controle devem ser estabelecidos podendo contemplar:
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      • Auditorias nos processos;<br>
+      • Inspeções da CIPA;<br>
+      • Inspeções SEGURANÇA;<br>
+      • Vigilância de monitoramento do agente ambiental;<br>
+      • Avaliação dos resultados dos exames médicos previstos no PCMSO.<br>
+      • As medidas de controle e seu gerenciamento serão inseridas no Plano de Ação do PGR representado pela planilha de gerenciamento de ações.<br>
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        4. REVISÕES, REGISTRO, MANUTENÇÃO E DIVULGAÇÃO DOS DADOS DO PGR.
+         <br>
+     
+       4.1  Revisões do desenvolvimento do PGR
+         <br>
+     
+       O PGR deve ser alterado / revisado sempre que houver alguma alteração nas instalações da Unidade ou dentro da periodicidade máxima de 1 (um) ano, cabendo ao setor de Setor de Segurança do Trabalho
+       realizar inclusões / atualizações, se entender pertinente.
+         <br>
+     
+      4.2 Registro
+       </p>
+       <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        O histórico das atualizações do PGR deve ser mantido por um período mínimo de 20 (vinte) anos ou pelo período estabelecido em normatização específica – NR-1.5.7.3.3.1.
+        O Documento Base deve ser apresentado à CIPA – Comissão Interna de Prevenção de Acidentes durante uma de suas reuniões, devendo sua cópia ser anexada ao livro de atas desta comissão.
+        O registro de dados deve estar sempre disponível para os trabalhadores interessados ou seus representantes e para as autoridades competentes.
+        </p>
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+          4.3 Divulgação 
+         <br>
+           Os dados registrados estarão disponíveis aos empregados e interessados através de disponibilização decópia, a qual deve ter uma folha para 
+           registro de conhecimento e ser rubricada pelos empregados e interessados, que tomaram conhecimento.
+           A divulgação dos dados pode ser feita de diversas maneiras, entretanto, as mais comuns são:
+           </p>
+           <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • Treinamentos específicos;<br>
+            • Reuniões setoriais;<br>
+            • Reuniões de CIPA;<br>
+            • Boletins e jornais internos;<br>
+            • Programa de integração de novos empregados;<br>
+            • Palestras avulsas.<br>
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              NOTA 1: Os registros gerados após as divulgações / treinamentos permanecerão disponíveis paraconsulta nos arquivos de Segurança do Trabalho.
+              
+       <br>
+              NOTA 2: Abaixo temos o Inventário de Riscos e o Plano de Ação do PGR.
+              </p>
+            
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+               5. INVENTÁRIO DE RISCO
+               </p>
+               <ng-container *ngFor="let a of associacoes; let iA = index">
+                <ng-container *ngFor="let funcaoDoc of a?.unidadedoc?.funcaodoc; let iF = index">
+                  <ng-container *ngFor="let risco of funcaoDoc?.riscos; let iR = index">
+              
+                    <p></p>
+                    <p>
+                      <strong>LEVANTAMENTO DA FUNÇÃO  DE {{ funcaoDoc?.funcao?.nome_da_funcao | uppercase}}</strong><br>  
+                      <strong>1 - Função: </strong>{{ funcaoDoc?.funcao?.nome_da_funcao }}</p>
+                       <p><strong>2 - CBO: </strong> {{ funcaoDoc?.funcao?.cbo }}</p>
+                      <p> <strong>3 - Descrição: </strong>{{ funcaoDoc?.funcao?.descricao }}</p>
+                      <p> <strong>4 - Grupo de Risco: </strong>{{ risco?.grupo }}</p>
+                       <p><strong>5 - Tipo: </strong>{{ risco?.tipo }}</p>
+                      <p> <strong>6 - Fonte Geradora: </strong>{{ risco?.fonte_geradora }}</p>
+                      <p> <strong>7 - Meios de Propagação: </strong> {{ risco?.meios_de_propagacao }}</p>
+                      <p> <strong>8 - Categoria do Potencial de Severidade: </strong> {{ risco?.potencial_severidade_danos?.categoria_potencial_severidade }}</p>
+                      <p> <strong>9 - Tipo do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.tipo }}</p>
+                      <p> <strong>10 - Características do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.caracteristicas_potencial_severidade }}</p>
+                       <p><strong>11 - Nível de Severidade: </strong>{{ risco?.nivel_severidade?.nivel_risco_MedidasDeControle }}</p>
+                      <p> <strong>12 - Número do Nível de Severidade: </strong> {{ risco?.nivel_severidade?.numero_risco_MedidasDeControle }}</p>
+                     <p>  <strong>13 - Descrição do Nível de Severidade: </strong>{{ risco?.nivel_severidade?.descricao_MedidasDeControle }}</p>
+                      <p> <strong>14 - Nível de Permissão: {{ risco?.nivel_severidade?.nivel_permissao_MedidasDeControle}} </strong></p>
+                      <p *ngFor="let c of funcaoDoc?.avaliacoesocupacionaisfuncoes;"> <strong >
+                        15 - Avaliações Ocupacionais:   </strong> {{ c?.nome_avaliacoes_funcao }}, {{c?.tipo_avaliacoes_funcao}}. {{ c?.descricao_avaliacoes_funcao}}
+                   
+                      </p>
+                      <p> <strong>16 - Categoria da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.categoria }}</p>
+                      <p> <strong>17 - Denominação da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.denominacao }}</p>
+                      <p> <strong>18 - Descrição da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.descricao }}</p>
+                      <p> <strong *ngFor="let epi of funcaoDoc?.epi; let iE = index">
+                        19 - Epis para Esta Função: {{ epi?.nome_epi }} - CA: {{ epi?.ca }}
+                      </strong></p>
+                     <p>  <strong *ngFor="let c of funcaoDoc?.cursodenrs; let iCNR = index">
+                       20 -  Curso de NR'S para Esta Função: {{ c?.nomeCurso }} - {{ c?.descricaoCurso }}
+                      </strong>
+                    </p>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+              
+              <br>
+
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              6.  CONCLUSÃO E RECOMENDAÇÕES
+              </p>
+              
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              Os propósitos de uma avaliação de exposição a agentes de risco ambientais devem cumprir no mínimo os seguintes objetivos:
+              </p>
+              
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              ✓ Determinar os agentes de risco potenciais à saúde a que estão sujeitos os empregados, avaliando e diferenciando entre exposições aceitáveis e inaceitáveis e implementando medidas de controle quando
+              exposições inaceitáveis são identificadas.<br>
+              
+              ✓ Estabelecer e documentar os níveis de exposição de todos os empregados, ficando assim definido um ponto de partida que servirá como guia para cada nova avaliação de exposição, permitindo verificar sua tendência ao 
+              longo do tempo. Estes registros são também de vital importância para estudos futuros de epidemiologia.<br>
+              
+              ✓ Assegurar e demonstrar conformidade das exposições com padrões governamentais ou outros mais restritivos.<br>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes"
+              >
+              No sentido de alcançar estes objetivos, a Empresa {{ a?.unidadedoc?.empresadoc?.razaosocial | uppercase }} deve prosseguir com seus programas de controle das exposições, introduzindo melhorias através das seguintes
+              diretrizes: <br>
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              6.1 Medidas de Controle de Engenharia (Coletivos)
+              
+              ✓ Efetuar estudos de engenharia para tratamento acústico em equipamentos ruidosos das áreas Produtivas e de Utilidades.
+              
+              ✓ Realizar estudo de engenharia quanto proteção contra quedas nos pontos dos Telhados.
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              6.2 Procedimentos de Trabalho e Controles Administrativos
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              Estas recomendações referem-se ao controle de exposição baseado em ações específicas do empregador e empregado, relativo à execução dos trabalhos, não incluindo o uso de Equipamentos de Proteção Individual
+              (EPI).
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              
+              ✓ Assegurar e incentivar os funcionários a adotarem as seguintes posturas de trabalho, para reduzir as exposições:
+              <br>
+              ✓ Observar, informar e corrigir imediatamente vazamentos visíveis de agentes químicos.
+              <br>
+              ✓ Evitar a permanência de recipientes abertos (baldes de drenagem de pontos de amostragem, etc), com produtos nas áreas industriais.
+              <br>
+              ✓ Quando trabalhando próximo a fontes conhecidas de emissão posicionar-se, sempre que possível, a montante da fonte, de costas para a origem do vento.
+              <br>
+              ✓ Minimizar o tempo de execução ou permanência junto de atividades com alto potencial de risco de exposição (agentes químicos e físicos).
+              <br>
+              ✓ Maximizar a distância, quando estiver observando atividades com alto potencial de risco de exposição (agentes químicos e físicos).
+              <br>
+              ✓ Movimentar-se por ruas ou passagens onde as exposições a agentes químicos ou físicos sejam de menor concentração ou intensidade.
+              <br>
+              ✓ Reavaliar anualmente o PGR, conforme exigência legal prevista na NR-1.5, para avaliação do seu desenvolvimento, ajustes necessários e estabelecimento de novas metas e prioridades.
+              <br>
+              ✓ Solicitar dos fornecedores as Fichas de Informação de Segurança das Matérias Primas e outros produtos manipulados dentro das instalações, contendo a composição, propriedades físico-químicas, efeitos à saúde,
+              limites de tolerância, primeiros socorros, etc. e divulgar estas informações aos empregados.
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              6.3 Treinamentos
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              ✓ Prover treinamento sobre os seguintes aspectos:
+              <br>
+              ✓ Saúde/Higiene Ocupacional: PGR - Programa de Gerenciamento de Riscos; Resultados das Avaliações Quantitativas de Exposiçãoaos Agentes de Risco, aspectos toxicológicos dos agentes, efeitos àsaúde,primeiros
+              socorros;
+              <br>
+              ✓ Segurança Industrial: utilização de EPIs, Ficha de Segurança dos Produtos, melhores práticas de trabalho.
+             
+            </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              6.4 Monitoramento
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+              Para uma efetiva demonstração e confirmação quanto aos Graus de Risco de Exposição dos GSEs aos agentes de risco, a Empresa {{ a?.unidadedoc?.empresadoc?.razaosocial | uppercase }}  deverá continuar com sua estratégia de 
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              avaliação quantitativa paraos agentes de risco priorizados, conforme Programa de Monitoramento e Controle Ambiental de Agentes Químicos e Ruído.
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              6.5 Equipamentos de Proteção Individual
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+              
+              Onde os Procedimentos de Trabalho não forem suficientes para reduzir completamente a exposição a níveis aceitáveis, a Empresa {{ a?.unidadedoc?.empresadoc?.razaosocial | uppercase }}  deve adotar como último recurso à
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              utilização de Equipamentos de Proteção Individual.
+              </p>
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              ✓ Diante dos novos resultados das avaliações quantitativas de exposição aos agentes químicos reavaliar o Programa de Proteção Respiratória.
+              <br>
+              ✓ Diante dos novos resultados das avaliações quantitativas de exposição ao ruído reavaliar Programa de Conservação Auditiva.
+              </p>
+                   
+                        
+</div>
+
+
+<div class="row button-row">
+  <div class="col-md-5"></div>
+  <div class="col-md-2 text-center">
+    <button class="btn btn-success" onclick="window.print()">Imprimir PGR</button>
+  </div>
+  <div class="col-md-5"></div>
+</div>

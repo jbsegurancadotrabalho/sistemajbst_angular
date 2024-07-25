@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-2 mt-4">
+        <div class="col-md-9 mt-1">
+          <h5>Unidades Relatórios</h5>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-7"></div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas" placeholder="Pesquisar unidades para Relatórios" />
+        </div>
+      </div>
+      <hr />
+
+      <div class="table-responsive mt-2">
+        <table id="consulta_chamados" class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th>QTD</th>
+              <th>Unidade</th>
+              <th>CNPJ</th>
+              <th>Localidade</th>
+              <th>Horário da Empresa</th>
+              <th>Operações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of unidades | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.nome_empresas; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ e.nomefantasia }}</td>
+              <td>{{ e.cnpj | uppercase }}</td>
+              <td>{{ e.nomeEspecificoUnidade | uppercase }}</td>
+              <td>{{ e.horario_empresa }}</td>
+              <td>
+                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Ações
+                </button>
+                <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                  <li>
+                    <a class="dropdown-item btn btn-success" [routerLink]="['/documentos-desta-unidade', e.idunidadeDoc]">Meus Documentos</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                Quantidade de Unidades: {{ unidades.length }}
+                <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Página anterior" nextLabel="Próxima página" [maxSize]="10" [itemsPerPage]="itensPorPagina"></pagination-controls>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="modal fade" id="incluirFuncao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Incluir a Função de Documentos a esta Unidade</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

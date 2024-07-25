@@ -1,0 +1,530 @@
+<div data-bs-spy="scroll" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+
+<div  *ngFor="let a of associacoes">
+  <header style="font-family:
+    Arial; font-size: 11pt; 
+     text-align: center;
+     margin-top: 6;
+     ">
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" 
+    alt="Logo" class="print-logo mx-auto" />
+  </header>
+  <div class="content" >
+
+  <br>
+  <p>
+    <strong class="d-flex justify-content-center text-center">P.C.M.S.O - PROGRAMA DE CONTROLE MÉDICO DA SAÚDE  OCUPACIONAL</strong>
+  </p>
+  <br><br><br><br><br><br><br><br><br>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="font-size: 12px;">Empresa</th>
+          <th style="font-size: 12px;">CNPJ</th>
+          <th style="font-size: 12px;">Data de Inicio</th>
+          <th style="font-size: 12px;">Vigência</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of associacoes">
+          <td style="font-size: 12px;">{{ a?.unidadedoc?.nomefantasia }}</td>
+          <td style="font-size: 12px;">{{ a?.unidadedoc?.cnpj }}</td>
+          <td style="font-size: 12px;">{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}</td>
+          <td style="font-size: 12px;">{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <br><br><br><br>
+    <p style="font-family: Arial; font-size: 11pt; text-align: justify;">
+      1 – IDENTIFICAÇÃO E DADOS GERAIS  <br>
+      2 – QUADRO FUNCIONAL <br>
+      <strong>SUMÁRIO</strong><br>
+      3 - REFERÊNCIAS TÉCNICAS E LEGAIS <br>
+      4 – OBJETIVO <br>
+      5 – DIRETRIZES <br>
+      6 - RESPONSABILIDADES <br>
+      7 – DESENVOLVIMENTO DO PCMSO <br>
+      8 - PROCEDIMENTOS <br>
+      9 - O RELATÓRIO ANUAL <br>
+      10 - MATERIAL DE PRIMEIROS SOCORROS <br>
+      11 - PLANILHA DE EXAMES COMPLEMENTARES <br>
+      12 – ENCERRAMENTO <br>
+      </p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+      <strong>1 – IDENTIFICAÇÃO DA EMPRESA</strong><br>
+           <strong>Empresa:</strong> {{ a?.unidadedoc?.empresadoc?.razaosocial }} 
+           <br>
+         <strong>CNPJ:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+         <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.empresadoc?.status  }}<br>      
+         <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.horario_empresa  }}<br>      
+         <strong>Inscrição Estadual:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaoestadual  }}<br>      
+         <strong>Inscrição Municipal:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaomunicipal }}<br>      
+         <strong>Responsável:</strong> {{   a?.unidadedoc?.empresadoc?.responsavel_sistema}}<br>      
+         <strong>Email:</strong> {{   a?.unidadedoc?.empresadoc?.email_usuario}}<br>      
+         <strong>Telefone:</strong> {{   a?.unidadedoc?.empresadoc?.telefone_responsavel}}<br>      
+         <strong>Endereço:</strong> {{   a?.unidadedoc?.endereco?.logradouro}}, {{   a?.unidadedoc?.endereco?.numero}}
+         {{   a?.unidadedoc?.endereco?.bairro}}, {{   a?.unidadedoc?.endereco?.localidade}}, {{   a?.unidadedoc?.endereco?.uf}}.
+         <br>      
+         <strong>CEP:</strong>  {{   a?.unidadedoc?.endereco?.cep}}<br>      
+         <strong>1.1 – RESPONSÁVEL PELA ELABORAÇÃO DO PCMSO</strong><br>
+         <strong>Nome:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+         <strong>Endereço:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+         <strong>Telefone:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+
+          </p>
+
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+     <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+      <strong>2 - REFERÊNCIAS TÉCNICAS E LEGAIS            </strong><br><br>
+
+2.1 Lei nº 6.514, de 22 de dezembro de 1977 – Altera o Capítulo V do Título II da Consolidação
+das Leis do Trabalho, relativo à Segurança e Medicina do Trabalho. 
+</p>
+
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+             
+  2.2 Portaria nº 3.214, de 08 de junho de 1978 – Aprova as Normas Regulamentadoras – NR –
+  do Capítulo V do Título II, da Consolidação das Leis do Trabalho, relativas à Segurança e
+  Medicina do Trabalho, e suas subsequentes modificações (tendo como base: portaria nº 24, de
+  29 de dezembro de 1994, do Ministério do Trabalho e Emprego – Programa de Controle
+  Médico de Saúde Ocupacional e Portaria n 8, da SSST/MTE, de 08 de maio de 1996,
+  republicada em 13 de maio do mesmo ano, estabelece a obrigatoriedade por parte das
+  empresas, da elaboração e implementação de um Programa de Controle Médico de Saúde
+  Ocupacional (PCMSO) – NR 7).
+              </p>
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+                2.3 Convenção Nº 161 da OIT – Serviços de Saúde no Trabalho. Ratificada pelo Governo
+                Brasileiro em 18/05/1990.
+               </p>
+          
+               <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+              
+          2.4 Resolução Nº 171 da OIT – Programa de Vigilância do Ambiente de Trabalho e à Saúde dos
+          Trabalhadores.
+          
+          2.5 Programa de Prevenção de Riscos Ambientais (PPRA).
+          
+          2.6 Deficiente Físico (Lei 3298/99).
+               </p>
+
+
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+       <strong> 3 - OBJETIVO    </strong><br><br>
+
+    O Programa de Controle Médico de Saúde Ocupacional (PCMSO) tem como objetivo a
+            promoção, prevenção e preservação da saúde dos empregados da Empresa.<br>
+            </p>
+            <br><br>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              <strong>4 - DIRETRIZES</strong> <br>               
+			   4.1. A Empresa deve estabelecer diretrizes, visando à prevenção rastreamento e diagnóstico
+                precoce dos agravos à saúde do trabalhador.
+              </p>
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                4.2. O PCMSO deve ser planejado e implantado com base nos riscos à saúde dos
+                trabalhadores, especialmente os identificados nas avaliações previstas no Programa de
+                Programa de Gerenciamento de Riscos Ocupacionais (PGR) e demais Normas Regulamentadoras.
+              </p>
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                4.3. A Empresa deverá custear, sem ônus para o empregado, todos os procedimentos
+                relacionados ao PCMSO.
+              </p>
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+			    <strong>5 - RESPONSABILIDADES</strong><br>
+                5.1. Compete ao empregador:<br>
+
+                Garantir a elaboração e efetiva implementação do PCMSO, bem como zelar pela sua eficácia;
+                indicar, dentre os médicos do trabalho dos Serviços Especializados em Engenharia de Segurança e Medicina do Trabalho (SESMT) da Unidade, um coordenador responsável pela
+                execução do PCMSO.
+                <br>
+                
+                5.2. Compete ao médico coordenador do PCMSO:
+                <br>
+                elaborar e atualizar, anualmente, o PCMSO obedecendo a um planejamento em que estejam previstas as ações de Saúde a serem executadas durante o ano, devendo estas ser
+                objeto de Relatório Anual (até o período vigente).
+                
+                realizar os exames médicos previstos no PCMSO ou indicar, formalmente, profissional (s) médico (s) do trabalho para sua execução;
+                
+                indicar profissionais e / ou entidades devidamente capacitados, para a realização dos exames complementares previstos no PCMSO
+                
+              </p>
+
+              
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                5.3. Compete ao trabalhador: 
+                <br>
+                Atender a todas as etapas obrigatórias dos exames ocupacionais.
+              </p>
+              <br><br>
+
+
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+			    <strong>6 – DESENVOLVIMENTO DO PCMSO</strong><br><br>
+                6.1. O PCMSO deve conter ações de Promoção da Saúde Ocupacional.<br>
+                6.1.1 Desenvolver ações de educação para os empregados sobre agravos à saúde
+                relacionados aos riscos ocupacionais. <br>             
+                6.2 O PCMSO deve conter ações de prevenção e detecção precoce de agravos à saúde
+                relacionados ao trabalho.<br>            
+                6.2.1 Imunização contra doenças infecto-contagiosas relacionadas aos riscos ocupacionais.<br>
+                6.2.2 Exames Médicos Ocupacionais: <br>
+                a) Admissional;<br>
+                b) Periódico;<br>
+                c) De retorno ao trabalho;<br>
+                d) De mudança de função;<br>
+                e) Demissional;<br>
+                 </p>
+                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+            O exame médico demissional será realizado até a data de homologação, desde que o último exame ocupacional tenha sido realizado há mais de:
+            <br>
+            135 (cento e trinta e cinco) dias para as empresas com grau de risco 1 (um) e 2 (dois), segundo o Quadro I da NR 4;
+            <br>
+
+            90 (noventa) dias para as empresas com grau de risco 3 (três) e 4 (quatro), segundo o Quadro I da NR 4;
+            <br>
+
+            Nota: Para exames demissionais deverão ser realizados todos os exames complementares para afastar a exposição aos riscos identificados no PGR.
+            <br>
+
+            6.2.3 O PCMSO deverá conter controle da exposição ocupacional aos agentes físicos conforme Quadro II - anexo I da NR 7.
+            <br>
+
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            6.2.4 O controle da exposição ocupacional aos agentes químicos será desenvolvido, considerando-se os parâmetros estabelecidos no Quadro I, anexo I, da NR 7.
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            6.2.5 O controle da exposição ocupacional a outros riscos será desenvolvido, 
+			considerando-se os parâmetros estabelecidos no Quadro II, da NR 7.
+          </p>
+
+    
+    <br>
+    
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+            6.2.6 Os exames complementares relacionados com os Grupos de Exposição – (Função / Local de Trabalho) devem considerar a Planilha de exames complementares conforme item 10.1.
+         
+               </p>
+         
+         <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+        
+          6.3 O PCMSO deverá obedecer a um planejamento em que estejam previstas as ações de saúde a serem executadas durante o período de vigência, devendo estas serem objeto de
+          relatório anual.
+          <br>
+    
+               </p>
+
+               <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <strong>7 - PROCEDIMENTOS</strong><br>
+
+   7.1 Para Exames Médicos Ocupacionais:
+        <br>
+
+        7.1.1 Para cada Exame Médico Ocupacional realizado, previsto no item 7.2.2, o médico emitirá o Atestado de Saúde Ocupacional (ASO), em 2 (duas) vias.
+        <br>
+
+        7.1.1.1 A primeira via do ASO ficará arquivada no local de trabalho do empregado, inclusive frente de trabalho ou canteiro de obras, à disposição da fiscalização do trabalho.
+        <br>
+
+        7.1.1.2 A segunda via do ASO será obrigatoriamente entregue ao empregado, mediante recibo na primeira via. Recomenda-se fazê-lo por ocasião do exame clínico ( na presença do médico).
+        <br>
+
+        7.1.1.3 Quando o local de trabalho do empregado for fisicamente diferente do local onde é mantida a sua documentação funcional ou a critério do Médico Coordenador do PCMSO poderá ser emitida uma 3ª via do ASO.
+        <br>
+
+      </p>  
+
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+        7.2 O ASO deverá conter, no mínimo:
+        <br>
+
+        a) o nome completo do trabalhador, o número de registro de sua CTPS ou outro documento de identidade oficial e seu cargo;
+        <br>
+
+        b) os riscos do trabalho, avaliados no PPRA, qualitativa ou quantitativa ou a ausência deles na atividade do empregado.
+        <br>
+
+        c) a indicação dos procedimentos médicos a que foi submetido o empregado, incluindo os exames complementares e a data em que foram realizados.
+        Nota: Não deverão ser registrados no ASO os resultados dos exames complementares. Os resultados dos exames complementares devem ser arquivados no prontuário médico ou de
+        saúde.
+        <br>
+
+        d) a definição de apto ou inapto para o cargo específico que o empregado vai exercer, exerce ou exerceu.
+        <br>
+
+        e) o nome do Médico Coordenador, com o respectivo número do registro no Conselho Regional de Medicina.
+        <br>
+
+        f) o nome e a inscrição no Conselho Regional de Medicina do médico encarregado do exame, seu endereço ou forma de contato e sua assinatura.
+        <br>
+
+        7.3 Para os Exames Complementares com resultados de IBE, tipo EE ou SC+, alterados:
+        <br>
+      </p>
+
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+        7.3.1 Sendo verificada, através da avaliação clínica do empregado e / ou dos exames constantes do Quadro I NR-7, apenas exposição excessiva (EE ou SC+) ao risco, mesmo sem
+        qualquer sintomatologia ou sinal clínico, deverá o trabalhador ser afastado do local de trabalho, ou do risco, até que esteja normalizado o indicador biológico de exposição e as
+        medidas de controle nos ambientes de trabalho tenham sido adotadas.
+        <br>
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+        7.4 Para Doenças Ocupacionais:
+        <br>
+
+        7.4.1 Sendo constatado ocorrência ou agravamento de Doenças Decorrentes do Trabalho (Doenças Profissionais, Doenças do Trabalho ou Doenças Relacionadas ao Trabalho), o
+        Médico Coordenador do PCMSO deverá:
+        <br>
+
+        a) Providenciar a emissão da Comunicação de Acidente do Trabalho (CAT), segundo instrução normativa do INSS;
+        <br>
+
+        b) indicar, quando necessário, o afastamento do trabalhador da exposição ao risco, ou do trabalho;
+        <br>
+
+        c) encaminhar a documentação à Previdência Social para estabelecimento de nexo causal e avaliação da capacidade laborativa;
+        <br>
+
+        d) orientar o Gerente da Empresa quanto à necessidade de adoção de medidas de controle no ambiente de trabalho.
+        <br>
+      </p>
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+        7.5 Para Registro e Arquivamento de Dados:
+        <br>
+
+        7.5.1 Os dados obtidos nos exames médicos, incluindo avaliação clínica, exames complementares, conclusões e medidas aplicadas, deverão ser registrados em prontuário
+        clínico individual, que ficará sob a responsabilidade do médico-coordenador do PCMSO.
+        <br>
+
+        7.5..2 Os registros a que se refere o item 7.2.7.5 deverão ser mantidos por período mínimo de 20 (vinte) anos a contar do desligamento do empregado. Se o empregado exerceu suas
+        atividades exposto ao Benzeno, ao Asbesto (Amianto), radiação ionizante ou a outro possível agente carcinogênico (lista 1-A da IARC), os registros deverão ser mantidos por 30 (trinta)
+        anos.
+        <br>
+
+       </p>
+       <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        <strong>8 - O RELATÓRIO ANUAL</strong>
+
+    8.1 O Relatório Anual deverá ser acompanhado de dois anexos:<br>
+    8.1.1 O anexo I que deverá discriminar, por setores da Empresa, o número e a natureza dos exames médicos, incluindo avaliações clínicas e exames complementares, estatísticas de
+    resultados considerados anormais, assim como o planejamento para o próximo ano.
+    <br>
+    Nota: No preenchimento do anexo 1, serão listados, no campo “Natureza do Exame”, exclusivamente os exames complementares realizados devido à exposição ocupacional
+    entendidos como tais, os previstos nos Quadros 1 e 2 da NR-7 e os sugeridos pela ACGIH.
+    <br>
+    8.1.2 O anexo II que deverá relacionar as comunicações de acidente de Trabalho (CAT), emitidas no período de vigência do PCMSO, exclusivamente, por Doenças Decorrentes do
+    Trabalho, conforme o Quadro IV da NR-4.
+    <br>
+    8.2 O relatório anual deverá ser apresentado e discutido em reunião da CIPA, de acordo com a NR-7 item 7.4.6.2, sendo sua cópia anexada ao livro de atas daquela comissão.
+            </p>
+            <br><br>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+              <strong> 9 - MATERIAL DE PRIMEIROS SOCORROS</strong>  <br><br>
+              Havendo a necessidade de atendimento de emergência a Empresa deverá entrar em contato com: RESGATE FONE: 193 ou SAMU FONE: 192.
+                  </p>
+   
+                  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                    Item 7.5.1 - NR 7 - Todo o estabelecimento deverá estar equipado com material necessário a prestação de primeiros socorros, considerando-se as características da
+                    atividade desenvolvida; manter esse material guardado em local adequado, e aos cuidados de pessoa treinada para este fim. Material indicado:
+                                    </p>
+                                    
+                                    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                                      Condutas imediatas a serem tomadas em casos de acidente ou ferimentos leves:<br>
+                                      Cortes:<br>
+                          Lavar bem as mãos com água e sabão<br>
+                          Lavar o ferimento com água corrente em abundância e sabão.<br>
+                          Se outra pessoa estiver auxiliando, esta deverá sempre utilizar luvas.<br>
+                          Após esta primeira lavagem e limpeza, fazer uma segunda lavagem com soro fisiológico em grande quantidade.
+                          <br>
+                          Em seguida aplicar água oxigenada.<br>
+                          Secar levemente com gaze <br>
+                          Aplicar Polvidine.<br>
+                            </p>
+                          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                          Fazer curativo colocando algumas gazes em cima do ferimento, envolver com atadura e fixar com esparadrapo.
+                          <br>
+                          
+                          Orientar o funcionário para passar em consulta médica para que seja orientado quanto à Antibioticoterapia e Profilaxia do Tétano.
+                          <br>
+                          
+                          Hemorragia:
+                          <br>
+                          
+                          Se houver sangramento, aplique uma compressa limpa ou gaze sobre o ferimento e pressione com firmeza por mais ou menos 5 minutos.
+                            </p>
+                          
+                          
+                          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                          <br>
+                          Se no momento não houver gaze ou compressa usar um pano, um lenço ou uma toalha limpos.
+                          <br>
+                          
+                          Após 5 minutos diminuir a pressão e verificar se a hemorragia estancou (sem retirar a com pressa).
+                          <br>
+                          
+                          Se perceber que a hemorragia cessou envolva com uma atadura o local com a compressa e fixe.
+                          <br>
+                          
+                          Encaminhe imediatamente o funcionário para atendimento médico.
+                          <br>
+                          
+                          Se a hemorragia for mais intensa, mantenha o local comprimido e ligue imediatamente para o Serviço Médico de referência ou o Resgate.
+                            </p>
+                          
+                          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                                      <br>
+                                    • Assegurar que os equipamentos e máquinas estão em perfeito estado de funcionamento;
+                                    <br>
+                                    • Garantir a ordem e limpeza de seu setor/área de trabalho;
+                                    <br>
+                                    • Comunicar informações sobre os riscos ambientais e procedimentos de controle adotados;
+                                    <br>
+                                    • Consultar os trabalhadores sobre questões de segurança e saúde e orientá-los quando necessário;
+                                    <br>
+                                    • Manter a área de Segurança Industrial informada das questões de segurança e saúde do seu setor/área;
+                                    <br>
+                                    • Colaborar com a CIPA na investigação de acidentes ou doenças e na adoção de medidas preventivas de Segurança do Trabalho;       
+                                    <br>
+                                    • Assessorar a empresa no desenvolvimento e implantação do PGR;
+                                    <br>
+                               
+                                    • Realizar anualmente junto com a administração da Empresa e a CIPA com seus membros a reavaliação do PGR;
+                                    <br>
+                                    • Manter registros de toda documentação relativa ao programa;
+                                    <br>
+                                    • Assegurar que todos os trabalhadores recebam treinamento adequado para as funções que desempenham ou venham a desempenhar relativos ao escopo do PGR presentes no inventário de riscos;
+                                    <br>
+                                </p>
+                                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  
+                                  Contusões:          <br>
+                        
+                        
+                                  Em casos de contusões ou entorses, aplicar imediatamente gelo no local por 20 minutos (colocar as pedras de gelo dentro de um saco plástico e aplicar sobre o local). Em seguida
+                                  encaminhar ao atendimento médico pois pode haver a necessidade de RX ou imobilização.
+                                  <br>
+                        
+                                  Queimadura:          <br>
+                        
+                                  
+                                  Em caso de queimaduras, lavar imediatamente o local com abundante quantidade de água fria. Apenas deixe cair a água, não esfregue a queimadura (lesão). Deve-se deixar cair a água por aproximadamente 10 minutos ou até o alivio da dor.
+                                  <br>
+                        
+                                  Isto é feito para se diminuir a propagação da onda de calor.
+                                  <br>
+                        
+                                  Em caso de queimaduras profundas não lavar, apenas colocar gases umedecidos com soro
+                                  <br>
+                        
+                                  fisiológico, porem indica-se o encaminhamento ao Serviço Hospitalar de referência.
+                                  <br>
+                        
+                                  Acidentes ocular com produtos químicos, cimento ou poeiras:
+                                  <br>
+                        
+                                  Lavar imediatamente com água em grande quantidade por aproximadamente 15 minutos.
+                                  <br>
+                        
+                                  Prestar atenção, não é lavar os olhos externamente, é para abrir bem os olhos e deixar a água escorrer em abundância.
+                                  <br>
+                        
+                                  Depois desta primeira lavagem, fazer uma segunda lavagem com soro fisiológico em grande quantidade.
+                                  <br>
+                        
+                                  Em seguida encaminhar ao atendimento médico, pois pode haver a necessidade da utilização de tampão ocular.
+                                  <br>
+                        
+                                  Prestar sempre atenção, se todo o material se encontra limpo e as mãos foram bem lavadas.
+                                  <br>
+                        
+                                  No Complemento do P.C.M.S.O., será indicado o responsável pela prestação dos Primeiros Socorros, com cópia do certificado de treinamento de Primeiros Socorros.
+                                  <br>
+                              </p>
+                        
+                              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                                <strong>10 - PLANILHA DE EXAMES CLÍNICOS E COMPLEMENTARES</strong>
+                                </p>  
+                                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">		  
+                                  Tem por objetivo avaliar a exposição ocupacional de cada trabalhador. Identificando os riscos ocupacionais decorrentes dos processos ou métodos de trabalho, identificação das funções,
+                                  trabalhadores expostos, descrevendo os exames e a periodicidade dos exames, considerando grupo homogêneo de riscos.
+                                  </p>  
+                                 
+                             <br>
+                                
+               <ng-container *ngFor="let a of associacoes; let iA = index">
+                <ng-container *ngFor="let funcaoDoc of a?.unidadedoc?.funcaodoc; let iF = index">
+                  <ng-container *ngFor="let risco of funcaoDoc?.riscos; let iR = index">
+              
+                    <p></p>
+                    <p>
+                      <strong>LEVANTAMENTO DA FUNÇÃO  DE {{ funcaoDoc?.funcao?.nome_da_funcao | uppercase}}</strong><br>  
+                      <strong>1 - Função: </strong>{{ funcaoDoc?.funcao?.nome_da_funcao }}</p>
+                       <p><strong>2 - CBO: </strong> {{ funcaoDoc?.funcao?.cbo }}</p>
+                      <p> <strong>3 - Descrição: </strong>{{ funcaoDoc?.funcao?.descricao }}</p>
+                      <p> <strong>4 - Grupo de Risco: </strong>{{ risco?.grupo }}</p>
+                       <p><strong>5 - Tipo: </strong>{{ risco?.tipo }}</p>
+                      <p> <strong>6 - Fonte Geradora: </strong>{{ risco?.fonte_geradora }}</p>
+                      <p> <strong>7 - Meios de Propagação: </strong> {{ risco?.meios_de_propagacao }}</p>
+                      <p> <strong>8 - Categoria do Potencial de Severidade: </strong> {{ risco?.potencial_severidade_danos?.categoria_potencial_severidade }}</p>
+                      <p> <strong>9 - Tipo do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.tipo }}</p>
+                      <p> <strong>10 - Características do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.caracteristicas_potencial_severidade }}</p>
+                       <p><strong>11 - Nível de Severidade: </strong>{{ risco?.nivel_severidade?.nivel_risco_MedidasDeControle }}</p>
+                      <p> <strong>12 - Número do Nível de Severidade: </strong> {{ risco?.nivel_severidade?.numero_risco_MedidasDeControle }}</p>
+                     <p>  <strong>13 - Descrição do Nível de Severidade: </strong>{{ risco?.nivel_severidade?.descricao_MedidasDeControle }}</p>
+                      <p> <strong>14 - Nível de Permissão: {{ risco?.nivel_severidade?.nivel_permissao_MedidasDeControle}} </strong></p>
+                      <p *ngFor="let c of funcaoDoc?.avaliacoesocupacionaisfuncoes;"> <strong >
+                        15 - Avaliações Ocupacionais:   </strong> {{ c?.nome_avaliacoes_funcao }}, {{c?.tipo_avaliacoes_funcao}}. {{ c?.descricao_avaliacoes_funcao}}
+                   
+                      </p>
+                      <p> <strong>16 - Categoria da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.categoria }}</p>
+                      <p> <strong>17 - Denominação da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.denominacao }}</p>
+                      <p> <strong>18 - Descrição da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.descricao }}</p>
+                      <p> <strong *ngFor="let epi of funcaoDoc?.epi; let iE = index">
+                        19 - Epis para Esta Função: {{ epi?.nome_epi }} - CA: {{ epi?.ca }}
+                      </strong></p>
+                     <p>  <strong *ngFor="let c of funcaoDoc?.cursodenrs; let iCNR = index">
+                       20 -  Curso de NR'S para Esta Função: {{ c?.nomeCurso }} - {{ c?.descricaoCurso }}
+                      </strong>
+                    </p>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+              
+              <br>
+
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <strong>  11 - ENCERRAMENTO</strong><br><br>
+                  
+                  Este documento PCMSO - Programa de Controle Médico de Saúde Ocupacional, elaborado por Dr. Adriano Cerri, contendo 15 páginas, inclusive esta, formalizado através da
+                  assinatura identificada abaixo.
+                                                </p>  
+        
+                            <br>
+                   
+                          </div>
+              
+</div>
+</div>
+
+
+<div class="row button-row fixed-button">
+  <div class="col-md-5"></div>
+  <div class="col-md-2 text-center">
+    <button class="btn btn-success" onclick="window.print()">Imprimir PCMSO</button>
+  </div>
+  <div class="col-md-5"></div>
+</div>

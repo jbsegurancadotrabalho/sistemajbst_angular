@@ -1,0 +1,132 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="modal fade" id="IncluirAssinaturaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Incluir Assinatura do Instrutor </h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                      <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                        <strong>{{mensagem}}</strong>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                    </div>
+        <form [formGroup]="formIncluirAssinatura" (ngSubmit)="IncluirAssinaturaSubmit()">
+          <input type="hidden" formControlName="idpessoafisica" [(ngModel)]="id" />
+    
+        
+          <div class="mb-2">             
+        </div>
+          <div class="row">  
+            <div class="row mb-2">
+              <div class="col-md-6">
+                <label>Envie a Assinatura do Instrutor:</label>
+                <input type="file" class="form-control" (change)="onFileChange1($event)" />
+                <span class="text-danger">
+                  {{ arquivoMsgErro }}
+                </span>
+              </div>
+            </div>
+          
+            
+        </div>
+        <div class="modal-footer">
+          <div class="row mb-2">
+            <div class="col-md-12">
+              <button type="button" class="btn btn-success" 
+              
+              (click)="IncluirAssinaturaSubmit()" data-bs-dismiss="modal">
+                Incluir Assinatura
+              </button>            
+        </div>
+        </div>
+        </div>               
+        </form>
+      </div>
+    </div>
+    </div>
+    </div>
+     
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de Pessoas Fisicas</h5>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="cadastrar-pessoa-fisica" class="btn btn-success">Cadastrar Pessoa Fisica</a>
+
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table class="table table-sm table-striped table-hover" datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger">
+                    <thead>
+                        <tr>
+                          <th>QTD</th>
+                            <th>Pessoa Fisica</th>
+						                <th>Telefone</th>
+                           <th>Usuário</th>
+                           <th>Senha</th>
+                           <th>Assinatura</th>
+                            <th>Operações</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of pessoafisica, index as i">
+                          <td>{{i + 1}}</td>
+                            <td>{{p.pessoafisica}}</td>
+                            <td>{{p.telefone_1}}</td>
+                            <td>{{p.email}}</td>
+                            <td>{{p.senha_sistema}}</td>
+
+
+                            <td>    <button class="btn btn-sm btn-outline-danger me-2"
+                                data-bs-toggle="modal" 
+                                data-bs-target="#IncluirAssinaturaModal"
+                                 data-bs-whatever="@mdo"
+                                 (click)="setPessoa(p)"
+                                
+                                > 
+                                Incluir Assinatura</button> </td>
+
+                            <td>
+                            
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                </button>
+                                <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                                  <li> <a href="/cartao-de-acesso-cliente-pessoafisica"
+                                    class="dropdown-item btn btn-success"
+                                    [routerLink]="['/cartao-de-acesso-cliente-pessoafisica', p.idpessoafisica]"
+                                    >Gerar Cartão de Acesso</a></li>
+                                    <li> <a href="/editar-pessoa-fisica"
+                                            class="dropdown-item btn btn-success"
+                                            [routerLink]="['/editar-pessoa-fisica', p.idpessoafisica]"
+                                            >Editar</a></li>
+                                            <li><a class="dropdown-item btn btn-sm btn-success"
+                                                (click)="onDelete(p.idpessoafisica, p.pessoafisica)"
+                                                > Excluir</a>
+                                       
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+               
+                </table>
+            </div>
+
+ 
+        </div>
+    </div>
+
+</div>

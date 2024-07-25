@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+  <div class="card mt-5">
+    <div class="card-body">
+      <h5>Criar cobrança para Pedidos de Compras da Empresa</h5>
+      <p>Preencha os campos para criar uma cobrança.</p>
+      <hr/>
+
+      <div class="text-success">
+        <strong></strong>
+      </div>
+
+      <div class="text-danger">
+        <strong></strong>
+      </div>
+      <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>{{mensagem}}</strong>
+        <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+      </div>
+      <form [formGroup]="formCobranca" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="idfaturamentopf" />
+
+        <div class="row mb-2">
+     
+
+        </div>	
+        <div class="row mb-2">
+
+            <div class="col-md-4">
+                <label>Responsavel Cobrança:</label>
+                <input type="text" class="form-control" formControlName="responsavelCobranca"/>
+              </div>
+
+              <div class="col-md-4">
+                <label>Responsavel Cliente:</label>
+                <input type="text" class="form-control" formControlName="responsavelCliente"/>
+              </div>
+     
+          <div class="col-md-4 ">
+            <label>Reagendamento de Pagamento</label>
+            <input type="date" formControlName="data_de_agendamento_pagamento" class="form-control"/>
+          </div>
+          <!-- Adicione os novos campos -->
+        
+        
+          <div class="col-md-12">
+            <label>Assunto:</label>
+            <input type="text" class="form-control" formControlName="assunto"/>
+          </div>
+         
+
+          <div class="col-md-12">
+            <label>Observações do Cliente Faturamento Empresa:</label>
+            <textarea class="form-control" formControlName="observacoes"></textarea>
+          </div>
+        </div>
+
+        <div class="row mb-2 mt-3">
+          <div class="col-md-12">
+            <input type="submit" class="btn btn-success" value="Cadastrar Cobrança"/>
+          </div>
+          
+        </div>
+      </form>
+
+
+  </div>
+</div>

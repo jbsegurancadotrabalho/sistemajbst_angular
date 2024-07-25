@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col md-10">
+                    <h5>Editar Documentos para Empresa Free</h5>
+                    <p>Preencha os campos para incluir os dados para o documento Free.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-empresa" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+            <form [formGroup]="docfreeForm" (ngSubmit)="criarDocumentosFree()">
+              
+                <input type="hidden" formControlName="idDocFreeFuncionario" />
+
+                <div class="row mb-2">
+
+                    <div class="col-md-2">
+                        <label>Data de Inicio</label>
+                        <input type="datetime-local" formControlName="datainicio" class="form-control" />
+                      </div>
+                      <div class="col-md-2">
+                        <label>Data de Fim</label>
+                        <input type="datetime-local" formControlName="vigencia" class="form-control" />
+                      </div>
+
+                    <div class="form-group col-md-5">
+                        <label for="razaosocial">Nome:</label>
+                        <input type="text" id="razaosocial" formControlName="nome" class="form-control">
+                    </div>
+                 
+
+                    <div class="form-group col-md-3">
+                        <label for="cnpj">CPF:</label>
+                        <input type="text" id="cnpj" formControlName="cpf" class="form-control">
+                    </div>
+
+                    <br>
+                      
+                    <div class="form-group col-md-9">
+                        <label for="cnpj">Endereço </label>
+                        <input type="text" id="cnpj" formControlName="endereco" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="cnpj">responsavel </label>
+                        <input type="text" id="cnpj" formControlName="responsavel" class="form-control">
+                    </div>
+</div>
+
+
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Editar Documentos Free</button>
+
+                </div>
+              
+            </form>
+        </div>
+    </div>
+</div>

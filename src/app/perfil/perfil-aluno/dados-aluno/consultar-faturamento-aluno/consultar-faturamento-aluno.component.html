@@ -1,0 +1,111 @@
+<app-perfil-aluno></app-perfil-aluno>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+
+         
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de Faturamentos</h5>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="cadastrar-faturamentopf" class="btn btn-success">Cadastrar Faturamento</a>
+
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center ">             
+              <div class="col-11 d-flex justify-content-center bg-light mb-5">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <span class="navbar-brand">Período: </span>
+                  <button class="btn btn-outline-secondary" (click)="mudarMes(-1)">&lt; Anterior</button>
+                  
+                  <!-- Adição do dropdown para selecionar o mês -->
+                  <div class="dropdown mx-3">
+                   <button class="btn btn-success m-1 dropdown-toggle" type="button" id="mesDropdown"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                          MESES  DO ANO
+                                        </button>
+                      <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                       <li> <a class="dropdown-item" (click)="selecionarMes(0)">Janeiro</a></li>
+                      <a class="dropdown-item" (click)="selecionarMes(1)">Fevereiro</a>
+                      <a class="dropdown-item" (click)="selecionarMes(2)">Março</a>
+                      <a class="dropdown-item" (click)="selecionarMes(3)">Abril</a>
+                      <a class="dropdown-item" (click)="selecionarMes(4)">Maio</a>
+                      <a class="dropdown-item" (click)="selecionarMes(5)">Junho</a>
+                      <a class="dropdown-item" (click)="selecionarMes(6)">Julho</a>
+                      <a class="dropdown-item" (click)="selecionarMes(7)">Agosto</a>
+                      <a class="dropdown-item" (click)="selecionarMes(8)">Setembro</a>
+                      <a class="dropdown-item" (click)="selecionarMes(9)">Outubro</a>
+                      <a class="dropdown-item" (click)="selecionarMes(10)">Novembro</a>
+                      <a class="dropdown-item" (click)="selecionarMes(11)">Dezembro</a>
+      
+                      </ul>
+                  </div>
+                
+                  <span class="navbar-text mx-3">{{ periodoAtual }}</span>
+                  <button class="btn btn-outline-secondary" (click)="mudarMes(1)">Próximo &gt;</button>      
+                </nav> 
+                      </div>          
+          </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table class="table table-sm table-striped table-hover" >
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Criado Em</th>
+						                <th>Pessoa Fisica</th>
+						                <th>CPF</th>
+						                <th>Data de Inicio</th>
+						                <th>Data Fim</th>
+                            <th>Status da Fatura</th>
+                            <th>Operações</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let f of faturamentopf" [class]="getTableRowClass(f)">
+                        <td>{{f?.numeroFaturamento}}</td>
+                            <td>{{f?.dataHoraCriacao | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{ f?.pessoaFisica?.pessoafisica }}</td>
+                            <td>{{ f?.pessoaFisica?.cpf }}</td>
+                            <td>{{f?.dataInicio | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{f?.dataFim| date: 'dd/MM/yyyy'}}</td>
+                            <td [ngClass]="{'text-success': !f.faturaFechada, 'text-danger': f.faturaFechada}" style="font-size: larger; text-transform: uppercase;">
+                              <strong>{{ getStatusFatura(f) }}</strong>
+                            </td>
+                            
+                            
+                              
+                          
+                            <td>
+                                      
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                </button>
+                                <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                                  <li> <a href="/relatorio-faturamento-aluno"
+                                    class="dropdown-item btn btn-primary"
+                                    [routerLink]="['/relatorio-faturamento-aluno', f.idfaturamentopf]"
+                                    >Gerar Relatorio</a></li>
+                                   
+
+
+
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+               
+                </table>
+
+
+            
+            </div>
+        </div>
+

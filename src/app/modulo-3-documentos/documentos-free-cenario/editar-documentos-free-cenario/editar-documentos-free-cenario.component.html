@@ -1,0 +1,160 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col md-10">
+                    <h5>Editar Documentos para Empresa Free</h5>
+                    <p>Preencha os campos para editar os dados para o documento Free.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-empresa" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+            <form [formGroup]="documentosForm" (ngSubmit)="enviarEdicao()">
+              
+                <input type="hidden" formControlName="idDocumentosFree" />
+
+                <div class="row mb-2">
+
+                    <div class="col-md-2">
+                        <label>Data de Inicio</label>
+                        <input type="datetime-local" formControlName="datainicio" class="form-control" />
+                      </div>
+                      <div class="col-md-2">
+                        <label>Data de Fim</label>
+                        <input type="datetime-local" formControlName="vigencia" class="form-control" />
+                      </div>
+
+                    <div class="form-group col-md-5">
+                        <label for="razaosocial">Razão Social:</label>
+                        <input type="text" id="razaosocial" formControlName="razaosocial" class="form-control">
+                    </div>
+                 
+
+                    <div class="form-group col-md-3">
+                        <label for="cnpj">CNPJ:</label>
+                        <input type="text" id="cnpj" formControlName="cnpj" class="form-control">
+                    </div>
+
+                    <br>
+                      
+                    <p class="mt-3"><strong>DESCRIÇÃO DO LOCAL</strong></p>
+
+                    <div class="form-group col-md-2 ">
+                        <label for="responsavel_sistema"> Setor:</label>
+                        <input type="text" id="telefone_responsavel" formControlName="setor" class="form-control">
+                    </div>
+                  
+                    <div class="form-group col-md-2">
+                        <label for="cnpj">Cenário:</label>
+                        <input type="text" id="status" formControlName="cenario" class="form-control">
+                    </div>
+
+                    
+                    <div class="form-group col-md-5">
+                        <label for="cnpj">Endereco:</label>
+                        <input type="text" id="inscricaoestadual" formControlName="endereco" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="cnpj">Espaço Confinado:</label>
+                        <input type="text" id="inscricaoestadual" formControlName="local_espaco_confinado" class="form-control">
+                    </div>
+
+
+                    <p class="mt-3"><strong>DESCRIÇÃO DO SERVIÇO </strong></p>
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="servico">Tipo de Serviço:</label>
+                        <textarea id="servico" formControlName="servico" class="form-control" rows="7"></textarea>
+                    </div>
+                    
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="funcoesenvolvidas">Funções Envolvidas:</label>
+                        <textarea id="funcoesenvolvidas" formControlName="funcoesenvolvidas" class="form-control" rows="7"></textarea>
+                    </div>
+                    
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="equipamentos">Equipamentos:</label>
+                        <textarea id="equipamentos" formControlName="equipamentos" class="form-control" rows="7"></textarea>
+                    </div>
+                    
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="responsavel">Responsável:</label>
+                        <textarea id="responsavel" formControlName="responsavel" class="form-control" rows="7"></textarea>
+                    </div>
+                    
+                      
+                        <p class="mt-3"><strong>PESSOAL DESTE CENÁRIO</strong></p>
+
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="emitentes">Emitentes:</label>
+                            <textarea id="emitentes" formControlName="emitentes" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="cipa">Cipa:</label>
+                            <textarea id="cipa" formControlName="cipa" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="brigada">Brigada:</label>
+                            <textarea id="brigada" formControlName="brigada" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="resgate">Pessoal do Resgate:</label>
+                            <textarea id="resgate" formControlName="resgate" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="seguranca">Pessoal da Segurança:</label>
+                            <textarea id="seguranca" formControlName="seguranca" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="autorizados_vigia">Pessoal Autorizados Vigias:</label>
+                            <textarea id="autorizados_vigia" formControlName="autorizados_vigia" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="autorizados_supervisor">Pessoal Autorizados Supervisor:</label>
+                            <textarea id="autorizados_supervisor" formControlName="autorizados_supervisor" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="autorizados_resgate">Pessoal Autorizados de Resgate:</label>
+                            <textarea id="autorizados_resgate" formControlName="autorizados_resgate" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="ambulancia">Pessoal da Ambulância:</label>
+                            <textarea id="ambulancia" formControlName="ambulancia" class="form-control" rows="7"></textarea>
+                        </div>
+                        
+
+
+    
+</div>
+
+
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Editar Documentos Free</button>
+
+                </div>
+              
+            </form>
+        </div>
+    </div>
+</div>

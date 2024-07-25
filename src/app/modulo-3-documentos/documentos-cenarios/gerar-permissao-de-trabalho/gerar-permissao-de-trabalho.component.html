@@ -1,0 +1,221 @@
+<div class=" mt-3" *ngFor="let a of associacoes">
+     
+    <div>             
+        <div class="row">
+  
+   
+            <div class="col-md-2 mt-1 text-center text-success ">
+                        </div>
+   
+                                            
+   
+                       <div class="col-md-2 mt-1 text-center text-success ">
+                                </div>
+
+                                   </div>
+                                   <div class="container mt-3" *ngFor="let a of associacoes">
+                                          
+                                        <div class="text-center">
+                                            
+
+                            <img
+                            src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" />
+                   
+         <!-- Centralizando o texto -->
+                                          <strong>PT - PERMISSÃO DE TRABALHO</strong>
+                                        </div>
+                                      </div>
+                               
+                                  <br> 
+
+
+
+<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="font-size: 12px;">Empresa</th>
+                        <th style="font-size: 12px;">CNPJ</th>
+                        <th style="font-size: 12px;">Setor</th>
+                        <th style="font-size: 12px;">Cenário</th>
+                        <th style="font-size: 12px;">TIPO DE DOCUMENTO</th>
+                        <th style="font-size: 12px;">Data Inicio</th>
+                        <th style="font-size: 12px;">Data Fim</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="font-size: 12px;"> {{a?.cenario?.gho_setor?.unidadedoc?.nomeEspecificoUnidade}}</td>
+                        <td style="font-size: 12px;"> {{a?.cenario?.gho_setor?.unidadedoc?.cnpj}}</td>
+                        <td style="font-size: 12px;"> {{a?.cenario?.gho_setor?.nome_gho_setor}}</td>
+                        <td style="font-size: 12px;"> {{a?.cenario?.nomeAtividade}}</td>
+                        <td style="font-size: 12px;">Permissão de Trabalho</td>                      
+                        <td style="font-size: 12px;">{{a?.relatorios?.datainicio | date: 'dd/MM/yyyy'}}</td>
+                        <td style="font-size: 12px;">{{a?.relatorios?.vigencia | date: 'dd/MM/yyyy'}}</td>
+
+                    </tr>                  
+                </tbody>    
+            </table>
+            
+            
+<table class="table table-bordered">
+    <thead>
+        <tr>
+    
+            <th style="font-size: 12px;">Endereço da Unidade</th>
+            <th style="font-size: 12px;">Descrição do Serviço que está sendo Realizado</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+         
+            <td style="font-size: 12px;">
+
+                {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.logradouro}},
+                {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.numero}} -
+                 {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.bairro}} -
+                 {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.localidade}} -
+                 {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.uf }} -
+                CEP: {{a?.cenario?.gho_setor?.unidadedoc?.endereco?.cep }}
+
+                </td>                      
+    
+                <td style="font-size: 12px;"> {{a?.cenario?.descricaoAtividade}}</td>
+
+        </tr>                  
+    </tbody>    
+</table>
+     
+ 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+<strong>PROCEDIMENTO</strong>                             <br>
+
+    1. Todos os trabalhos de manutenção, reforma, ampliação realizados pela Empresa {{a?.cenario?.gho_setor?.unidadedoc?.nomeEspecificoUnidade}} e terceiros, necessitam de uma "Permissão de Trabalho - PT",
+                                formal para realização dos trabalhos nas suas respectivas áreas.
+                             <br>
+                             2. A emissão da "Permissão de Trabalho - PT" 
+                             será obtida após a realização de uma "Análise Preliminar de Riscos - APR" - 
+                             para avaliação dos riscos potenciais envolvidos, 
+                             bem como as medidas de controle a serem aplicadas, devendo participar , 
+                             no mínimo, as seguintes pessoas: <br>
+                             -	Supervisor da Área onde será executado o serviço;<br>
+                             -	Responsável pelo Trabalhos ( Engenharia, Manutenção, Meio Ambiente, Produção);<br>
+                             -	Supervisão da empresa Contratada;<br>
+                           -	Técnico de Segurança da Empresa {{a?.cenario?.gho_setor?.unidadedoc?.nomeEspecificoUnidade}} ou empresa contratada quando houver.<br>
+   
+                           3- Na APR deverá ser avaliado e garantido o atendimento aos itens estabelecidos, 
+                           antes da emissão da
+                            "Permissão de Trabalho - 
+                            PT", obtendo as respectivas assinaturas das pessoas acima.
+                            <br>
+                            4- A validade da " Permissão de trabalho - PT" deverá ser definida pela equipe emitente, 
+                            por no máximo 5 dias, 
+                            podendo ser revalidada todo dia formalmente pela equipe por mais 2 vezes no mesmo formulário. 
+                            <br>
+                        </p>  
+
+                            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+                            5- Os emitentes, Cipeiros e Brigadistas deverão realizar inspeções nas frentes de trabalho, 
+                            em períodos diferentes e anotar data e hora da inspeções e paralisar os trabalhos casos encontre alguma não conformidade em relação ao estabelecidos na APR ou outra que possam gerar riscos de acidentes.
+                            <br>
+                            6- Ocorrendo a paralisação dos trabalhos por motivos de não conformidade a "Permissão de Trabalho" poderá ser retirada e cancelada, 
+                            sendo necessário a abertura de outra APR e Permissão de Trabalho. O Reinicio dos trabalhos somente poderá ocorrer após a solução da não conformidade e autorizados dos emitentes da nova APR e PT.
+                            <br>
+                            7- Caso haja mudança de escopo de trabalho ou alguma nova atividade não contemplada pela APR em que não foram analisada as
+                            medidas de eliminação/ controle dos riscos, a PT e APR vigentes deverão ser automaticamente cancelados e uma nova APR e PT deverá ser aberta.
+                            <br>
+                            8- Após o termino dos trabalhos, a supervisão executante deverá encaminhar para o depto de segurança a APR e PT para arquivamento por um período de 6 meses.                         
+                            <br>
+                            9- As recomendações estabelecidas no formulário da APR são básicas, para permitir o início dos trabalhos que, em função da sua natureza e complexidade poderá ser acrescida de novos riscos potencias. Este modelo de formulário serve apenas como orientação básica, e não como levantamento único de todos os riscos presentes na frente de trabalho e auxiliará a identificação de controles complementares de riscos não identificados a serem implantados paralelamente aos aqui recomendados, de modo a garantir um ambiente de trabalho livre de incidentes.
+                            <br>
+                            10 - As recomendações estabelecidas no formulário da APR são obrigatória quando a resposta for sim a pergunta da APR, quando não aplicável marcar no quadros respectivos. Se houver algum item não conforme o serviço não deverá ser liberada até a devida adequação do item não conforme. Portanto, o responsável pela supervisão dos trabalhos deverão providenciar a adequação de todos os itens aplicáveis ao trabalho para posterior acionamento os responsáveis pela liberação da permissão de trabalho.
+                                                                             </p>  
+   
+          
+
+            
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="font-size: 13px; text-align: justify;">           
+                 <strong>
+                    INSPEÇÃO DOS EMITENTES DA PERMISSÃO
+                <br></strong>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+<table class="table table-bordered">
+
+
+    <thead>
+        <tr>
+            <th style="font-size: 13px; text-align: justify;">Nome</th>
+            <th style="font-size: 13px; text-align: justify;">Data</th>
+            <th style="font-size: 13px; text-align: justify;">Assinatura</th>
+
+
+        </tr>
+    </thead>
+
+    
+</table>
+
+           
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="font-size: 13px; text-align: justify;">           
+                 <strong>
+
+                    INSPEÇÃO DA CIPA E/OU BRIGADA DE EMERGÊNCIA
+                    <br></strong>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+<table class="table table-bordered">
+
+
+    <thead>
+        <tr>
+            <th style="font-size: 13px; text-align: justify;">Nome</th>
+            <th style="font-size: 13px; text-align: justify;">Data</th>
+            <th style="font-size: 13px; text-align: justify;">Assinatura</th>
+
+
+        </tr>
+    </thead>
+
+    
+</table>
+
+    </div>
+</div>
+
+
+
+
+
+      
+<div class="row">
+
+    <div class="col-md-5 mt-1 mb-1 center">
+    </div>
+    <div class="col-md-4 mt-1 mb-1 center">
+        <button (click)="printPage()">Permissão de Trabalho</button>
+    </div>   
+    <div class="col-md-3 mt-1 mb-1 center">
+    </div>
+</div>
+
+
+
+

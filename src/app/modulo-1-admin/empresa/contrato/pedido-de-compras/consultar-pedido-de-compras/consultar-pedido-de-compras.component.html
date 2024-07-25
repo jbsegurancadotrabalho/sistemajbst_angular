@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+		
+    <div class="card">
+        <div class="card-body">
+        
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de Pedidos de Compras</h5>
+                            </div>
+                                  <div class="col-md-3 mt-1">
+                                <a href="cadastrar-pedido-de-compras" class="btn btn-success">Incluir Pedido de Compras</a>
+
+                                        </div>
+                                                   </div>
+                                                            <hr />
+                            
+            <div class="table-responsive mt-2">
+                <table id="consulta_empresas" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cnpj</th>
+                            <th>Contato</th>
+                            <th>Telefone</th>
+                            
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                            <tr>
+                                <td>AL Engenharia</td>
+                                <td>25.000.999.00001-18 </td>
+                                <td>Joao</td>
+                               <td> (21)9999-9999 </td>
+                             
+                               <td>
+                                <a type="button" class="btn btn-outline-primary py-1 px-md-1 border" href="/consultar-pedido-de-compras">
+                                    <strong>Pedido de Compras</strong>
+                                </a>
+                                <a href="/editar-turmas" button type="button" class="btn btn-outline-danger py-1 px-md-1 border">
+                                    <strong>Editar</strong>
+                                </a>
+
+                                <span type="button" class="btn btn-outline-success py-1 px-md-1 border">
+                                    <strong>Excluir</strong>
+                                </span>
+                            </td>
+                            </tbody>
+
+                </table>
+            </div>			
+            
+            
+        </div>
+    </div>
+
+</div>

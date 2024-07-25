@@ -1,0 +1,512 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+
+
+
+
+    
+    <div class="card">
+        <div class="card-body">
+
+          <div class="row mb-2 mt-4">         
+            <div class=" col-6">
+       <h5>Lista de Todas as Matriculas</h5>
+        </div>
+
+        <div class=" col-6">
+          <input type="text" class="form-control" [(ngModel)]="filtro.nome_contato"
+          placeholder="Pesquisar pelo nome do contato" />
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center bg-light">             
+        <div class="col-12 d-flex justify-content-center">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <span class="navbar-brand">Período: </span>
+                    <button class="btn btn-outline-secondary" (click)="mudarMes(-1)">&lt; Anterior</button>
+            
+                    <!-- Adição do dropdown para selecionar o mês -->
+                    <div class="dropdown mx-3">
+                     <button class="btn btn-success m-1 dropdown-toggle" type="button" id="mesDropdown"
+                                              data-bs-toggle="dropdown" aria-expanded="false">
+                                            MESES  DO ANO
+                                          </button>
+                        <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                         <li> <a class="dropdown-item" (click)="selecionarMes(0)">Janeiro</a></li>
+                        <a class="dropdown-item" (click)="selecionarMes(1)">Fevereiro</a>
+                        <a class="dropdown-item" (click)="selecionarMes(2)">Março</a>
+                        <a class="dropdown-item" (click)="selecionarMes(3)">Abril</a>
+                        <a class="dropdown-item" (click)="selecionarMes(4)">Maio</a>
+                        <a class="dropdown-item" (click)="selecionarMes(5)">Junho</a>
+                        <a class="dropdown-item" (click)="selecionarMes(6)">Julho</a>
+                        <a class="dropdown-item" (click)="selecionarMes(7)">Agosto</a>
+                        <a class="dropdown-item" (click)="selecionarMes(8)">Setembro</a>
+                        <a class="dropdown-item" (click)="selecionarMes(9)">Outubro</a>
+                        <a class="dropdown-item" (click)="selecionarMes(10)">Novembro</a>
+                        <a class="dropdown-item" (click)="selecionarMes(11)">Dezembro</a>
+        
+                        </ul>
+                    </div>                    <span class="navbar-text mx-3">{{ periodoAtual }}</span>
+                    <button class="btn btn-outline-secondary" (click)="mudarMes(1)">Próximo &gt;</button>      
+                  </nav>
+                </div>
+
+
+
+                
+            </div>
+
+         
+      
+            <hr />
+
+            
+
+            <div class="table-responsive mt-2">
+                        <table class="table table-sm table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Aluno</th>
+                            <th>CPF</th>
+                            <th>Status</th>
+						    <th>Matricula</th>
+                            <th>Turma</th>
+                            <th>Venda</th>
+                            <th>Valor</th>
+                            <th>Curso</th>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Operações</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let m of matriculas | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual } | ngxSearchPipe:filtro.nome_contato">
+                            <td>{{ m.pessoafisica?.pessoafisica}}</td> <!-- Usar operador de navegação segura '?' -->
+                            <td>{{ m.pessoafisica?.cpf}}</td> <!-- Usar operador de navegação segura '?' -->
+                            <td>{{ m.status }}</td>
+                            <td>{{m.numeroMatricula}}</td>
+                            <td>{{m?.turmas?.numeroTurma}}</td>
+                            <td>{{m.venda}}</td>
+					        <td>{{m?.valor}}</td>
+                            <td>{{ m.turmas?.curso?.curso }}</td> <!-- Use o operador de navegação segura '?.' -->
+                            <td>{{m.turmas?.datainicio| date: 'dd/MM/yyyy'}}</td>
+                            <td>{{ m.tipo_de_pagamento }}</td>
+
+
+
+                            <td>
+
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                     Ações</button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-primary">
+                              <li> <a
+                                data-bs-toggle="modal" 
+                                data-bs-target="#editarMatriculaPjModal"
+                                data-bs-whatever="@mdo"
+                                (click)="setTurmas(m)"
+                                (click)="setMatriculas(m)"
+
+                               class="dropdown-item btn btn-sm btn-primary"
+                              >Editar Matricula FaturamentoPj</a></li>
+            
+                              <li> <a
+                                data-bs-toggle="modal" 
+                                data-bs-target="#editarMatriculaPfModal"
+                                data-bs-whatever="@mdo"
+                                (click)="setTurmasPf(m)"
+                                (click)="setMatriculas(m)"
+
+                               class="dropdown-item btn btn-sm btn-primary"
+                              >Editar Matricula FaturamentoPf</a></li>
+            
+                                      <li> <a
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#editarMatriculaPedidosModal"
+                                        data-bs-whatever="@mdo"
+                                        (click)="setTurmasEditarPedidos(m)"
+                                        (click)="setMatriculas(m)"
+        
+                                       class="dropdown-item btn btn-sm btn-primary"
+                                      >Editar Matricula de Pedidos de Compras</a></li>
+
+                                      <li> <a href="gerar-certificado"
+                                        class="dropdown-item btn btn-primary"
+                                        [routerLink]="['/gerar-certificado', m.idMatricula]"                                 
+                                        >Gerar Certificado</a></li>
+
+                                        <li> <a href="gerar-lista-de-presenca"
+                                          class="dropdown-item btn btn-primary"
+                                          [routerLink]="['/gerar-lista-de-presenca', m.idMatricula]"                                 
+                                          >Gerar Lista de Presença</a></li>
+                                          <li> <a href="gerar-autorizacao"
+                                            class="dropdown-item btn btn-primary"
+                                            [routerLink]="['/gerar-autorizacao', m.idMatricula]"                                 
+                                            >Gerar Autorização</a></li>
+                            </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                
+                </table>
+                Quantidade de Matriculas: {{(matriculas).length}}
+
+                <pagination-controls 
+                (pageChange)="paginaAtual = $event"
+                previousLabel="Página anterior"
+                nextLabel="Próxima página"
+                [maxSize]="10" 
+                [itemsPerPage]="itensPorPagina" 
+              ></pagination-controls> 
+
+            </div>
+
+  
+        </div>
+    </div>
+    <div class="modal fade" id="editarMatriculaPfModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+              <strong>{{mensagem}}</strong>
+              <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>  
+            </div>   
+            
+
+            <form [formGroup]="formEdicaoMatriculasPf" (ngSubmit)=" onSubmitformEdicaoMatriculasPf()">    
+
+              <input type="hidden" formControlName="idMatricula">
+              <input type="hidden" formControlName="idpessoafisica">
+              <input type="hidden" formControlName="idTurmas"> <!-- Adicione este campo -->
+            
+            
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label>Venda:</label>
+                                    <input  type="text" name="nome" id="nome" class="form-control"
+                                    formControlName="venda"/>
+                                </div>
+            
+                                <div class="col-md-3">
+                                    <label>Valor:</label>
+                                    <input  type="text" name="nome" id="nome" class="form-control"
+                                    formControlName="valor" name="FaturamentoPj" required="FaturamentoPj"/>
+                                </div>
+                            
+                                <div class="col-md-3">
+                                  <label>FaturamentoPj:</label>
+                                  <input  type="text" name="nome" id="nome" class="form-control"
+                                  formControlName="tipo_de_pagamento"/>
+                             
+                                </div>
+            
+                                <div class="col-md-3 mt-4">
+            
+                                    <select class="form-select" placeholder="status" aria-label="Default select example" formControlName="status"
+                                        name="valor" id="valor" required>
+                                        <option value="Ativa">Ativa</option>
+                                        <option value="Cancelada">Cancelada</option>
+            
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                  <label for="formFile" class="form-label">Pessoa Fisica</label>
+                                  <ng-select
+                                    [items]="pessoafisica"
+                                    bindLabel="cpf"
+                                    bindValue="idpessoafisica"
+                                    class="form-select custom-ng-select"
+                                    formControlName="idpessoafisica"
+                                    [ngClass]="{'is-invalid': formEdicaoMatriculasPf.get('idpessoafisica')?.invalid && formEdicaoMatriculasPf.get('idpessoafisica')?.touched}"
+                                    [appendTo]="'#editarMatriculaPfModal .modal-content'"
+            
+                                    >
+                              
+                                  <ng-template ng-label-tmp let-item="item">
+                                      <div class="custom-bg" style="z-index: 1000;">
+                                       {{ item.pessoafisica }} - CPF: {{ item.cpf }} 
+                                      </div>
+                                    </ng-template>
+                                    <ng-template ng-option-tmp let-item="item">
+                                      <div>
+                                    {{ item.pessoafisica }} - CPF: {{ item.cpf }} 
+                                      </div>
+                                    </ng-template>
+                                  </ng-select>
+                                </div>
+                                
+                                <div class="col-md-6 mt-3">
+                                  <label for="formFile" class="form-label">Faturamento</label>
+                                  <ng-select
+                                  [items]="faturamentopf"
+                                  bindLabel="cpf"
+                                  bindValue="idfaturamentopf"
+                                  class="form-select custom-ng-select"
+                                  formControlName="idfaturamentopf"
+                                  [ngClass]="{'is-invalid': formEdicaoMatriculasPf.get('idfaturamentopf')?.invalid && formEdicaoMatriculasPf.get('idfaturamentopf')?.touched}"
+                                  [appendTo]="'#editarMatriculaPfModal .modal-content'"
+            
+                                  >
+                                  <ng-template ng-label-tmp let-item="item">
+                                    <div class="custom-bg" style="z-index: 1000;">
+                                     {{ item.pessoafisica }} CPF: {{ item.cpf }} - Data de Início: {{ item.data_inicio | date:'dd/MM/yyyy'}}
+                                    </div>
+                                  </ng-template>
+                                  <ng-template ng-option-tmp let-item="item">
+                                    <div>
+                                  {{ item.pessoafisica }} - CPF: {{ item.cpf }} - Data:{{ item.data_inicio | date:'dd/MM/yyyy' }}
+                                    </div>
+                                  </ng-template>
+                                </ng-select>
+                                
+                                </div>
+            
+            
+            </div>
+            <div class="modal-footer">
+            <div class="row mb-2">
+              <div class="col-md-12">
+                <button type="button" class="btn btn-primary"
+                (click)=" onSubmitformEdicaoMatriculasPf()" data-bs-dismiss="modal">
+                Editar Matriculas
+            </button>                  
+            </div>
+            </div>
+            </div>     
+            </form>
+</div>
+</div> 
+</div>
+</div>
+</div>              
+
+
+
+    <div class="modal fade" id="editarMatriculaPjModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{mensagem}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>  
+              </div>   
+              
+
+  <form [formGroup]="formEdicaoMatriculasPj" (ngSubmit)=" onSubmitformEdicaoMatriculasPj()">    
+ 
+    <input type="hidden" formControlName="idMatricula">
+    <input type="hidden" formControlName="idFuncionario">
+    <input type="hidden" formControlName="idTurmas"> <!-- Adicione este campo -->
+
+
+                  <div class="row mb-2">
+                      <div class="col-md-2">
+                          <label>Venda:</label>
+                          <input  type="text" name="nome" id="nome" class="form-control"
+                          formControlName="venda"/>
+                      </div>
+  
+                      <div class="col-md-2">
+                          <label>Valor:</label>
+                          <input  type="text" name="nome" id="nome" class="form-control"
+                          formControlName="valor" name="FaturamentoPj" required="FaturamentoPj"/>
+                      </div>
+                  
+                      <div class="col-md-4">
+                        <label>FaturamentoPj:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="tipo_de_pagamento"/>
+                   
+                      </div>
+  
+                      <div class="col-md-4 mt-4">
+  
+                          <select class="form-select" placeholder="status" aria-label="Default select example" formControlName="status"
+                              name="valor" id="valor" required>
+                              <option value="Ativa">Ativa</option>
+                              <option value="Cancelada  ">Cancelada</option>
+  
+                          </select>
+                      </div>
+                      <div class="col-md-6 mt-3">
+                        <label for="formFile" class="form-label">Funcionario</label>
+                        <ng-select
+                        [items]="funcionarios"
+                        bindLabel="cpf"
+                        bindValue="idFuncionario"
+                        class="form-select custom-ng-select"
+                        formControlName="funcionario"
+                        [ngClass]="{'is-invalid': formEdicaoMatriculasPj.get('funcionario')?.invalid && formEdicaoMatriculasPj.get('funcionario')?.touched}"
+                        [appendTo]="'#editarMatriculaPjModal .modal-content'"
+
+                        >
+                        <ng-template ng-label-tmp let-item="item">
+                          <div class="custom-bg" style="z-index: 1000;">
+                            {{ item.nome }} - CPF: {{ item.cpf }}
+                          </div>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                          <div>
+                            {{ item.nome }} - CPF: {{ item.cpf }}
+                          </div>
+                        </ng-template>
+                      </ng-select>
+                      
+                    </div>	
+                    
+                  
+                
+
+                               <div class="col-md-6 mt-3">
+                            <label for="formFile" class="form-label">Faturamento</label>
+                            <ng-select
+                            [items]="faturamentos"
+                            bindLabel="numeroFaturamento"
+                            bindValue="idfaturamento"
+                            class="form-select custom-ng-select"
+                            formControlName="faturamento"
+                            [ngClass]="{'is-invalid': formEdicaoMatriculasPj.get('faturamento')?.invalid && formEdicaoMatriculasPj.get('faturamento')?.touched}"
+                            [appendTo]="'#editarMatriculaPjModal .modal-content'"
+
+                            >
+                            <ng-template ng-label-tmp let-item="item">
+                              <div class="custom-bg" style="z-index: 1000;">
+                             Empresa: {{ item.empresa }} - CNPJ: {{ item.cnpj }} - Data de Início: {{ item.data_inicio | date:'dd/MM/yyyy' }}
+                              </div>
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item">
+                              <div>
+                                {{ item.empresa }} - CNPJ: {{ item.cnpj }} - Início: {{ item.data_inicio | date:'dd/MM/yyyy' }} - Fim: {{ item.data_fim | date:'dd/MM/yyyy' }}
+                              </div>
+                            </ng-template>
+                          </ng-select>
+                          
+                        </div>	
+			
+  
+  
+  
+  </div>
+  <div class="modal-footer">
+  <div class="row mb-2">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary"
+      (click)=" onSubmitformEdicaoMatriculasPj()" data-bs-dismiss="modal">
+      Editar Matriculas
+  </button>                  
+  </div>
+  </div>
+  </div>     
+  </form>
+  </div>
+  </div> 
+  </div>
+  </div>
+
+  <div class="modal fade" id="editarMatriculaPedidosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>{{mensagem}}</strong>
+            <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>  
+          </div>   
+<form [formGroup]=" formEdicaoMatriculasPedidos" (ngSubmit)=" onSubmitformEdicaoMatriculasPedidos()">    
+
+<input type="hidden" formControlName="idMatricula">
+<input type="hidden" formControlName="idTurmas"> 
+
+
+              <div class="row mb-2">
+                  <div class="col-md-2">
+                      <label>Venda:</label>
+                      <input  type="text" name="nome" id="nome" class="form-control"
+                      formControlName="venda"/>
+                  </div>
+
+                  <div class="col-md-2">
+                      <label>Valor:</label>
+                      <input  type="text" name="nome" id="nome" class="form-control"
+                      formControlName="valor" name="FaturamentoPj" required="FaturamentoPj"/>
+                  </div>
+              
+                  <div class="col-md-4 mt-4">
+                    <input  type="text" name="nome" id="nome" class="form-control"
+                    formControlName="tipo_de_pagamento" name="Pedidos de Compras" required="Pedidos de Compras"/>
+                     
+                  </div>
+
+                  <div class="col-md-4 mt-4">
+
+                      <select class="form-select" placeholder="status" aria-label="Default select example" formControlName="status"
+                          name="valor" id="valor" required>
+                          <option value="Ativa">Ativa</option>
+                          <option value="Ativa">Cancelada</option>
+
+                      </select>
+                  </div>
+                  <div class="col-md-4 mt-3">
+                      <label for="formFile" class="form-label">Funcionario</label>
+                      <select class="form-select" formControlName="idFuncionario">
+                          <option [value]="f.idFuncionario" *ngFor="let f of funcionarios">
+                          Funcionário - {{ f.nome}} - CPF:{{ f.cpf}} - RG: {{ f.rg}}
+
+
+                          </option>
+                        </select>
+                  </div>	
+                  
+                
+              
+
+                        <div class="col-md-4 mt-3">
+                    <label for="formFile" class="form-label">Pedidos de Compras</label>
+                    <select class="form-select" formControlName="idPedidos">
+                        <option [value]="p.idPedidos" *ngFor="let p of pedidos">
+                            Empresa: {{ p.nomefantasia}} - CNPJ: {{ p.cnpj}} - Número do Pedido: {{ p.numerodopedido}}
+                        </option>
+                    </select>
+                </div>
+
+
+</div>
+<div class="modal-footer">
+<div class="row mb-2">
+<div class="col-md-12">
+  <button type="button" class="btn btn-primary"
+  (click)=" onSubmitformEdicaoMatriculasPedidos()" data-bs-dismiss="modal">
+  Editar Matriculas
+</button>                  
+</div>
+</div>
+</div>     
+</form>
+</div>
+</div> 
+</div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,270 @@
+
+<div *ngFor="let c of certificado">
+
+    <div class="container  mx-auto mb-20">
+    
+        <div class="card brilho border border-3 border-success mr-5   shadow shadow-xl border-success mt-5 mx-auto mb-40 p-10 pb-1 mt-5 mx-auto mb-40 p-2 pb-1">
+            <div class="card-body mx-auto mb-40 p-2 pb-1 ">
+    
+                <div class="text-center">             
+                    <strong class="card-title text-center mt-3 text-success" style="flex: 0 0 auto; min-width: 0; font-size: 24px; text-align: center;">
+                        CERTIFICADO DE CONCLUSÃO DO {{c?.turmas?.curso?.curso | uppercase}} {{c?.turmas?.nivel | uppercase}}</strong>
+    
+        </div>  
+                </div>
+                <br>
+
+    
+                <p  class="text-black" style=" font-size: 14px;">A JB SERVIÇOS DE CONSULTORIA E ASSESSORIA EMPRESARIAL LTDA-ME, inscrita no CNPJ:
+                    25.108.808.0001-18 tendo sua sede na Rua Moncorvo Filho, 99 - Loja A - Centro do Rio de Janeiro, Certifica
+                    que {{c?.pessoafisica?.pessoafisica}} inscrito (a) no RG: {{c?.pessoafisica?.rg}} e no CPF: {{c?.pessoafisica?.cpf}}       
+                    participou do {{c?.turmas?.curso?.curso}} {{c?.turmas?.nivel}} {{c?.turmas?.descricao}} {{c?.turmas?.tipo}}
+                    tendo este a carga Horária de {{c?.turmas?.cargahoraria}}.  O Curso teve seu inicio no dia {{c?.turmas?.datainicio  | date: 'dd/MM/yyyy'}}
+                    e teve o seu Término no dia {{c?.turmas?.datafim | date: 'dd/MM/yyyy'}}, sendo ele válido até o dia {{ c.turmas?.validadedocurso | date: 'dd/MM/yyyy'}} tendo ele a vigência de {{ c.turmas?.validade}}. O Curso foi realizado nos dias {{c?.turmas?.diasespecificos}}
+                    na Unidade de Treinamento  {{c?.turmas?.unidadeDeTreinamento?.unidadedetreinamento}} inscrita no CNPJ: {{c?.turmas?.unidadeDeTreinamento?.cnpj}} e localizada na {{c?.turmas?.unidadeDeTreinamento?.endereco?.logradouro}},
+                    {{c?.turmas?.unidadeDeTreinamento?.endereco?.numero}}, {{c?.turmas?.unidadeDeTreinamento?.endereco?.complemento}}, {{c?.turmas?.unidadeDeTreinamento?.endereco?.bairro}},  {{c?.turmas?.unidadeDeTreinamento?.endereco?.localidade}},  {{c?.turmas?.unidadeDeTreinamento?.endereco?.uf}}, Brasil.
+                </p>
+                <br>
+            
+                <div class="row">
+
+                    <div class="col-12">
+    
+                        <div class="row">
+    
+                            <div class="col-2">
+    
+    
+                            </div>
+                                   <div class="col-md-6 text-center" style="flex: 0 0 auto; min-width: 0; font-size: 12px;">
+                                    
+
+    
+                                <hr style="background-color: black;">
+                                <strong> Aluno (a) do {{c?.turmas?.curso?.curso}}</strong>
+                                <br>
+                                {{ c?.pessoafisica?.pessoafisica}}
+                                <br>
+                                RG: {{ c?.pessoafisica?.rg}} - CPF: {{ c?.pessoafisica?.cpf}}
+                                <br>
+                                Matricula: {{ c?.numeroMatricula}} - Turma: {{ c?.turmas?.numeroTurma}}
+                              
+
+                                
+                                </div>
+                               
+                                <div class="col-4 text-center">
+    
+                                    <img
+                                                   src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" />
+                                           </div>
+                                    </div>
+    
+                    </div>
+    
+    
+                    <div class="row">
+    
+                        <div class="col-4">
+    
+    
+                        </div>
+    
+    
+                        <div class="col-5">
+    
+    
+                        </div>
+    
+                        <div class="col-md-3 mb-5" style="flex: 0 0 auto; min-width: 0; font-size: 12px;">
+                            <br>
+
+                            <strong> {{c?.turmas?.unidadeDeTreinamento?.endereco?.localidade}},
+                                {{c?.turmas?.dia}}
+                                 {{c?.turmas?.mes}} 
+                                 {{c?.turmas?.ano}}
+    
+    
+                            </strong>
+                            <br>
+
+                        </div>
+                    </div>
+
+                       
+                        <div class="row">
+    
+                            <div class="col-md-3" style="flex: 0 0 auto; min-width: 0; font-size: 12px;">
+                                <strong>  <hr style="background-color: black;"> </strong>
+                                <strong>Responsavel Técnico - Instrutor (a)  </strong> 
+                                <br>
+                            <strong>   {{ c?.turmas?.instrutores[0]?.instrutor }}
+                                <br>
+                                {{ c?.turmas?.instrutores[0]?.formacoes[0]?.formacao }}
+                                <br>
+                                {{ c?.turmas?.instrutores[0]?.formacoes[0]?.conselho }} - {{ c?.turmas?.instrutores[0]?.formacoes[0]?.registro }} - {{ c?.turmas?.instrutores[0]?.formacoes[0]?.estado }}
+                                <br>
+                                {{ c?.turmas?.instrutores[0]?.formacoes[1]?.formacao }} 
+                                <br>
+                                {{ c?.turmas?.instrutores[0]?.formacoes[1]?.conselho  }}  {{ c?.turmas?.instrutores[0]?.formacoes[1]?.registro }} {{ c?.turmas?.instrutores[0]?.formacoes[1]?.estado }}
+                            </strong> 
+                            <br>
+    
+                            </div>
+                            <div class="col-md-3" style="flex: 0 0 auto; min-width: 0; font-size: 12px;">
+                                <strong>  <hr style="background-color: black;"> </strong>
+                                <strong>Instrutor (a)</strong> 
+                                <br>
+                                <strong> {{ c?.turmas?.instrutores[1]?.instrutor }}
+                                <br>
+                                {{ c?.turmas?.instrutores[1]?.formacoes[0]?.formacao }}
+                                <br>
+                                {{ c?.turmas?.instrutores[1]?.formacoes[0]?.conselho }} - {{ c?.turmas?.instrutores[1]?.formacoes[0]?.registro }} - {{ c?.turmas?.instrutores[1]?.formacoes[0]?.estado }}
+                                <br>
+                                {{ c?.turmas?.instrutores[1]?.formacoes[1]?.formacao }} 
+                                <br>
+                                {{ c?.turmas?.instrutores[1]?.formacoes[1]?.conselho  }}  {{ c?.turmas?.instrutores[1]?.formacoes[1]?.registro }} {{ c?.turmas?.instrutores[1]?.formacoes[1]?.estado }}
+                            </strong> 
+                            <br>
+    
+                            </div>
+                        
+                            <div class="col-md-3" style="flex: 0 0 auto; min-width: 0; font-size: 12px;">
+                                
+                                <hr style="background-color: black;">
+                                <strong>Instrutor (a)</strong> 
+                                <br>
+                            <strong>   {{ c?.turmas?.instrutores[2]?.instrutor }}
+                                <br>
+                                {{ c?.turmas?.instrutores[2]?.formacoes[0]?.formacao }}
+                                <br>
+                                {{ c?.turmas?.instrutores[2]?.formacoes[0]?.conselho }} - {{ c?.turmas?.instrutores[2]?.formacoes[0]?.registro }} - {{ c?.turmas?.instrutores[2]?.formacoes[0]?.estado }}
+                                <br>
+                                {{ c?.turmas?.instrutores[2]?.formacoes[1]?.formacao }} 
+                                <br>
+                                {{ c?.turmas?.instrutores[2]?.formacoes[1]?.conselho }}  {{ c?.turmas?.instrutores[2]?.formacoes[1]?.registro }}  {{ c?.turmas?.instrutores[2]?.formacoes[1]?.estado }}
+                            </strong> 
+                            <br>
+    
+                            </div>
+                            <div class="col-md-3" style="flex: 0 0 auto; min-width: 0; font-size: 12px;">
+                                
+                                <hr style="background-color: black;">
+                                <strong>Instrutor (a)
+                                <br>
+                                {{ c?.turmas?.instrutores[3]?.instrutor }}
+                                <br>
+                                {{ c?.turmas?.instrutores[3]?.formacoes[0]?.formacao }}
+                                <br>
+                                {{ c?.turmas?.instrutores[3]?.formacoes[0]?.conselho }} - {{ c?.turmas?.instrutores[3]?.formacoes[0]?.registro }} - {{ c?.turmas?.instrutores[3]?.formacoes[0]?.estado }}
+                                <br>
+                                {{ c?.turmas?.instrutores[3]?.formacoes[1]?.formacao }} 
+                                <br>
+                                {{ c?.turmas?.instrutores[3]?.formacoes[1]?.conselho }}  {{ c?.turmas?.instrutores[3]?.formacoes[1]?.registro }} {{ c?.turmas?.instrutores[3]?.formacoes[1]?.estado }}
+                            </strong> 
+                            <br>
+
+    
+                            </div>
+                        
+                        </div>
+                        
+                      </div>
+                    </div>
+            </div>
+            <br>
+            <br>
+           
+           
+            <div class="container  mx-auto mb-20">
+    
+                <div class="card brilho border border-3 border-success mr-5   shadow shadow-xl border-success mt-5 mx-auto mb-40 p-10 pb-1 mt-5 mx-auto mb-40 p-2 pb-1">
+                    <div class="card-body">
+            
+                        <div class="text-center">
+    
+    
+                            <strong class="card-title text-center mt-3 text-success" style="flex: 0 0 auto; min-width: 0; font-size: 18px; text-align: center;">
+                                {{c?.turmas?.curso?.curso | uppercase}} - {{c?.turmas?.curso?.descricao | uppercase}} COM CARGA HORÁRIA DE {{c?.turmas?.cargahoraria| uppercase}}
+                            </strong>                </div>
+                     
+                            
+    
+    
+                    <div class="text-center">
+          <strong class="card-title text-center mt-3 text-success" style="flex: 0 0 auto; min-width: 0; font-size: 18px; text-align: center;">
+                            Data de Expedição: {{c?.turmas?.datafim | date: 'dd/MM/yyyy'}} - Data de Validade: {{ c.turmas?.validadedocurso | date: 'dd/MM/yyyy'}} - Curso Válido {{ c.turmas?.validade}} </strong>
+                </div>
+                <BR>
+    
+                <div class="text-center">             
+                    <strong class="card-title text-center mt-3 text-success" style="flex: 0 0 auto; min-width: 0; font-size: 24px; text-align: center;">
+                        CONTEÚDO PROGRAMÁTICO DO CURSO</strong>
+    
+        </div>
+        <div class="row">
+    
+            <div class="col-12 p-3" style="font-size: 14px;">
+               <P>{{c?.turmas?.curso.conteudo}}</P>
+            </div>
+    
+            <BR>
+                <BR>
+                    <BR>
+                        <BR>
+                            <BR>
+                                <BR>
+                                    <BR>
+                                        <BR>
+                                            <BR>
+                                                <BR>
+                                                    <BR>
+                                                        <BR>
+                                                            <BR>
+        
+                                                  
+    
+        
+                                 
+                            <div class="col-2">
+    
+                                <img
+                                               src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" />
+                                       </div>
+    
+                                            <div class="col-md-10 center">
+                                                <strong style="font-size: 10px;">JB SERVIÇOS DE ASSESSORIA E CONSULTORIA EMPRESARIAL LTDA – ME. CNPJ: 25.108.808/0001-18.</strong>
+                                                <br>
+                                                <strong style="font-size: 10px;">Rio de Janeiro: Rua Moncorvo Filho, 99 - Loja - Centro do Rio de Janeiro</strong>
+                                                <br>
+                                                <strong style="font-size: 10px;">São Paulo: Rua Siqueira Bueno, 1321, Belém - São Paulo - SP</strong>
+                                                <br>
+                                                <strong style="font-size: 10px;">Email: operacional@jbsegurancadotrabalho.com.br - Telefones: (11) 2694-2399 - (21) 3933-1161</strong>
+                                                <br>
+                                                <strong style="font-size: 10px;">Site: www.jbsegurancadotrabalho.com.br</strong>
+                                                <br>
+                                            </div>
+                                            
+    
+                                            <div class="col-md-5 mt-1 mb-1 center">
+                                            </div>
+        <div class="col-md-2 mt-1 mb-1 center">
+            <button (click)="printPage()">Certificado</button>
+        </div>
+     
+       
+        <div class="col-md-5 mt-1 mb-1 center">
+        </div>
+    
+                                        
+    
+    </div>
+    
+        <script>
+          $(document).ready(function () {
+            $("#meu-card").click(function () {
+              window.location.href = "https://www.google.com.br/url?sa=i&url=https%3A%2F%2Fwww.rgid.com.br%2FMLB-1434275770-papel-moeda-para-certificado-e-diplomas-100-un-_JM&psig=AOvVaw0fkAtfo8qdPwHz9q30zrZC&ust=1696169652883000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPjr-MfC0oEDFQAAAAAdAAAAABAE";
+            });
+          });
+        </script>
+    

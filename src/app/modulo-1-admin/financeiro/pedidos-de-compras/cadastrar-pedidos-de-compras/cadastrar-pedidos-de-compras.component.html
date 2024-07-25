@@ -1,0 +1,174 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">
+        
+            <h5>Cadastro de Pedidos de Compras</h5>
+            <p>Preencha os campos para incluir uma empresa.</p>
+            <hr/>
+            
+        <div class="text-success">
+                    <strong></strong>
+                </div>
+                
+                <div class="text-danger">
+                    <strong></strong>
+                </div>
+                <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+                <form [formGroup]="formPedidos" (ngSubmit)="onSubmit()">
+            
+
+                    <div class="row">
+
+                    <div class="col-md-3 mt-3">
+                        <label for="formFile" class="form-label">Empresa</label>
+                        <ng-select
+                        [items]="empresas"
+                        bindLabel="cnpj"
+                        bindValue="idEmpresa"
+                        class="form-select custom-ng-select"
+                        formControlName="idEmpresa"
+                        [ngClass]="{'is-invalid': formPedidos.get('idEmpresa')?.invalid && formPedidos.get('idEmpresa')?.touched}"
+                        >
+                        <ng-template ng-label-tmp let-item="item">
+                          <div class="custom-bg" style="z-index: 1000;">
+                            {{ item.nomefantasia }} {{ item.cnpj }}
+                          </div>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                          <div>
+                            {{ item.nomefantasia }} {{ item.cnpj }}
+                          </div>
+                        </ng-template>
+                      </ng-select>
+                      
+                    </div>	
+				
+                    <div class="col-md-3 mt-4">
+                        <label>Comprador:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="comprador"/>
+                    </div>
+
+                    <div class="col-md-3 mt-4">
+                        <label>Telefone:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="telefone"/>
+                    </div>
+
+                    <div class="col-md-3 mt-4">
+                        <label>Data Pagamento</label>
+                        <input type="date" formControlName="data_de_pagamento" class="form-control"/>
+                      </div>
+                </div>
+
+                
+
+                <div class="row">
+
+					  <div class="col-md-6 mt-3">
+                        <label>Email:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="email"/>
+                    </div>
+					
+				
+		
+                    <div class="col-md-2 mt-3">
+                        <label>Número do Pedido:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="numerodopedido" 
+                        
+                        />
+                    </div>
+        
+               
+                    
+                  <div class="col-md-1 mt-3">
+                        <label>Venda:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="venda" 
+                        
+                        />
+                    </div>
+                    
+                
+                        <div class="col-md-1 mt-3">
+                        <label>Nota Fiscal:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="notafiscal" />
+                    </div>
+                        <div class="col-md-1 mt-3">
+                        <label>Valor:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="valor" 
+                        
+                        />
+                    </div>
+
+					
+					
+					   <div class="col-md-1 mt-3">
+                        <label>Creditos:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="creditos"/>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                <div class="col-md-3">
+                    <label>Responsável Financeiro:</label>
+                    <input type="text" class="form-control" formControlName="responsavelfinanceiro"/>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Telefone Financeiro:</label>
+                    <input type="text" class="form-control" formControlName="telefonefinanceiro"/>
+                  </div>
+                  <div class="col-md-3">
+                    <label>WhatsApp:</label>
+                    <input type="text" class="form-control" formControlName="whatsapp"/>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Email Financeiro:</label>
+                    <input type="text" class="form-control" formControlName="emailfinanceiro"/>
+                  </div>
+                </div>
+
+                  <div class="row">
+        
+                    <div class="col-md-3">
+                      <label>Quantidade de Parcelas:</label>
+                      <input type="text" class="form-control" formControlName="parcelas"/>
+                    </div>
+        
+                    <div class="col-md-3">
+                      <label>Forma de Pagamento:</label>
+                      <input type="text" class="form-control" formControlName="forma_de_pagamento"/>
+                    </div>
+        
+        
+                  <div class="col-md-6">
+                    <label>Observações:</label>
+                    <textarea class="form-control" formControlName="observacoes"></textarea>
+                  </div>
+                </div>
+        
+                
+                <div class="row mb-2 mt-3">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Realizar Cadastro"/>
+                    </div>
+                </div>
+               
+
+            </form>
+           
+        </div>
+    </div>
+
+</div>

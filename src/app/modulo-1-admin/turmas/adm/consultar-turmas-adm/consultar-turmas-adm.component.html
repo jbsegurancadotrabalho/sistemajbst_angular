@@ -1,0 +1,297 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+
+    <div class="card">
+        <div class="card-body">
+            
+            
+            <div>
+               
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Lista de Turmas</h5>
+                            </div>
+                                  <div class="col-md-3 mt-1">
+                                <a href="consultar-matriculas" class="btn btn-primary">Minhas Matriculas</a>
+
+                                        </div>
+                                                   </div>
+
+
+                <form>
+
+
+                    <div class="row mb-3 mt-5">
+                        <div class="col-md-2 mb-3">
+                            <input type="date" class="form-control" />
+                            <div class="text-danger">
+                                <span>
+                                    Por favor, informe a data de início.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <input  type="date" class="form-control" />
+                            <div class="text-danger">
+                                <span>
+                                    Por favor, informe a data de fim.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Status</option>
+                                <option value="1">Inicial</option>
+                                <option value="1">Períodico</option>
+                                <option value="1">Eventual</option>
+                            </select>
+
+
+
+                        </div>
+
+                        <div class="col-md-2 ">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Curso</option>
+                                <option value="1">NR-1</option>
+                                <option value="1">CIPA</option>
+                                <option value="1">NR-6</option>
+                                <option selected>NR-7</option>
+                                <option value="1">NR-10</option>
+                                <option value="1">NR-11</option>
+                                <option value="1">NR-12</option>
+                                <option selected>NR-13</option>
+                                <option value="1">NR-15</option>
+                                <option value="1">NR-16</option>
+                                <option value="1">NR-17</option>
+                                <option selected>NR-18</option>
+                                <option value="1">NR-19</option>
+                                <option value="1">NR-20</option>
+                                <option value="1">NR-23</option>
+                                <option value="1">NR-30</option>
+                                <option selected>NR-31</option>
+                                <option value="1">NR-32</option>
+                                <option value="1">NR-33</option>
+                                <option value="1">NR-34</option>
+                                <option value="1">NR-35</option>
+                                <option value="1">NR-37</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2 ">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Unidade</option>
+                                <option value="1">JBRJ</option>
+                                <option value="1">JBSP</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-2 ">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Modelo</option>
+                                <option value="1">Hibrido</option>
+                                <option value="1">EAD</option>
+                                <option value="1">Presencial</option>
+                            </select>
+
+                        </div>
+
+                        <div class="row mb-3 mt-2">
+                            <div class="col-md-2 ">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Carga Horária</option>
+                                    <option value="1">4 Horas</option>
+                                    <option value="1">6 Horas</option>
+                                    <option value="1">8 Horas</option>
+                                    <option value="1">12 Horas</option>
+                                    <option value="1">16 Horas</option>
+                                    <option value="1">20 Horas</option>
+                                    <option value="1">24 Horas</option>
+                                    <option value="1">32 Horas</option>
+                                    <option value="1">40 Horas</option>
+
+
+                                </select>
+
+                            </div>
+                            <div class="col-md-4">
+                                <input type="submit" type="button" class="btn btn-success" value="Pesquisar Turmas" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+
+
+                <div class="table-responsive mt-2">
+                    <table class="table table-sm table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Data de Inicio</th>
+                                <th>Data de Fim</th>
+                                <th>Curso</th>
+                                <th>Status</th>
+                                <th>Unidade</th>
+                                <th>Modelo</th>
+                                <th>Carga Horária</th>
+                                <th>Instrutor</th>
+
+                                <th>Operaçoes</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20/05/2023</td>
+                                <td>20/05/2023</td>
+                                <td>NR-35</td>
+                                <td>Inicial</td>
+                                <td>JBRJ</td>
+                                <td>EAD</td>
+                                <td>40 Horas</td>
+                                <td>Luiz Eduardo Grandin</td>
+
+
+
+                                <td>
+                                    <a type="button" class="btn btn-outline-primary py-1 px-md-1 border" href="/fazer-matricula">
+                                        <strong>Fazer Matricula</strong>
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                        <tbody>
+                            <tr>
+                                <td>20/05/2023</td>
+                                <td>20/05/2023</td>
+                                <td>NR-35</td>
+                                <td>Inicial</td>
+                                <td>JBRJ</td>
+                                <td>EAD</td>
+                                <td>40 Horas</td>
+                                <td>Luiz Eduardo Grandin</td>
+
+
+
+                                <td>
+                                    <a type="button" class="btn btn-outline-primary py-1 px-md-1 border" href="/fazer-matricula">
+                                        <strong>Fazer Matricula</strong>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                        <tbody>
+                            <tr>
+                                <td>20/05/2023</td>
+                                <td>20/05/2023</td>
+                                <td>NR-35</td>
+                                <td>Inicial</td>
+                                <td>JBRJ</td>
+                                <td>EAD</td>
+                                <td>40 Horas</td>
+                                <td>Luiz Eduardo Grandin</td>
+
+
+
+                                <td>
+                                    <a type="button" class="btn btn-outline-primary py-1 px-md-1 border" href="/fazer-matricula">
+                                        <strong>Fazer Matricula</strong>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                        <tbody>
+                            <tr>
+                                <td>20/05/2023</td>
+                                <td>20/05/2023</td>
+                                <td>NR-35</td>
+                                <td>Inicial</td>
+                                <td>JBRJ</td>
+                                <td>EAD</td>
+                                <td>40 Horas</td>
+                                <td>Luiz Eduardo Grandin</td>
+
+
+
+                                <td>
+                                    <a type="button" class="btn btn-outline-primary py-1 px-md-1 border" href="/fazer-matricula">
+                                        <strong>Fazer Matricula</strong>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                        <tbody>
+                            <tr>
+                                <td>20/05/2023</td>
+                                <td>20/05/2023</td>
+                                <td>NR-35</td>
+                                <td>Inicial</td>
+                                <td>JBRJ</td>
+                                <td>EAD</td>
+                                <td>40 Horas</td>
+                                <td>Luiz Eduardo Grandin</td>
+
+
+
+                                <td>
+                                    <a type="button" class="btn btn-outline-primary py-1 px-md-1 border" href="/fazer-matricula">
+                                        <strong>Fazer Matricula</strong>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                        <tbody>
+                            <tr>
+                                <td>20/05/2023</td>
+                                <td>20/05/2023</td>
+                                <td>NR-35</td>
+                                <td>Inicial</td>
+                                <td>JBRJ</td>
+                                <td>EAD</td>
+                                <td>40 Horas</td>
+                                <td>Luiz Eduardo Grandin</td>
+
+
+
+                                <td>
+                                    <a type="button" class="btn btn-outline-primary py-1 px-md-1 border" href="/fazer-matricula">
+                                        <strong>Fazer Matricula</strong>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                     
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">
+                                    Quantidade de movimentações:
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,211 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+
+    <div class="card mt-5">
+        <div class="card-body">
+
+            <h5>Cadastro de Especialização</h5>
+            <p>Preencha os campos para incluir a Especialização.</p>
+            <hr />
+
+            <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+
+                <div class="col-md-6 mt-2">
+                    <label>CPF do Profissional:</label>
+                    <select formControlName="cpf" class="form-select" aria-label="Default select example">
+                        <option selected>000.0000.000-00</option>
+                    </select>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-md-4 mt-4">
+                        <label>Especialização:</label>
+                        <select
+                         
+                        class="form-select" 
+                        formControlName="funcao"
+                        aria-label="Default select example"
+                        >
+
+                            <option selected>Técnico de Segurança do Trabalho</option>
+                            <option value="1">Eletrotécnico</option>
+                            <option value="2">Técnico de Mecânica</option>
+                            <option value="3">Engenheiro Elétrico</option>
+                            <option value="3">Bombeiro Civil</option>
+                            <option value="3">Engenheiro Elétrico</option>
+                            <option value="3">Engenheiro Civil</option>
+                            <option value="3">Médico</option>
+                        </select>
+                    </div>
+
+
+                    <div class="col-md-3 mt-4">
+                        <label>Conselho:</label>
+                        <select 
+
+                        formControlName="conselho"
+                         class="form-select" 
+                         aria-label="Default select example"
+                         >
+
+                            <option selected>CREA</option>
+                            <option value="1">CFT</option>
+                            <option value="2">SRTE</option>
+                            <option value="3">COREM</option>
+                            <option value="3">CRM</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-2 mt-4">
+                        <label>Estado:</label>
+                        <select 
+                        
+                        formControlName="estado" 
+                        class="form-select" 
+                        aria-label="Default select example"
+                        >
+
+                            <option selected>AC</option>
+                            <option value="1">AL</option>
+                            <option value="1">AP</option>
+                            <option value="1">AM</option>
+                            <option value="1">BA</option>
+                            <option value="1">CE</option>
+                            <option value="1">ES</option>
+                            <option value="1">GO</option>
+                            <option value="1">MA</option>
+                            <option value="1">MT</option>
+                            <option value="1">MS</option>
+                            <option value="1">MG</option>
+                            <option value="1">PA</option>
+                            <option value="1">PB</option>
+                            <option value="1">PR</option>
+                            <option value="1">PE</option>
+                            <option value="1">PI</option>
+                            <option value="1">RJ</option>
+                            <option value="1">RN</option>
+                            <option value="1">RO</option>
+                            <option value="1">RR</option>
+                            <option value="1">SC</option>
+                            <option value="1">SP</option>
+                            <option value="1">SE</option>
+                            <option value="1">TO</option>
+                            <option value="1">DF</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2 mt-4">
+                        <label>Registro:</label>
+                        <input formControlName="registro" type="text" name="valor" id="valor" class="form-control" />
+                    </div>
+                    <div class="col-md-1 mt-5 mb-3">
+                        <button type="button" class="btn btn-outline-primary" (click)="removerUltimoEspecializacao()">
+
+                            Excluir
+                        </button>
+                    </div>
+
+                    <!-- demais dependentes -->
+                    <div formArrayName="especializacoes">
+                        <div *ngFor="let item of formEspecializacoes.controls; let i = index">
+                            
+                            <div class="row "  [formGroupName]="i"  >
+
+                                <div class="col-md-4 mt-4">
+                                    <label>Especialização:</label>
+                                    <select
+                                     
+                                    class="form-select" 
+                                    formControlName="funcao"
+                                    aria-label="Default select example"
+                                    >
+            
+                                        <option selected>Técnico de Segurança do Trabalho</option>
+                                        <option value="1">Eletrotécnico</option>
+                                        <option value="2">Técnico de Mecânica</option>
+                                        <option value="3">Engenheiro Elétrico</option>
+                                        <option value="3">Bombeiro Civil</option>
+                                        <option value="3">Engenheiro Elétrico</option>
+                                        <option value="3">Engenheiro Civil</option>
+                                        <option value="3">Médico</option>
+                                    </select>
+                                </div>
+
+
+                            <div class="col-md-3 mt-4">
+                                <label>Conselho:</label>
+                                <select formControlName="conselho" class="form-select"
+                                    aria-label="Default select example">
+                                    <option selected>CREA</option>
+                                    <option value="1">CFT</option>
+                                    <option value="2">SRTE</option>
+                                    <option value="3">COREM</option>
+                                    <option value="3">CRM</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-2 mt-4">
+                                <label>Estado:</label>
+                                <select formControlName="estado" class="form-select"
+                                    aria-label="Default select example">
+                                    <option selected>AC</option>
+                                    <option value="1">AL</option>
+                                    <option value="1">AP</option>
+                                    <option value="1">AM</option>
+                                    <option value="1">BA</option>
+                                    <option value="1">CE</option>
+                                    <option value="1">ES</option>
+                                    <option value="1">GO</option>
+                                    <option value="1">MA</option>
+                                    <option value="1">MT</option>
+                                    <option value="1">MS</option>
+                                    <option value="1">MG</option>
+                                    <option value="1">PA</option>
+                                    <option value="1">PB</option>
+                                    <option value="1">PR</option>
+                                    <option value="1">PE</option>
+                                    <option value="1">PI</option>
+                                    <option value="1">RJ</option>
+                                    <option value="1">RN</option>
+                                    <option value="1">RO</option>
+                                    <option value="1">RR</option>
+                                    <option value="1">SC</option>
+                                    <option value="1">SP</option>
+                                    <option value="1">SE</option>
+                                    <option value="1">TO</option>
+                                    <option value="1">DF</option>
+                                          </select>
+                                                    </div>
+
+                            <div class="col-md-2 mt-4">
+                                <label>Registro:</label>
+                                <input formControlName="registro" type="text" name="valor" id="valor"
+                                    class="form-control" />
+                                           </div>
+
+                            <div class="col-md-1 mt-5 mb-3">
+                                <button 
+                                type="button" 
+                                class="btn btn-outline-primary"
+                                    (click)="removerEspecializacao(i)">
+                                    Excluir
+                                       </button>     
+                                            </div>
+                                                   </div>
+                    </div>
+                        <div class="col-md-3 mt-3 ">
+                            <button type="button" class="btn btn-outline-primary"
+                                (click)="adicionarEspecializacao()">
+                                Adicionar Contato
+                            </button>
+                        </div>
+                        <div class="row mb-2 mt-4">
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-success" value="Realizar Cadastro" />
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>

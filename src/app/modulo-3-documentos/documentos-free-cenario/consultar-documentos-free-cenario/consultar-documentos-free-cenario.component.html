@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5>Lista de Todos os documentos da empresa Selecionada</h5>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-empresa" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar por Documentos" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_epi" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Empresa</th>
+                            <th>CNPJ</th>
+                            <th>Cenário</th>
+                            <th>Nº</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of  documentosfree  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{e.razaosocial}}</td>
+                            <td>{{e.cnpj | uppercase}}</td>
+                            <td>{{e.cenario | uppercase}}</td>
+                            <td>{{e.numerodocumentofree ? e.numerodocumentofree : ''}}</td>
+
+
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">                 
+
+                                <li><a class="dropdown-item btn btn-success" 
+                                [routerLink]="['/editar-documentosfree', e.idDocumentosFree]">
+                                Editar</a></li>  
+                                <li><a class="dropdown-item btn btn-success" (click)="excluirDocumentosFree(e.idDocumentosFree, e.numerodocumentofree)">Excluir</a></li>      
+                            
+                                <li><a class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/criar-etapas-documentosfree', e.idDocumentosFree]">
+                                    Criar Etapas</a></li>  
+
+                                    <li><a class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/consultar-etapas-documentos-free', e.idDocumentosFree]">
+                                        Consultar Etapas</a></li>  
+                            </ul>   
+                            <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                          Gerar Documentos
+                        </button>
+                        <ul class="dropdown-menu btn-sm border dropdown-menu-success">                  
+                          <li><a class="dropdown-item btn btn-success" 
+                            [routerLink]="['/gerar-apr-free', e.idDocumentosFree]">
+                            APR</a></li>  
+                            <li><a class="dropdown-item btn btn-success" 
+                                [routerLink]="['/gerar-pt-free', e.idDocumentosFree]">
+                                PT</a></li>  
+                                <li><a class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/gerar-pta-free', e.idDocumentosFree]">
+                                PTA</a></li>  
+                                <li><a class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/gerar-pet-free', e.idDocumentosFree]">
+                                PET</a></li>  
+                                
+                        </ul>   
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Documentos: {{( documentosfree).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

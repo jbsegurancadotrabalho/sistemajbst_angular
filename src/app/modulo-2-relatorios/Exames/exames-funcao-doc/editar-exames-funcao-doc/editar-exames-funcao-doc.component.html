@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Exames para Função</h5>
+                    <p>Preencha os campos para editar o Exame.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-funcaodoc" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="enviarEdicao()" [formGroup]="exameForm">
+                <input type="hidden" formControlName="id_exames_funcaodoc">
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="nome_exames_funcaodoc">Nome do Exame</label>
+                        <input type="text" id="nome_exames_funcaodoc" formControlName="nome_exames_funcaodoc" class="form-control">
+                    </div>
+                    
+            
+
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="descricao_exames_funcaodoc">Descrição</label>
+                        <input type="text" id="descricao_exames_funcaodoc" formControlName="descricao_exames_funcaodoc" class="form-control">
+                    </div>  
+                  
+                </div>
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Editar Exame</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

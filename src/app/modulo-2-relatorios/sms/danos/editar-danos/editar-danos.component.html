@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Danos</h5>
+                    <p>Preencha os campos para editar o Dano.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+
+
+                    <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Voltar
+                </button>
+                <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                    <li>
+                        <a href="/consultar-riscos" class="dropdown-item btn btn-success"
+                           >
+                            Riscos
+                        </a>
+                    </li>
+                 
+                    <li>
+                        <a href="/consultar-perigo" class="dropdown-item btn btn-success"
+                           >
+                    Perigo
+                        </a>
+                    </li>
+                </ul>
+
+
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="enviarEdicao()" [formGroup]="danosForm">
+                <input type="hidden" formControlName="idDanos">
+                
+                <div class="row mb-2">
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="nomeDano">Nome do Dano</label>
+                        <input type="text" id="nomeDano" formControlName="nomeDano" class="form-control">
+                    </div>
+                    
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="descricaoDano">Descrição do Dano</label>
+                        <input type="text" id="descricaoDano" formControlName="descricaoDano" class="form-control">
+                    </div>  
+                </div>
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Editar Dano</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

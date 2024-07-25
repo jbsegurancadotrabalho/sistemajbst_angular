@@ -1,0 +1,92 @@
+
+
+<app-navbar></app-navbar>
+<div class="container mt-5">
+
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+              
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-11 mt-3">
+                        <h5>Edite aqui a Função dos Colaboradores</h5>
+                        <p> <strong>Periculosidade: </strong>30% do Salário da Categoria ou Não se Aplica.</p>
+                        <p> <strong>Insalubridade: </strong> 10, 20, 40% do Salário Mínimo ou Não se Aplica.</p>
+                        <p> <strong>Insalubridade: </strong> Pode ser Também Baixa, Média, Alta ou Não se Aplica.</p>
+                                </div>
+                                      <div class="col-md-1 mt-3">
+                                    <a href="/consultar-funcao" class="btn btn-success">Voltar</a>
+    
+                                            </div>
+                                                 </div>
+            
+                    </div>
+                    <hr />
+                    <div class="text-danger">
+                        <strong></strong>
+                    </div>
+                    <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                        <strong>{{mensagem}}</strong>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                    </div>
+                    
+                    
+                    <form [formGroup]="formEdicao" (ngSubmit)="onSubmit()">
+                        <input type="hidden" formControlName="idFuncao" />
+
+
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <label>Função:</label>
+                        <input type="text" name="nome" id="nome" class="form-control" 
+                        formControlName="funcao"
+                        />
+                    </div>
+                    <div class="col-md-3">
+                        <label>CBO:</label>
+                        <input type="text" name="valor" 
+                        id="valor" class="form-control"
+                        formControlName="cbo"
+
+                        />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Insalubridade:</label>
+                        <input type="text" name="valor" 
+                        id="valor" class="form-control"
+                        formControlName="gro"
+
+                        />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Periculosidade:</label>
+                        <input type="text" name="valor" 
+                        id="valor" class="form-control"
+                        formControlName="gp"
+
+                        />
+                    </div>
+
+
+                    <div class="col-md-12 mb-3 mt-3">
+                        <label class="form-label">Descreva a Função</label>
+                        <textarea name="descricao" id="descricao" class="form-control" rows="10" formControlName="descricao"></textarea>
+                       </div>
+
+
+                </div>
+
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Realizar Cadastro" />
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

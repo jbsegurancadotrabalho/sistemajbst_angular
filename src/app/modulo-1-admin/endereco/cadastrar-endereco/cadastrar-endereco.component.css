@@ -1,0 +1,26 @@
+/* Adicione isso ao seu arquivo de estilo global ou no arquivo de estilo do componente específico */
+.select2-container .select2-results {
+    overflow-y: auto !important;
+    max-height: 200px; /* Ajuste a altura máxima conforme necessário */
+  }
+  
+  /* Adicione isso se quiser que a barra de rolagem fique na parte inferior */
+  .select2-container .select2-results {
+    scroll-behavior: smooth;
+  }
+  
+  /* Adicione isso se quiser que a barra de rolagem fique sempre na parte inferior */
+  .select2-container .select2-results {
+    scroll-snap-type: y mandatory;
+  }
+  
+  /* Adicione isso se quiser remover a seta de rolagem horizontal (se não for necessário) */
+  .select2-container .select2-results {
+    overflow-x: hidden !important;
+  }
+  :host ::ng-deep .select2-container .select2-dropdown {
+    max-height: 200px; /* Ajuste a altura máxima conforme necessário */
+    overflow-y: auto !important;
+    scroll-snap-type: y mandatory; /* Isso força a barra de rolagem para a parte inferior */
+  }
+    

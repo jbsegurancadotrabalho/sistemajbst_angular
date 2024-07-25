@@ -1,0 +1,96 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row mb-2">
+                <div class="col-md-10">
+            <h5>Local do Curso</h5>
+            <p>Preencha os campos para incluir onde será feito o curso </p>
+        </div>
+        <div class="col-md-2">
+            <a href="consultar-endereco" class="btn btn-primary">Voltar</a>                         
+        </div>
+    </div>
+ 
+     
+            <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{mensagem}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+            </div>
+
+            
+                <form [formGroup]="formEndereco" (ngSubmit)="onSubmit()" >
+                    <div class="row">
+
+                        <div class="col-md-4 ">
+                          <label for="formFile" class="form-label">Unidade de Treinamento</label>
+                          <select class="form-select"  formControlName="idUnidadedetreinamento" #planoSelect>
+                              <option value="">Escolha uma opção</option>      
+                              <option *ngFor="let u of unidades" [value]="u.idUnidadedetreinamento">
+                                {{ u.unidadedetreinamento | uppercase }} - {{ u.unidade | uppercase }} -  {{ u.cnpj| uppercase }}     
+                              </option>  
+                            </select> 
+                          </div>
+                      
+                     
+                       
+                        <div class="col-md-5 mt-2">
+                            <label>Rua:</label>
+                            <input  type="text" name="valor" id="valor" class="form-control"  formControlName="logradouro" />
+                        </div>
+
+                        <div class="col-md-1 mt-2">
+                            <label>Número:</label>
+                            <input type="text" name="valor" id="valor" class="form-control"  formControlName="numero" />
+                        </div>
+                    
+            
+                        
+                        <div class="col-md-2 mt-2" >
+                            <label>Complemento:</label>
+                            <input   type="text" name="valor" id="valor" class="form-control"  formControlName="complemento"/>
+                        </div>
+
+                     
+                    </div>
+
+                    <div class="row mb-2">
+
+
+                        <div class="col-md-4 mt-4">
+                            <label>Bairro:</label>
+                            <input   type="text" name="nome" id="nome" class="form-control"  formControlName="bairro" />
+                        </div>	
+
+                        <div class="col-md-5 mt-4">
+                            <label>Cidade:</label>
+                            <input type="text" name="valor" id="valor" class="form-control"  formControlName="localidade" />
+                        </div>
+                    
+                        
+                    
+                        <div class="col-md-1 mt-4">
+                            <label>UF:</label>
+                            <input   type="text" name="nome" id="nome" class="form-control"  formControlName="uf" />
+                        </div>
+                        <div class="col-md-2 mt-4">
+                            <label>CEP:</label>
+                            <input  type="text" name="nome" id="nome" class="form-control"  formControlName="cep" />
+                        </div>                      
+                  
+  
+                        
+                    </div>
+                    <div class="row mb-2 mt-4">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-success" value="Realizar Cadastro"/>
+                        </div>
+                    </div>
+                
+                </form>
+        
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,9 @@
+/* Adicione isso ao seu arquivo de estilo CSS ou SCSS */
+.table-fatura-fechada {
+    background-color: #ffdddd; /* Cor de fundo para faturas fechadas */
+  }
+  
+  .table-fatura-aberta {
+    background-color: #ddffdd; /* Cor de fundo para faturas abertas */
+  }
+  

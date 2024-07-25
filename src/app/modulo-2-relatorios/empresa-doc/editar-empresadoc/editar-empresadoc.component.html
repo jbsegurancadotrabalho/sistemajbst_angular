@@ -1,0 +1,99 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col md-6">
+                    <h5>Criar Empresa para Relatórios</h5>
+                    <p>Preencha os campos para incluir uma empresa para relatórios.</p>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <a href="consultar-empresa" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+            <form [formGroup]="empresaForm" (ngSubmit)="  editarEmpresa()">
+              
+                <input type="hidden" formControlName="idEmpresa_doc" />
+
+                <div class="row mb-2">
+
+                    <div class="form-group col-md-6">
+                        <label for="razaosocial">Razão Social:</label>
+                        <input type="text" id="razaosocial" formControlName="razaosocial" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nomefantasia">Nome Fantasia:</label>
+                        <input type="text" id="nomefantasia" formControlName="nomefantasia" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="cnpj">CNPJ:</label>
+                        <input type="text" id="cnpj" formControlName="cnpj" class="form-control">
+                    </div>
+
+                  
+
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="responsavel_sistema"> Telefone Responsavel:</label>
+                        <input type="text" id="telefone_responsavel" formControlName="telefone_responsavel" class="form-control">
+                    </div>
+                  
+
+
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="cnpj">Status:</label>
+                        <input type="text" id="status" formControlName="status" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="cnpj">Inscricão Estadual:</label>
+                        <input type="text" id="inscricaoestadual" formControlName="inscricaoestadual" class="form-control">
+                    </div>
+
+
+                        <div class="form-group col-md-6 mt-3">
+                            <label for="email_usuario">Email Usuario:</label>
+                            <input type="text" id="email_usuario" formControlName="email_usuario" class="form-control">
+                        </div>
+    
+                        <div class="form-group col-md-6 mt-3">
+                            <label for="inscricaomunicipal">Inscricão Municipal:</label>
+                            <input type="text" id="inscricaomunicipal" formControlName="inscricaomunicipal" class="form-control">
+                        </div>
+                      
+
+                    
+                  
+
+                
+
+   
+
+    <div class="form-group col-md-6 mt-3">
+        <label for="responsavel_sistema">Responsavel Sistema:</label>
+        <input type="text" id="responsavel_sistema" formControlName="responsavel_sistema" class="form-control">
+    </div>
+  
+</div>
+
+
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Empresa</button>
+
+                </div>
+              
+            </form>
+        </div>
+    </div>
+</div>

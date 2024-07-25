@@ -1,0 +1,5 @@
+/* Set the z-index of the ng-select dropdown */
+.ng-dropdown-panel {
+    z-index: 1050 !important; /* Adjust the value based on your modal's z-index */
+  }
+  

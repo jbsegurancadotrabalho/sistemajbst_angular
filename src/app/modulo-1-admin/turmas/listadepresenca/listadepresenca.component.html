@@ -1,0 +1,317 @@
+
+<div class="container mt-3"   *ngFor="let l of listadepresenca">
+
+    <div class="card card brilho  mr-5">
+        <div class="card-body"> 
+                       
+            <div class="row">
+
+                                       <div class="col-md-12  mt-1 text-center text-success p-1 ">
+                                        <strong>JB SEGURANÇA DO TRABALHO - CNPJ: 25.108.808.0001-18 - TELEFONE: (11) 2694-2399 / (21) 3933-1161
+                                        </strong>
+                                        <h6>LISTA DE PRESENÇA DO {{l?.turmas?.curso?.curso | uppercase }} {{l?.turmas?.nivel | uppercase }} {{l?.turmas?.tipo | uppercase }}</h6>
+
+                                                </div>
+                                              </div>
+
+                                                        <div class="table mt-2">
+                                                            <strong style="font-size: 14px;">DADOS DO CURSO</strong>
+                                                            <table class="table table-bordered">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="font-size: 12px;">Curso</th>
+                                                                        <th style="font-size: 12px;">Nivel</th>
+                                                                        <th style="font-size: 12px;">Descrição</th>
+                                                                        <th style="font-size: 12px;">Tipo</th>
+                                                                        <th style="font-size: 12px;">Carga Horária</th>
+                                                    
+                                        
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="font-size: 12px;">{{l?.turmas?.curso?.curso}}</td>
+                                                                        <td style="font-size: 12px;">{{l?.turmas?.nivel}}</td>
+                                                                        <td style="font-size: 12px;">{{l?.turmas?.curso?.descricao}}</td>
+                                                                        <td style="font-size: 12px;">{{l?.turmas?.tipo}}</td>
+                                                                        <td style="font-size: 12px;">{{l?.turmas?.cargahoraria}}</td>                
+                                        
+                                                                    </tr>
+                                                                </tbody>    
+                                                            </table>
+
+                <div class="table-responsive mt-2">
+                    <strong style="font-size: 14px;">DADOS DA UNIDADE DE TREINAMENTO</strong>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="font-size: 14px;">EMPRESA</th>
+                                <th style="font-size: 14px;" >CNPJ</th>
+                                <th style="font-size: 14px;">ENDEREÇO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>                            
+                            <th style="font-size: 12px;">{{l?.turmas?.unidadeDeTreinamento?.unidadedetreinamento}}</th>
+                            <th style="font-size: 12px;">{{l?.turmas?.unidadeDeTreinamento?.cnpj}}</th>
+                            <th style="font-size: 12px;">{{l?.turmas?.unidadeDeTreinamento?.endereco?.logradouro}},
+                                {{l?.turmas?.unidadeDeTreinamento?.endereco?.numero}},  {{l?.turmas?.unidadeDeTreinamento?.endereco?.complemento}},
+                                {{l?.turmas?.unidadeDeTreinamento?.endereco?.bairro}},  {{l?.turmas?.unidadeDeTreinamento?.endereco?.localidade}},  
+                                {{l?.turmas?.unidadeDeTreinamento?.endereco?.uf}}, Brasil.</th>
+                       
+
+                            </tr>
+                        </tbody>    
+                    </table>               
+                 </div>
+
+              
+                <div class="table-responsive mt-2">
+                    <strong style="font-size: 14px;">DADOS DO ALUNO 
+                        </strong>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="font-size: 12px;">Empresa</th>
+                                <th style="font-size: 12px;">CNPJ</th>
+                                <th style="font-size: 12px;">Aluno</th>
+                                <th style="font-size: 12px;">RG</th>
+                                <th style="font-size: 12px;"> CPF</th>
+                                <th style="font-size: 12px;">Função</th>
+                                <th style="font-size: 12px;">CBO</th>
+                                <th style="font-size: 12px;">Matricula</th>
+                                <th style="font-size: 12px;">Turma</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr> 
+                                <td style="font-size: 12px;"> {{l?.funcionario?.empresa?.razaosocial}}</td>
+                                <td style="font-size: 12px;">{{l?.funcionario?.empresa?.cnpj}} </td>                      
+                                <td style="font-size: 12px;">{{l?.funcionario?.nome}}</td>
+                                <td style="font-size: 12px;">{{l?.funcionario?.rg}}</td>
+                                <td style="font-size: 12px;">{{l?.funcionario?.cpf}}</td>
+                                <td style="font-size: 12px;">{{l?.funcionario?.funcao.funcao}}</td>
+                                <td style="font-size: 12px;">{{l?.funcionario?.funcao.cbo}}</td>
+                                <td style="font-size: 12px;">{{ l?.numeroMatricula}}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.numeroTurma}}</td>
+                            </tr>
+
+                          
+                        </tbody>    
+                    </table>
+                    <strong style="font-size: 14px;">ASSINATURA DO ALUNO</strong>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                             
+                                <th style="font-size: 12px;">{{l?.turmas?.primeirodia}}</th>
+                                <th style="font-size: 12px;" >{{l?.turmas?.segundodia}}</th>
+                                <th style="font-size: 12px;">{{l?.turmas?.segundodia}}</th>
+                                <th style="font-size: 12px;">{{l?.turmas?.segundodia}}</th>
+                                <th style="font-size: 12px;">{{l?.turmas?.segundodia}}</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                           
+                                	
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+
+                            </tr>
+
+                          
+                        </tbody>    
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<BR>
+    <BR>
+        <BR>
+         
+                
+           
+
+<div class="container mt-3" *ngFor="let l of listadepresenca">
+    <BR>
+        <BR>
+            <BR>
+                <BR>
+    <div class="card card brilho  mr-5">
+        <div class="card-body">
+            
+            
+            <div>
+               
+                <div class="row">
+          
+           
+                    <div class="col-md-2 mt-1 text-center text-success ">
+                                </div>
+           
+                               <div class="col-md-8 mt-1 text-center text-success ">
+                                <h6>LISTA DE PRESENÇA DO {{l?.turmas?.curso?.curso | uppercase }} {{l?.turmas?.nivel | uppercase }} {{l?.turmas?.tipo | uppercase }}</h6>
+                            </div>
+                                        
+           
+                               <div class="col-md-2 mt-1 text-center text-success ">
+                                        </div>
+
+                                           </div>
+
+
+ 
+                <div class="table-responsive mt-2">
+                    <strong style="font-size: 14px;">DADOS DO INSTRUTOR</strong>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th  style="font-size: 12px;">Instrutor do curso</th>
+                                <th style="font-size: 12px;">Formação</th>
+                                <th style="font-size: 12px;">Conselho</th>
+                                <th style="font-size: 12px;">Registro</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[0]?.instrutor }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[0]?.formacoes[0]?.formacao }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[0]?.formacoes[0]?.conselho }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[0]?.formacoes[0]?.registro }}</td>                       
+
+                            </tr>
+                            <tr>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[0]?.instrutor }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[0]?.formacoes[1]?.formacao }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[0]?.formacoes[1]?.conselho }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[0]?.formacoes[1]?.registro }}</td>                       
+
+                            </tr>
+                            <tr>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[1]?.instrutor }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[1]?.formacoes[0]?.formacao }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[1]?.formacoes[0]?.conselho }}</td>
+                                <td style="font-size: 12px;">{{ l?.turmas?.instrutores[1]?.formacoes[0]?.registro }}</td>                       
+
+                            </tr>
+                        </tbody>    
+                    </table>
+                </div>
+
+              
+                  
+        </div>
+
+    </div>
+    <BR>
+        <BR>
+
+    <BR>
+        <BR>
+            <BR>
+                <BR>
+              
+                    <BR>
+                        <BR>
+                            <BR>
+                                <BR>
+</div>
+
+<div class="container mt-3" *ngFor="let l of listadepresenca">
+    <BR>
+        <BR>
+            <BR>
+                <BR>
+                    <BR>
+                        <BR>
+                            <BR>
+                                <BR>
+    <div class="card card brilho  mr-5">
+        <div class="card-body">
+            
+            
+            <div>
+               
+                <div class="row">
+          
+           
+                    <div class="col-md-2 mt-1 text-center text-success ">
+                                </div>
+           
+                               <div class="col-md-8 mt-1 text-center text-success ">
+                                <h6>LISTA DE PRESENÇA DO {{l?.turmas?.curso?.curso | uppercase }} {{l?.turmas?.nivel | uppercase }} {{l?.turmas?.tipo | uppercase }}</h6>
+
+                                        </div>
+                                        
+           
+                               <div class="col-md-2 mt-1 text-center text-success ">
+                                        </div>
+
+                                           </div>
+
+
+ 
+            
+
+              
+                    <div class="row">
+
+                        <div class="col-12 p-3" style="font-size: 10px;">
+                            <h5 style="font-size: 14px;">CONTEÚDO PROGRAMÁTICO DO CURSO: </h5>
+                            {{l?.turmas?.curso.conteudo}}
+                        </div>   
+                                 
+                            <div class="col-2">
+                </div>
+                
+           
+
+            </div>
+        </div>
+
+    </div>
+ 
+    <BR>
+        <BR>
+            <BR><BR>
+              
+                        <div class="row">
+
+                            <div class="col-md-5 mt-1 mb-1 center">
+                            </div>
+                            <div class="col-md-4 mt-1 mb-1 center">
+                                <button (click)="printPage()">Lista de Presença</button>
+                            </div>   
+                            <div class="col-md-3 mt-1 mb-1 center">
+                            </div>
+</div>
+</div>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+      $("#meu-card").click(function () {
+        window.location.href = "https://www.google.com.br/url?sa=i&url=https%3A%2F%2Fwww.rgid.com.br%2FMLB-1434275770-papel-moeda-para-certificado-e-diplomas-100-un-_JM&psig=AOvVaw0fkAtfo8qdPwHz9q30zrZC&ust=1696169652883000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPjr-MfC0oEDFQAAAAAdAAAAABAE";
+      });
+    });
+  </script>

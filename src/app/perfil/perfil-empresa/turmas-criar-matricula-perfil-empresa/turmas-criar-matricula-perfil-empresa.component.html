@@ -1,0 +1,129 @@
+<app-perfil-empresa></app-perfil-empresa>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">                
+
+
+            <h5>Criar Matricula Funcionario Faturamento PJ</h5>
+            <p>Preencha os campos para criar um Faturamento.</p>
+            <hr/>
+            
+        <div class="text-success">
+                    <strong></strong>
+                </div>
+                
+                <div class="text-danger">
+                    <strong></strong>
+                </div>
+                <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{mensagem}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                </div>
+                <form [formGroup]=" formFaturamentoPJ" (ngSubmit)="onSubmit()">
+                 <input type="hidden" formControlName="idTurmas">
+                 <input type="hidden" formControlName="id">
+
+
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <label>Venda:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="venda"/>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Valor:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="valor" name="FaturamentoPj" required="FaturamentoPj"/>
+                    </div>
+				
+                    <div class="col-md-3 mt-4">
+
+                        <select class="form-select" placeholder="tipo_de_pagamento" aria-label="Default select example" formControlName="tipo_de_pagamento"
+                            name="valor" id="valor" required>
+                            <option value="FaturamentoPj">FaturamentoPj</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mt-4">
+
+                        <select class="form-select" placeholder="status" aria-label="Default select example" formControlName="status"
+                            name="valor" id="valor" required>
+                            <option value="Aluno Aguardando">Aluno Aguardando</option>
+                            <option value="Aluno Compareceu">Aluno Compareceu</option>
+                            <option value="Aluno Faltou">Aluno Faltou</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <label for="formFile" class="form-label">Busque o Funcionario pelo seu CPF</label>
+                        <ng-select
+                        [items]="funcionarios"
+                        bindLabel="cpf"
+                        bindValue="idFuncionario"
+                        class="form-select custom-ng-select"
+                        formControlName="funcionario"
+                        [ngClass]="{'is-invalid': formFaturamentoPJ.get('funcionario')?.invalid && formFaturamentoPJ.get('funcionario')?.touched}"
+                      >
+                        <ng-template ng-label-tmp let-item="item">
+                          <div class="custom-bg" style="z-index: 1000;">
+                            {{ item.nome }} {{ item.cpf }}
+                          </div>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                          <div>
+                            {{ item.nome }} - CPF: {{ item.cpf }}
+                          </div>
+                        </ng-template>
+                      </ng-select>
+                      
+                    </div>	
+                    
+                  
+                
+
+                               <div class="col-md-6 mt-3">
+                            <label for="formFile" class="form-label">Busque o Faturamento pelo seu número</label>
+                            <ng-select
+                            [items]="faturamentos"
+                            bindLabel="numeroFaturamento"
+                            bindValue="idfaturamento"
+                            class="form-select custom-ng-select"
+                            formControlName="faturamento"
+                            [ngClass]="{'is-invalid': formFaturamentoPJ.get('faturamento')?.invalid && formFaturamentoPJ.get('faturamento')?.touched}"
+                          >
+                            <ng-template ng-label-tmp let-item="item">
+                              <div class="custom-bg" style="z-index: 1000;">
+                                {{ item?.numeroFaturamento || '' }}  {{ item.empresa?.razaosocial || '' }} {{ item.empresa?.cnpJ }} {{ item.data_inicio | date:'dd/MM/yyyy' }}
+                              </div>
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item">
+                              <div>
+                               Nº {{ item?.numeroFaturamento || '' }}    {{ item.empresa?.razaosocial || '' }} CNPJ: {{ item.empresa?.cnpj || '' }} {{ item.data_inicio | date:'dd/MM/yyyy' }} - Fim: {{ item.data_fim | date:'dd/MM/yyyy' }}
+                              </div>
+                            </ng-template>
+                          </ng-select>
+                          
+                        </div>	
+
+                        <div class="row">
+                          <div class="col-md-12 mt-3" >
+                              <label>Observaçoes:</label>                      
+                             <textarea class="form-control" id="exampleTextarea" rows="5" formControlName="observacoes"></textarea>
+                        </div>
+                      </div>
+			
+                <div class="row mb-2 mt-3">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Realizar Cadastro"/>
+                    </div>
+                </div>
+            </div>
+
+            </form>
+         
+        </div>
+    </div>
+
+</div>

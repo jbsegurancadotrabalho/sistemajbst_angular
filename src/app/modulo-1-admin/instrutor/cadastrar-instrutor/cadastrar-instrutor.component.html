@@ -1,0 +1,87 @@
+
+
+<app-navbar></app-navbar>
+<div class="container mt-5">
+
+    <div class="card mt-5">
+        <div class="card-body">
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Cadastrar Instrutor</h5>
+                        <p>Preencha os campos para incluir um Instrutor.</p>
+                            </div>
+                                 
+                                                   </div>
+              <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{mensagem}}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+            </div>
+                                                 <hr class="mt-1"/>
+
+
+    <form [formGroup]="formInstrutor" (ngSubmit)="onSubmit()">
+
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label>Nome do Instrutor:</label>
+                        <input type="text" name="nome" id="nome" class="form-control"
+                        formControlName="instrutor" 
+                        />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Cpf:</label>
+                        <input type="text" name="valor" id="valor" class="form-control"
+                        formControlName="cpf" 
+                        />
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <label>RG:</label>
+                        <input type="text" name="valor" id="valor" class="form-control"
+                        formControlName="rg" 
+                        />
+                    </div>
+                    <div class="col-md-3 mt-2">
+                        <label>Telefone:</label>
+                        <input type="text" name="valor" id="valor" class="form-control" 
+                        formControlName="telefone_1" 
+                        />
+                    </div>
+
+                    <div class="col-md-3 mt-2">
+                        <label>Telefone:</label>
+                        <input type="text" name="valor" id="valor" class="form-control" 
+                        formControlName="telefone_2" 
+                        
+                        />
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label>Email:</label>
+                        <input type="text" name="valor" id="valor" class="form-control"
+                        formControlName="email" 
+                        />
+                    </div>
+
+                
+
+                </div>
+
+                
+
+
+
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Realizar Cadastro" />
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

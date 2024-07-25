@@ -1,0 +1,57 @@
+<div class="container mt-3" *ngIf="empresas">
+    <div class="card">
+        <div class="card-body" style="color: green;">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-12 mt-1 text-center">
+                    <strong style="color: gold; font-size: 40px;">CARTÃO CLIENTE VIP</strong>
+                    <br>
+                    <p style="color: gold; font-size: 19px;">ACESSO AO SISTEMA JB SEGURANÇA DO TRABALHO</p>
+                    
+
+                </div>
+            </div>
+                 
+            <div class="row">
+
+                <div class="col-md-12" Align="justify">
+            <strong style="color: green;">Estimado(a) parceiro(a) {{empresas?.responsavel_sistema}} colaborador(a) da empresa {{empresas?.razaosocial}} inscrita no CNPJ: {{empresas?.cnpj}} venho por meio deste certificado informar que a JB Segurança do Trabalho está lhe premiando de forma exclusiva com um certificado de cliente Ouro.</strong>
+
+            <strong style="color: green;">Junto com a certificação está o acesso exclusivo ao nosso sistema de gerenciamento de certificados, que é um modelo único e utiliza a maior e mais didática linguagem de programação.</strong>
+            
+            <strong style="color: green;">Neste sistema, você terá a gestão dos certificados de todos os funcionários da sua empresa que fizeram cursos na JB Segurança do Trabalho.</strong>
+            
+            <strong style="color: green;">Você terá a oportunidade de ver a sua empresa no sistema, cadastrar as funções existentes nela e todos os seus funcionários.</strong>
+            
+            <strong style="color: green;">Você verá também todas as nossas Turmas abertas do mês, verificará a sua emenda e poderá fazer a matrícula diretamente nelas.</strong>
+            
+            <strong style="color: green;">Na conclusão do curso, caso seja Online ou Híbrido, você na área de edição informará que o aluno concluiu; caso seja presencial, nossos colaboradores farão a edição e liberaremos os certificados em sua área de cliente.</strong>
+            
+            <strong style="color: green;">Você está entre os primeiros 100 clientes este mês e quero lhe parabenizar.</strong>
+            <br>
+            
+            <br>
+
+                  <strong style="color: green;">Responsável pelo Sistema: {{empresas?.responsavel_sistema}}</strong> 
+                <br>
+                  <strong style="color: green;">Usuário: {{empresas?.email_usuario}}</strong> 
+                  <br>
+                        <strong style="color: green;">Senha: {{empresas?.senha_sistema}}</strong> 
+
+                      
+                    
+     <div class="row">
+
+        <div class="col-md-5">
+        </div>
+            <div class="col-md-6">
+                <strong style="color: gold; font-size: 24px; " (click)="printPage()">ACESSO OURO</strong>
+            </div>
+            <div class="col-md-5"></div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+

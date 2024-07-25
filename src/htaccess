@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Se o arquivo ou diretório solicitado não existir
+RewriteCond %{REQUEST_FILENAME}%{REQUEST_URI} -f [OR]
+RewriteCond %{REQUEST_FILENAME}%{REQUEST_URI} -d
+RewriteRule ^ -[L]
+# Redirecionar todas as solicitações para index.html
+RewriteRule ^ /index.html

@@ -1,0 +1,166 @@
+    <app-navbar></app-navbar>
+
+    <div class="container mt-3">
+
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row mb-2 mt-4">
+                    <div class="col-md-9 mt-1">
+                        <h5>Unidades Relatórios</h5>
+                    </div>
+                
+                </div>
+                
+                <div class="row mb-2">
+
+                    <div class="col-md-7">
+                    
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                            placeholder="Pesquisar todas as Funções para Relatórios" />
+                    </div>
+                </div>
+                <hr />
+
+
+            
+                <hr />
+                <div class="table-responsive mt-2">
+                    <table id="consulta_chamados" class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>QTD</th>
+                                <th>Função</th>
+                                <th>Cenário</th>
+                                <th>Setor</th>
+                                <th>Operações</th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let f of funcoes  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">
+                                <td>{{i + 1}}</td>
+                                <td>{{f.nome_da_funcao}}</td>
+                                <td>{{f.cenario_funcaodoc | uppercase}}</td>
+                                <td>{{f.setor_gho | uppercase}}</td>    
+                                <td>
+
+                                    <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                Ações
+                                </button>
+
+
+                                <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                                
+                
+
+                                    
+                                <li><a href="/editar-funcaodoc"  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/editar-funcaodoc', f.idFuncaoDoc]">
+                                    Editar</a></li>
+
+                                    
+                                    <li><a class="dropdown-item btn btn-success" 
+                                        (click)="excluirFuncao(f.idFuncaoDoc, f.nome_da_funcao)">
+                                    Excluir
+                                    </a></li>       
+
+                                    <li><a href="/criar-perigo"  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-perigo', f.idFuncaoDoc]">
+                                        Criar Perigo</a></li>
+
+                                        <li><a href="/criar-riscos"  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/criar-riscos', f.idFuncaoDoc]">
+                                            Criar Riscos</a></li>
+                                            
+                                            <li><a href="/criar-epi"  class="dropdown-item btn btn-success" 
+                                                [routerLink]="['/criar-epi', f.idFuncaoDoc]">
+                                                Criar Epi</a></li>
+
+                                            <li><a href="/criar-cursos-para-funcoes"  class="dropdown-item btn btn-success" 
+                                                [routerLink]="['/criar-cursos-para-funcoes', f.idFuncaoDoc]">
+                                                Criar Cursos</a></li>
+
+
+                                                    <li><a href="/criar-exames-funcaodoc"  class="dropdown-item btn btn-success" 
+                                                        [routerLink]="['/criar-exames-funcaodoc', f.idFuncaoDoc]">
+                                                        Criar Exames</a></li>
+
+                                                        <li><a href="/criar-avaliacao-funcaodoc"  class="dropdown-item btn btn-success" 
+                                                            [routerLink]="['/criar-avaliacao-funcaodoc', f.idFuncaoDoc]">
+                                                            Criar Avaliações Ocupacionais</a></li>
+                                </ul>    
+                                
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                               Consultar
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+            
+
+                                          
+                                
+                                <li><a href="/consultar-perigo"  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/consultar-perigo', f.idFuncaoDoc]">
+                                    Perigo</a></li>
+
+                                    <li><a href="/consultar-riscos"  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/consultar-riscos', f.idFuncaoDoc]">
+                                        Riscos</a></li>
+
+                                        <li><a href="/consultar-epi"  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/consultar-epi', f.idFuncaoDoc]">
+                                            Epi</a></li>
+                                
+                                            <li><a href="/consultar-cursos-para-funcoes"  class="dropdown-item btn btn-success" 
+                                                [routerLink]="['/consultar-cursos-para-funcoes', f.idFuncaoDoc]">
+                                                Cursos</a></li>
+                                                <li><a href="/consultar-exames-funcaodoc"  class="dropdown-item btn btn-success" 
+                                                    [routerLink]="['/consultar-exames-funcaodoc', f.idFuncaoDoc]">
+                                                    Exames</a></li>
+
+                                                    <li><a href="/consultar-avaliacao-funcaodoc"  class="dropdown-item btn btn-success" 
+                                                        [routerLink]="['/consultar-avaliacao-funcaodoc', f.idFuncaoDoc]">
+                                                        Avaliações Ocupacionais</a></li>
+                        
+                            </ul>                  
+
+                            </td>                  
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                Quantidade de Unidades: {{(funcoes).length}}
+                                <pagination-controls 
+                                (pageChange)="paginaAtual1 = $event"
+                                previousLabel="Página anterior"
+                                nextLabel="Próxima página"
+                                [maxSize]="10" 
+                                [itemsPerPage1]="itensPorPagina" 
+                            ></pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+
+         
+
+
+
+
+          
+              
+        </div>
+    </div>
+</div>

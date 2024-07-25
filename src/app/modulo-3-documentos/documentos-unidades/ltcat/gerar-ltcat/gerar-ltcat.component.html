@@ -1,0 +1,271 @@
+<div data-bs-spy="scroll" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+
+  <div  *ngFor="let a of associacoes">
+    <header style="font-family:
+      Arial; font-size: 11pt; 
+       text-align: center;
+       margin-top: 6;
+       ">
+      <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" 
+      alt="Logo" class="print-logo mx-auto" />
+    </header>
+    <div class="content" >
+  
+    <p>
+      <strong class="d-flex justify-content-center text-center">L.T.C.A.T</strong><br>
+      <strong class="d-flex justify-content-center text-center" style="font-size: 14pt;">LAUDO TÉCNICO DAS CONDIÇÕES DO AMBIENTE DE TRABALHO</strong>
+    </p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 12px;">Empresa</th>
+            <th style="font-size: 12px;">CNPJ</th>
+            <th style="font-size: 12px;">Data de Inicio</th>
+            <th style="font-size: 12px;">Vigência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of associacoes">
+            <td style="font-size: 12px;">{{ a?.unidadedoc?.nomefantasia }}</td>
+            <td style="font-size: 12px;">{{ a?.unidadedoc?.cnpj }}</td>
+            <td style="font-size: 12px;">{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}</td>
+            <td style="font-size: 12px;">{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+      <p style="font-family: Arial; font-size: 11pt; text-align: justify;">
+        1 – CARACTERÍSTICAS DA EMPRESA  <br>
+        2 – DAS RESPONSABILIDADES DOS LEVANTAMENTOS AMBIENTAIS <br>
+        3 - DO OBJETIVO <br>
+        4 – DOS AGENTES NOCIVOS <br>
+        5 – DA METODOLOGIA APLICADA <br>
+        6 - DOS EQUIPAMENTOS UTILIZADOS <br>
+        7 – DA EXPOSIÇÃO AOS AGENTES NOCIVOS PARA APOSENTADORIA ESPECIAL <br>
+        8 - DA DESCRIÇÃO DO LOCAL E GRUPOS HOMOGÊNEOS DE EXPOSIÇÃO <br>
+        9 - 9.	DOS RESULTADOS DAS AVALIAÇÕES DOS AGENTES NOCIVO<br>
+        10 - GHO - GRUPO HOMOGÊNEO DE EXPOSIÇÃO <br>
+        11 – ENCERRAMENTO <br>
+        </p>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+  
+  
+		  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+        <strong>1 – IDENTIFICAÇÃO DA EMPRESA</strong><br>
+        <strong>Empresa:</strong> {{ a?.unidadedoc?.empresadoc?.razaosocial }} <code></code>
+        <br>
+      <strong>CNPJ:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+      <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.empresadoc?.status  }}<br>      
+      <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.horario_empresa  }}<br>      
+      <strong>Inscrição Estadual:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaoestadual  }}<br>      
+      <strong>Inscrição Municipal:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaomunicipal }}<br>      
+      <strong>Responsável:</strong> {{   a?.unidadedoc?.empresadoc?.responsavel_sistema}}<br>      
+      <strong>Email:</strong> {{   a?.unidadedoc?.empresadoc?.email_usuario}}<br>      
+      <strong>Telefone:</strong> {{   a?.unidadedoc?.empresadoc?.telefone_responsavel}}<br>      
+      <strong>Endereço:</strong> {{   a?.unidadedoc?.endereco?.logradouro}}, {{   a?.unidadedoc?.endereco?.numero}}
+      {{   a?.unidadedoc?.endereco?.bairro}}, {{   a?.unidadedoc?.endereco?.localidade}}, {{   a?.unidadedoc?.endereco?.uf}}.
+      <br>      
+      <strong>CEP:</strong>  {{   a?.unidadedoc?.endereco?.cep}}<br>      
+      <strong>1.1 – RESPONSÁVEL PELA ELABORAÇÃO DO PCMSO</strong><br>
+      <strong>Nome:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+      <strong>Endereço:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+      <strong>Telefone:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+
+       </p>
+  
+       <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+       <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+        <strong>  	2. DAS RESPONSABILIDADES DOS LEVANTAMENTOS AMBIENTAIS	    </strong><br>
+            O presente Laudo Técnico das Condições Ambientais do Trabalho – LTCAT, foi elaborado pelo Eng.º de Segurança do Trabalho, ,
+registrado no CREA/SP nº e com NIT/PIS/PASEP/CInº. Fica sob responsabilidade do fornecimento de dados referentes aos empregados e demais informações que compõem este LTCAT, além de sua guarda e conservação esta empresa, identificada no item “1” deste laudo, nos termos da lei vigente e competente no assunto.
+        </p>
+              
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+          <strong>  	3. DO OBJETIVO    </strong> <br>
+    Este “Laudo Técnico das Condições Ambientais - LTCAT”, objetivando fornecer aos órgãos públicos competentes, em especial ao Ministério da Previdência e Assistência Social – Instituto Nacional do Seguro Social – INSS – informações se o empregado segurado tem direito ou não a atividades especial, através do histórico-laboral do trabalhador, intitulado “ P.P.P – Perfil Profissiográfico Previdenciário”.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+        Para os efeitos técnicos e legais, neste documento considera-se trabalho permanente aquele em que o segurado, no exercício de todas as suas funções, estiver efetivamente exposto a agentes nocivos físicos, químicos e biológicos ou associação de agentes.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+        Considera-se trabalho não ocasional nem intermitente aquele em que na jornada de trabalho não houve interrupção ou suspensão do exercício de atividade com exposição aos agentes nocivos, ou seja, não foi exercida de forma alternada, atividade comum e especial.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+        Entende-se por agentes nocivos aqueles que possam trazer ou ocasionar danos à saúde ou integridade física do trabalhador nos ambientes de trabalho, em função de sua natureza, concentração, intensidade e fator de exposição aos seguintes agentes.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      <strong> 4. DOS AGENTES NOCIVOS  </strong>
+    A classificação os agentes nocivos estão descritos no Decreto 3.048 de 06 de maio de 1999 e seu Anexo IV, empregado como referência para compor este LTCAT, sendo eles divididos em agentes físicos, químicos e biológicos, com limites de tolerância e metodologias referendados pela NR 15 da Portaria 3.214/78 do MTE e Normas de Higiene Ocupacional da FUNDACENTRO.<br>
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong>4.1	Agentes físicos</strong><br>         
+Entre os agentes físicos, considerados no Anexo IV do Decreto 3048/99 temos: <br>
+
+    •	Ruído;<br>
+    •	Vibrações;<br>
+    •	Radiações Ionizantes;<br>
+    •	Temperaturas anormais; e<br>
+    •	Pressão Atmosférica anormal;<br>
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+<strong>4.2	Agentes químicos</strong><br>
+
+Entre os agentes químicos, considerados no Anexo IV do Decreto 3048/99 temos:<br>
+
+•	Arsênio e seus compostos;<br>
+•	Asbestos;<br>
+•	Benzeno e seus compostos tóxicos;<br>
+•	Berílio e seus compostos tóxicos;<br>
+•	Bromo e seus compostos tóxicos;<br>
+•	Cádmio e seus compostos tóxicos;<br>
+•	Carvão mineral e seus derivados;<br>
+•	Chumbo e seus compostos tóxicos;<br>
+•	Cloro e seus compostos tóxicos;<br>
+•	Cromo e seus compostos tóxicos;<br>          
+•	Dissulfeto de carbono;<br>
+•	Fósforo e seus compostos tóxicos;<br>
+•	Iodo;<br>
+•	Manganês e seus compostos;<br>
+•	Mercúrio e seus compostos;<br>
+•	Níquel e seus compostos;<br>
+•	Petróleo, Xisto Betumisono, Gás Natural e seus derivados;<br>
+•	Sílica Livre;<br>
+•	Outras substâncias químicas, subdivididas em:<br>
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  a)	GRUPO I – Estireno; Butadieno-Estireno; Acrilonitrila; 1-3 Butadieno; Cloropreno; Mercaptanos; n-Hexano; Dilsocianato de Tolueno (TDI); Aminas aromáticas.
+  <br>
+  b)	GRUPO II – Aminas aromáticas; Aminobifelina; Auramina; Azatioprina; BIS (Cloro Metil) Éter; 1-4 Butanodiol; Dimetanosulfato (Mileran); Ciclofosfamida; Cloroambucil;     Dietilestil-Bestrol;     Acronitrila;     Nitronaftilamina     4-Dimetil- Aminoabenzeno; Benzopireno; Beta-Propiolactona; Biscloroetileter; Bisclorometil; Clorometileter; Dianizidina; Diclorobenzidina; Dietilsulfato; Dimetilsulfato; Etilenoamina;   Etilenotiureia;   Fenacetina;   Iodeto   de   Metila;   Etilnitrosuréias; Metileno-Ortocloroanilina (MOCA); Nitrosamina; Ortotoluidina; Oxime-Talona; Procarbazina; Propanosultona; 1-3-Butadieno; Óxido de Etileno; Estilbenzeno; Dilsocianto de Tolueno (TDI); Creosoto; 4-Aminodifenil; Benzidina; Betanaftalamina; Estireno; 1-Cloro-2; 4-Nitrodifenil; 3-Poxipro-pano.
+  <br>
+  <strong>4.3	Agentes biológicos</strong><br>
+  Entre os agentes biológicos, considerados no Anexo IV do Decreto 3048/99 temos:<br>
+  •	Micro-organismos e parasitas infectocontagiosos vivos e suas toxinas.<br>
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>5. DA METODOLOGIA APLICADA	</strong><br>
+    
+    
+      Conforme previsto no Decreto 8.213, de 16 de outubro de 2013, art. 12º, as avaliações ambientais deverão ser consideradas, além do disposto do Anexo IV do Decreto 3048/99, as metodologias e procedimentos de avaliação estabelecidos pelo Fundação Jorge Duprat Figueiredo de Segurança e Medicina do Trabalho – FUNDACENTRO.
+      <br>
+      Na hipótese de não terem sido estabelecidos os critérios da FUNDACENTRO a metodologia e procedimentos de avaliação caberá ao Ministério do Trabalho e Emprego definir outras instituições que o estabeleçam.
+      <br>
+      
+    Portanto, segue abaixo a relação das metodologias descritas pelo FUNDACENTRO e Ministério do Trabalho, adotados para compor este laudo:
+    <br>   
+    </p>
+    <p>
+      <strong>6.1	Dosímetro de ruído</strong> <br>
+   <strong>Fabricante:</strong> <br>
+  <strong>Modelo:</strong><br>
+    <strong>Nº da Série:</strong><br>
+<strong>Nº Certificado de Calibração:</strong><br>
+</p>   
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+  <strong>7. DA EXPOSIÇÃO AOS AGENTES NOCIVOS PARA APOSENTADORIA ESPECIAL	</strong><br>
+
+  Para os trabalhadores com apenas um vínculo empregatício (ou uma fonte pagadora), conforme Manual da GFIP para usuários do SEFIP, publicado por Instrução Normativa da Diretoria Colegiada do INSS, deverá empregar os seguintes códigos:
+  <br>
+  •	00 (em branco) – sem exposição a agente nocivo. Trabalhador nunca esteve exposto.<br>
+  •	01 – Não exposição a agente nocivo. Trabalhador já esteve exposto.<br>
+  •	02 – Exposição a agente nocivo (aposentadoria especial aos 15 anos de trabalho);<br>
+  •	03 – Exposição a agente nocivo (aposentadoria especial aos 20 anos de trabalho);<br>
+  •	04 – Exposição a agente nocivo (aposentadoria especial aos 25 anos de trabalho).<br>
+  
+  O código 01 somente deverá ser preenchido para o trabalhador que esteve e deixou de estar exposto a agente nocivo.<br>
+  
+  Para os trabalhadores com mais de um vínculo empregatício (ou mais de uma fonte pagadora), deverá ser informado os seguintes códigos:<br>
+  
+  •	05 – Não exposto a agente nocivo.<br>
+  •	06 – Exposição a agente nocivo (aposentadoria especial aos 15 anos de trabalho);<br>
+  •	07 -Exposição a agente nocivo (aposentadoria especial aos 20 anos de trabalho);<br>
+  •	08 - Exposição a agente nocivo (aposentadoria especial aos 25 anos de trabalho).<br>
+  
+
+ </p>
+
+
+                          
+                                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                                  <strong>8. DA DESCRIÇÃO DO LOCAL E GRUPOS HOMOGÊNEOS DE EXPOSIÇÃO</strong>
+                                  </p>  
+                                  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">		  
+                                    Tem por objetivo avaliar a exposição ocupacional de cada trabalhador. Identificando os riscos ocupacionais decorrentes dos processos ou métodos de trabalho, identificação das funções,
+                                    trabalhadores expostos, descrevendo os exames e a periodicidade dos exames, considerando grupo homogêneo de riscos.
+                                    </p>  
+                                   
+                               <br>
+                                  
+                 <ng-container *ngFor="let a of associacoes; let iA = index">
+                  <ng-container *ngFor="let funcaoDoc of a?.unidadedoc?.funcaodoc; let iF = index">
+                    <ng-container *ngFor="let risco of funcaoDoc?.riscos; let iR = index">
+                
+                      <p></p>
+                      <p>
+                        <strong>LEVANTAMENTO DA FUNÇÃO  DE {{ funcaoDoc?.funcao?.nome_da_funcao | uppercase}}</strong><br>  
+                        <strong>1 - Função: </strong>{{ funcaoDoc?.funcao?.nome_da_funcao }}</p>
+                         <p><strong>2 - CBO: </strong> {{ funcaoDoc?.funcao?.cbo }}</p>
+                        <p> <strong>3 - Descrição: </strong>{{ funcaoDoc?.funcao?.descricao }}</p>
+                        <p> <strong>4 - Grupo de Risco: </strong>{{ risco?.grupo }}</p>
+                         <p><strong>5 - Tipo: </strong>{{ risco?.tipo }}</p>
+                        <p> <strong>6 - Fonte Geradora: </strong>{{ risco?.fonte_geradora }}</p>
+                        <p> <strong>7 - Meios de Propagação: </strong> {{ risco?.meios_de_propagacao }}</p>
+                        <p> <strong>8 - Categoria do Potencial de Severidade: </strong> {{ risco?.potencial_severidade_danos?.categoria_potencial_severidade }}</p>
+                        <p> <strong>9 - Tipo do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.tipo }}</p>
+                        <p> <strong>10 - Características do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.caracteristicas_potencial_severidade }}</p>
+                         <p><strong>11 - Nível de Severidade: </strong>{{ risco?.nivel_severidade?.nivel_risco_MedidasDeControle }}</p>
+                        <p> <strong>12 - Número do Nível de Severidade: </strong> {{ risco?.nivel_severidade?.numero_risco_MedidasDeControle }}</p>
+                       <p>  <strong>13 - Descrição do Nível de Severidade: </strong>{{ risco?.nivel_severidade?.descricao_MedidasDeControle }}</p>
+                        <p> <strong>14 - Nível de Permissão: {{ risco?.nivel_severidade?.nivel_permissao_MedidasDeControle}} </strong></p>
+                        <p *ngFor="let c of funcaoDoc?.avaliacoesocupacionaisfuncoes;"> <strong >
+                          15 - Avaliações Ocupacionais:   </strong> {{ c?.nome_avaliacoes_funcao }}, {{c?.tipo_avaliacoes_funcao}}. {{ c?.descricao_avaliacoes_funcao}}
+                     
+                        </p>
+                        <p> <strong>16 - Categoria da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.categoria }}</p>
+                        <p> <strong>17 - Denominação da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.denominacao }}</p>
+                        <p> <strong>18 - Descrição da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.descricao }}</p>
+                        <p> <strong *ngFor="let epi of funcaoDoc?.epi; let iE = index">
+                          19 - Epis para Esta Função: {{ epi?.nome_epi }} - CA: {{ epi?.ca }}
+                        </strong></p>
+                       <p>  <strong *ngFor="let c of funcaoDoc?.cursodenrs; let iCNR = index">
+                         20 -  Curso de NR'S para Esta Função: {{ c?.nomeCurso }} - {{ c?.descricaoCurso }}
+                        </strong>
+                      </p>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+                
+                <br>
+  
+                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                  <strong>        <strong> 9. DOS RESULTADOS DAS AVALIAÇÕES DOS AGENTES NOCIVOS</strong><br><br>
+                </strong><br><br>
+                    
+                    Este documento PCMSO - Programa de Controle Médico de Saúde Ocupacional, elaborado por Dr. Adriano Cerri, contendo 15 páginas, inclusive esta, formalizado através da
+                    assinatura identificada abaixo.
+                                                  </p>  
+          
+                              <br>
+                     
+                            </div>
+                
+  </div>
+  </div>
+  
+  
+  <div class="row button-row fixed-button">
+    <div class="col-md-5"></div>
+    <div class="col-md-2 text-center">
+      <button class="btn btn-success" onclick="window.print()">Imprimir LTCAT</button>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
+  

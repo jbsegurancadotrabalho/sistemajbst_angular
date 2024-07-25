@@ -1,0 +1,149 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="card mt-5">
+    <div class="card-body">
+
+      <h5>Criar Faturamento mensal de Pessoa Fisica</h5>
+      <p>Preencha os campos para criar um Faturamento.</p>
+      <hr />
+
+      <div class="text-success">
+        <strong></strong>
+      </div>
+
+      <div class="text-danger">
+        <strong></strong>
+      </div>
+
+      <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>{{mensagem}}</strong>
+        <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+      </div>
+
+      <form [formGroup]="formFaturamentopf" (ngSubmit)="onSubmit()">
+        <div class="row mb-2">
+          <div class="col-md-3 mt-3">
+            <label for="formFile" class="form-label">Pessoa Fisica</label>
+            <ng-select
+              [items]="pessoafisica"
+              bindLabel="cpf"
+              bindValue="idpessoafisica"
+              class="form-select custom-ng-select"
+              formControlName="idpessoafisica"
+              [ngClass]="{'is-invalid': formFaturamentopf.get('idpessoafisica')?.invalid && formFaturamentopf.get('idpessoafisica')?.touched}"
+            >
+              <ng-template ng-label-tmp let-item="item">
+                <div class="custom-bg" style="z-index: 1000;">
+                  {{ item.pessoafisica }} {{ item.cpf }}
+                </div>
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item">
+                <div>
+                  {{ item.pessoafisica }} {{ item.cpf }}
+                </div>
+              </ng-template>
+            </ng-select>
+          </div>
+
+    
+
+          <div class="col-md-3 mt-4">
+            <label>Data de Inicio</label>
+            <input type="datetime-local" formControlName="data_inicio" class="form-control" />
+          </div>
+
+          <div class="col-md-3 mt-4">
+            <label>Data de Fim</label>
+            <input type="datetime-local" formControlName="data_fim" class="form-control" />
+          </div>
+          <div class="col-md-3 mt-4">
+            <label>Data de Pagamento</label>
+            <input type="datetime-local" formControlName="data_de_pagamento" class="form-control" />
+          </div>
+
+        </div>
+        <div class="row">
+
+          <div class="col-md-1">
+            <label>Venda:</label>
+            <input type="text" name="venda" id="venda" class="form-control" formControlName="venda" />
+          </div>
+
+          <div class="col-md-1">
+            <label>Nota Fiscal:</label>
+            <input type="text" name="notafiscal" id="notafiscal" class="form-control" formControlName="notafiscal" />
+          </div>
+
+          <div class="col-md-1">
+            <label>Valor:</label>
+            <input type="text" name="valor" id="valor" class="form-control" formControlName="valor" />
+          </div>
+          <div class="col-md-3">
+            <label>Comprador:</label>
+            <input type="text" name="comprador" id="comprador" class="form-control" formControlName="comprador" />
+          </div>
+
+          <div class="col-md-3">
+            <label>Telefone:</label>
+            <input type="text" name="telefone" id="telefone" class="form-control" formControlName="telefone" />
+          </div>
+
+          <div class="col-md-3">
+            <label>Email:</label>
+            <input type="email" name="email" id="email" class="form-control" formControlName="email" />
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-3">
+            <label>Responsável Financeiro:</label>
+            <input type="text" name="responsavelfinanceiro" id="responsavelfinanceiro" class="form-control" formControlName="responsavelfinanceiro" />
+          </div>
+
+          <div class="col-md-3">
+            <label>Telefone Financeiro:</label>
+            <input type="text" name="telefonefinanceiro" id="telefonefinanceiro" class="form-control" formControlName="telefonefinanceiro" />
+          </div>
+
+          <div class="col-md-3">
+            <label>WhatsApp:</label>
+            <input type="text" name="whatsapp" id="whatsapp" class="form-control" formControlName="whatsapp" />
+          </div>
+
+          <div class="col-md-3">
+            <label>Email Financeiro:</label>
+            <input type="email" name="emailfinanceiro" id="emailfinanceiro" class="form-control" formControlName="emailfinanceiro" />
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-3">
+            <label>Parcelas:</label>
+            <input type="text" name="parcelas" id="parcelas" class="form-control" formControlName="parcelas" />
+          </div>
+          
+          <div class="col-md-3">
+            <label>Forma de Pagamento:</label>
+            <input type="text" name="formadepagamento" id="formadepagamento" class="form-control" formControlName="forma_de_pagamento" />
+          </div>
+          <div class="col-md-6">
+            <label>Observações:</label>
+            <textarea name="observacoes" id="observacoes" class="form-control" formControlName="observacoes"></textarea>
+          </div>
+        </div>
+
+
+        <div class="row mb-2 mt-3">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-success">Realizar Cadastro</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="col-md-12">
+        <button (click)="printPage()">Gerar PDF</button>
+      </div>
+    </div>
+  </div>
+</div>

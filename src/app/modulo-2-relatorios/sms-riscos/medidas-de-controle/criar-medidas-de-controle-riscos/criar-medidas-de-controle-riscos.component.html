@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Medidas de Controle</h5>
+                    <p>Preencha os campos para criar Medidas de Controle.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="consultar-perigo" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="criarMedidasDeControleRiscos()" [formGroup]="formMedidas">
+                <input type="hidden" formControlName="idRisco">
+                
+                <div class="row mb-2">
+                    <div class="col-md-6 mt-3">
+                        <label for="grupo">Valor da Medidas de Controle:</label>
+                        <select class="form-select" 
+                        formControlName="valor_MedidasDeControle"
+                        aria-label="Default select example">
+                            <option value="0 a 10">0 a 10</option>
+                            <option value="11 a 15">11 a 15</option>
+                            <option value="16 a 25">16 a 25</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6 mt-3">
+                        <label for="grupo">Tipo Medidas de Controle:</label>
+                        <select class="form-select" 
+                        formControlName="tipo_MedidasDeControle"
+                        aria-label="Default select example">
+                            <option value="Eliminação">Eliminação</option>
+                            <option value="Substituição">Substituição</option>
+                            <option value="Controles de Engenharia">Controles de Engenharia</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="EPI´S">EPI´S</option>
+                            <option value="Inexistente">Inexisente</option>
+
+                       
+                       
+                        </select>
+                    </div>
+                    
+   
+                    <div class="form-group col-md-12 mt-3">
+                        <label for="descricao_MedidasDeControle">Descrição da Medidas de Controle</label>
+                        <textarea id="descricao_MedidasDeControle" formControlName="descricao_MedidasDeControle" class="form-control" rows="5"></textarea>
+                    </div>
+                    
+                </div>
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Medidas de Controle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

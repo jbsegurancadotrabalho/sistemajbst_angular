@@ -1,0 +1,134 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">
+        
+            <h5>Cadastro da Empresa</h5>
+            <p>Preencha os campos para incluir uma empresa.</p>
+            <hr/>
+            
+        <div class="text-success">
+                    <strong></strong>
+                </div>
+                
+                <div class="text-danger">
+                    <strong></strong>
+                </div>
+                <div *ngIf="mensagem" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{ mensagem }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagem = ''"></button>
+                  </div>
+                  
+                  <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ mensagemErro }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="mensagemErro = ''"></button>
+                  </div>
+                  
+                <form [formGroup]="formEmpresa" (ngSubmit)="onSubmit()">
+            
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label>Nome da empresa:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="razaosocial"/>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Nome Fantasia:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="nomefantasia"/>
+                    </div>
+
+                    
+                    <div class="col-md-3">
+                        <label>Cnpj:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="cnpj" 
+                        
+                        />
+                    </div>
+        
+                    <div class="col-md-3 mt-4">
+                        <select class="form-select" 
+                        formControlName="status"
+                        aria-label="Default select example">
+                            <option value="Cliente">Cliente</option>
+                            <option value="Unidade de Atendimento">Unidade de Atendimento</option>
+
+                        </select>
+                    </div>
+                    
+                
+                    <div class="col-md-3">
+                        <label>Responsável pelo Sistema:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="responsavel_sistema" 
+                        
+                        />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Email de Acesso Empresa:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="email_usuario" 
+                        
+                        />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Senha do Sistema:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="senha_sistema" 
+                        
+                        />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Telefone Responsavel:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="telefone_responsavel" 
+                        
+                        />
+                    </div>
+                
+                    <div class="col-md-6 mb-1">
+                        <label for="formFile" class="form-label">Digite o Email do Usuário cadastrado</label>
+                        <ng-select 
+                        [items]="usuarios"
+                        bindLabel="email" 
+                        bindValue="id"
+                        class="form-select custom-ng-select"
+                        formControlName="id"
+                        [ngClass]="{'is-invalid': formEmpresa.get('id')?.invalid && formEmpresa.get('id')?.touched}"
+                        [matchFn]="customMatchFn"
+                    >
+                        <ng-template ng-label-tmp let-item="item">
+                            <div class="custom-bg" style="z-index: 1000;">
+                                {{ item?.email }} 
+                            </div>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                            <div>
+                            {{ item?.email }} -
+                           
+                            </div>
+                        </ng-template>
+                    </ng-select>
+                    
+                    </div>
+                            
+                    </div>
+                
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Realizar Cadastro"/>
+                    </div>
+                </div>
+               
+
+            </form>
+          
+        </div>
+    </div>
+
+</div>

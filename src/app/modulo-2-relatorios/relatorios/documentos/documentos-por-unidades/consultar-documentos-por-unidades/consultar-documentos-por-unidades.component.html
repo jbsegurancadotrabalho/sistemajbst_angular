@@ -1,0 +1,116 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5>Lista de Todos os Documentos</h5>
+                </div>
+           
+
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar por Documentos" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_epi" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>QTD</th>
+                            <th>Número de Associações</th>
+                            <th>Status</th>
+                            <th>Observações</th>
+                            <th>Inicio</th>
+                            <th>Fim</th>
+                            <th>Gerar Documentos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of  associacoes  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual} | ngxSearchPipe:filtro.nome_empresas, index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{e.numeroAssociacoes}}</td>
+                            <td>{{e.status }}</td>
+                            <td>{{e.observacoes }}</td>
+                            <td>{{e.relatorios.datainicio | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{e.relatorios.vigencia | date: 'dd/MM/yyyy'}}</td>
+
+                         
+
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Função Geral
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+              
+                                
+                              <li><a class="dropdown-item btn btn-success" 
+                                [routerLink]="['/gerar-programa-de-gerenciamento-de-riscos-ocupacionais', e.idAssociacoes]">
+                                PGR</a></li>
+
+                                <li><a class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/gerar-programa-de-controle-medico-ocupacional', e.idAssociacoes]">
+                                    PCMSO</a></li>
+
+                                    <li><a class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/gerar-laudo-tecnico-das-condicoes-do-meio-ambiente', e.idAssociacoes]">
+                                        LTCAT</a></li>
+                                     <!-- 
+                                        <li><a class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/editar-documentos', e.idAssociacoes]">
+                                            Laudo Ergonômico</a></li>
+
+                                            <li><a class="dropdown-item btn btn-success" 
+                                                [routerLink]="['/editar-documentos', e.idAssociacoes]">
+                                                PCA</a></li>
+
+                                                <li><a class="dropdown-item btn btn-success" 
+                                                    [routerLink]="['/editar-documentos', e.idAssociacoes]">
+                                                    PCR</a></li>
+                                                    <li><a class="dropdown-item btn btn-success" 
+                                                        [routerLink]="['/editar-documentos', e.idAssociacoes]">
+                                                        Laudo de Máquinas</a></li>
+
+                                                        <li><a class="dropdown-item btn btn-success" 
+                                                            [routerLink]="['/editar-documentos', e.idAssociacoes]">
+                                                            Laudo Mecânico </a></li>
+                                
+
+                             -->
+                               
+
+                        
+                            </ul>   
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Relatórios: {{(associacoes).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
