@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content {
+    width: calc(100% - 5cm); /* Redução total da largura para margens */
+    margin: 3cm 2cm; /* Margens: superior 3cm, inferior 2cm, esquerda 3cm, direita 2cm */
+    padding-top: 1.5cm; /* Espaçamento adicional para reduzir o cabeçalho */
+    position: relative; /* Para garantir que o rodapé possa ser posicionado corretamente */
+  }
+  
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 12pt;
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+  
+  strong {
+    font-size: 14pt;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .footer {
+    width: calc(100% - 5cm); /* Redução total da largura para margens */
+    margin: 0 2cm; /* Esquerda 3cm, direita 2cm */
+    padding-top: 1.5cm; /* Mesmo padding-top da content */
+    text-align: center;
+    font-size: 12pt;
+    position: absolute; /* Posicionamento absoluto para ficar no rodapé */
+    bottom: 2cm; /* Distância do rodapé */
+  }
+  
+  .page-break {
+    page-break-before: always;
+  }
+  
+  .header-text {
+    position: absolute;
+    top: 3cm; /* Posição em relação ao topo da página */
+    left: 3cm; /* Margem esquerda */
+    right: 2cm; /* Margem direita */
+    font-size: 14pt;
+    text-align: center;
+  }
+  
+  .header-text p {
+    margin: 0; /* Remover margem padrão do parágrafo */
+  }
+  
+  @media print {
+    @page {
+      margin: 3cm 1cm 2cm 1cm; /* Margens: superior 3cm, direita 2cm, inferior 2cm, esquerda 3cm */
+    }
+  
+    .button-row {
+      display: none; /* Esconder o botão de impressão durante a impressão */
+    }
+  
+    .footer {
+      display: block; /* Exibir o rodapé na impressão */
+    }
+  
+    .content {
+      overflow: visible !important; /* Garantir que o conteúdo seja visível */
+    }
+  
+    .header-text {
+      display: none; /* Ocultar cabeçalho na impressão, pois já está fixo no conteúdo */
+    }
+  
+    .content p {
+      max-height: 12.5cm; /* Aproximadamente 4 parágrafos por página (considerando margens e espaçamentos) */
+      overflow: hidden;
+    }
+  
+    header {
+      font-family: Arial;
+      font-size: 11pt;
+      text-align: center;
+      margin-top: 0px; /* Ajuste o valor conforme necessário */
+  }
+
+  .table-bordered {
+    border: 2px solid black;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 2px solid black;
+  }
+
+  .form-control.custom-border {
+    border: 2px solid black;
+  }
+  }

@@ -24,7 +24,7 @@ export class EditarPedidosDeComprasComponent implements OnInit{
     //capturando o id enviado na URL
     var id = this.activatedRoute.snapshot.paramMap.get('id') as string;
     //consultando o produto através do id
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/' + id)
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/' + id)
       .subscribe({
         next: (data: any) => {
           //preencher o formulário com os dados do produto obtido

@@ -30,7 +30,7 @@ export class ConsultarUnidadeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento')
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento')
     .subscribe({ 
       next: (data) => { 
         this.unidades = data as any[];

@@ -110,7 +110,7 @@ export class CadastrarFaturamentoPfComponent {
 
       // Enviar o formulário para o endpoint
       this.httpClient
-        .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf', this.formFaturamentopf.value)
+        .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf', this.formFaturamentopf.value)
         .subscribe({
           next: (data: any) => {
             this.mensagem = `Faturamento cadastrado com sucesso!`;

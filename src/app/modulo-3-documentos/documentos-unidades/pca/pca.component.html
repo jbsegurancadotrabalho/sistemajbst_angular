@@ -1,0 +1,2038 @@
+<div  *ngFor="let a of associacoes">
+    <header style="font-family:
+      Arial; font-size: 11pt; 
+       text-align: center;
+       margin-top: 6;
+       ">
+      <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" 
+      alt="Logo" class="print-logo mx-auto" />
+    </header>
+    <div class="content" >
+  
+    <br>
+    <p>
+      <strong class="d-flex justify-content-center text-center">P.C.A - PROGRAMA DE CONTROLE AUDITIVO</strong>
+    </p>
+    <br><br><br><br><br><br><br><br><br>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 12px;">Empresa</th>
+            <th style="font-size: 12px;">CNPJ</th>
+            <th style="font-size: 12px;">Data de Inicio</th>
+            <th style="font-size: 12px;">Vigência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of associacoes">
+            <td style="font-size: 12px;">{{ a?.unidadedoc?.nomefantasia }}</td>
+            <td style="font-size: 12px;">{{ a?.unidadedoc?.cnpj }}</td>
+            <td style="font-size: 12px;">{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}</td>
+            <td style="font-size: 12px;">{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <br><br><br><br><br><br><br><br><br><br><br>
+
+    <p style="font-family: Arial; font-size: 11pt; text-align: justify;">
+      <strong>SUMÁRIO</strong><br>
+      • INTRODUÇÃO<br>
+     • O Agente Físico Ruído <br>
+     • Tipos de proteção existentes para minimizar/neutralizar a insalubridade do agente ruído<br>
+     •Tipo de EPI de proteção auditiva e sua eficácia <br>
+     •  A utilização adequada do protetor auditivo neutraliza o agente físico ruído?  <br>
+     •A potência do som pode causar danos ao organismo além da perda auditiva? <br>
+     •  O ruído atravessa o crânio através da via óssea atingindo a cóclea e o órgão de corti? <br>
+     • Níveis de ruído acima de 55 dB podem causar outros efeitos adversos nos seres humanos? <br>
+     • O fornecimento de protetor auditivo é suficiente para proteger o usuário? <br>
+     • Cuidados na utilização do protetor auditivo <br>
+     • Eficiência do Protetor auditivo<br>
+    </p>
+
+      <p style="font-family: Arial; font-size: 11pt; text-align: justify;">
+       <strong> OUVIDO HUMANO<br></strong>
+       • O tempo de utilização real do protetor auditivo deve ser de 100% da jornada de trabalho para obter a
+       • atenuações assumidas pelos fabricantes?  <br>
+       • Comentário da decisão proferida pelo STF – acórdão no Agravo em RE nº 664.335/SC): “na hipótese
+      de exposição do trabalhador a ruído acima dos limites legais de tolerância, a declaração do empregador,
+      no âmbito do Perfil Profissiográfico Previdenciário (PPP), da eficácia do Equipamento de Proteção
+      Individual (EPI), não descaracteriza o tempo de serviço especial para aposentadoria.” <br>
+      • É possível afirmar que, diante de exposições normais e rotineiras do empregado em atividades e
+      ambientes ruidosos com valores acima do limite de tolerância, se forem utilizados o EPI de acordos com
+      os requisitos da NR-6, NR-7, NR-9 e NR-15, certamente o mesmo não terá perda auditiva ocupacional a
+      • curto e/ou médio prazos? <br>
+      Referências <br>
+      Anexo A – Limites de Tolerância (NR-15) e Nível de Ação (NR-9)<br>
+      Anexo B – Carta de Moção de Objeção da ABHO <br>
+      Anexo C – Nota Técnica 263 da CGNOR 
+      </p>
+
+      <br> <br> <br> <br> <br> <br>
+  
+  
+  
+      <p>
+        <strong>IDENTIFICAÇÃO DA EMRESA</strong><br>
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+        <strong>Empresa:</strong> {{ a?.unidadedoc?.empresadoc?.razaosocial }} <code></code>
+        <br>
+      <strong>CNPJ:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br> 
+      <strong>CNAE Principal:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.codigo }} <br>
+      <strong>Denominação:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.denominacao }} <br>
+      <strong>Grau de Risco:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.grau_de_risco }} <br> 
+      <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.empresadoc?.status  }}<br>      
+      <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.horario_empresa  }}<br>      
+      <strong>Inscrição Estadual:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaoestadual  }}<br>      
+      <strong>Inscrição Municipal:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaomunicipal }}<br>      
+      <strong>Responsável:</strong> {{   a?.unidadedoc?.empresadoc?.responsavel_sistema}}<br>      
+      <strong>Email:</strong> {{   a?.unidadedoc?.empresadoc?.email_usuario}}<br>      
+      <strong>Telefone:</strong> {{   a?.unidadedoc?.empresadoc?.telefone_responsavel}}<br>      
+      <strong>Endereço:</strong> {{   a?.unidadedoc?.endereco?.logradouro}}, {{   a?.unidadedoc?.endereco?.numero}}
+      {{   a?.unidadedoc?.endereco?.bairro}}, {{   a?.unidadedoc?.endereco?.localidade}}, {{   a?.unidadedoc?.endereco?.uf}}.
+      <br>      
+      <strong>CEP:</strong>  {{   a?.unidadedoc?.endereco?.cep}}<br>      
+  
+       </p>
+  
+       <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+       <br><br><br><br>       <br><br><br><br>
+
+       <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+        <strong> 1 - Introdução </strong><br><br>
+  
+        O presente documento tem por finalidade apresentar aspectos técnicos e legais quanto a eficácia do
+        protetor auditivo na neutralização do agente físico ruído. O conteúdo apresentado neste relatório é
+        embasado tecnicamente no que tange a Engenharia Acústica e Engenharia de Segurança do Trabalho,
+        utilizando como referencias literaturas publicadas sobre tema, incluindo dois livros publicados pelo Prof.
+        Samir Gerges Ph.D, um dos responsáveis pela elaboração do documento.
+    </p>
+  
+  
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      <strong> 2 - O Agente Físico Ruído</strong><br><br>
+      O ruído é caracterizado como um agente físico, pois ele possui a capacidade de alterar as
+      características físicas de um ambiente, podendo ou não causar agressões em quem estiver imerso nele.
+      Em geral o agente físico ruído caracteriza-se por:
+    </p>
+  
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        • Agir simultaneamente sobre diversas pessoas, sem que estas tenham contato direto com a
+        fonte de ruído;
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        • Necessidade de um meio de transmissão, em geral o ar;
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        • Ter potencial de gerar lesões crônicas, quando não se utilizam as proteções.
+      </p>
+    
+    
+   
+  
+  
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        De acordo com a NR-9, são considerados agentes de riscos ambientais os agentes físicos,
+        químicos e biológicos existentes no ambiente de trabalho, entre eles o ruído, que em função da
+        intensidade e tempo de exposição é capaz de causar danos à saúde do trabalhador.<br>
+      </p>
+  
+  
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+       
+        O agente físico ruído é caracterizado pela intensidade de som. O som é gerado a partir de flutuações
+        de pressão em um meio compressível, sendo um fenômeno acústico de natureza ondulatória. Por se tratar
+        de uma onda ele é definido por dois parâmetros, amplitude e frequência. A sensação de som/ruído
+        ocorrerá quando a amplitude destas flutuações e a frequência com que elas se repetem estiverem dentro
+        de determinadas faixas de valores. Desta forma, flutuações de pressão com amplitudes inferiores a certos
+        mínimos não serão audíveis (limiar de audição), assim como ondas de nível alto, tais como nas
+        proximidades de turbinas de um avião, podem produzir uma sensação de dor ao invés de som (limiar da
+        dor). Ainda existem as ondas cujas frequências de repetição das flutuações estão acima ou abaixo de
+        frequências geradoras da sensação de audição (20 Hz a 20.000 Hz), as ondas infrassônicas e ultrassônicas,
+        respectivamente.
+              </p>
+        
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;" *ngFor="let a of associacoes">
+            Na prática, a geração do ruído é causada pela variação da pressão ou da velocidade das moléculas no
+            meio. O som é uma forma de energia que é transmitida pela colisão das moléculas no meio, produzindo
+            a sensação de audição quando atingem o ouvido humano. Para que isto ocorra é necessário uma fonte
+            de geração (máquinas), um caminho de transmissão (ar) e um receptor (trabalhadores). A Figura 1
+            apresenta esse caminho de propagação do som.    
+        <br></p>
+  
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Caminho-de-propagacao-do-som.png" alt="Caminho de Propagação do Som">
+                <br>
+          
+                Fonte: Gerges (2000).
+  
+  </p>
+  
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+            Figura 1 - Caminho de propagação do som            
+            <br>
+            Ainda de acordo com a NR-9 o agente físico ruído deve ser quantificado e a NR-15 em seu Anexo 1
+            apresenta os limites de tolerância em função do tempo de exposição máximo permitido. Neste caso, o
+            limite de tolerância é entendido como a intensidade máxima de ruído em função do tempo de exposição
+            ao agente, que não causará danos à saúde do trabalhador.
+                  <br>
+                  Os limites de tolerância para o agente físico ruído é representado em Nível de Ruído na escala dBA,
+                  uma escala logarítmica e não linear. Como apresentado anteriormente o som é um fenômeno ondulatório
+                  de pressão e essa escala de pressão varia em uma proporção muito elevada, em torno de 1.000.000 (um
+                  milhão), entre o limiar de audição (menor valor) e o limar da dor (maior valor). Por esse motivo é adotado
+                  uma escala logarítmica, o decibel, utilizando como referência o menor valor de pressão que o ser humano
+                  consegue escutar (limiar de audição) em 1000 Hz.
+                        
+      </p>
+  
+              
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/formula-pca.png" alt="Caminho de Propagação do Som">            
+      </p>
+  
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        Sendo:
+        <br>
+        𝑁𝑃𝑆 o Nível de Pressão Sonora (NPS) ou Nível de Ruído em dB;<br>
+        𝑝 a pressão acústica em N/m2 ou Pascal;<br>
+        𝑝𝑜 a pressão acústica de referência (limiar de audição) em 1000 Hz em Pascal, que é 20 μPa.<br>
+        <br>
+        O ruído é quantificado de forma objetiva através da mensuração do NPS utilizando equipamentos
+        capazes de mensurar a pressão sonora. Essa mensuração é realizada através de equipamentos contendo
+        microfone e um conjunto de componentes eletrônicos chamado de Medidor de Nível de Pressão Sonora
+        (MNPS). O microfone é capaz de captar as variações de pressão acústica no ambiente e transformá-las
+        em sinais elétricos que são analisados pelos componentes eletrônicos. Um aspecto importante na mensuração acústica é o fato que existem diferentes escaladas, dB, dBA, dBC e outras. A mensuração do
+        som em campo livre é diferente da estimativa do som que chega ao ouvido médio após esse som percorrer
+        a orelha e o ouvido externo. Devido a esse fato criou-se a escala dBA e dBC que levam em consideração
+        essas influências.<br>
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    Quando se trata do agente físico ruído, pode existir no ambiente o ruído contínuo ou intermitente e o
+    ruído de impacto. De acordo com a NR-15 o ruído de impacto é caracterizado pela presença de picos de
+    energia com duração inferior a 1 (hum) segundo, a intervalos superiores a 1 (hum) segundo. Enquanto a
+    NR-15 conceitua que o ruído contínuo ou intermitente é o ruído que não seja de impacto, na literatura, a
+    definição é:
+    <br> 
+  
+    • Ruído Continuo: Ruído cujo Nível de Pressão Sonora varia numa faixa de + 3 dB(A) durante longos
+    períodos de observação;
+  
+    • Ruído Intermitente: Ruído cujo Nível de Pressão Sonora possui uma variação > 3 dB(A).
+    A exposição ocupacional ao ruído contínuo ou intermitente deve ser sempre mensurada na escala dBA
+    e quando se trata de exposição ocupacional ao ruído de impacto deve ser sempre mensurada na escala
+    dB ou dBC.      <br>
+  
+    De acordo com a nota técnica 263/2017, a legislação pertinente à caracterização de atividade insalubre
+(NR-15), de responsabilidade legal do Ministério do Trabalho, sobrepõe-se, em diversos pontos, à
+legislação sobre os direitos previdenciários, especialmente no caso das Aposentadorias especiais.      <br>
+  
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>Tipos de proteção existentes para minimizar/neutralizar a
+        insalubridade do agente ruído</strong><br><br>
+
+        Após o reconhecimento ou antecipação do agente físico ruído no ambiente laboral, caso este venha a
+        ultrapassar os limites de tolerância estabelecidos nos Anexos 1 e 2 da NR-15, deverão ser implementadas
+        medidas de controle com o objetivo de minimizar a intensidade do ruído para níveis abaixo desses limites.
+        Caso a intensidade do ruído ultrapasse o nível de ação, mas ainda não ultrapasse o limite de tolerância,
+        deverão ser adotadas medidas preventivas, conforme dispõe o item 9.3.6.1 da NR-9. Quando se trata de
+        agente físico ruído, o nível de ação equivale a 50% da dose de exposição ao ruído. Para o caso de uma
+        jornada de trabalho de 8 horas diárias, isso equivale a 80 dBA. No anexo A, deste relatório, é apresentado
+        o nível de ação em função do nível de ruído e do máximo tempo de exposição diária permissível.
+        <br><br>
+
+        As medidas de controle têm o objetivo de eliminar, minimizar ou controlar os riscos ambientes, nesse
+        caso, a intensidade do ruído. De acordo com o item 9.3.5 da NR-9, as medidas de controle devem ser
+        adotadas dando-se prioridades às medidas de proteção coletiva, medidas de caráter administrativo ou de
+        organização do trabalho e utilização de Equipamentos de Proteção Individual (EPI), nesta ordem
+        respectivamente. As últimas duas deveriam somente ser utilizadas quando comprovado a inviabilidade
+        técnica da adoção de medidas de proteção coletiva ou quando estas não forem suficientes ou
+        encontrarem-se em fase de estudo, planejamento ou implantação, ou ainda em caráter complementar
+        ou emergencial. A Figura 2 apresenta a hierarquia de medidas de controle que deve ser adotada.
+    <br>
+  
+    <br>
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        Como descrito anteriormente, o agente físico ruído envolve sempre uma fonte sonora, um caminho
+        de transmissão e um receptor. Cada medida de controle, apresentada na Figura 2, atuará ou na fonte
+        sonora ou no caminho de transmissão ou no receptor. As medidas de controle coletivo são as mais
+        eficazes pois a implementação dessa solução atinge simultaneamente diversas pessoas. A seguir são
+        indicados onde cada medida de controle de ruído atua e uma breve descrição do princípio de
+        funcionamento.             <br>
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Hierarquia-de-medidas-de-controle.png" alt="Hierarquia de medidas de controle">            
+      </p>
+  
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  
+                Medidas de Controle Coletiva na Fonte Sonora
+                              <br>
+        • Eliminação: o método mais eficaz de realizar o controle de ruído é eliminar a fonte sonora,
+         eliminando assim o ruído, mas quando se trata de indústria/fábricas isto é totalmente inviável.
+         Em alguns casos é possível trocar a fonte sonora de um local para outro, dessa forma eliminase
+        o ruído de um local, mas gera-se o ruído em outro local, onde a fonte sonora foi colocada.
+                  <br>
+  
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                • Substituição: existe a possibilidade de trocar uma fonte sonora ruidosa por outra menos
+                ruidosa, minimizando assim o NPS do ambiente. Na maioria das situações, a questão do ruído
+                só é levada em consideração quando a fonte sonora (máquina) já foi instalada. Nessas
+                situações, é quase sempre inviável trocar a fonte sonora por uma mais silenciosa, devido ao
+                alto custo das máquinas. Outra possibilidade é realizar substituições ou ajustes de partes da
+                fonte sonora (máquina), implementando controle de movimento de elementos de máquinas,
+                controle de movimento de fluídos, controle de irradiação sonora, dentre outros.
+      </p>
+  
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        Medidas de Controle Coletiva no Caminho de Transmissão
+        <br><br>
+
+        • Engenharia de Controle: quando não é possível eliminar ou substituir a fonte sonora,
+        geralmente, opta-se por implementar o controle de ruído no caminho de transmissão.
+        Normalmente, implementa-se enclausuramentos das fontes sonoras, barreiras acústicas e
+        tratamento de absorção sonora entre a fonte sonora e o receptor, instalação de silenciadores
+        em entradas e saídas de tubulação de fluídos de fontes sonoras, instalação de isoladores de
+        vibração e choque para reduzir o ruído estrutural, dentre outras. A Figura 3 apresenta os
+        elementos básicos que devem constar para realizar o controle de ruído no caminho de
+        transmissão através da implementação de um enclausuramento. São instalados isoladores de
+        vibração para minimizar o ruído estrutural transmitido da fonte sonora para a estrutura (chão)
+        e paredes para minimizar a transmissão do ruído aéreo da fonte sonora para o ambiente. Nas
+        paredes são instalados materiais de absorção com placa perfurada para absorver o ruído
+        dentro do enclausuramento. Por fim, para que a fonte sonora não superaqueça são instalados
+        ventiladores com silenciadores nas entradas e saídas de ar e também juntas flexíveis nas
+        tubulações de entrada e saída de fluidos.
+    </p>
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Elementos-basicos-de-enclausuramento-de-fonte-sonora.png" alt="Elementos básicos de enclausuramento de fonte sonora">            
+      </p>
+                
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            Medidas de Controle Individual
+                    <br>
+                    • Controle Administrativo: uma primeira medida de controle individual é através de medidas
+                    administrativas. Uma medida de controle administrativo é o revezamento de integrantes de
+                    uma equipe na execução de atividades a serem realizadas em um ambiente ruidoso. Dessa forma, reduz-se o tempo de exposição à altos níveis de ruído, considerados insalubres. Outra
+                    forma de realizar esse controle seria implementando um aumento das pausas de trabalho ou
+                    redução da jornada diária de trabalho.<br>
+                <br>
+          •  EPI: a última linha de defesa contra o agente físico ruído é o Equipamento de Proteção
+          Individual (EPI), neste caso, os protetores auditivos ou protetores auriculares. O principal
+          objetivo do uso de protetores auditivos é reduzir o nível de ruído excessivo que chega ao
+          ouvido do trabalhador até um nível que não cause danos ao seu sistema auditivo. O protetor
+          auditivo fornece uma barreira para o ruído, impedindo que uma parcela deste chegue ao
+          ouvido do indivíduo através de mecanismos que atenuam o ruído. A implementação do
+          protetor auditivo é de fácil aplicação e baixo custo em relação as medidas de proteção coletiva,
+          sugere-se condições de segurança e dispensa planejamento mais elaborado para controlar o
+          ruído. O protetor auditivo deve ser adequado tecnicamente a intensidade de ruído à que o
+          trabalhador está exposto e deve considerar o tipo de atividade realizada, além do conforto
+          oferecido.
+          <br>
+       
+              </p>
+  
+                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                   <strong> Tipo de EPI de proteção auditiva e sua eficácia</strong>
+                    
+                    <br>                    <br>
+
+                    O funcionamento do protetor auditivo depende de suas características construtivas (materiais,
+                    dimensões, dentre outros) e das características fisiológicas e anatômicas do usuário que irá utiliza-lo.
+                    Atualmente existe uma infinidade de marcas e modelos de protetores auditivos, por isso eles podem ser
+                    subdivididos para facilitar o entendimento. Os protetores auditivos podem ser subdivididos em duas
+                    categorias, plugue e concha. A Figura 4 apresenta esses tipos de protetores auditivos.
+                          <br>
+              
+                          •    Plugue: parte ou totalidade do protetor auditivo é inserido na entrada do canal auditivo com
+                          o objetivo de selar e bloquear a passagem do ruído. Geralmente confeccionados de materiais
+                          elásticos ou polímeros, como por exemplo: PVC, PU, silicone, borracha, termoplásticos. Podem
+                          ser do tipo moldável ou pré-moldável, no formato cilíndrico ou cilíndrico ovalado ou possuir
+                          flanges.
+
+                         
+                        </p>
+                        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+                         • Concha: comumente chamado de abafador de ruído, ele se encaixa sobre e ao redor da orelha
+                         com o objetivo de gerar uma vedação acústica na região circum-aural1 da cabeça do usuário.
+                         É constituído de duas conchas, fabricadas com material rígido, revestidas com uma almofada
+                         de espuma ou borracha na área de contato com a região circum-aural e revestidas no interior
+                         com material de absorção sonora. Possui uma haste para conectar as duas conchas, podendo
+                         ser utilizada sobre a cabeça, atrás do pescoço ou sob o queixo. Este tipo de protetor auditivo
+                         é, geralmente, mais fácil de utilizar que os plugues, devido a fácil colocação. Existem ainda
+                         opções de conchas que são acopláveis ao capacete de segurança, neste caso não há haste e as
+                         conchas são acopladas no capacete de segurança através de dispositivos específicos.
+              </p>
+           
+
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Tipos-de-protetores-auditivos.png" alt="Tipos de protetores auditivos">            
+              </p>
+  
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Parâmetro</th>
+                    <th scope="col">Plugues</th>
+                    <th scope="col">Conchas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Conforto e preferência
+                        pessoal</td>
+                    <td>Preferencialmente utilizado
+                        quando existe a necessidade de
+                        utilização por um longo período
+                        de tempo durante a jornada de
+                        trabalho. Alguns usuários têm
+                        receio quanto a colocação de
+                        qualquer objeto em seu canal
+                        auditivo</td>
+                    <td>Preferencialmente utilizado
+                        quando existe a necessidade de
+                        um alto número de retirada e
+                        colocação durante a jornada de
+                        trabalho. Alguns usuários sentemse
+                        incomodados com a pressão da
+                        concha sobre a região circumaural</td>
+                  </tr>
+                  <tr>
+                    <td>Proteção</td>
+                    <td>A proteção obtida depende
+                        muito do nível de treinamento,
+                        habilidade e motivação do
+                        usuário. Protetores auditivos do
+                        tipo plugue bem colocados,
+                        especialmente os de espuma,
+                        fornecem uma boa atenuação</td>
+                    <td>A proteção oferecida pelo
+                        protetor auditivo tipo concha,
+                        geralmente, é mais confiável que
+                        do tipo plugue, pois depende
+                        menos do nível de treinamento,
+                        habilidade e motivação do
+                        usuário</td>
+                  </tr>
+                  <tr>
+                    <td>Tamanhos</td>
+                    <td>Alguns plugues são de
+                        tamanho único, outros possui
+                        tamanhos P, M e G e outros os
+                        tamanhos PP e GG, também. A
+                        colocação adequada do protetor
+                        auditivo tipo plugue deve ser
+                        checada em função do tamanho
+                        escolhido pelo usuário</td>
+                    <td>Geralmente comercializado
+                        em tamanho único, a colocação
+                        de cada usuário deve ser checada
+                        para garantir que a concha do
+                        protetor auditivo acomode todo o
+                        pavilhão auditivo (orelha)</td>
+                  </tr>
+                  <tr>
+                    <td>Facilidade na colocação</td>
+                    <td>A habilidade na colocação do
+                        protetor auditivo é de suma
+                        importância para obter uma boa
+                        atenuação</td>
+                    <td>O cuidado na colocação não é
+                        tão crítico quanto no protetor
+                        auditivo tipo plugue</td>
+                  </tr>
+                  <tr>
+                    <td>Compatibilidade com outros
+                        EPIs</td>
+                    <td>Pode ser utilizado com
+                        capacete de segurança, óculos de
+                        proteção, adornos na orelha, sem
+                        comprometer a atenuação</td>
+                    <td>A vedação da concha na região
+                        circum-aural pode ser afetada
+                        devido ao cabelo comprido, haste
+                        dos óculos de proteção, adornos
+                        na orelha. O protetor auditivo
+                        com haste sobre a cabeça, não é
+                        compatível com o capacete de
+                        segurança</td>
+                  </tr>
+                  <tr>
+                    <td>Uso em espaço confinado</td>
+                    <td>Ideal para ser utilizado em
+                        espaço confinado ou apertado</td>
+                    <td>Pode interferir com o
+                        movimento da cabeça do usuário
+                        em espaço confinado ou apertado</td>
+                  </tr>
+                  <tr>
+                    <td>Monitoramento do uso</td>
+                    <td>Pode ser difícil para o
+                        supervisor observar a correta
+                        colocação por parte do usuário do
+                        protetor auditivo. Para a
+                        avaliação deve-se chegar muito
+                        perto do usuário e ter contato
+                        para checagem da colocação</td>
+                    <td>A utilização do protetor
+                        auditivo tipo concha pode ser
+                        observado à distância, não sendo
+                        necessário um contato próximo
+                        com o usuário</td>
+                  </tr>
+                  <tr>
+                    <td>Utilização em ambientes com
+                        temperatura elevada</td>
+                    <td>Alguns usuários reclamam de
+                        suor no canal auditivo.
+                        Preferivelmente deve-se utilizar o
+                        protetor auditivo tipo plugue em
+                        ambientes com temperatura
+                        elevada devido a questão
+                        relacionada ao conforto</td>
+                    <td>Desconfortável em ambientes
+                        com elevada temperatura, devido
+                        ao aumento de temperatura
+                        dentro da concha e
+                        consequentemente da orelha do
+                        usuário em relação ao ambiente</td>
+                  </tr>
+                  <tr>
+                    <td>Utilização em ambientes com
+                        baixa temperatura</td>
+                    <td>Pode ser utilizado por baixo de
+                        balaclavas, tocas, protetores
+                        térmicos de orelha e outros. Pode
+                        ser difícil colocar o protetor
+                        auditivo tipo plugue caso o
+                        usuário esteja vestindo luvas</td>
+                    <td>A concha do protetor auditivo
+                        pode fornecer um aquecimento
+                        para a orelha do usuário, apesar
+                        disso essas conchas podem
+                        perder sua propriedade
+                        (desempenho) caso sejam
+                        guardadas em locais muito frios,
+                        pois elas podem congelar. São de
+                        fácil colocação pelo usuário
+                        mesmo que ele esteja vestindo
+                        luvas</td>
+                  </tr>
+
+                  <tr>
+                    <td>Armazenamento,
+                        portabilidade e perda</td>
+                    <td>Fácil de guardar, armazenar e
+                        transportar. Alguns modelos
+                        possuem cordas conectando os
+                        plugues, sendo possível deixá-los
+                        pendurados pelo pescoço. Apesar
+                        disso, por ser um EPI pequeno, ele
+                        é mais fácil de perder</td>
+                    <td>Volumoso para guardar,
+                        armazenar e transportar. Alguns
+                        modelos possuem um mecanismo
+                        para prender no cinto, facilitando
+                        o transporte quando não está
+                        sendo utilizado. Mais difícil de
+                        perder que um protetor auditivo
+                        tipo plugue</td>
+                  </tr>
+
+                  <tr>
+                    <td>Possibilidades de danificação</td>
+                    <td>Sujeito a corte, perfuração
+                        para melhorar o conforto, em
+                        contrapartida diminuindo-se a
+                        atenuação fornecida</td>
+                    <td>Sujeito ao alongamento da
+                        haste para alivio da pressão na
+                        região circum-aural ou de
+                        perfuração das conchas para
+                        melhorar a ventilação, em
+                        contrapartida diminuindo-se a
+                        atenuação fornecida</td>
+                  </tr>
+
+                  <tr>
+                    <td>Infeção do ouvido ou acúmulo
+                        de cerume</td>
+                    <td>Não pode ser utilizado quando
+                        há infecção, acúmulo de cera ou
+                        outra doença no canal auditivo</td>
+                    <td>Pode ser utilizado na presença
+                        de pequenas infecções no canal
+                        auditivo, com supervisão médica.
+                        Pode ser utilizado quando há
+                        acúmulo de cera. Não é
+                        recomendado quando há
+                        problema de pele na região da
+                        orelha ou circum-aural</td>
+                  </tr>
+                </tbody>
+              </table>
+   
+              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                Berger et. al (2000), publicou uma compilação de atenuação média de ruído de diversos tipos de
+                protetores auditivos do tipo plugue e concha, ensaiados em ambiente de laboratório através do método
+                subjetivo. O método subjetivo é conhecido como Real Ear Attenuation at Treshold (REAT), pois são
+                utilizadas pessoas nos ensaios e a atenuação estimada é a que mais se aproxima da atenuação obtida em
+                campo pelos usuários de protetores auditivos. Este é considerado o método de ouro (Gold Standard) em
+                relação aos demais métodos de ensaio de atenuação de ruído de protetores auditivos.
+                                <br><br>
+        
+                                A Figura 5 apresenta o resultado de atenuações de protetores auditivos do tipo plugue personalizado,
+                                de fibra de vidro, de 3 flanges e de espuma, além de, protetor adutivo tipo concha, por banda de
+                                frequência de 1/1 oitava. Conclui-se que a atenuação em baixas frequências é em torno de 5 a 20 dB, nas
+                                médias frequência é em torno de 10 a 30 dB e nas altas frequência é em torno de 20 a 35 dB. Importante
+                                ressaltar que esses resultados são obtidos quando os protetores auditivos são utilizados de forma
+                                adequada, conforme especificado pelo fabricante. Esses valores são referentes a ensaios realizados com
+                                pessoas que possuem o conhecimento na colocação do protetor auditivo e que foram
+                                supervisionada/orientadas para obter a melhor colocação possível do protetor auditivo durante os
+                                ensaios, esse método é conhecido como Método A. Nota-se que o protetor auditivo tipo concha e o
+                                plugue de espumas são os tipos de protetores auditivos que possuem maior atenuação. Vale ressaltar
+                                que, esse gráfico é apenas orientativo, a atenuação de ruído deve ser avaliada para cada modelo de
+                                protetor auditivo em questão.
+            </p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/plugpca.png" alt="Hierarquia de medidas de controle">            
+            
+                <br><br>Fonte: Adaptado de Berger et. al (2000).<br>
+               <strong> Figura 5 - Atenuação de ruído típicas de protetores auditivos</strong><br><br>
+                No Brasil, desde o início da década de 2000 o MTb exigiu que fossem realizados ensaios de atenuação
+de ruído pelo método subjetivo seguindo as diretrizes definidas pela Norma ANSI S12.6 – Método B, com
+pessoas. Nesse método as pessoas que realizam o ensaio não possuem experiência na colocação do
+protetor auditivo e nem são supervisionadas/orientadas na colocação durante o ensaio. Esse método é
+conhecido como Método B, e o resultado de atenuação obtido é muito semelhante ao obtido em campo
+pelo usuário. Dessa forma, os resultados de atenuação de protetores auditivos utilizados e ensaiados no
+Brasil, são muito próximos da atenuação obtida pelos usuários/empregado.
+            </p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <strong> utilização adequada do protetor auditivo neutraliza o agente físico
+                ruído?</strong><br><br>
+
+                É importante ressaltar que a perda auditiva, conforme já citada, depende do Nível de Exposição (NE)
+ao ruído e o tempo de exposição. O NE do empregado, quando este utiliza o protetor auditivo, depende
+da atenuação fornecida pelo protetor auditivo e o nível de ruído do ambiente. A combinação desses dois
+resulta no ruído que atinge o ouvido do empregado. O funcionamento adequado do protetor auditivo vai
+muito além de apenas fornecer o equipamento ao empregado, uma vez que a interação entre o protetor
+auditivo e o usuário é crucial para obter uma boa proteção.
+<br><br>
+
+Para que o protetor auditivo funcione corretamente e cumpra sua função é preciso garantir alguns
+aspectos como:
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                • Seleção do protetor auditivo apropriado para o nível de ruído do ambiente em que ele será
+                utilizado;<br>
+                • Correta colocação do protetor auditivo por parte do usuário;<br>
+                • Manutenção, substituição e higienização do protetor auditivo;<br>
+                • Treinamento na utilização adequada do protetor auditivo;<br>
+                • Motivação dos usuários para a utilização do protetor auditivo;<br>
+                • Cobrança da utilização do protetor auditivo por parte dos gerentes, supervisores e/ou
+                responsável pela área, monitoramento de uso.<br>
+            </p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                Esse último item é de suma importância, apesar de não ser agradável deve ser realizado durante todo
+                o tempo. Todos esses aspectos podem ser implementados através da elaboração de um Programa de
+                Conservação Auditiva (PCA) ou Programa de Prevenção de Perdas Auditiva (PPPA). O PCA é um conjunto
+                de atividades que visam prevenir ou estabilizar a perda auditiva ocupacional por meio de um processo de
+                melhoria contínua. A utilização de protetor auditivo é um dos itens do PCA, que pode ser apresentado na
+                forma de um plano que descreve as atividades que devem ser realizadas para que os aspectos citados
+                acima sejam realmente implementados.<br>
+                PCA deve abordar outros aspectos, além da proteção auditiva individual. Um aspecto importante a
+ser abordado é o gerenciamento audiológico e controle médico. Cada ser humano possui suas
+particularidades e sensibilidades, existem pessoas que possuem uma sensibilidade maior para o ruído,
+outras uma sensibilidade menor. De acordo com a NR-9, as ações de controle médico devem ser
+implementadas para todos os trabalhadores expostos a ruído acima do nível de ação (80 dBA para
+jornadas de trabalho diárias de 8 horas), independente do uso de protetor auditivo. As diretrizes,
+parâmetros mínimos e metodologia para avaliação e acompanhamento da audição dos trabalhadores
+expostos a níveis de pressão sonora elevados, por meio de exames audiológicos de referência e
+sequenciais, devem atender ao disposto no Anexo 1 da NR-7. É importante que nesse gerenciamento
+audiológico e controle médico sejam realizados o estabelecimento do nexo ocupacional e o
+estabelecimento do diagnóstico evolutivo para fins de controle através de diagnósticos individuais e
+coletivos, de acordo com o guia de PCA publicado pela Fundacentro.<br>
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+Concluindo, a perda auditiva engloba diversos outros aspectos que estão relacionados não somente
+com o produto protetor auditivo, mas com a política da empresa na utilização, que contempla diversos
+aspectos da organização do trabalho. Mas caso seja implementado um PCA eficaz dentro da empresa,
+com correto dimensionamento do protetor auditivo e todos os outros aspectos citados, a possibilidade
+de perda auditiva por parte do empregado é reduzida drasticamente. Berger et. al (2000) cita que,
+<strong>“Os protetores auditivos não são e não podem ser
+negligenciados/descartados/desconsiderados indiscriminadamente, eles
+funcionam e podem ser utilizados quando houver um contexto bem
+definido/conhecido e um PCA bem implementado. A implementação efetiva de
+um PCA refere-se principalmente à aspectos organizacionais e não técnicos do
+protetor auditivo em si. Um estudo de larga escala foi realizado, demonstrando
+a efetividade de um PCA bem implementado, por Gillis e Harrison em 1993. Um
+banco de dados de mais de 100.000 audiometrias foi avaliado e não foi observada
+nenhuma correlação de alteração na sensibilidade auditiva de um grupo de usuários que utilizou um protetor auditivo muito bom e um segundo grupo de
+usuários que utilizou um protetor auditivo não tão bom quanto o primeiro. Essa
+evidência foi constatada em estudos em diversos tipos de industrias. Essas
+descobertas sustentam o axioma amplamente citado, mas muitas vezes não
+apreciado: o melhor protetor auditivo é aquele que é utilizado e é utilizado de
+forma correta pelo usuário; o protetor auditivo deverá ser aquele que é
+compatível com o ruído do ambiente e, especialmente, com a pessoa que o
+utiliza. ”</strong>
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                É importante ressaltar uma outra questão, a exposição a elevados níveis de ruído pode ocorrer em
+                ambientes fora da empresa, durante o período de descanso. Esse aspecto é tão importante quanto a
+                exposição ao ruído dentro do ambiente laboral, pois pode acarretar a Perda Auditiva Induzida por Ruído
+                (PAIR). Além disso, o consumo de drogas (licitas2 e ilícitas) podem agir como catalizadores da perda
+                auditiva. A forma e a quantidade utilizada são fatores importantíssimo que definem se o mesmo poderá
+                causar perda auditiva. <br><br><br>
+
+                
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <strong>A potência do som pode causar danos ao organismo além da perda auditiva?</strong><br><br>
+
+                A parcela da onda de pressão acústica incidente no corpo humano e que é transmitida para dentro do
+                corpo humano é muito pequena, praticamente desprezível. Quando uma onda de pressão acústica,
+                propagando-se no ar, incide sobre uma superfície (corpo humano), forma-se uma onda refletiva (no ar) e
+                uma onda transmitida (corpo humano). As razões entre as intensidades e amplitudes de pressão acústicas
+                da onda refletida e transmitida e da onda incidente, dependem das características do ar e do corpo
+                humano. Essas características são a densidade e a velocidade do som no ar e no corpo humano. De acordo
+                com Gerges (2000) e Beranek e Vér (2006), utiliza-se um descritor chamado de coeficiente de transmissão,
+                que pode ser entendido como a parcela da onda incidente que é transmitida do ar para o corpo humano.
+                Esse coeficiente varia entre 0 (zero), nenhuma energia da onda incidente é transmitida para o corpo
+                humano, e 1 (um), toda a parcela da energia (100%) da onda incidente é transmitida para o corpo humano.
+                A Figura 6 ilustra um esquemático das ondas incidente, refletida e transmitida
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Reflexao-e-transmissao-de-uma-onda-de-pressao-acustica.png" alt="Hierarquia de medidas de controle">            
+                <br>
+                <strong>Figura 6 – Reflexão e transmissão de uma onda de pressão acústica </strong>
+            </p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                Em trabalho técnico publicado por Gerges e Gerges (2016), é desenvolvido um modelo matemático
+                para estimar o coeficiente de transmissão de uma onda de pressão acústica para o corpo humano. A
+                estimativa obtida é que apenas 0,1016% da energia da onda incidente é transmitida para dentro do corpo
+                humano. Desta forma, podemos afirmar que o ruído transmitido pelo ar não possui uma contribuição
+                significativa para o ser humano.<br><br>
+                Vem a corroborar com o resultado obtidos por Gerges e Gerges (2016), Crocker (2007), no que diz
+respeito aos efeitos das ondas de pressão acústica incidente no corpo humano. De acordo com Crocker
+(2007), explosões extremamente altas, geralmente encontradas apenas em ambientes militares, podem
+produzir energia acústica suficiente para danificar os órgãos internos. O ouvido, o trato gastrointestinal,
+o trato respiratório superior e os pulmões são particularmente suscetíveis ao dano causado por essas
+explosões porque estão cheios de ar. São consideradas explosões extremamente altas, aquelas em que a
+pressão acústica é na ordem de 57 a 345 kPa, que equivale à 190 a 205 dB de NPS.
+            </p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+               <strong>O ruído atravessa o crânio através da via óssea atingindo a cóclea e o
+                órgão de corti?
+            </strong> <br>
+            A informação não procede. Essa informação já está bem difundida e bem conhecida tecnicamente. De
+acordo com Berger et. al (2000) e Gerges (2003), existem quatro possíveis caminhos de propagação
+quando se utiliza um protetor auditivo: vazamento através do contato do protetor auditivo, vibração do
+protetor auditivo, transmissão através do material do protetor auditivo e transmissão via ossos e tecidos.
+A Figura 7 e Figura 8 apresentam os caminhos que o ruído percorre em um ouvido protegido.<br>
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Diagrama-de-bloco-dos-quatro-caminhos-que-o-ruido-percorre-em-um-ouvido-protegido.png" alt="Hierarquia de medidas de controle">            
+                <br>
+                Fonte: adaptado de Berger et. al (2000).
+                <br>
+                <strong>Figura 7 – Diagrama de bloco dos quatro caminhos que o ruído percorre em um ouvido protegido
+                    por um protetor auditivo</strong><br><br>
+                    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Caminhos-de-transmissao-do-ruido.png" alt="Hierarquia de medidas de controle">            
+                 <br>Fonte: Gerges (2003).<br>
+                 <strong>Figura 8 – Caminhos de transmissão do ruído</strong>
+            </p>
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                • Vazamento através do contato: esse é o caminho mais importante, ele pode reduzir drasticamente a
+                atenuação do protetor auditivo. A existência de vazamentos de ar através do contato devido à má
+                colocação ou condição do protetor auditivo são as principais causas. Para se obter um desempenho
+                adequado, o protetor auditivo do tipo plugue deve selar hermeticamente o canal auditivo, enquanto
+                que o protetor auditivo tipo concha deve selar toda a região circum-aural ao redor do pavilhão
+                auditivo;<br>
+                • Vibração do protetor auditivo: o protetor auditivo tipo plugue pode vibrar na forma de um pistão
+                devido a flexibilidade do canal auditivo, limitando a atenuação em baixa frequência. Para o protetor
+                auditivo tipo concha, ele vibra formando um sistema massa-mola, limitando a atenuação em baixa
+                frequência;<br>
+                • Transmissão através do material: como dito anteriormente, o protetor auditivo funciona como uma
+                barreira para o ruído. Desta forma, o coeficiente de transmissão acústica dos materiais
+                empregados no protetor auditivo define o desempenho de atenuação por este caminho. A atenuação
+                vai depender de fatores como a massa, rigidez e amortecimento desses materiais;<br>
+                • Transmissão via ossos e tecidos: segundo Gerges (2003), o protetor auditivo reduz somente a energia
+                acústica que chega ao sistema de audição pela via aérea, deixando passar uma parcela que é
+                transmitida através dos ossos e dos tecidos. Este caminho é importante apenas para protetores
+                auditivos que fornecem atenuação superior a 40 dB. Sendo assim, esse caminho pode ser ignorado
+                na maioria dos casos.<br>
+            </p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                No que tange a transmissão via ossos e tecidos, mesmo que o protetor auditivo fosse efetivamente
+                perfeito em bloquear o ruído nos três primeiros caminhos mencionados, a energia sonora atingiria o
+                ouvido interno através do ruído transmitido via ossos e tecidos. Diz-se que essa energia transmitida por
+                esse caminho, contorna a proteção imposta pelo protetor auditivo, impondo um limite para a atenuação
+                fornecida pelo protetor auditivo. Entretanto a parcela de ruído transmitida via ossos e tecidos é de 40 a
+                50 dB menor que o ruído transmitido por via aérea, sendo praticamente desprezível em ambientes em
+                que o nível de ruído é inferior a 120 dB. A Figura 9 apresenta a atenuação de ruído através da condução
+                via ossos e tecidos, percebe-se que a atenuação em 500 Hz é de 58 dB e em 2.000 Hz de 39 dB.
+            </p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/via-ossos-e-tecidos.png" alt="Hierarquia de medidas de controle">            
+              <br>
+              Fonte: adaptado de Berger et. al (2000).
+              <br><br>
+
+              <strong>Figura 9 – Atenuação de ruído no ouvido real através da condução via ossos e tecidos</strong>
+              <br><br>
+
+              Conclui-se então que, a informação de que o protetor auditivo não protege devido ao ruído
+              transmitido via ossos e tecidos não procede. A atenuação do ruído pelos ossos e tecidos é tão grande
+              que apenas em situações extremas deve ser levada em consideração, quando há ruídos acima de 120 dB.
+              Apenas acima desses NPS é que realmente o usuário não estará protegido pois o ruído transmitido via
+              ossos e tecidos atingirá o ouvido interno com nível considerável.
+            </p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                <strong>Níveis de ruído acima de 55 dB podem causar outros efeitos adversos
+                nos seres humanos?</strong>
+                <br>
+                “De acordo com a Organização Mundial de Saúde (...) a partir de 55 dB, pode haver a ocorrência de
+estresse leve, acompanhado de desconforto. O nível 70 dB é tido como o nível inicial do desgaste do
+organismo, aumento do risco de infarto, derrame cerebral, infecções, hipertensão arterial e outras
+patologias. Com relação ao estado psicológico, o ruído altera-o, ocasionando irritabilidade, distúrbio do
+sono, déficit de atenção e concentração, cansaço crônico e ansiedade, entre outros efeitos danosos. [...]
+<br>
+O grande desafio é determinar ou estimar em que NPS esses efeitos começam a surgir no corpo
+humano. Berger et. al (2000) cita algo muito importante, “algumas pessoas se sentem perturbadas com
+o latido de cachorros em seu bairro, outras pessoas não se sentem perturbadas morando perto de ruas
+com alto fluxo de carros, aeroportos e ferrovias. Elas possuem uma tolerância maior em viver em
+ambientes ruidosos”. A reação do corpo humano aos NPS dependerá de cada pessoa, algumas possuem
+maiores tolerâncias que outras, quanto ao ruído. Um estudo realizado pelo laboratório Myriada3 nos
+últimos 40 anos constatou que pessoas diferem drasticamente no que diz respeito a reação do corpo
+humano à exposição ao ruído.                
+<br>
+Vale a pena citar novamente aqui que, todos esses efeitos extra auditivos possuem nexo causal com
+diversas doenças que não estão relacionadas com a exposição ao ruído, e que dependerão muito do
+histórico médico da pessoa e seu modo de vida.
+<br>
+Quanto ao NPS em que começam a aparecer esses efeitos extra auditivos, de acordo com Health
+Council of the Netherlands (1994), Berger et. al (2000) e Crocker (2007), a intensidade do NPS apenas não
+é suficiente e é inadequado para caracterizar esses efeitos extra auditivos. Deve-se levar em consideração
+outros aspectos como: forma do espectro do ruído, presença de ruído tonal4, se ele é cíclico ou repetitivo,
+frequência de ocorrência, horário de ocorrência, duração de ocorrência e outros.
+<br> 
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>O fornecimento de protetor auditivo é suficiente para proteger o usuário?</strong><br>
+    Apenas o fornecimento do protetor auditivo por parte da empresa para os empregados não é
+    suficiente para garantir o uso consciente e correto deste EPI. É necessário que o empregado se sinta
+    confortável com o protetor auditivo, receba treinamento para correta colocação, tenha disponibilidade
+    de troca do EPI, realize a manutenção e higienização, seja motivado para utilizá-lo e seja cobrado pelos
+    seus superiores para que utilize o EPI. Vale aqui citar novamente uma frase de Berger et al. (2000), “o
+    melhor protetor auditivo é aquele que é utilizado e é utilizado de forma correta pelo usuário; o protetor
+    auditivo deverá ser aquele que é compatível com o ruído do ambiente e, especialmente, com a pessoa
+    que o utiliza”. A Associação Nacional da Indústria de Material de Segurança e Proteção ao Trabalho  
+    (ANIMASEG) divulga informações quanto ao mercado de EPI no Brasil e no mundo a cada dois anos. A
+Figura 10 apresenta o percentual produtos de proteção auditiva em relação a todos os EPIs
+comercializados no Brasil. Os protetores auditivos detêm uma participação de apenas 1,1% do mercado
+brasileiro, enquanto que no mundo detém uma participação de 3%, conforme Figura 11.
+<br>
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/epi-pca.png" alt="Hierarquia de medidas de controle">            
+
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    A Figura acima apresenta o percentual do mercado global de proteção auditiva. O Brasil representa uma
+    fatia de apenas 2% do mercado global, enquanto que EUA possui 40% e Europa 27%, temos ainda Japão
+    com 11%. Isso nos indica que em países desenvolvidos o protetor auditivo é utilizado muito mais que em
+    países subdesenvolvidos, uma das possíveis explicações para isso é a legislação mais rígida, o
+    conhecimento sobre o assunto por parte do governo, empresa e empregado e a implementação real de
+    um Programa de Conservação Auditiva. Isso corrobora com a indicação de que o protetor auditivo
+    funciona e funciona muito bem quando implementado de forma correta no ambiente de trabalho.
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/epi-pca1-1.png" alt="Hierarquia de medidas de controle">            
+<br>
+Fonte: adaptado de ANIMASEG (www.animaseg.com.br), acessado em 11 de Agosto de 2017
+<br>
+<strong>Mercado global de proteção auditiva em 2015</strong>
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    Outro fator importante, como já mencionado, é a importância do acompanhamento médico, histórico
+    do empregado e modo de vida, pois muitas vezes a perda auditiva está relacionado a fatores e eventos
+    que acontecem fora do ambiente laboral. Por isso quando se realiza os exames audiométricos deve-se
+    realizar uma correlação com o histórico médico e modo de vida do empregado e não apenas com o nível
+    de ruído existente no ambiente laboral e o protetor auditivo utilizado. Essa situação é muito mais
+    complexa do que apenas realizar audiometria regularmente ao longo do tempo e caso haja perda da
+    sensibilidade auditiva, afirmar que é decorrente de PAIR devido ao ambiente laboral e o protetor auditivo.
+    <br>
+</p>
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    A Figura 13 traz uma informação importante sobre a proteção auditiva no Brasil. Esta figura apresenta
+a evolução do mercado de protetores auditivos no Brasil de 2009 até 2015. Podemos perceber que houve
+um aumento significativo de 2009 até 2013, em torno de 30% no mercado de protetores auditivos. De
+2013 até 2015, o mercado teve uma retração de aproximadamente 5%. Sugere-se que essa retração
+possui uma forte correlação com a crise em que o país está passando nesses últimos anos. Conforme
+apresentamos, nos países desenvolvidos o protetor auditivo é bem conhecido, aceito e implementado no
+ambiente laboral, trazendo proteção real ao empregado.
+<br>
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Evolucao-do-mercado-brasileiro-de-protetor-auditivo.png" alt="Hierarquia de medidas de controle">            
+<br>
+Fonte: adaptado de ANIMASEG (www.animaseg.com.br), acessado em 11 de Agosto de 2017
+<br>
+<strong>Figura 13 – Evolução do mercado brasileiro de protetor auditivo</strong>
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+<strong>Cuidados na utilização do protetor auditivo</strong><br>
+Cuidados na utilização do protetor auditivo<br>
+O erro de posicionamento, manutenção, troca inadequadas e tempo efetivo de uso estão relacionados
+a filosofia da organização do trabalho da empresa. Como dito anteriormente, o empregado deve se sentir
+confortável com o protetor auditivo, receber treinamento para correta colocação, tenha disponibilidade
+de troca do EPI, realize a manutenção e higienização, seja motivado para utilizá-lo e seja cobrado pelos
+seus superiores para que utilize o EPI. Isso tudo pode ser implementado na prática através do Programa
+de Conservação Auditiva, que leva em conta todos esses aspectos organizacionais.<br>
+
+A afirmação de que a atenuação sugerida pelos fabricantes de protetores auriculares, não leva em
+consideração as condições adversas do trabalho, está correta. A atenuação sugerida ou os valores de
+atenuação fornecidas pelos fabricantes ou importadores diz respeito as amostras de modelos de
+protetores auditivos novos (sem uso) ensaiados em laboratório. Esses valores diferem da atenuação de
+protetores auditivos usados, para um mesmo modelo em questão, devido ao degaste do EPI ao longo do
+tempo e de sua utilização no ambiente laboral. Dessa forma, o protetor auditivo deve ser substituído de
+tempo em tempos, pois este vai perdendo sua capacidade de atenuar o ruído conforme se desgasta. A dúvida está na definição desse tempo, que é chamado de vida útil5 do protetor auditivo. Esse assunto vem
+sendo amplamente discutido no meio da segurança e saúde do trabalho. O MTb, através da Nota Técnica
+176 de 2016, descreve que a vida útil do protetor auditivo é de responsabilidade da empresa
+(empregador). Ou seja, é responsabilidade da empresa estipular o prazo de substituição do protetor
+auditivo. O Prof. Samir Gerges publicou na Revista CIPA No 288 de Novembro de 2013, um artigo sobre
+vida útil muito interessante.<br>
+</p>
+<p style="font-family: Arial; font-size: 8pt; text-align: justify;">
+        “Qual é a vida útil de um protetor auditivo? Uma pergunta que está sendo
+colocada de forma intensa nos últimos anos pelos responsáveis pelo Programa
+de Conservação Auditiva, usuários, advogados e juízes, sem ter ainda uma
+resposta que convença. Vamos fazer a seguinte pergunta similar: Qual é a vida
+útil de seu sapato? Por exemplo: João tem pé torto e anda depressa batendo nas
+pedras, e quando volta para casa tira o sapato e joga no canto sujo molhado. Mas
+nosso amigo elegante Batista anda com pé reto, correto e cuida da sua postura,
+mantendo seu sapato sempre limpo e bem guardado. O Batista é pão-duro, não
+quer gastar para comprar sapato novo, ele engraxa o sapato dele todos os dias à
+noite, até não acelera o carro, para não frear e gastar a pastilha de freio. O sapato
+de Batista dura anos, enquanto que de João só dura seis meses. Agora vamos
+para nosso assunto. Um trabalhador que cuida de seu protetor auditivo, lava
+(tipo plugue), troca almofadas (tipo concha), guarda em lugar limpo, vai ter vida
+útil mais longa do que sem cuidado, como por exemplo, deixar o protetor
+auditivo cair no chão sujo, não lavar, guardar em lugar úmido e sujo, não colocálo
+em contato com produtos químicos para evitar a perda das características,
+etc”.
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    Dessa forma, implica-se que: <br>
+    1. A melhor avaliação da vida útil deve ser realizada pelo SESMT (Serviço Especializado em
+Engenharia de Segurança e Medicina do Trabalho), sempre dentro da validade máxima
+estabelecida pelo fabricante;<br>
+2. As empresas têm particularidades diferentes como ambientes com diferentes agentes físicos,
+químicos e biológicos e atividade de trabalho que variam entre empresas e inclusive dentro de
+uma mesma empresa. Cabe ao SESMT orientar os usuários quanto ao momento da troca;
+<br>
+3. Não existem ensaios que possam avaliar o prazo máximo de substituição que abranja todas as
+atividades e situações de trabalho existentes;
+<br>
+4. A determinação da vida útil só é possível de ser realizado em uma determinada empresa, em
+ambiente restrito e para uma população de trabalhadores específica, ou seja, o resultado
+obtido será exclusivo para aquele ambiente e para aquela empresa, não sendo possível afirmar
+que o resultado seja aplicado às demais empresas.
+<br>
+A fiscalização do MTb tem exigido cada vez mais um plano de periodicidade de troca das empresas que
+possuem empregados que utilizam protetor auditivo. Como dito, a atenuação de ruído diminui conforme
+o tempo de utilização devido aos fatores mencionados.
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>Eficiência do Protetor auditivo</strong><br>
+    Atualmente, no Brasil, o método de avaliação da eficiência do protetor auditivo pode ser estimado
+através da Norma ABNT NBR 16077 – Equipamentos de Proteção Individual – Protetores Auditivos –
+Método de Cálculo do Nível de Pressão Sonora na Orelha Protegida (2012). <br><br>
+<strong>O Ouvido Humano</strong> <br><br>
+O ouvido humano é um sofisticado sensor de som, ele codifica as informações contidas no som para
+serem interpretadas pelo cérebro. O ouvido humano pode ser divido em orelha externa, média e interna.
+Não convém aqui explicar como funciona cada parte da orelha, mas é importante apresentar as diferentes
+perdas auditivas e em que parte da orelha ela ocorre.<br>
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+1. Ouvido Externo<br>
+• Obstrução do canal auditivo devido a cerume (cera), infecção, corpos estranhos, dentre outros;<br>
+• Perfuração ou lesão no tímpano.<br>
+2. Ouvido Médio<br>
+• Infecção (otite média);<br>
+• Otosclerose (estribo se adere a janela oval);<br>
+• Aerotite média (bloqueio do tubo de Eustáquio).<br>
+3. Ouvido Interno<br>
+Perdas repentinas:<br>
+• Doenças (meningite, infecções, esclerose múltipla, caxumba entre outras);<br>
+• Lesões cranianas;<br>
+• Trauma acústico (tiros e explosões);<br>
+• Drogas que afetam o sistema nervoso central.<br>
+Perdas gradativas:<br>
+• Neurites (doenças nos nervos);<br>
+• Tumores;<br>
+• Presbiacusia (surdez por envelhecimento);<br>
+• Surdez induzida por ruído, também chamada de Perda de Audição Induzida por Ruído (PAIR).<br>
+Quando se trata de exposição ocupacional ao ruído, o enfoque é na PAIR. Qualquer redução na
+sensibilidade de audição devido a exposição ao ruído é considerada perda de audição. A perda auditiva
+depende do nível de exposição ao ruído e do tempo de exposição ao ruído.<br><br>
+A exposição contínua a níveis elevados de ruído, sem proteção, pode causar perda de audição
+temporária ou permanente. A perda de audição temporária tem como característica a recuperação da
+audição normal após a exposição a ruídos intensos. Nesse tipo de perda, após algumas horas de descanso
+em baixos níveis de ruído, a sensibilidade de audição volta ao normal. Se a exposição ao ruído é repetida
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+antes da completa recuperação da sensibilidade, a perda temporária da audição pode se tornar
+permanente. Na perda permanente de audição as células nervosas do ouvido interno são danificadas,
+portanto o processo é permanente e irreversível.<br><br>
+
+<strong>O tempo de utilização real do protetor auditivo deve ser de 100% da
+jornada de trabalho para obter a atenuações assumidas pelos
+fabricantes?</strong><br><br>
+
+É necessário estar com o protetor auditivo durante 100% do tempo em que estiver em um ambiente
+onde os NPS são elevados. A Figura 14 apresenta um gráfico que demonstra a atenuação resultante da
+utilização do protetor auditivo, para diferentes porcentagens do tempo de uso, durante o período em que
+ele está em um ambiente onde os NPS são elevados. Caso o usuário utilize um protetor auditivo, que
+forneça uma atenuação qualquer, durante apenas 50% do tempo em que estiver exposto onde os NPS
+são elevados, ele obterá uma atenuação resultante de apenas 3 dB. Por exemplo, um empregado está
+exposto a um ruído de 90 dBA durante sua jornada de trabalho diária, ele utiliza um protetor auditivo que
+fornece uma atenuação de 20 dB. Se este empregado utiliza de forma correta o protetor auditivo, o nível
+de exposição ao ruído será de 70 dBA. Caso ele utilize o protetor auditivo durante 50% do tempo da
+jornada de trabalho e os outros 50% não utilize, o nível de exposição ao ruído será de 87 dBA.
+
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/Atenuacao-de-ruido-em-funcao-da-porcentagem-do-tempo-de-uso.png" alt="Hierarquia de medidas de controle">            
+<br>
+Fonte: Gerges (2003)
+<br>
+<strong>Figura 14 – Atenuação de ruído em função da porcentagem do tempo de uso</strong>
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    Conclusão, é necessário que o empregado utilize o protetor auditivo durante 100% do tempo em que
+    estiver nos ambientes onde os NPS são elevados. Não é necessário utilizar o protetor auditivo durante o
+    período de tempo que ele não está nos ambientes onde os NPS são elevados.<br>
+</p>
+
+    <p style="font-family: Arial; font-size: 8pt; text-align: justify;">
+    "Comentário da decisão proferida pelo STF – acórdão no Agravo em RE
+nº 664.335/SC): “na hipótese de exposição do trabalhador a ruído acima
+dos limites legais de tolerância, a declaração do empregador, no âmbito
+do Perfil Profissiográfico Previdenciário (PPP), da eficácia do
+Equipamento de Proteção Individual (EPI), não descaracteriza o tempo de
+serviço especial para aposentadoria.” 
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    A afirmação, do ponto de vista técnico, está correta. Conforme demonstrado, existem diferentes tipos
+    de proteção efetivas (proteção coletiva, medidas administrativas e proteção individual). Esses tipos de
+    proteção são utilizados no mundo todo, e possuem um alto nível de utilização em países desenvolvidos
+    como EUA, Europa e Japão. Um ponto importante à citar é que o formulário do PPP é muito simplório no
+    que diz respeito a implantação dessas proteções, seja coletiva, seja individual. Sendo necessário somente
+    o preenchimento se a proteção coletiva e o EPI são eficazes e qual o número de Certificado de Aprovação
+    (CA) do EPI. A proteção através da utilização do protetor auditivo vai muito além de apenas fornecer e
+    registar a data de entrega do EPI ao empregado. É necessária toda uma cultura organizacional para que a
+    proteção auditiva realmente venha a ser efetiva em sua função. Isto pode ser obtido através da efetiva
+    implementação de um Programa de Conservação Auditivo, onde as ações não fiquem apenas no papel,
+    mas acontecem no dia a dia da empresa.
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    A nota técnica 263/2017 conclui que a utilização do EPI como medida de proteção suficiente para
+    eliminação do pagamento do adicional de insalubridade ou indeferimento de contagem de tempo
+    previdenciário como especial somente poderá ser considerada quando comprovada a sua eficácia real e
+    fática na redução da exposição do trabalhador. A análise deve incluir a forma e tempos de utilização
+    necessários ao controle efetivo ao risco considerando a adequação do EPI à situação de risco, o conforto
+    do usuário e a correta utilização de modo continuado enquanto houver a presença do agente nocivo
+    ambiental no local de trabalho.
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+   <strong> É possível afirmar que, diante de exposições normais e rotineiras do
+    empregado em atividades e ambientes ruidosos com valores acima do
+    limite de tolerância, se forem utilizados o EPI de acordos com os
+    requisitos da NR-6, NR-7, NR-9 e NR-15, certamente o mesmo não terá
+    perda auditiva ocupacional a curto e/ou médio prazos?</strong>
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    perda auditiva ocupacional a curto e/ou médio prazos?
+Sim, se os requisitos das NRs citadas forem implementados na prática e não apenas no papel, de
+acordo os aspectos apresentados e outros pertinentes, estima-se que o mesmo não terá perda auditiva a
+curto e/ou médio prazo devido a exposição ao ruído no ambiente ocupacional. Importante ressaltar que
+ao envelhecer o ser humano perde naturalmente perda sua sensibilidade auditiva, conforme Gerges
+(2000) menciona, independente da sua exposição ao ruído durante a vida laboral. Deve atentar também
+a outras doenças ou cenários que alteram sua sensibilidade auditiva.
+</p>
+
+            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                REFERÊNCIAS<br>
+                • ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16077: Equipamentos de Proteção
+Individual – Protetores Auditivos – Método de Cálculo do Nível de Pressão Sonora na Orelha
+Protegida, Rio de Janeiro, 2012.<br>
+• BERGER, E. H.; ROYSTER, L. H.; ROYSTER, J. D.; DRISCOLL, D. P.; LAYNE, M. The Noise Manual. 5.
+ed. Fair Fax (EUA): American Industrial Hygiene, 2000.<br>
+• BERANEK, L. L.; VÉR, I. L. Noise and Vibration Control Engineering: Principles and Applications.<br>
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+2. ed. Hoboken (EUA): John Wiley & Sons, 2006.<br>
+• BISTAFA, S. R. Acústica Aplica ao Controle de Ruído. 2. ed. São Paulo: Blucher, 2011.<br>
+• BRASIL. Ministério do Trabalho. Atividades e Operações Insalubres. Norma Regulamentadora 15
+(NR-15), de 14 de Agosto de 2014.<br>
+• BRASIL, Ministério do Trabalho. Prazo de Validade e Vida Útil de EPI (Nota Técnica 176), de 18
+de Julho de 2016.<br>
+• BRASIL, Ministério do Trabalho. Comprovação da eficácia de Equipamento de Proteção
+Individual – EPI – e consequente neutralização de agentes nocivos – em processos de cômputo
+de atividade especial para fins de Aposentadoria Especial, envolvendo o INSS – Instituto
+Nacional do Seguro Social - (Nota Técnica 263), de 29 de Setembro de 2017.<br>
+• BRASIL. Ministério do Trabalho. Programa de Prevenção de Riscos Ambientais. Norma
+Regulamentadora 9 (NR-9), de 7 de Julho de 2017.<br>
+• BRASIL. Fundacentro. Recomendações Técnicas de Procedimentos: Diretrizes e Parâmetros
+Mínimos para Elaboração e Gestão do Programa de Conservação Auditiva (PCA). São Paulo,
+2018.
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+• CROCKER, M. J. Handbook of Noise And Vibration Control. 1. ed. New Jersey (EUA): John Wiley &
+Sons, 2007.<br>
+• GERGES, S. N. Y. Ruído: Fundamentos e Controle. 2. ed. Florianópolis: NR Editora, 2000.<br>
+• GERGES, S. N. Y. Protetores Auditivos. 1. ed. Florianópolis: NR Editora, 2003.<br>
+• GERGES, S. N. Y. Vida Útil de Protetores Auditivos. Revista CIPA, São Paulo, No. 288, p. 84, nov.
+2003.<br>
+• GERGES, S. N. Y.; GERGES, R. N. C. Relatório Técnico: Transmissão do Ruído para o Corpo
+Humano. Florianópolis: Laboratório de Equipamentos de Proteção Individual, 2016.
+                </p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+   <strong> Anexo A – Limites de Tolerância (NR-15) e Nível de Ação (NR-9)</strong><br>
+   O Quadro B, a seguir, apresenta o limite de tolerância e a máxima exposição diária permissível, de
+acordo com o Anexo 1 da NR-15. Ainda, de acordo com o item 9.3.6 da NR-9, define o que é nível de ação
+e descreve que devem ser tomadas medidas de controle sistemática para valores de intensidade de ruído
+acima dos níveis de ação. Para o caso de ruído, o nível de ação é considerado qualquer valor em que a
+dose de exposição ao ruído seja superior a 50%, conforme critérios estabelecidos no Anexo 1 da NR 15. A
+equação a seguir é utilizada para obter o valor do nível de ação de ruído em função do nível de ruído.
+
+</p>
+
+
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nível de
+        Ruído [dBA]</th>
+      <th scope="col">Máxima Exposição Diária
+        Permissível</th>
+      <th scope="col">Nível de
+        Ação [dBA]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>85</td>
+      <td>8 Horas</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>7 Horas</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>87</td>
+      <td>6 Horas</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>88</td>
+      <td>5 Horas</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>4 Horas e 30 minutos</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>4 Horas</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>3 Horas e 30 minutos</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>3 Horas</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>2 Horas e 40 minutos</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>94</td>
+      <td>2 Horas e 15 minutos</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>95</td>
+      <td>2 Horas</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>1 Hora e 45 minutos</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>1 Hora e 15 minutos</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>1 Hora </td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>45 minutos </td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>35 minutos</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>30 minutos </td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>25 minutos </td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>20 minutos </td>
+      <td>103</td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td>15 minutos </td>
+      <td>105</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>10 minutos </td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>8 minutos </td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>7 minutos </td>
+      <td>110</td>
+    </tr>
+  </tbody>
+</table>
+    
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <br><br><br><br>
+     <strong>Anexo B – Carta de Moção de Objeção da ABHO</strong><br><br>      
+     São Paulo, quarta-feira, 23 de agosto de 2017.<br>  <br>    
+     <strong> MOÇÃO DE OBJEÇÃO </strong><br><br>   
+
+     A Associação Brasileira de Higienistas Ocupacionais - ABHO, em plenária do 
+     seu “11° Congresso Brasileiro de Higiene Ocupacional”, que ocorreu no período de 21 a 
+     23 de agosto de 2017, na cidade de São Paulo, vem a público se posicionar 
+     tecnicamente sobre o documento publicado pelo Instituto Nacional do Seguro Social - 
+     INSS, em 14 de agosto de 2017, intitulado Manual de Aposentadoria Especial – INSS – 
+     DIRSAT, pelos motivos abaixo relatados: <br>   
+     Considerando o tema título do Congresso de 2017 que explicita “O Higienista 
+     Ocupacional como agente técnico-prevencionista da conformidade legal trabalhista e 
+     previdenciária; 
+    </p>
+ 
+     <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+     Considerando que a ABHO, fundada em 23 de agosto de 1994 e, em conjunto 
+     com os congressistas presentes, reúne um segmento de profissionais de Segurança do 
+     Trabalho e Saúde Ocupacional voltado para ações de prevenção do adoecimento de 
+     trabalhadores por possíveis exposições a agentes ambientais nocivos;  <br>   
+     Considerando que os congressistas, como higienistas ocupacionais, têm suas 
+     ações voltadas à preservação da saúde dos trabalhadores; que essas ações são pautadas 
+     pelas obrigações previstas nas normas legais trabalhistas e previdenciárias; que essas 
+     normas incluem, entre outras, a insalubridade e a aposentadoria especial, 
+     respectivamente; que também apontam para os mesmos objetivos: ambiente de trabalho 
+     saudável e a consequente preservação da saúde; 
+    </p>
+
+     <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+   
+     Considerando que a ABHO alerta, preconiza, incentiva e esclarece que a adoção 
+     das melhores práticas de proteção é obtida prioritariamente pela proteção coletiva (de 
+     engenharia) ou medidas administrativas (de gestão), mas  não exclui o emprego dos 
+     Equipamentos de Proteção Individual – EPIs. No caso do agente nocivo ruído, esses 
+     equipamentos devem estar inseridos em um Programa de Conservação Auditiva - PCA, 
+     de maneira a garantir o atendimento aos requisitos mínimos de proteção à audição dos 
+     trabalhadores e isso inclui: seleção do protetor auditivo mais adequado, monitoramento 
+     ambiental periódico, treinamentos dos trabalhadores, acompanhamento médico anual, 
+     audiometrias, registros das informações e verificação periódica da eficácia do programa. 
+     Lembrando que, em muitos casos, os EPIs podem ser o último e único meio disponível 
+     ou aplicável para preservação da saúde dos trabalhadores.
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  Considerando que no citado Manual, no Capitulo II – Agentes Nocivos, que trata 
+  do agente físico ruído, orienta-se para a não descaracterização da contagem de tempo 
+  especial pela utilização dos EPIs como segue em seu item 2.6.4.5: 
+  “Portanto, permanece obrigatória a informação do EPI a partir de 3 de 
+  dezembro de 1998. Caso o segurado esteja exposto ao agente nocivo ruído acima dos 
+  limites de tolerância, a informação sobre o EPI não descaracterizará o 
+  enquadramento como atividade especial, independentemente do período laborado, 
+  desde que atendidas as demais exigências.” 
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  A ABHO torna pública essa moção, tal qual aprovada na referida plenária, 
+  objetando energicamente quanto à consideração da “ineficácia dos equipamentos de 
+  proteção individual” nesse contexto.  
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  Vale ressaltar que a supressão de meios tecnicamente válidos de prevenção de 
+  doenças ocupacionais e de acidentes do trabalho, como o uso correto de equipamentos 
+  de proteção auditiva, que contam com o respaldo de entidades internacionais de 
+  proteção, tais como OIT, OMS e ISSO, não encaminham obrigatoriamente para a 
+  adoção de outras práticas de proteção, mas sim em possível desestímulo à sua adoção 
+  pelos empregadores, o que vem em prejuízo dos próprios trabalhadores. 
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  A ABHO, desde já, se coloca à disposição do INSS, bem como das 
+  demais entidades e personalidades envolvidas para assessorar e elucidar sobre a 
+  proteção que é possível obter por intermédio do uso de protetores auriculares.     
+    
+</p>
+          
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+              
+<strong>ANEXO C – Nota Técnica 263 da CGNOR  </strong><br> <br> 
+<strong>I. OBJETIVO</strong><br>
+1.  Emitir manifestação técnica em atendimento à consulta da Secretaria de Previdência, do Ministério do Trabalho e
+Previdência, rela va à eficácia dos Equipamentos de Proteção Individual – EPI, de acordo com as informações
+prestadas no formulário do PPP (Perfil Profissiográfico Previdênciário).   
+</p>
+     
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  <strong>II. DESCRIÇÃO DA SOLICITAÇÃO RECEBIDA</strong><br> 
+  2.  Em 22 de dezembro de 2021, o Sr. Leonardo José Rolim Guimarães, Secretário de Previdência, do Ministério do
+  Trabalho e Previdência, encaminhou mensagem ao Sr. Felipe Mêmolo Portela, Presidente da Fundacentro,
+  informando tratar-se de solicitação da Coordenação-Geral de Matéria de Bene cios, da Procuradoria Federal
+  Especializada junto ao Ins tuto Nacional do Seguro Social - PFE/INSS, sobre Eficácia de EPI (Equipamento de Proteção
+  Individual) prestada no PPP (Perfil Profissiográfico Previdenciário). Informa que a Subsecretaria do Regime Geral de
+  Previdência Social, da Secretaria de Previdência já havia se manifestado por meio da Nota Técnica SEI nº
+  60809/2021/ME, mas que, em atendimento à sugestão da Procuradoria Federal Especializada junto ao Ins tuto
+  Nacional do Seguro Social - PFE/INSS solicitava manifestação da Fundacentro sobre os seguintes pontos:   
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  I) se para provar a eficácia ou ineficácia do EPI (Equipamento de Proteção Individual), para a neutralização dos
+  agentes nocivos à saúde e integridade sica do trabalhador, para fins de reconhecimento de tempo especial, basta o
+  que consta no PPP (Perfil Profissiográfico Previdenciário), ou se a comprovação pode ser por outros meios
+  probatórios e, nessa úl ma circunstância, se a prova pericial é obrigatória; E          
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  II) se a ineficácia do EPI pode ser aferida em abstrato por espécie de agente nocivo ou se sempre demanda a análise
+  da peculiaridade do caso concreto. 
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+ <strong> III. AVALIAÇÃO DA SOLICITAÇÃO</strong><br>
+ 3.  Inicialmente, é necessário definir o que se entende por eficácia do EPI. Segundo o disposto na Nota Técnica SEI nº
+ 60809/2021/ME, da Coordenação de Reabilitação Profissional e Bene cios por Incapacidade, da Coordenação-Geral
+ de Bene cios de Risco e Reabilitação Profissional, da Subsecretaria do Regime Geral de Previdência Social, da
+ Secretaria de Previdência, do Ministério do Trabalho e Previdência, “eficácia para fins previdenciários corresponde à
+ sua capacidade de eliminar ou neutralizar a nocividade do agente ensejador da aposentadoria especial"
+
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  4.  Se a eficácia do EPI está relacionada à capacidade do EPI em eliminar ou neutralizar a nocividade do agente
+  ensejador da aposentadoria especial, então a ineficácia está relacionada à incapacidade do EPI em eliminar ou
+  neutralizar a nocividade do agente ensejador da aposentadoria especial.
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  5.  De acordo com o Decreto 10.410, de 30/06/2020, Art. 64 (BRASIL, 2020),
+
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  “§ 1º  A efe va exposição a agente prejudicial à saúde configura-se quando, mesmo após a adoção das medidas de
+  controle previstas na legislação trabalhista, a nocividade não seja eliminada ou neutralizada.<br>
+  § 1º-A Para fins do disposto no § 1º, considera-se:
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  I - eliminação - a adoção de medidas de controle que efe vamente impossibilitem a exposição ao agente prejudicial à
+  saúde no ambiente de trabalho; E<br>
+  II - neutralização - a adoção de medidas de controle que reduzam a intensidade, a concentração ou a dose do agente
+  prejudicial à saúde ao limite de tolerância previsto neste Regulamento ou, na sua ausência, na legislação trabalhista".
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  6.  O Art. 68 desse Decreto (BRASIL, 2020) estabelece que “A relação dos agentes químicos, sicos, biológicos, e da
+  associação desses agentes, considerados para fins de concessão de aposentadoria especial, é aquela constante do
+  Anexo IV”. O Anexo IV consta do Decreto 3.048, de 06 de maio de 1999 (BRASIL, 1999). Os agentes nocivos
+  estabelecidos nesse Anexo são iden ficados como:
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  I) agentes químicos, cons tuídos de: arsênio e seus compostos; asbestos; benzeno e seus composto tóxicos; berílio
+ e seus compostos tóxicos; bromo e seus compostos tóxicos; cádmio e seus compostos tóxicos; carvão mineral e seus
+ derivados; chumbo e seus compostos tóxicos; cloro e seus compostos tóxicos; cromo e seus compostos tóxicos;
+ dissulfeto de carbono; fósforo e seus compostos tóxicos; iodo; manganês e seus compostos; mercúrio e seus
+ compostos; níquel e seus compostos tóxicos; petróleo, xisto betuminoso, gás natural e seus derivados; sílica livre;
+ es reno; butadieno-es reno; acrilonitrila; 1-3 butadieno; cloropreno; mercaptanos; n-hexano; diisocianato de
+ tolueno (TDI); aminas aromá cas; aminobifenila; auramina; aza oprina; bis (cloro me l) éter; 1-4 butanodiol;
+ dimetanosulfonato (mileran); ciclofosfamida; cloroambucil, die les l-bestrol, acronitrila, nitrona ilamina 4-dime l
+aminoazobenzeno, benzopireno; beta-propiolactona; biscloroe leter; bisclorome l; clorome leter; dianizidina;
+ diclorobenzidina; die lsulfato; dime lsulfato; e lenoamina; e leno ureia; fenace na; iodeto de me la;
+ e lnitrosuréias; me leno-ortocloroanilina (moca); nitrosamina; ortotoluidina; oxime-talona; procarbazina;
+ propanosultona; óxido de e leno; es lbenzeno; creosoto; 4-aminodifenil; benzidina; betana ilamina; 1-cloro-2; 4 
+nitrodifenil; 3-poxipro-pano;
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  II) agentes sicos, cons tuídos de: ruído; vibrações; radiações ionizantes; temperaturas anormais; pressão
+  atmosférica anormal;<br>
+  III) agentes biológicos, cons tuídos de: microorganismos e parasitas infecto-contagiosos vivos e suas toxinas; E<br>
+  IV) associação de agentes sicos, químicos e biológicos<br>
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  7.  A Norma Regulamentadora 6 – Equipamento de Proteção Individual - EPI (BRASIL, 2001), no item 6.1 define EPI
+  como “... todo disposi vo ou produto, de uso individual u lizado pelo trabalhador, des nado à proteção de riscos
+  susce veis de ameaçar a segurança e a saúde no trabalho".
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  8.  O item 6.3 dessa norma estabelece as circunstâncias em que os EPIs podem ser u lizados: “A empresa é obrigada
+  a fornecer aos empregados, gratuitamente, EPI adequado ao risco, em perfeito estado de conservação e
+  funcionamento, nas seguintes circunstâncias: a) sempre que as medidas de ordem geral não ofereçam completa
+  proteção contra os riscos de acidentes do trabalho ou de doenças profissionais e do trabalho; b) enquanto as
+  medidas de proteção cole va es verem sendo implantadas; e c) para atender a situações de emergência".
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  9.  Nem todo equipamento u lizado pelo trabalhador (avental, por exemplo) é considerado um EPI. Os
+   equipamentos que são considerados EPI são previstos no item 6.4 da NR 06: “Atendidas as peculiaridades de cada
+   a vidade profissional, e observado o disposto no item 6.3, o empregador deve fornecer aos trabalhadores os EPI
+   adequados, de acordo com o disposto no ANEXO I desta NR".
+
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  10.  Os EPIs estabelecidos no Anexo I da NR 6 são iden ficados como:
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  A) EPI para proteção da cabeça: capacete, capuz ou balaclava;
+
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  A) EPI para proteção da cabeça: capacete, capuz ou balaclava;
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  B) EPI para proteção dos olhos e face: óculos, protetor facial, máscara de solda;
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  C) EPI para proteção audi va: protetor audi vo;
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  D) EPI para proteção respiratória: respirador purificador de ar não motorizado, respirador purificador de ar
+  motorizado, respirador de adução de ar po linha de ar comprimido; respirador de adução de ar po máscara
+  autônoma, respirador de fuga;</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  E) EPI para proteção do tronco: vesmentas, colete à prova de balas de uso permi do para vigilantes que
+  trabalhem portando arma de fogo, para proteção do tronco contra riscos de origem mecânica;</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  F) EPI Para proteção dos membros superiores: luvas, creme protetor, manga, braçadeira, dedeira;
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  G) EPI para proteção dos membros inferiores: calçado, meia, perneira, calça;
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  H) EPI para proteção do corpo inteiro: macacão, vesmenta de corpo inteiro;
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+  I) EPI para proteção contra quedas com diferença de nível: cinturão de segurança com disposi vo trava-queda,
+  cinturão de segurança com talabarte.</p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    11.  Assim, considerando o disposto nos itens 6.1, 6.3 e 6.4 da NR 06, a seleção de qualquer EPI pressupõe a
+    iden ficação prévia das fontes de riscos existentes no ambiente de trabalho. Somente após essa iden ficação,
+    avaliação dos riscos que tais fontes representam para o trabalhador e a implementação de medidas que visem à
+    eliminação/redução do risco associado é que se deve selecionar o EPI adequado para neutralizar tal exposição do
+    trabalhador. Sem a adoção de tais medidas, não se pode considerar que um EPI foi selecionado de forma adequada.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    12.    Algumas fontes de riscos podem ser facilmente neutralizadas pelo uso de um EPI, como, por exemplo: impactos
+    de quedas de objetos sobre a cabeça do trabalhador podem  ser neutralizados com o uso de capacetes de segurança
+    para uso industrial; impactos de par culas volantes nos olhos do trabalhador podem  ser neutralizados com o uso de
+    óculos de segurança; lesões devidas ao manuseio de objetos abrasivos (madeiras e vergalhões na indústria da
+    construção, por exemplo) podem ser evitadas com o uso de luvas de raspa. É necessário frisar que tais EPIs não
+    oferecem proteção ilimitada contra os agentes agressivos para os quais forma projetados. Por exemplo, não se pode
+    esperar que um capacete de segurança para uso industrial seja capaz de resis r a impactos de todos e quaisquer
+    objetos, independentemente da altura de queda ou massa do objeto, sem ocorrer algum dano ao usuário.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    13.  Em outros casos, a neutralização da fonte de risco pelo EPI não é facilmente observável. Incluem-se nestes casos
+    o alto nível de ruído, que pode causar perda audi va, e a presença de contaminantes sob a forma de aerossóis e
+    gases e vapores que, quando inalados, podem provocar danos à saúde do trabalhador. Podem ser incluídos, também,
+    entre os riscos respiratórios, a presença de ar com deficiência de oxigênio e a presença de agentes biológicos capazes
+    de provocar doenças de transmissão por aerossóis.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    14.  Essa caracterís ca é um fator importante na análise das questões apresentadas na consulta, isto é:
+
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    I) se para provar a eficácia ou ineficácia do EPI (Equipamento de Proteção Individual), para a neutralização dos
+    agentes nocivos à saúde e integridade sica do trabalhador, para fins de reconhecimento de tempo especial, basta o
+    que consta no PPP (Perfil Profissiográfico Previdenciário), ou se a comprovação pode ser por outros meios
+    probatórios e, nessa úl ma circunstância, se a prova pericial é obrigatória; e
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    II) se a ineficácia do EPI pode ser aferida em abstrato por espécie de agente nocivo ou se sempre demanda a
+    análise da peculiaridade do caso concreto.  
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    15.  Inicialmente, é necessário conhecer as informações rela vas ao uso de EPI que o formulário do PPP pode
+    fornecer. As informações rela vas às exposições a fontes de risco e formas de eliminação ou neutralização con das
+    no PPP são descritas no item 15 do formulário do Perfil Profissiográfico Previdenciário, constante do Anexo I, da
+    Instrução Norma va nº 85/Pres/INSS, de 18 de fevereiro de 2016 (BRASIL, 2016), conforme pode ser observado no
+    Quadro 1.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    Quadro 1 – Item 15, rela vo aos registros ambientais, extraído do formulário do Perfil Profissiográfico Previdenciário,
+    constante do Anexo I, da Instrução Norma va nº 85/Pres/INSS, de 18 de fevereiro de 2016.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/REGISTROS-AMBIENTAIS.png" alt="Hierarquia de medidas de controle">            
+
+</p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    16.  Considerando a relação de agentes agressivos previstos no Anexo IV do Decreto 3.048, de 06 de maio de 1999
+    (BRASIL, 1999) e as informações con das no item 15 do formulário do PPP (BRASIL, 2016), não é possível afirmar que
+    o EPI u lizado para proteção contra tais agentes seria eficaz ou não. 
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    17.  No caso da proteção contra a inalação dos agentes químicos, os EPIs indicados seriam equipamentos de
+    proteção respiratória:  respirador purificador de ar não motorizado, respirador purificador de ar motorizado,
+    respirador de adução de ar po linha de ar comprimido; respirador de adução de ar po máscara autônoma,
+    respirador de fuga.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    18.  Segundo a Instrução Norma va nº 1, de 1994, do então Ministério do Trabalho (BRASIL, 1994) “Art. 1º O
+    empregador deverá adotar um conjunto de medidas com a finalidade de adequar a u lização dos equipamentos de
+    proteção respiratória – EPR, quando necessário para complementar as medidas de proteção cole vas implementadas
+    ou enquanto as mesmas es verem sendo implementadas, com a finalidade de garan r uma completa proteção ao
+    trabalhador contra os riscos existentes no ambiente de trabalho". 
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    19.  O parágrafo 2º desse ar go estabelece que: “Para a adequada observância dos princípios previstos neste ar go,
+    o empregador deverá seguir, além do disposto nas Normas Regulamentadoras de Segurança e Saúde no Trabalho, no
+    que couber, as recomendações da Fundação Jorge Duprat Figueiredo de Medicina e Segurança do Trabalho 
+   Fundacentro con das na publicação in tulada “Programa de proteção respiratória – Recomendações, seleção e uso
+    de respiradores ..."".
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    20.  Em 2021, a publicação “Programa de proteção respiratória – Recomendações, seleção e uso de respiradores”, da
+    Fundacentro, também conhecida como PPR, foi incluída da Portaria 672, de 08 de novembro de 2021 (BRASIL, 2021)
+    que, dentre outras medidas, revogou a IN 01/1994 (BRASIL, 1994). 
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    21. Dentre os vários elementos do PPR (TORLONI, 2016), dois se destacam na avaliação se um respirador foi
+ selecionado de forma adequada: o procedimento para a seleção dos respiradores e o ensaio de vedação. Não é
+ possível obter os dados para a avaliação desses dois elementos a par r das informações con das no PPP.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    22.  De maneira geral, na seleção de respiradores é necessário esmar dois parâmetros: o Fator Mínimo de Proteção
+    Requerido (FMPR) e o Fator de Proteção Atribuído (FPA). O FPMR é o quociente entre a concentração do
+    contaminante no ambiente e o seu limite de exposição. O FPA é o nível mínimo de proteção respiratória que se
+    espera alcançar no local de trabalho, para uma porcentagem especificada de usuários treinados, proporcionado por
+    um respirador apropriado (ou classe de respirador) em bom estado e ajustado corretamente no rosto, usado durante
+    todo o tempo que o usuário permanece na área contaminada. De modo genérico, de posse desses dois parâmetros,
+    bastaria selecionar um respirador com o FPA maior que o FPMR. 
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    23.  Considerando o formulário do PPP, as informações que poderiam ser u lizadas para o cálculo do FPMR seria a
+ intensidade/concentração (item 15.4) do agente agressivo (fator de risco) considerado. De maneira geral, tal
+ concentração deveria ser dividida pelo limite de exposição do agente agressivo. O valor ob do deveria ser
+ comparado com o FPA do po de respirador descrito no CA indicado. Porém, de acordo com o PPR (TORLONI, 2016),
+ algumas situações ambientais contendo determinados contaminantes requerem a adoção de procedimentos
+ específicos para a seleção do respirador. O formulário do PPP não contém campos que possam fornecer informações
+ para aplicar tais procedimentos. Por exemplo, apenas a informação sobre a intensidade/concentração não permite
+ saber se um ambiente é IPVS (Imediatamente perigoso à vida e à saúde), que possui um procedimento específico
+ para a seleção do respirador indicado para tal situação. 
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    24.  A u lização dos parâmetros FPMR e FPA não é o único critério para a seleção do respirador. Um elemento
+    essencial em um programa de proteção respiratória e que é imprescindível na seleção adequada de um respirador é
+    o ensaio de vedação. Segundo o PPR da Fundacentro: “Todo usuário de respirador com vedação facial deve ser
+    subme do a um ensaio de vedação para determinar se o respirador selecionado se ajusta bem ao seu rosto. ... As
+    coberturas das vias respiratórias com vedação facial somente proporcionarão proteção adequada se vedarem de
+    modo sa sfatório a face do usuário, isto é, se forem aprovados nos ensaios de vedação. ... O resultado do ensaio de
+    vedação deve ser usado, entre outros parâmetros, na seleção de po, modelo e tamanho de respirador para cada
+    usuário” (TORLONI, 2016, p.50). 25.    O ensaio de vedação de respiradores é previsto em normas e regulamentos dos mais variados países, dentre os
+    quais podem ser citadas:  norma ISO 16975-3-Respiratory protec ve devices – Selec on, use and maintenance – Part
+    n3 – Fit-tes ng (ISO, 2017); documento Respiratory protec ve equipment at work – A prac cal guide (HSE, 2013);
+    Code of Federal Regula ons (Código de Regulamentos Federais), Title 29 – Labor, Sub tle B—Regula ons Rela ng to
+    Labor, Chapter XVII – Occupa onal Safety and Health Administra on, Department of Labor, Part 1910 – Occupa onal
+    Safety and Health Standards, Subpart I – Personal Protec ve Equipment, §1910.134- Respiratory Protec on, item (f)
+    (2) (EUA, 2022). Além disso, não basta a realização do ensaio de vedação apenas na seleção inicial do respirador. Ele
+    deve ser realizado, no mínimo, a cada 12 meses e deve ser repe do toda vez que o usuário apresentar uma alteração
+    de condição que possa interferir na vedação, como, por exemplo, alteração de 10% ou mais da massa corpórea,
+    aparecimento de cicatriz na área de vedação, alteração na arcada dentárias (perda de dentes, prótese, etc.), cirurgia
+    reconstru va, etc.    
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    26.  A respeito da frequência de realização do ensaio de vedação, estudo publicado em 2016 por pesquisadores do
+    Na onal Ins tute for Occupa onal Safety and Health - Na onal Personal Protec ve Technology Laboratory e da West
+    Virginia University avaliou alterações na vedação de respiradores N95 (equivalentes à PFF2 no Brasil) com o passar
+    do tempo e a relação entre a vedação e alterações de peso dos usuários. Neste estudo, foi demonstrado que a
+    mudança do peso ao longo do tempo, com a consequente variação das dimensões faciais do usuário, pode provocar
+    uma diminuição do ajuste adequado dos respiradores N95 à face dos usuários, em especial para os casos de perda
+    de peso superior a 9 Kg (20 lb), nos quais 24% dos usuários veram vedação inaceitável no ensaio de vedação. O
+    estudo mostra que os riscos da diminuição da vedação na face do usuário são maiores à medida que se aumenta o
+    intervalo entre os ensaios de vedação: quando o ensaio foi realizado anualmente, o percentual de usuários com
+    ajuste inaceitável foi de 10,4%; quando o ensaio foi realizado no intervalo de 2 anos, o percentual de usuários com
+    risco de ajuste inaceitável foi de 19,7%; finalmente, no caso de o ensaio ser feito com o intervalo de 3 anos, o
+    percentual de usuários com risco de ajuste inaceitável aumentou para 25,4% (ZHUANG et al, 2016). Esse estudo
+    reforçou a recomendação da Occupa onal Safety and Health Administra on (OSHA – EUA) para a realização anual de
+    ensaios de vedação de respiradores (CDC, 2021).
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    27.  Assim, considerando apenas esses dois elementos do PPR e as informações disponíveis no PPP, não é possível
+ afirmar se um respirador é eficaz ou ineficaz para neutralizar a inalação de gentes nocivos à saúde e integridade sica
+ do trabalhador. Essa avaliação requer uma análise detalhada das concentrações dos agentes nocivos e a verificação
+ se todos os procedimentos estabelecidos no PPR foram implementados.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    28.  Quanto ao agente sico ruído, o EPI indicado para proteção contra altos níveis de ruído, que podem causar perda
+    auditiva, é o protetor audi vo, que pode ser do tipo concha ou de inserção.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    29.  De modo genérico, a seleção de um protetor audi vo deveria considerar a atenuação do protetor, o valor do
+ nível de pressão sonora (ou nível de ruído) do ambiente de trabalho e o limite de exposição a esse nível de ruído. De
+ posse da atenuação, subtrair-se-ia o valor do nível de pressão sonora medido no ambiente de trabalho e verificar-se
+ia se o resultado está abaixo do limite de exposição para a jornada de trabalho. No Brasil, o limite de exposição é de
+ 85 dBA para uma jornada de 8 horas, conforme estabelecido no Anexo 1 da Norma Regulamentadora 15 (BRASIL,
+ 1978).
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    30.  A atenuação de um protetor audi vo é medida de acordo com a norma da ABNT NBR 16076/2020 (ABNT, 2020).
+    Os resultados de atenuação são apresentados na forma de uma tabela de atenuação. Essa tabela apresenta a
+    atenuação média, em dB (decibel), e o respec vo desvio padrão, em dB, ob da nas seguintes frequências: 125 Hz,
+    250 Hz, 500 Hz, 1.000Hz, 2.000 Hz, 4.000 Hz e 8.000 Hz. A par r desses valores de atenuação, também é possível
+    calcular um número único de atenuação, iden ficado como NRRsf, conforme pode ser observado nos Cer ficados de
+    Aprovação de protetores audi vos (BRASIL, 2022).
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    31.  No campo 15.4 do formulário do PPP deve constar a concentração/intensidade do agente agressivo, no caso
+    ruído, de acordo com o Anexo IV do Decreto 3.048, de 06 de maio de 1999 (BRASIL, 1999). Essa
+    concentração/intensidade deve ser informada com até quinze caracteres alfanuméricos (BRASIL, 2016). Não é
+    informada a unidade de medida que deve ser u lizada na indicação da intensidade de ruído: dB, dBA ou dBC. Porém,
+    o que se pode afirmar é que a indicação da intensidade não será por faixa de frequência, pois isso não seria possível
+    com apenas 14 caracteres alfanuméricos. 
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    32.  De acordo com a norma ABNT NBR 16077/2021 (ABNT, 2021), a esma va do nível de exposição com proteção
+    pode ser calculada por dois métodos: método longo e método simplificado. O método longo leva em conta o
+    espectro do ruído presente no ambiente e deve ser u lizado quando os dados necessários para o cálculo puderem
+    ser medidos. Caso contrário, pode ser u lizado o método simplificado, que é uma aproximação calculada, baseado
+    em um número único de atenuação do protetor audi vo. Visto que as esma vas u lizam valores diferentes, os dois
+    métodos podem fornecer resultados finais de esma vas de atenuação dis ntos.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    33.  Para o método longo são necessários os seguintes dados:
+
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    a) níveis de exposição, em dBA, por banda de oitava, medidos nas frequências de 125 Hz, 250 Hz, 500 Hz, 1.000
+ Hz, 2.000 Hz, 4.000 Hz e 8.000 Hz;
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+    b) dados de atenuação média, em dB, e desvios-padrão, em dB, por banda de frequência do protetor audi vo.
+
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    34.  Para o método simplificado, isto é, baseado em um número único, são necessários apenas os dados de
+    atenuação média, em dB, e desvios-padrão, em dB, do protetor audi vo em cada uma das seguintes bandas de
+    oitava: 125 Hz, 250 Hz, 500 Hz, 1.000 Hz, 2.000 Hz, 4.000 Hz e 8.000 Hz. A par r desses valores, calcula-se o nível de
+    redução de ruído, conhecido como NRR. Quando a medida de atenuação do protetor é realizada com pessoas e estas, durante a realização dos ensaios no laboratório, fazem a colocação e ajustes do protetor de acordo com as
+    orientações dos fabricantes, sem interferência do técnico que realiza os ensaios, o número único de redução de ruído
+    é iden ficado como NRRsf (“sf” é a abreviatura do termo em inglês “subject fit”, que significa ajustado pelo sujeito).
+    Segundo a norma ABNT NBR 16077/2021 (BRASIL, 2021), u lizando-se o número único de atenuação do protetor
+    audi vo, bastaria subtrair esse valor do nível de ruído medido no ambiente. O resultado seria o nível de exposição a
+    que o usuário do protetor estaria exposto, medido em dBA. Este resultado, por sua vez, seria comparado com os
+    limites de exposição estabelecidos no Anexo 1 da NR 15.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    35.   Embora a norma ABNT NBR 16077/2021 apresente dois métodos de cálculo de esma va de exposição com o
+    uso do protetor audi vo, não existe, na regulamentação legal brasileira da área de segurança e saúde no trabalho,
+    qualquer recomendação para a adoção de tais métodos.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    36.  Nos EUA, a Occupa onal Safety and Health Administra on (OSHA) recomenda u lizar um de dois métodos para
+    esmar a exposição com o uso do protetor audi vo, conforme estabelecido no Code of Federal Regula ons (Código
+    de Regulamentos Federais), Title 29 – Labor, Sub tle B—Regula ons Rela ng to Labor, Chapter XVII – Occupa onal
+    Safety and Health Administra on, Department of Labor, Part 1910 – Occupa onal Safety and Health Standards,
+    Subpart G – Occupa onal Health and Environmental Control, §1910.95- Occupa onal noise exposure, Appendix B
+    (EUA, 2022).  O método mais conveniente é o que u liza o Noise Reduc on Ra ng (NRR) desenvolvido pela
+    Environmental Protec on Agency (EPA). De acordo com o regulamento da EPA, o NRR deve ser mostrado na
+    embalagem do protetor audi vo. O NRR é então subtraído do nível de ruído ambiental ao qual o trabalhador está
+    exposto, para avaliar a adequação da atenuação do protetor audi vo. Em vez de usar o NRR, os empregadores
+    podem avaliar a adequação da atenuação do protetor audi vo usando os valores de atenuação do protetor,
+    discriminados por faixas de frequência de uma oitava, e os níveis de ruído medidos nessas mesmas faixas no
+    ambiente em que o protetor será u lizado. De acordo com a OSHA, os métodos que u lizam os valores de atenuação
+    dos protetores e os níveis de ruído por faixa de frequência são mais complexos, porém são mais precisos na
+    esma va do nível de exposição ao qual o usuário do protetor estará exposto, pois usa uma maior quan dade de
+    informações espectrais do ruído no ambiente.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    37.  Na União Europeia, a norma EN 458/2016 (CEN, 2016) também apresenta métodos para a esma va da
+    atenuação efe va proporcionada por um protetor audi vo. Os métodos recomendados u lizam valores de
+    atenuação do protetor, discriminados por faixas de frequência de uma oitava e os níveis de ruído medidos nessas
+    mesmas faixas no ambiente em que o protetor será u lizado. Também são apresentados métodos para o cálculo de
+    um número único de atenuação do protetor audi vo. A ISO também apresenta métodos semelhantes na norma ISO
+    4869-2/2018 (ISO, 2018).
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    38.  Os regulamentos descritos mostram que a esma va de exposição efe va de usuários de protetores audi vos
+    envolve cálculos complexos e requerem informações que não são disponibilizadas no formulário do PPP. Outra
+    observação presente nos regulamentos e em estudos cien ficos (GROENEWOLD et al, 2014) é que os valores de
+    atenuação calculados refletem valores realistas apenas na medida em que os protetores estão devidamente
+    ajustados e usados durante todo o período de exposição ao ruído.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    39.  A u lização de protetores audi vos apresenta uma caracterís ca muito semelhante à de respiradores: o ajuste
+    do protetor audi vo ao usuário é essencial para se obter uma atenuação próxima àquela ob da nos ensaios de
+    laboratório.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    40.  Porém, no caso de proteção audi va, não existe, no Brasil, regulamentos ou procedimentos de uso semelhantes
+    ao que existe para proteção respiratória, isto é, tornados obrigatórios por meio de uma instrução norma va portaria
+    ou outro regulamento legal. Desconhece-se a recomendação de adoção de um programa de conservação audi va
+    (PCA) nos regulamentos da legislação trabalhista nos moldes do programa de proteção respiratória. Em 2018, a
+    Fundacentro publicou o documento “Guia de diretrizes e parâmetros mínimos para a elaboração e a gestão do PCA”
+    (CUNHA, 2018), que apresenta orientações para a estruturação e a implementação de um PCA que disponha de
+    componentes mínimas necessárias para um gerenciamento efe vo dos riscos de modo a evitar o desencadeamento
+    e o agravamento das perdas audi vas ocupacionais. Segundo tal documento, um PCA deveria conter os seguintes
+    elementos: Introdução e obje vos; Polí ca da empresa quanto à conservação audi va; Responsabilidades e
+    competências para gerenciar o programa; Avaliação da exposição; Gerenciamento audiológico e controle médico;
+    Medidas de controle cole vo; Gestão de Equipamentos de Proteção Audi va; Educação/capacitação e mo vação de
+    trabalhadores e demais envolvidos no programa; Manutenção de registros; e Avaliação do programa.
+  </p>
+  
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    41.  Considerando o exposto sobre o uso de protetores audi vos e, da mesma forma como foi apresentada a análise
+ referente ao uso de equipamentos de proteção respiratória, não é possível afirmar se um protetor audi vo é eficaz
+ ou ineficaz para neutralizar a exposição do trabalhador a altos níveis de ruído apenas com as informações constantes
+ no formulário do PPP.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>CONCLUSÃO</strong> 
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    42. Do exposto, pode-se concluir que:
+
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    a) não é possível provar a eficácia ou ineficácia dos Equipamentos de proteção Individual (EPI) para a neutralização
+    dos agentes nocivos à saúde e integridade sica do trabalhador apenas com as informações que constam no
+    formulário do PPP. Essas informações são insuficientes para a realização de uma avaliação precisa;
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    b) a avaliação da eficácia, ou ineficácia, de um EPI não pode ser aferida por espécie de agente nocivo, pois todo EPI,
+    por mais simples que seja, oferece proteção limitada contra o agente nocivo para o qual foi projetado. Como citado
+    anteriormente, não se pode esperar que um capacete de segurança seja capaz de resis r ao impacto da queda de
+    qualquer objeto, independentemente da massa e forma, sobre a cabeça do usuário. Assim, a avaliação sempre
+    demanda a análise das variáveis presentes em cada caso concreto.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    43.  
+    Tal conclusão corrobora aquela já apresenta pelo Ministério do Trabalho na Nota Técnica nº
+     263/2017/CGNOR/DSST/SIT (ABNT/CB 32, 2019), que afirma que: "A comprovação da eficácia de EPI, e consequente
+     neutralização de agentes nocivos, não pode ser demonstrada de forma confiável somente pelo preenchimento do
+     formulário de Perfil Profissiográfico Previdenciário, indicando o uso de EPI eficaz (resposta "S" no campo próprio) e
+     registrando o respec vo CA - Cer ficado de Aprovação, requerendo-se dados fá cos ob dos em diligências periciais
+     e/ou de fiscalização, especialmente a descrição do po de equipamento u lizado, intensidade de proteção
+     proporcionada ao trabalhador, treinamento, uso efe vo do equipamento e a fiscalização pelo empregador".
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    REFERÊNCIAS
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    ABNT (Associação Brasileira de Normas Técnicas). ABNT NBR 16077/2021 - Equipamento de proteção individual 
+    Protetores audi vos - Método de cálculo do nível de pressão sonora na orelha protegida. Rio de Janeiro: ABNT, 2021.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    ABNT (Associação Brasileira de Normas Técnicas). ABNT NBR 16076/2020 - Equipamento de proteção individual 
+    Protetores audi vos ― Medição de atenuação de ruído com métodos de orelha real. Rio de Janeiro: ABNT, 2020.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Cer ficado de Aprovação de Equipamento de Proteção Individual. [Brasília, DF: 2022]. Disponível em: <
+    Ministério do Trabalho e Emprego - Cer ficado de Aprovação de Equipamento de Proteção Individual (mte.gov.br)>.
+    Acesso em: 11 jan. 2022.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Ministério do Trabalho e Previdência. Portaria nº 672, de 08 de novembro de 2021 - Disciplina os
+    procedimentos, programas e condições de segurança e saúde no trabalho e dá outras providências. [Brasília, DF:
+    2021]. Disponível em: <
+    PORTARIA Nº 672, DE 8 DE NOVEMBRO DE 2021 - PORTARIA Nº 672, DE 8 DE NOVEMBRO DE
+    2021 - DOU - Imprensa Nacional (in.gov.br)>. Acesso em: 06 jan. 2022.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Decreto 10.410, 30 de junho de 2020 - Altera o Regulamento da Previdência Social, aprovado pelo Decreto
+    n o3.048, de 6 de maio de 1999. [Brasília, DF: 2020]. Disponível em: <
+    D10410 (planalto.gov.br)>. Acesso em: 04 jan.
+    2022.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Ministério do Trabalho. Anexo C – Nota Técnica 263 da CGNOR. In: ABNT/CB 32 - CE-32:001.001 – Comissão
+    de Estudo – Equipamentos de Proteção Audi va. Relatório Técnico Eficácia do Protetor Audi vo: Aspectos Técnicos
+    e Legais. São Paulo, 2019. P. 30-42. Disponível em: < 
+   publicacoes-tecnicas-protetor-audi vo.pdf (animaseg.com.br) >.
+    Acesso em: 12 jan. 2022.
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Ins tuto Nacional do Seguro Social. Anexo I – Instrução Norma va nº 85/Pres/INSS, de 18 de fevereiro de
+    2016 – Perfil Profissiográfico Previdenciário – PPP. [Brasília, DF: 2016]. Disponível em: <
+    h ps://www.gov.br/inss/pt
+   br/centrais-de-conteudo/legislacao/in85presinssanexoi-ppp-pdf/view>. Acesso em: 04 jan. 2022
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Ministério do Trabalho e Emprego. Portaria nº 25, de 15 de outubro de 2001 - Altera a norma
+    regulamentadora que trata de equipamento de proteção individual – NR6 e dá outras providências. [Brasília, DF:
+    2001]. Disponível em: < 
+   NR 6 - Equipamento de Proteção Individual - EPI (www.gov.br) >. Acesso em: 04 jan. 2022.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Decreto 3.048, 06 de maio de 1999 - Aprova o Regulamento da Previdência Social, e dá outras providências.
+    [Brasília, DF: 1999]. Disponível em: < 
+   D3048 (planalto.gov.br)>. Acesso em: 04 jan. 2022.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Ministério do Trabalho. Instrução Norma va SSST/MTb nº 1, de 11 de abril de 1994. [Brasília, DF: 1994].
+    Disponível 
+   em:
+    <htpps://sit.trabalho.gov.br/portal/images/SST/SST_Legislacao/SST_portarias_1994/Instrucao_Norma va_01_PPR.pdf>.
+    Acesso em: 22 mar. 2021.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    BRASIL. Ministério do Trabalho. Portaria 3.214, 06 de junho de 1978 - Aprova as Normas Regulamentadoras - NR - do
+    Capítulo V, Título II, da Consolidação das Leis do Trabalho, rela vas a Segurança e Medicina do Trabalho [Brasília, DF:
+    1978]. Disponível em: < Portaria_3.214_aprova_as_NRs.pdf — Português (Brasil) (www.gov.br)>. Acesso em: 04 jan.
+    2022.
+   
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    CDC (Centers for Disease Control and Preven on). New NIOSH study supports the OSHA annual fit tes ng
+    requirements for filtering facepiece respirators. Disponível em: <htpps://blogs.cdc.gov/niosh-science
+   blog/2016/01/05/fit-tes ng/>. Acesso em: 21 mar. 2021.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    CEN (European Commi ee for Standardiza on). EN 458:2016 - Hearing protectors - Recommenda ons for selec on,
+    use, care and maintenance - Guidance document. Brussels: CEN, 2016.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    Cunha, Irlon de Ângelo (coord.); Shibuya, Elisa Kayo et. al. Guia de diretrizes e parâmetros mínimos para a
+    elaboração e gestão do Programa de Conservação Audi va (PCA). São Paulo: Fundacentro, 2018.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    EUA. e-CFR – Code of Fedral Regula ons. Disponível em: <
+    Electronic Code of Federal Regula ons (eCFR)>. Acesso
+    em: 06 jan. 2022  
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    Groenewold, M. R., Masterson, E. A., Themann, C. L., Davis, R, R. Do hearing protectors protect hearing? American
+    Journal of Industrial Medicine. Vol. 57: 1001-1010, 2014.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    HSE (Health and Safety Execu ve). Respiratory protec ve equipment at work – A prac cal guide. Disponível em: <
+    Respiratory protec ve equipment at work: A prac cal guide HSG53 (hse.gov.uk) >. Acesso em: 06 jan. 2022.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    ISO (Interna onal Organiza on for Standardiza on). ISO 4869-2- Acous cs — Hearing protectors – Part2: Esma on
+    of effec ve A-weighted sound pressure levels when hearing protectors are worn. Geneva: ISO, 2018.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    ISO (Interna onal Organiza on for Standardiza on). ISO 16975-3-Respiratory protec ve devices – Selec on, use and
+    maintenance – Part n3 – Fit-tes ng procedures. Geneva: ISO, 2017.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    Torloni, M. (coord.); Vieira, A. V.; Nicolai, S. H. A; Aquino, J. D.; Algran , E. Programa de proteção respiratória:
+    recomendações seleção e uso de respiradores. 4s. ed. – São Paulo: Fundacentro, 2016.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    Zhuang Ziging; Michael Bergman; Elizabeth Brochu; Andrew Palmiero; George Niezgoda; Xinjian He; Raymond
+    Roberge & Ronald Shaffer. Temporal changes in filteringfacepiece respirator fit. Journal of Occupa onal and
+    Environmental Hygiene, 13:4, 265-274, DOI: 10.1080/15459624.2015.1116692. 2016.
+  </p>
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    À consideração superior.<br><br>
+    São Paulo, 12 de janeiro de 2022.<br><br>
+    JOSÉ DAMÁSIO DE AQUINO<br><br>
+ Chefe do Serviço de Laboratório de EPI<br><br>
+
+  </p>
+  <br>     
+  <br>
+  <br>
+  <br>     
+    <br>
+    <br>
+    <br>     
+    <br>
+    <br>
+    <br>     
+      <br>
+      <br>
+      <br>     
+      
+   
+
+      
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+   <strong>7 - ASSINATURA DO RESPONSÁVEL</strong> 
+    </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+ 
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: center;">
+      <img src= "https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/assinatura-jesse-1.png" alt="Hierarquia de medidas de controle">            
+    </p>
+
+    <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>8 - CERTIFICADO DO RESPONSÁVEL</strong> 
+     </p>
+    
+     
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/certificado-1.png" alt="Hierarquia de medidas de controle">            
+  </p>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/certificado-2.png" alt="Hierarquia de medidas de controle">            
+  </p>
+
+<br><br><br><br><br><br>
+
+
+
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      <strong> 9 - REGISTRO PROFISSIONAL</strong> 
+       </p>
+       <br><br><br><br>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/cartao-tecnico-de-seguranca.png" alt="Hierarquia de medidas de controle">            
+</div>
+
+
+  </div>
+  
+  
+  <div class="row button-row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2 text-center">
+      <button class="btn btn-success" onclick="window.print()">Imprimir PCA</button>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
+  

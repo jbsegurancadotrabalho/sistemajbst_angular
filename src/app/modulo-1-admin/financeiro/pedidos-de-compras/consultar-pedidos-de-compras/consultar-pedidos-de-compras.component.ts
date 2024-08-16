@@ -122,7 +122,7 @@ mesAtual: number = (new Date()).getMonth();
   onDelete(idPedidos: number, nomefantasia: string): void {
     if(window.confirm('Deseja realmente excluir o Pedidos selecionado?\n' + nomefantasia)) {
       //enviando uma reqquisição para o serviço de exclusão da API
-      this.httpClient.delete('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/' + idPedidos)
+      this.httpClient.delete('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/' + idPedidos)
         .subscribe({
           next: (data: any) => {
             this.ngOnInit();
@@ -150,7 +150,7 @@ mesAtual: number = (new Date()).getMonth();
 }
   abrirPedido(idPedido: string): void {
     this.httpClient
-      .put(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/reabrir/${idPedido}`, {})
+      .put(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/reabrir/${idPedido}`, {})
       .subscribe({
         next: (data: any) => {
           this.mensagem = 'Pedido aberto com sucesso!';
@@ -177,7 +177,7 @@ mesAtual: number = (new Date()).getMonth();
 
   fecharPedido(idPedido: string): void {
     this.httpClient
-      .put(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/fechar/${idPedido}`, {})
+      .put(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/fechar/${idPedido}`, {})
       .subscribe({
         next: (data: any) => {
           this.mensagem = 'Pedido fechado com sucesso!';
@@ -211,7 +211,7 @@ mesAtual: number = (new Date()).getMonth();
   
         // Enviar o formulário para o endpoint
         this.httpClient
-          .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cobranca/editar-cobranca', this.formEditarCobranca.value)
+          .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cobranca/editar-cobranca', this.formEditarCobranca.value)
           .subscribe({
             next: (data: any) => {
               const responsavelCobranca = data.responsavelCobranca; // Assuming this is how you get the faturamento number from the response

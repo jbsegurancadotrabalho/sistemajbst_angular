@@ -1,0 +1,51 @@
+<app-perfil-empresa></app-perfil-empresa>
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Solicitações de Suporte</h5>
+                </div>
+            </div>
+
+            <div class="row mb-2 mt-4">
+                <div class="col-md-9 mt-1">
+                    <h5>Chamados</h5>
+                </div>
+                <div class="col-md-3 mt-3" >
+                    <a href="consultar-chamado-cliente"
+                     class="btn btn-success"
+                     
+                     >Voltar</a>
+                   </div>
+            </div>
+
+            <hr />
+
+            <div class="table-responsive mt-2">
+                <table id="consulta_chamados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Status Chamado</th>                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of chamado"> 
+                            <td>{{ c.status_chamado }}</td>
+                        </tr>
+                    </tbody>
+
+                    <thead>
+                        <tr>
+                            <th>Resposta ao Chamado</th>                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of chamado"> 
+                            <td>{{ c.resposta_chamado }}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>

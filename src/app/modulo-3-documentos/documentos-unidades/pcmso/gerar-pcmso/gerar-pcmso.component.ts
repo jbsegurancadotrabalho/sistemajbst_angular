@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { DocumentosService } from 'src/app/services/documentos.service';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-gerar-pcmso',
   templateUrl: './gerar-pcmso.component.html',
   styleUrls: ['./gerar-pcmso.component.css']
 })
-export class GerarPcmsoComponent  implements OnInit {
+export class GerarPcmsoComponent implements OnInit {
 
-  associacoes: any = {}; // Usaremos um objeto único, pois parece que recebemos um objeto único da API
+  associacoes: any[] = []; // Modificado para uma lista para melhor gerenciamento de dados
   paginaAtual: number = 1;
   itensPorPagina = 10;
   filtro: any = { nome_empresas: '' };
@@ -30,7 +29,7 @@ export class GerarPcmsoComponent  implements OnInit {
       this.documentosService.gerarDocumentosPorId(id).subscribe(
         (data: any) => {
           console.log('Response data:', data); // Log the full response
-          this.associacoes = Array.isArray(data) ? data : [data]; // Adjust this line according to your API response structure
+          this.associacoes = Array.isArray(data) ? data : [data]; // Ajusta esta linha de acordo com a estrutura da resposta da API
           console.log('Associacoes fetched:', this.associacoes);
         },
         (error: any) => {

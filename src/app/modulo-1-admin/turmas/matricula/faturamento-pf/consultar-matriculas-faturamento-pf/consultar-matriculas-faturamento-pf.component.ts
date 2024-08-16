@@ -65,7 +65,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
 
   ngOnInit(): void {
     this.consultarMatriculas();
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/funcionarios/api/funcionarios/todos').subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/funcionarios/api/funcionarios/todos').subscribe({
       next: (data: any) => {
         this.funcionarios = Object.values(data) as any[];
       },
@@ -74,7 +74,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
       }
     });
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamento').subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamento').subscribe({
       next: (data: any) => {
         this.faturamentos = Object.values(data) as any[];
       },
@@ -83,7 +83,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
       }
     });
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/funcionarios/api/funcionarios/todos').subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/funcionarios/api/funcionarios/todos').subscribe({
       next: (data: any) => {
         this.funcionarios = Object.values(data) as any[];
       },
@@ -92,7 +92,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
       }
     });
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf').subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf').subscribe({
       next: (data: any) => {
         this.faturamentopf = Object.values(data) as any[];
       },
@@ -110,7 +110,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
       }
     });
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras').subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras').subscribe({
       next: (data: any) => {
         this.pedidos = Object.values(data) as any[];
       },
@@ -301,7 +301,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
 
   onSubmitformEdicaoMatriculasPj(): void {
     //enviando uma requisição PUT para a api
-    this.httpClient.put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/editar-matriculas-faturamento-pj',  this.formEdicaoMatriculasPj.value)
+    this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/editar-matriculas-faturamento-pj',  this.formEdicaoMatriculasPj.value)
       .subscribe({
         next: (data: any) => {
           this.mensagem = `Matricula Atualizada com sucesso!`;
@@ -315,7 +315,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
 
   onSubmitformEdicaoMatriculasPf(): void {
     //enviando uma requisição PUT para a api
-    this.httpClient.put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/editar-matriculas-faturamento-pf',  this.formEdicaoMatriculasPf.value)
+    this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/editar-matriculas-faturamento-pf',  this.formEdicaoMatriculasPf.value)
       .subscribe({
         next: (data: any) => {
           this.mensagem = `Matricula Atualizada com sucesso!`;
@@ -331,7 +331,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
     const { idMatricula, idPedidos, ...formData } = this.formEdicaoMatriculasPedidos.value;
   
     // Construa a URL com os IDs de pedidos e matrícula no caminho
-    const url = `https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/editarMatricula-pedidos/${idPedidos}?idPedidos=${idPedidos}&idMatricula=${idMatricula}`;
+    const url = `http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/editarMatricula-pedidos/${idPedidos}?idPedidos=${idPedidos}&idMatricula=${idMatricula}`;
   
     // Adicione outros dados ao corpo da requisição
     const requestBody = {
@@ -361,7 +361,7 @@ export class ConsultarMatriculasFaturamentoPfComponent implements OnInit{
   }
 
   consultarMatriculas(): void {
-    const url = 'https://matricula-pessoa-fisica-jb-env.eba-eccktdxj.us-east-1.elasticbeanstalk.com/api/matriculas-pessoafisica/consultar-matriculas';
+    const url = 'http://matricula-pessoa-fisica-jb-env.eba-eccktdxj.us-east-1.elasticbeanstalk.com/api/matriculas-pessoafisica/consultar-matriculas';
 
     this.httpClient.get(url).subscribe({
       next: (data: any) => {

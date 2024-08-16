@@ -269,6 +269,13 @@ import { EditarFuncionarioEmpresaComponent } from "./modulo-1-admin/empresa/func
 import { ConsultarFuncionarioPerfilEmpresaComponent } from "./modulo-1-admin/empresa/funcionario/consultar-funcionario-perfil-empresa/consultar-funcionario-perfil-empresa.component";
 import { ConsultarFuncaoDasUnidadesComponent } from "./modulo-2-relatorios/unidadedoc/consultar-funcao-das-unidades/consultar-funcao-das-unidades.component";
 import { GerarLaudoErgonomicoComponent } from "./modulo-3-documentos/documentos-unidades/laudo_ergonomico/gerar-laudo-ergonomico/gerar-laudo-ergonomico.component";
+import { PcaComponent } from "./modulo-3-documentos/documentos-unidades/pca/pca.component";
+import { PcrComponent } from "./modulo-3-documentos/documentos-unidades/pcr/pcr.component";
+import { CriarChamadosClientesComponent } from "./modulo-1-admin/comercial/chamados-clientes/criar-chamados-clientes/criar-chamados-clientes.component";
+import { EditarChamadosClientesComponent } from "./modulo-1-admin/comercial/chamados-clientes/editar-chamados-clientes/editar-chamados-clientes.component";
+import { ConsultarChamadosClientesComponent } from "./modulo-1-admin/comercial/chamados-clientes/consultar-chamados-clientes/consultar-chamados-clientes.component";
+import { ConsultarSuporteAoClienteComponent } from "./modulo-1-admin/comercial/chamados-clientes/consultar-suporte-ao-cliente/consultar-suporte-ao-cliente.component";
+import { RespostaSuporteAoClienteComponent } from "./modulo-1-admin/comercial/chamados-clientes/resposta-suporte-ao-cliente/resposta-suporte-ao-cliente.component";
 
 const routes: Routes = [
 
@@ -313,6 +320,8 @@ const routes: Routes = [
     { path: 'gerar-programa-de-controle-medico-ocupacional/:id', component: GerarPcmsoComponent},
     { path: 'gerar-laudo-tecnico-das-condicoes-do-meio-ambiente/:id', component: GerarLtcatComponent},
     { path: 'gerar-laudo-ergonomico/:id', component: GerarLaudoErgonomicoComponent},
+    { path: 'programa-de-controle-auditivo/:id', component: PcaComponent},
+    { path: 'programa-de-controle-respiratorio/:id', component: PcrComponent},
 
     { path: 'gerar-apr/:id', component: GerarAprComponent, canActivate: [AuthGuardsMaster]},
     { path: 'gerar-permissao-de-trabalho/:id', component: GerarPermissaoDeTrabalhoComponent, canActivate: [AuthGuardsMaster]},
@@ -616,6 +625,15 @@ const routes: Routes = [
     {path: 'criar-chamado', component: CriarChamadoComponent, canActivate: [AuthGuardsMaster]},
     {path: 'editar-chamado/:id', component: EditarChamadoComponent, canActivate: [AuthGuardsMaster]},
     {path: 'consultar-chamado', component: ConsultarChamadoComponent, canActivate: [AuthGuardsMaster]},
+
+    
+    {path: 'criar-chamado-cliente/:id', component: CriarChamadosClientesComponent, canActivate: [AuthGuardsEmpresa]},
+    {path: 'editar-chamado-cliente/:id', component: EditarChamadosClientesComponent, canActivate: [AuthGuardsMaster]},  
+    {path: 'consultar-chamado-cliente', component: ConsultarChamadosClientesComponent, canActivate: [AuthGuardsEmpresa]},
+    {path: 'consultar-suporte-ao-cliente', component: ConsultarSuporteAoClienteComponent, canActivate: [AuthGuardsMaster]},
+    {path: 'resposta-ao-cliente/:id', component: RespostaSuporteAoClienteComponent, canActivate: [AuthGuardsMaster]},
+
+
 
     {path: 'consultar-turmas-adm', component: ConsultarTurmasAdmComponent, canActivate: [AuthGuardsMaster]},
 

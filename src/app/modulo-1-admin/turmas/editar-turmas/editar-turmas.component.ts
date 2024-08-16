@@ -65,7 +65,7 @@ export class EditarTurmasComponent implements OnInit {
   }
   ngOnInit(): void {
     var id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/' + id)
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/' + id)
       .subscribe({
         next: (data: any) => {
           this.formEdicaoTurmas.patchValue(data);
@@ -75,7 +75,7 @@ export class EditarTurmasComponent implements OnInit {
         }
       })
 
-      this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento')
+      this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento')
       .subscribe({ 
         next: (data) => { 
           this.unidades = data as any[];
@@ -85,7 +85,7 @@ export class EditarTurmasComponent implements OnInit {
         }
       });
 
-      this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos'
+      this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos'
       )
       .subscribe({ 
         next: (data) => { 
@@ -142,7 +142,7 @@ export class EditarTurmasComponent implements OnInit {
   
       // Enviar o formulário para o endpoint
       this.httpClient
-        .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas', this.formEdicaoTurmas.value)
+        .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas', this.formEdicaoTurmas.value)
         .subscribe({
           next: (data: any) => {
             this.mensagem = `Turma Atualizada com sucesso!`;

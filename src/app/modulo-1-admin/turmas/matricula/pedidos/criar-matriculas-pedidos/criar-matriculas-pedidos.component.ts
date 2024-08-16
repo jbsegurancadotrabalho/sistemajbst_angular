@@ -93,7 +93,7 @@ export class CriarMatriculasPedidosComponent implements OnInit {
       }
     });
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/funcionarios/api/funcionarios/todos').subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/funcionarios/api/funcionarios/todos').subscribe({
       next: (data: any) => {
         this.funcionarios = Object.values(data) as any[];
       },
@@ -125,7 +125,7 @@ export class CriarMatriculasPedidosComponent implements OnInit {
  // Envie os dados do formulário para a API ou realize outras ações necessárias
  // Exemplo: this.matriculaService.criarMatricula(this.formFaturamentoPJ.value);
 
-      this.httpClient.post(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/criarMatricula-pedidos/` + idPedidos,
+      this.httpClient.post(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/criarMatricula-pedidos/` + idPedidos,
         this.formFaturamentoPedidos.value
       ).subscribe({
         next: (data: any) => {

@@ -60,7 +60,8 @@ export class CadastrarEmpresaClienteComponent implements OnInit {
 
   criarEmpresa() {
     if (this.empresaForm.valid) {
-      this.empresaService.criarEmpresa(this.empresaForm.value)
+      console.log('Dados do formulário:', this.empresaForm.value);  // Verifique os dados enviados
+      this.empresaService.editarEmpresa(this.empresaForm.value)
         .subscribe(
           response => {
             console.log('Empresa criada com sucesso!', response);

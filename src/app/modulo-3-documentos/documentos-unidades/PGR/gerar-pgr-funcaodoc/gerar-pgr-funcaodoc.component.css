@@ -62,7 +62,7 @@ strong {
 
 @media print {
   @page {
-    margin: 7cm 1cm 2cm 1cm; /* Margens: superior 3cm, direita 2cm, inferior 2cm, esquerda 3cm */
+    margin: 3cm 1cm 2cm 1cm; /* Margens: superior 3cm, direita 2cm, inferior 2cm, esquerda 3cm */
   }
 
   .button-row {

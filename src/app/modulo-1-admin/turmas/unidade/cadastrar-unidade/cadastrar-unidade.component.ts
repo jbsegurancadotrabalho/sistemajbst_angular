@@ -36,7 +36,7 @@ export class CadastrarUnidadeComponent {
 
  onSubmit(): void {
   this.httpClient
-  .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento',
+  .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento',
   this.formUnidade.value
  
 

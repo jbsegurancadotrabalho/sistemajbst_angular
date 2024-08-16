@@ -168,7 +168,7 @@ this.formEditarFormacao.patchValue(formacoes);
                       }
                   
                       this.httpClient
-                        .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias/incluir-proficiencia', formData)
+                        .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias/incluir-proficiencia', formData)
                         .subscribe(
                           (data: any) => {
                             this.mensagem = `Proficiência atualizada com sucesso!`;
@@ -193,7 +193,7 @@ this.formEditarFormacao.patchValue(formacoes);
                     
                       // Fazer a requisição para a API
                       this.httpClient
-                        .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor/incluir-assinatura', formData)
+                        .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor/incluir-assinatura', formData)
                         .subscribe(
                           (data: any) => {
                             this.mensagem = `Assinatura inserida com sucesso!`;
@@ -212,7 +212,7 @@ this.formEditarFormacao.patchValue(formacoes);
 
  
                     CadastrarProficienciaSubmit(): void {
-                      this.httpClient.post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias', this.formCadastrarProficiencia.value)
+                      this.httpClient.post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias', this.formCadastrarProficiencia.value)
                       .subscribe({
                         next: (data: any) => {
                           this.mensagem = `Proficiência criada com sucesso!`;
@@ -225,7 +225,7 @@ this.formEditarFormacao.patchValue(formacoes);
 
 
                     EditarProficienciaSubmit(): void {
-                      this.httpClient.put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias', this.formEditarProficiencia.value)
+                      this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias', this.formEditarProficiencia.value)
                       .subscribe({
                         next: (data: any) => {
                           this.mensagem = `Proficiência criada com sucesso!`;
@@ -237,7 +237,7 @@ this.formEditarFormacao.patchValue(formacoes);
                     }
                 
                 CadastroFormacaoSubmit(): void {
-                      this.httpClient.post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/formacao', this.formCadastrarFormacao.value)
+                      this.httpClient.post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/formacao', this.formCadastrarFormacao.value)
                       .subscribe({
                         next: (data: any) => {
                           this.mensagem = `Formação cadastrada com sucesso !`;
@@ -250,7 +250,7 @@ this.formEditarFormacao.patchValue(formacoes);
                     }
           
                     EditarFormacaoSubmit(): void {
-                      this.httpClient.put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/formacao', this.formEditarFormacao.value)
+                      this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/formacao', this.formEditarFormacao.value)
                       .subscribe({
                         next: (data: any) => {
                           this.mensagem = `Formação Atualizada com sucesso !`;
@@ -264,7 +264,7 @@ this.formEditarFormacao.patchValue(formacoes);
                  FormacaoDelete(idFormacao: number, formacao: string): void {
               if(window.confirm('Deseja realmente excluir a Formação?\n' + formacao)) {
                 //enviando uma reqquisição para o serviço de exclusão da API
-                this.httpClient.delete('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/formacao/' + idFormacao)
+                this.httpClient.delete('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/formacao/' + idFormacao)
                   .subscribe({
                     next: (data: any) => {
                       this.ngOnInit();
@@ -275,7 +275,7 @@ this.formEditarFormacao.patchValue(formacoes);
               }
             }
  ngOnInit(): void {
-    const apiUrl = 'https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor';
+    const apiUrl = 'http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor';
 
     this.httpClient.get(apiUrl)
       .subscribe({
@@ -295,7 +295,7 @@ this.formEditarFormacao.patchValue(formacoes);
             onDelete(idinstrutor: number, instrutor: string): void {
               if(window.confirm('Deseja realmente excluir o Instrutor selecionado?\n' + instrutor)) {
                 //enviando uma reqquisição para o serviço de exclusão da API
-                this.httpClient.delete('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor/' + idinstrutor)
+                this.httpClient.delete('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor/' + idinstrutor)
                   .subscribe({
                     next: (data: any) => {
                       this.ngOnInit();
@@ -309,7 +309,7 @@ this.formEditarFormacao.patchValue(formacoes);
             ProficienciaDelete(idProficiencia: number, proficiencia: string): void {
               if(window.confirm('Deseja realmente excluir a proficiência selecionada?\n' + proficiencia)) {
                 //enviando uma reqquisição para o serviço de exclusão da API
-                this.httpClient.delete('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias/' + idProficiencia)
+                this.httpClient.delete('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias/' + idProficiencia)
                   .subscribe({
                     next: (data: any) => {
                       this.ngOnInit();
@@ -409,7 +409,7 @@ downloadProficiencia(proficiencia: any) {
     const proficienciaId = proficiencia.idProficiencia;
 
     // Make a request to the server to get the proficiency file
-    this.httpClient.get(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias/download/${proficienciaId}`, {
+    this.httpClient.get(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/proficiencias/download/${proficienciaId}`, {
       responseType: 'arraybuffer' as 'json' // Specify that the response is binary data
     }).subscribe(
       (data: any) => {

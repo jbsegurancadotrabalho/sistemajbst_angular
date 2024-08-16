@@ -59,7 +59,7 @@ export class CriarMatriculasFaturamentoPjComponent implements OnInit{
 
   ngOnInit(): void {
     var id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/' + id).subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/' + id).subscribe({
       next: (data: any) => {
         this.formFaturamentoPJ.patchValue({
           idTurmas: data.idTurmas,
@@ -80,7 +80,7 @@ export class CriarMatriculasFaturamentoPjComponent implements OnInit{
       }
     });
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/funcionarios/api/funcionarios/todos').subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/funcionarios/api/funcionarios/todos').subscribe({
       next: (data: any) => {
         this.funcionarios = Object.values(data) as any[];
       },
@@ -125,7 +125,7 @@ export class CriarMatriculasFaturamentoPjComponent implements OnInit{
     // Exemplo: this.matriculaService.criarMatricula(this.formFaturamentoPJ.value);
   
     this.httpClient
-      .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/criar-matriculas-faturamento-pj', this.formFaturamentoPJ.value)
+      .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/criar-matriculas-faturamento-pj', this.formFaturamentoPJ.value)
       .subscribe({
         next: (data: any) => {
           this.mensagem = `Matricula realizada com sucesso!`;

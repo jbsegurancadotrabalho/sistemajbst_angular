@@ -19,7 +19,7 @@ export class EmpresaService {
 
   
   consultarEmpresa(): Observable<GetEmpresaModel[]> {
-    const url = `http://relatorio-jb-env.eba-w4gjvqei.us-east-2.elasticbeanstalk.com/empresas/`;
+    const url = `http://relatorio-jb-env.eba-w4gjvqei.us-east-2.elasticbeanstalk.com/empresas`;
     return this.http.get<GetEmpresaModel[]>(url)
       .pipe(
         catchError(this.handleError) // Tratar erros

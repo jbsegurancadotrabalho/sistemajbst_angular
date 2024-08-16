@@ -24,7 +24,7 @@ export class ListaDePresencaSegundoDiaComponent {
     //capturando o id enviado na URL
     var id = this.activatedRoute.snapshot.paramMap.get('id') as string;
     //consultando o produto através do id
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/' + id)
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/' + id)
       .subscribe({
         next: (data: any) => {
           // Certifique-se de que 'certificado' seja uma matriz

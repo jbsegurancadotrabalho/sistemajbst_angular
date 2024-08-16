@@ -71,7 +71,7 @@ export class CriarMatriculasAlunoParticularComponent implements OnInit {
 
   ngOnInit(): void {
     var id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/' + id).subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/' + id).subscribe({
       next: (data: any) => {
         this.formFaturamentoPJ.patchValue({
           idTurmas: data.idTurmas,
@@ -188,7 +188,7 @@ export class CriarMatriculasAlunoParticularComponent implements OnInit {
     // Exemplo: this.matriculaService.criarMatricula(this.formFaturamentoPJ.value);
   
     this.httpClient
-      .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/criar-matriculas-faturamento-pf', this.formFaturamentoPJ.value)
+      .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/criar-matriculas-faturamento-pf', this.formFaturamentoPJ.value)
      
      
       .subscribe({

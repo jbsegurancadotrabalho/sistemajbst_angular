@@ -1,0 +1,1480 @@
+<div  *ngFor="let a of associacoes">
+    <header style="font-family:
+      Arial; font-size: 11pt; 
+       text-align: center;
+       margin-top: 6;
+       ">
+      <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" 
+      alt="Logo" class="print-logo mx-auto" />
+    </header>
+    <div class="content" >
+  
+    <br>
+    <p>
+      <strong class="d-flex justify-content-center text-center">P.C.R - PROGRAMA DE CONTROLE RESPIRATÓRIO</strong>
+    </p>
+    <br><br><br><br><br><br><br><br><br>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="font-size: 12px;">Empresa</th>
+            <th style="font-size: 12px;">CNPJ</th>
+            <th style="font-size: 12px;">Data de Inicio</th>
+            <th style="font-size: 12px;">Vigência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of associacoes">
+            <td style="font-size: 12px;">{{ a?.unidadedoc?.nomefantasia }}</td>
+            <td style="font-size: 12px;">{{ a?.unidadedoc?.cnpj }}</td>
+            <td style="font-size: 12px;">{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}</td>
+            <td style="font-size: 12px;">{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+  
+      <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+  
+  
+      <p>
+        <strong>IDENTIFICAÇÃO DA EMRESA</strong><br>
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;"> 
+        <strong>Empresa:</strong> {{ a?.unidadedoc?.empresadoc?.razaosocial }} <code></code>
+        <br>
+      <strong>CNPJ:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+      <strong>CNAE Principal:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.codigo }} <br>
+      <strong>Denominação:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.denominacao }} <br>
+      <strong>Grau de Risco:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.grau_de_risco }} <br>
+      <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.empresadoc?.status  }}<br>      
+      <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.horario_empresa  }}<br>      
+      <strong>Inscrição Estadual:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaoestadual  }}<br>      
+      <strong>Inscrição Municipal:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaomunicipal }}<br>      
+      <strong>Responsável:</strong> {{   a?.unidadedoc?.empresadoc?.responsavel_sistema}}<br>      
+      <strong>Email:</strong> {{   a?.unidadedoc?.empresadoc?.email_usuario}}<br>      
+      <strong>Telefone:</strong> {{   a?.unidadedoc?.empresadoc?.telefone_responsavel}}<br>      
+      <strong>Endereço:</strong> {{   a?.unidadedoc?.endereco?.logradouro}}, {{   a?.unidadedoc?.endereco?.numero}}
+      {{   a?.unidadedoc?.endereco?.bairro}}, {{   a?.unidadedoc?.endereco?.localidade}}, {{   a?.unidadedoc?.endereco?.uf}}.
+      <br>      
+      <strong>CEP:</strong>  {{   a?.unidadedoc?.endereco?.cep}}<br>      
+  
+       </p>
+  
+       <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+       <br><br><br><br><br>
+       <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+        <strong>INTRODUÇÃO</strong><br><br>
+  
+        O Programa de Proteção Respiratória tem como obejetivo minimizar a exposição dos
+trabalhadores a contaminantes. Através da implementação deste Programa de Proteção
+Respiratória, conforme especificado a seguir, a empresa procura a proteção de seus
+trabalhadores contra a inalação de contaminantes, na qual prejudiquem sua saúde.
+Justificativa legal PPR:<br>
+Instrução Normativa nº 1, de 11 de abril de 1994, Estabelece regulamente técnico sobre o
+uso de equipamentos para proteção respiratória. Estabelece como recomendação o
+Programa de Proteção Respiratória da Fundacentro (recomendação, seleção e uso de
+respiradores).<br>
+Justifica técnica:<br>
+Este trabalho tem como meta primordial assegurar que todos trabalhadores - empregados,
+terceiros e visitantes - no desempenho de suas atividades profissionais em suas áreas
+fabris, tenham suas condições de saúde preservadas.<br>
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
+
+O objetivo deste Programa é assegurar proteção à todos os trabalhadores contra riscos
+respiratórios pelo uso correto de respiradores. Os respiradores somente podem ser
+usados nesta empresa:<br>
+- onde as medidas de controle coletivo dos riscos respiratórios não são viáveis;<br>
+- enquanto as medidas de controle coletivo estão sendo adotadas;<br>
+- nas emergências.
+    </p>
+  
+   
+  
+  
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      <strong> 1 - OBJETIVO</strong><br><br>
+      No controle das doenças ocupacionais provocadas pela inalação de ar contaminado com, por exemplo,
+poeiras, fumos, névoas, gases e vapores, o objetivo principal deve ser minimizar a contaminação do local de
+trabalho. Isso deve ser alcançado, tanto quanto possível, pelas medidas de controle de engenharia
+(enclausuramento, ventilação, ou substituição de substâncias por outras menos tóxicas). <br>
+Quando as medidas de controle não são viáveis, ou enquanto estão sendo implantadas ou avaliadas, ou em
+situações de emergência, devem ser usados respiradores apropriados em conformidade com as
+necessidades.<br>
+O objetivo deste programa é levantar os principais contaminantes nos locais de trabalho, definir métodos de
+avaliação, quantificação e controle dos mesmos. Evitar a exposição dos trabalhadores a contaminantes
+capazes de prejudicar a saúde, através de métodos de proteção coletiva ou individual.<br>
+Atender as exigências da Portaria Interministerial 3214 do MTE.
+    </p>
+  
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      <strong>2- REFERÊNCIAS</strong><br><br>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        • PPR - Programa de Proteção Respiratória do Ministério do Trabalho e Emprego
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        • NR 6 da Portaria 3214 do MTE.
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        • NR 7 da Portaria 3214 do MTE
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        • NR 9 da Portaria 3214 do MTE
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        • NR 15 da Portaria 3214 do MTE
+      </p>
+ 
+  
+  
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+          <strong> 3 - DEFINIÇÕES</strong>
+        </p>
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • Atmosfera Perigosa: Atmosfera que contém um ou mais contaminantes em concentração superior ao
+            Limite de Exposição, ou que é deficiente de oxigênio.
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • Contaminante: Agente químico ou biológico, em suas diversas formas (gases, vapores, outros) presente
+            em um determinado ambiente que tenha algum potencial de causar efeito adverso.
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • Fator de Proteção Requerido: quociente entre a concentração do contaminante no ambiente e seu
+            limite de exposição.
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • IPVS (Imediatamente Perigoso à Vida ou Saúde): Refere-se a exposição respiratória aguda, que
+            supõe uma ameaça direta de morte ou conseqüências adversas irreversíveis à saúde.
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • Limite de Exposição: máxima concentração permitida de um contaminante no ar à qual um indivíduo
+            possa estar exposto.
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • Máscara Autônoma: Equipamento de proteção respiratória no qual o usuário carrega seu próprio
+            suprimento de ar respirável, ou oxigênio.
+          </p>
+          <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+            • Respirador: Equipamento que visa a proteção do usuário contra a inalação de ar contaminado ou de ar
+            com deficiência de oxigênio.
+          </p>
+          
+    
+  
+     <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+       <strong>4 - RESPONSABILIDADES</strong> 
+    <br>
+    A Direção de Recursos Humanos, através da Gerência de Recursos Humanos e o SESMT (Serviço
+Engenharia de Segurança e Medicina do Trabalho), detém a responsabilidade sobre a implantação,
+manutenção e o controle dos resultados do Programa de Proteção Respiratória (PPR) da Empresa  {{ a?.unidadedoc?.empresadoc?.razaosocial }}
+      <br>
+  
+      a) Chefe de Seção de Recursos Humanos      <br>
+  
+      • Responde pela implantação, manutenção e resultados do PPR das Unidades Industriais do núcleo.
+      </p>
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        b) Responsável pela Unidade:<br>
+· Busca meios tecnológicos de engenharia e processo, no âmbito de sua área de atuação, visando auxiliar
+na inibição da dispersão dos contaminantes atmosféricos, nas áreas de produção, tendo em vista não
+apenas a qualidade dos produtos, como também a melhoria das condições de saúde dos empregados
+envolvidos;<br>
+· Participa da análise dos resultados das auditorias e avaliações ambientais realizadas;<br>
+· Determina e cobra a aplicação de ações corretivas no controle das situações críticas de dispersão de
+contaminantes no ar.<br>
+· Determina e solicita a realização de análise preliminar de riscos, bem como antecipação de riscos
+relacionados aos agentes químicos previstos no presente programa, sempre que houver modificações
+físicas ou tecnológicas do processo, matérias primas e/ou maquinário, com possível impacto na qualidade
+do ar nos ambientes de trabalho;<br>
+· Prevê a alocação de recursos financeiros necessários ao controle da dispersão dos contaminantes
+atmosféricos, diante de novos projetos nas Unidades Industriais;
+      </p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+
+· Solicita elaboração de projeto técnico de engenharia para controle das situações críticas de dispersão de
+contaminantes no ar.<br>
+c) Cabe ao Departamento SMS:<br>
+· Auxiliar as áreas operacionais a executar as ações necessárias à implantação e manutenção do Programa
+de Proteção Respiratória.<br>
+· Aplicar os conhecimentos de Engenharia de Segurança, Higiene e Saúde Ocupacional.<br>
+· Seleção da proteção respiratória adequada a cada risco detectado.<br>
+· Aplicação, em conjunto com os Supervisores, dos ensaios de selagem dos protetores respiratórios.<br>
+· Aplicação dos treinamentos e reciclagens necessárias ao desenvolvimento do Sistema de Proteção
+Respiratória, abrangendo no mínimo:<br>
+· Limpeza, guarda e manutenção dos Equipamentos de Proteção Respiratória (EPR).<br>
+· Inspeção.<br>
+· Monitoramento do uso.<br>
+· Reposição.<br>
+· Saturação de filtros.<br>
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+· Testes instantâneos de selagem e ajuste.<br>
+· Participação e auxílio nas auditorias de qualidade dos EPR e Equipamentos de Proteção Coletiva (EPC) e
+relato de resultados;<br>
+· Aplicação de avaliação médica do trato respiratório, e definição da aptidão do empregado sobre o uso de
+EPR.<br>
+d) Cabe ao funcionário / contratado:<br>
+· Utilizar os respiradores fornecidos de acordo com as instruções e treinamentos recebidos<br>
+· Guardar o respirador quando não estiver em uso, de modo conveniente para que não danifique ou
+deforme.<br>
+· Se observar que o respirador não está funcionando bem, deverá deixar imediatamente a área
+contaminada e comunicar o defeito à área de segurança e saúde ocupacional.<br>
+· Comunicar ao supervisor qualquer alteração do seu estado de saúde que possa influir na capacidade de
+uso do respirador de modo seguro.<br>
+        </p>
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        <strong>   5 - OPERACIONALIZAÇÃO DO PROGRAMA</strong>
+           
+         </p>
+         <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">O QUE</th>
+              <th scope="col">QUEM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Avaliação Qualitativa dos Contaminantes Ambientais através do
+                Programa de Gerenciamento de Riscos</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>b) Avaliação quantitativa dos agentes químicos ambientais –
+                composição do mapeamento de risco respiratório d0 Setor
+                Operacional</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>c) Mapeamento pontual das concentrações dos contaminantes e
+                das fontes geradoras.</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>d) Medições pontuais e/ou pessoais, informações atualizadas
+                sobre a concentração do contaminante no ambiente de
+                trabalho, identificando as áreas de risco e estabelecendo
+                procedimentos de controle de ordem coletiva e/ou individual
+                adequados, quando necessário, conforme parâmetros de
+                avaliação e conduta abaixo discriminados.</td>
+                <td>SMS</td>
+              </tr>
+              <tr>
+                <td>e) Definição dos tipos de EPR a serem aplicados.</td>
+                  <td>SMS</td>
+                </tr>
+            <tr>
+              <td>f) Definição da população exposta aos riscos químicos
+                ocupacionais, segundo avaliação técnica.</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>g) Avaliação médica, do pessoal exposto aos riscos ocupacionais
+                e obrigados a utilização da proteção respiratória, com anotação
+                no prontuário médico. Quando o médico do trabalho detectar
+                restrições ao uso de EPR, em empregado obrigado ao uso do
+                mesmo, informará o fato à área de engenharia de segurança
+                trabalho e ao RH para as providências cabíveis.</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>h) Definição da necessidade de monitorização de exposição
+                através de espirometria. (Monitorização tem o objetivo de aferir
+                o estado de saúde respiratória dos trabalhadores expostos às
+                áreas de risco, constituindo item de controle em relação a
+                aplicação e resultados das medidas de proteção e segurança).</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>i) Ajuste da proteção respiratória através dos EPR apropriados.</td>
+              <td>SMS</td>
+            </tr>
+            <tr>
+              <td> j) Aplicação de treinamento apropriado sobre o controle do risco e
+                a utilização correta, manutenção e guarda dos Equipamentos
+                de Proteção Respiratória. Esse treinamento deve possuir
+                registro adequado, incluindo comprovação por meio de
+                assinatura de lista de presença.</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>k) Execução dos testes individuais de selagem dos EPR.</td>
+              <td>SMS</td>
+            </tr>
+            <tr>
+              <td>l) Registros de treinamento e testes de selagem. Quando se tratar
+                de protetor respiratório do tipo purificador de ar equipado com
+                filtro químico, deve ser anotado no corpo do próprio filtro, com
+                letra legível e à tinta, a data do rompimento do seu lacre. Isso é
+                necessário para monitorização da vida útil do mesmo.</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>m) Acompanhamento do uso correto e manutenção da proteção
+                respiratória.</td>
+                <td>SMS</td>
+              </tr>
+            <tr>
+              <td>n) Auditoria JBST </td>
+              <td>SMS</td>
+            </tr>
+            <tr>
+              <td>o) Monitoramento periódico dos contaminantes ambientais. </td>
+              <td>SMS</td>
+            </tr>
+          </tbody>
+        </table>
+                     
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        <strong> 6 - APLICAÇÃO:</strong><br>
+          Este programa aplica-se a empresa  {{ a?.unidadedoc?.empresadoc?.razaosocial }} e aos seus prestadores de Serviços.       
+         </p>  
+         <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+          <strong> 7 - CONSIDERAÇÕES GERAIS:</strong><br>
+          7.1 Seleção de Respiradores<br><br>
+          Para a seleção de respiradores devemos considerar:
+        </p>  
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+          · A atividade do usuário e a sua localização na área de risco. Exemplo: (se) o trabalhador permanece
+continuamente, ou não, na área em que o risco é leve, médio ou pesado. Em caso de extremo
+esforço, a autonomia de uma máscara autônoma fica reduzida pela metade.
+· O tempo de permanência do trabalhador na área que apresenta o risco
+· Características físicas e funcionais dos respiradores, bem como suas limitações
+· Utilizar somente respiradores com certificado de aprovação
+· A seleção do respirador exige o conhecimento de cada operação, para determinar os riscos que
+possam estar presentes e assim selecionar o tipo e a classe do EPI que proporcione proteção
+adequada.
+· Etapas para a identificação do risco:
+</p>  
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+- Determinar o contaminante que pode estar presente no ambiente de trabalho<br>
+- Verificar se existe limite de tolerância, ou qualquer outro limite de exposição, ou estimar a toxidez do
+contaminante. Verificar se existe concentração IPVS para o contaminante.<br>
+- Verificar se existem regulamentos ou legislação específica para o contaminante. Se existir, a seleção
+do respirador dependerá destas indicações.<br>
+- Medir o teor de oxigênio no ambiente<br>
+- Solicitar laudo técnico com a concentração do contaminante no ambiente determinando o estado físico
+da substância.<br>
+- Verificar se o contaminante é irritante e/ou corrosivo para olhos e pele.<br>
+- Se o contaminante é vapor ou gás, verificar se é conhecido o limiar de odor, de paladar ou de irritação
+da pele.<br>
+- Dividir a concentração medida ou estimada do contaminante pelo limite de exposição ou valor de
+orientação para obter o Fator de Proteção Requerido. Se mais de uma substância estiver presente,
+considerar os efeitos combinados em vez de considerar o efeito isolado de cada substância.<br>
+- Se o contaminante for somente gás ou vapor, escolher o filtro químico apropriado.
+         </p>   
+         
+         <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        <strong> 8 - ESPECIFICAÇÃO DE PARÂMETROS DE AVALIAÇÃO E CONDUTA</strong>
+         </p> 
+         <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">PARÂMETRO</th>
+              <th scope="col">CONDUTA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1) Concentração do contaminante
+                ambiental menor que o Nível de
+                Ação (½ do valor do Limite de
+                Tolerância).</td>
+              <td>Nenhuma ação de controle se faz necessária de imediato.</td>
+            </tr>
+            <tr>
+              <td>2) Concentração do contaminante
+                ambiental igual ou maior que o
+                Nível de Ação e Menor que o
+                Limite de Tolerância.</td>
+              <td>De acordo com as características toxicológicas do contaminante ambiental
+                e a forma da exposição ocupacional, as ações de controle podem variar
+                desde a simples monitorização periódica do contaminante a intervenções
+                na exposição ou na dispersão. A conduta será sempre indicada no laudo
+                técnico de avaliação ambiental.
+                Aceitável o controle da exposição por meio de proteção respiratória
+                individual, do tipo purificadores de ar com peça semi-facial.</td>
+            </tr>
+            <tr>
+              <td>3) Concentração do contaminante
+                ambiental até cinco vezes maior
+                que o valor do limite de
+                tolerância.</td>
+              <td>Implantação imediata de proteção respiratória adequada.
+                Tolerável o controle da exposição por meio de proteção respiratória
+                individual, do tipo purificadores de ar com peça semi-facial.Quando
+                possível é indicada a interferência nas fontes de emissão dos
+                contaminantes.</td>
+            </tr>
+            <tr>
+              <td>4) Concentração do contaminante
+                ambiental entre cinco e dez
+                vezes o valor do limite de
+                tolerância.</td>
+              <td>Implantação imediata de proteção respiratória adequada como medida
+                provisória de controle.
+                Não é aceitável o controle da exposição unicamente por meio de proteção
+                respiratória individual, do tipo purificador de ar com peça semi-facial.
+                Aceitável o controle da exposição por meio de proteção respiratória do tipo
+                ar mandado ou autônomos com peça semifacial.
+                Tolerável o controle da exposição por meio de proteção respiratória
+                individual do tipo purificador de ar com peça facial inteira.Necessidade a
+                priori de intervenção nas fontes de dispersão dos contaminantes.</td>
+            </tr>
+            <tr>
+              <td>5) Concentração do contaminante
+                ambiental entre dez e cinqüenta
+                vezes o valor do limite de
+                tolerância.</td>
+              <td>Aceitável o controle da exposição por meio de proteção respiratória do tipo
+                ar mandado ou autônomos com peça facial inteira.
+                Tolerável o controle temporário da exposição por meio de proteção
+                respiratória individual do tipo purificador de ar com peça facial inteira.
+                Dependendo das características da exposição e dos aspectos
+                toxicológicos do contaminante ambiental, pode haver a obrigatoriedade de
+                interferência nas fontes de emissão dos contaminantes. Isso é definido em
+                laudo técnico de avaliação ambiental.</td>
+            </tr>
+            <tr>
+              <td>6) Concentração do contaminante
+                ambiental entre 50 e 100 vezes
+                o valor do limite de tolerância.</td>
+              <td>Tolerável o controle temporário da exposição por meio de proteção
+                respiratória do tipo ar mandado ou autônomos com peça facial
+                inteira.Dependendo das características da exposição e dos aspectos
+                toxicológicos do contaminante ambiental, pode haver a obrigatoriedade de
+                interferência nas fontes de emissão dos contaminantes. Isso é definido em
+                laudo técnico de avaliação ambiental.</td>
+            </tr>
+            <tr>
+              <td>7) Concentração do contaminante
+                ambiental entre 100 e 500 vezes
+                o valor do limite de tolerância.</td>
+              <td>Não deve ser permitida a exposição sem proteção respiratória autônoma
+                ou ar mandado, ambas com pressão positiva.
+                Quando viável, devem ser tomadas medidas de controle de dispersão dos
+                contaminantes, nas suas fontes de dispersão.</td>
+            </tr>
+            <tr>
+              <td>8) Concentração do contaminante
+                ambiental maior que 500 vezes
+                o valor do limite de tolerância.</td>
+              <td>Não é permitida a exposição.</td>
+            </tr>
+          </tbody>
+        </table> 
+
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        <strong>  9 - AÇÕES COMPLEMENTARES</strong> <br><br>
+          No caso de implantação ou modificação da proteção individual, todas as instruções sobre os tipos de protetores
+          aprovados e disponibilizados, procedimentos sobre o uso, guarda e manutenção, serão tratados sempre
+          através de documentação formal com título de "ORDEM DE SERVIÇO DE SEGURANÇA E SAÚDE
+          OCUPACIONAL". Essa ORDEM DE SERVIÇO ficará exposta, em quadro de aviso, durante um tempo
+          aproximado de 45 dias e será sempre relembrada por ocasião dos treinamentos ou reciclagem dos
+          trabalhadores, sendo também mantida em arquivo específico no RH, SSO Local ou na própria Área. <br>
+          Por ocasião da entrega de EPR aos empregados SSO Local preencherá a FICHA DE CONTROLE DE
+          ENTREGA E RECEBIMENTO DE EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL, a qual será assinada pelo
+          empregado e mantida em arquivo, por período de 20 anos após o desligamento do mesmo. Nessa ficha serão
+          também registradas novas substituições e manutenções do EPR.
+        </p> 
+        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+          <strong> 10 - TREINAMENTOS </strong><br><br>
+          Devem ser ministrados treinamentos e reciclagem periódica (no mínimo uma vez ao ano) aos funcionários, com
+a finalidade de garantir o uso correto do EPI . No mínimo devem receber treinamento a Supervisão, o usuário,
+os funcionários da Brigada de Emergência e da Equipe de Resgate e Primeiros Socorros<br><br>
+<strong>Funcionário que distribui o respirador:<br></strong>
+A pessoa que distribui os respiradores deve receber treinamento adequado, a fim de garantir que o trabalhador
+receba o respirador adequado para a tarefa, definido pelos procedimentos operacionais aqui descritos.<br>
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+<strong>Equipe de Resgate e Primeiros Socorros e Brigada de Emergência:</strong><br>
+As equipes de atendimento para casos de emergência e de salvamento, como brigadas de incêndio, devem ser
+criadas pela SSO Local, e treinadas sobre o uso de respiradores. Deve ser estabelecido um programa
+conveniente de treinamento que inclua a simulação de emergências para assegurar a eficiência e a
+familiaridade dos membros da equipe no uso de respiradores, durante as tarefas realizadas nas operações de
+emergência e salvamento.<br><br>
+<strong>Usuário do Protetor Respiratório:</strong><br>
+O usuário deve ser instruído e treinado sobre o uso correto do respirador, bem como sobre suas características
+e limitações. Os supervisores também devem ser instruídos.<br><br>
+O treinamento deve proporcionar ao usuário a oportunidade de manusear o respirador, ajustá-lo corretamente,
+fazer a verificação de vedação usá-lo em ambiente não contaminado, durante o tempo suficiente para se
+familiarizar com ele, e finalmente em uma atmosfera de teste.<br>
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+Cada usuário deverá receber instruções sobre a vedação e o treinamento para o ensaio de vedação, onde o
+usuário receberá instruções práticas de como se deve colocar, ajustar, e avaliar se o equipamento está
+ajustado corretamente. Os respiradores não devem ser colocados, quando algumas condições possam impedir
+uma boa vedação como barba crescida, costeletas, abas de capuzes ou roupas que cheguem até ao
+respirador, hastes de óculos, etc..<br>
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+O ensaio de vedação consiste em confirmar, se um respirador que já passou no teste de pressão negativa ou
+positiva, realmente se adapta bem ao rosto de um dado indivíduo. Esse ensaio é feito em uma sala, fora da
+área de risco e geralmente usa-se um agente químico ao redor do rosto observando a reação do usuário. Os
+agentes químicos utilizados nos ensaios qualitativos são: Acetato de Isoamila (óleo de banana); Sacarina;
+Fumos Irritantes.<br><br>
+Os trabalhadores da Unidade Operacional que necessitem usar respiradores devem ser orientados a fazer a
+barba diariamente, sendo proibido o uso de barba.
+        </p> 
+
+      
+      <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+        O empenho dos trabalhadores na observação desses cuidados deve ser avaliado por verificações periódicas.
+        Para garantir a proteção adequada, a vedação do respirador deverá ser verificada cada vez que o usuário for
+        usá-lo, obedecendo as instruções do fabricante. Cada trabalhador deverá receber, quando viável, um
+        respirador para uso exclusivo.
+      </p> 
+
+
+      
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      Todo usuário deve receber treinamento inicial, quando é designado para uma atividade que exija o uso de
+      respirador, e a cada 12 meses o treinamento se repete.<br>
+      Para cada usuário, deve ser mantido registro no qual conste a data, o tipo de treinamento recebido, a
+      avaliação do resultado obtido e o nome do instrutor.<br>
+      No final do treinamento, o usuário deverá receber um Certificado de Participação no Treinamento de Usuário
+      de Protetor Respiratório.
+    </p> 
+    <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+      <strong>11 - ENSAIOS DE VEDAÇÃO</strong><br><br>
+      Todo usuário de respirador com vedação facial deve ser submetido a um ensaio de vedação qualitativo, ou
+quantitativo, para determinar se o respirador se ajusta bem ao rosto.<br>
+· Devem ser mantidos registros dos ensaios de vedação que devem conter as seguintes informações;<br>
+- Procedimento operacional escrito sobre o ensaio de vedação, incluindo critério de
+aceitação/rejeição.<br>
+- Equipamentos e instrumentações utilizados para o ensaio<br>
+- Calibração, manutenção e reparo nos equipamentos e instrumentos usados, se necessário<br>
+- Nome e identificação do operador do ensaio<br>
+- Identificação completa do respirador ensaiado<br>
+- Nome e identificação do funcionário usuário do respirador<br>
+- Data do ensaio<br>
+- Resultado do ensaio
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+· Ensaio de “vedação” no respirador escolhido<br>
+Esse ensaio deverá ser feito na presença de pessoal técnico especializado em Segurança do Trabalho,
+Médico do Trabalho e/ou Auxiliar de Enfermagem do Trabalho.<br>
+· A pessoa submetida ao teste deve colocar e ajustar o respirador sem assistência de ninguém, usando
+aproximadamente 10 minutos antes do início do ensaio. A pessoa não deve comer, beber ou mascar
+goma, pelo menos 15 minutos antes do ensaio de vedação.<br>
+· Usar um segundo nebulizador, para nebulizar a solução dentro do capuz. Deve estar marcado de modo
+visível para distinguí-lo do usado durante o ensaio preliminar.<br>
+· Preparar a solução dissolvendo-se 83g de sacarina em 100ml de água morna. Como antes, a pessoa deve
+respirar com a boca aberta e a língua para fora. Colocar o nebulizador no orifício do capuz e nebulizar a
+solução para o ensaio de vedação, usando a mesma técnica do ensaio preliminar de acuidade de paladar,
+e o mesmo número de bombadas necessárias para obter a resposta naquele ensaio.<br>
+· Após a geração do aerossol, ler as instruções para a pessoa que usa o respirador. Cada exercício deve
+ser realizado durante 1 minuto:
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+· Respire normalmente.<br>
+· Respire profundamente. Esteja consciente que sua respiração seja profunda e regular.<br>
+· Vire a cabeça completamente para um lado e para outro. Inale em cada lado. Esteja certo de que os
+movimentos foram completos. Não deixe o respirador bater nos ombros.<br>
+· Movimente a cabeça para cima e para baixo. Inale enquanto a cabeça estiver voltada para cima. Esteja
+certo de que os movimentos foram completos. Não deixe o respirador bater no peito.<br>
+· Durante alguns minutos leia em voz normal o texto indicado (aproximadamente 20 palavras).<br>
+· Ande sem sair do lugar.
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+· No início de cada exercício, bombear o nebulizador a metade do número de vezes empregada no ensaio
+de acuidade de paladar. A pessoa deve avisar ao operador do ensaio o instante em que sentir o gosto de
+sacarina, significando que a vedação não foi satisfatória; neste caso, procurar outro respirador e repetir o
+processo.<br>
+· Pessoas aprovadas neste ensaio podem usar respiradores com peça semi-facial em ambientes com
+concentração até 5 vezes o limite de tolerância.<br>
+
+Se a pessoa sentir dificuldade para respirar, durante a realização do ensaio de vedação, deverá ser
+encaminhada a um médico especialista em moléstias pulmonares para verificar se tem condições de executar
+o trabalho previsto.
+    </p> 
+
+  
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+   <strong> 12 - INFORMAÇÕES TÉCNICAS</strong><br>
+   <strong>12.1 - CLASSIFICAÇÃO DOS FILTROS MECÂNICOS</strong><br>
+  </p> 
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Classe do Filtro</th>
+        <th scope="col">Penetração Máxima Permitida</th>
+        <th scope="col">Resistência Máxima a Respiração</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th >P1</th>
+        <td>20%</td>
+        <td>6 a 21<td>
+      </tr>
+      <tr>
+        <th>P2</th>
+        <td>6%</td>
+        <td>7 a 24</td>
+      </tr>
+      <tr>
+        <th>P3</th>
+        <td>0,05%</td>
+        <td>12 a 42</td>
+      </tr>
+    </tbody>
+  </table>
+    
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong> 12.2 - FUNCIONAMENTO DO FILTRO MECÂNICO</strong><br><br>
+    O filtro mecânico é constituído por fibras que retém partículas. As fibras deixam entre si espaços vazios que
+denominamos “poros”, através dos quais escoa-se o ar. A dimensão dos poros depende do diâmetro das
+fibras:<br><br>
+· Fibras finas deixam poros pequenos<br>
+· Fibras grossas deixam poros grandes<br><br>
+A camada de fibras tem cerca de 4mm de espessura. As partículas ficam presas nos filtros porque foram
+captadas pelos mecanismos de:<br><br>
+· Impacto direto (peneiração)<br>
+· Atração Eletrostática<br>
+· Inércia entre outros<br>
+   </p> 
+
+   <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong> 12.3 - MECANISMO DE CAPTURA DE PARTÍCULAS NOS RESPIRADORES COM FILTRO MECÂNICO</strong><br><br>
+  
+    <strong> Impacto Direto:</strong><br>
+    · Se o raio da partícula é menor que o diâmetro, ela toca a fibra e fica presa;<br>
+    · Se a distância entre duas fibras é menor que o diâmetro da partícula, ela fica retida. É o efeito
+peneiração. O Filtro de fibras de vidro classe P2 e P3 , funciona segundo esse mecanismo de
+captura.<br><br>
+<strong>Ação Eletrostática:</strong>
+O campo elétrico da fibra carregada de eletricidade induz cargas elétricas de sinal contrário, nas partículas de
+algodão que se aproximam, atraindo as partículas. Assim capturadas, elas não se deslocam mais, resultando
+na filtragem do ar.<br>
+Os formatos usuais de filtros energizados podem ser planos (circular e formato de oito) ou ondulados (circular).
+90% dos filtros usados no mundo pertencem à categoria dos filtros energizados; estes, geralmente são de
+classe P1 e P2.
+  </p> 
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>13 - MANUTENÇÃO DO PROTETOR RESPIRATÓRIO</strong><br><br>
+    Os respiradores devem ser limpos e desinfetados regularmente. Aqueles usados por um só trabalhador devem
+    ser limpos, após cada jornada de trabalho. Aqueles respiradores usados por mais de um usuário devem ser
+    limpos, antes que outro utilize. O gerente da área deve providenciar local e meios para a limpeza e
+    manutenção, e providenciar instruções escritas e detalhadas sobre como efetuar a limpeza, inspeção e
+    manutenção.<br><br>
+    Os respiradores limpos devem ser guardados em local limpo e com boas condições de higiene, no próprio local
+    onde se faz a limpeza e manutenção.<br><br>
+  </p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong> 14 - INSPEÇÃO E RECICLAGEM</strong><br><br>
+  Com a finalidade de verificar se o respirador está em boas condições, o usuário deve inspecioná-lo,
+imediatamente, antes de cada uso. Após cada limpeza e higienização, cada respirador deve ser inspecionado
+para verificar se está em condições de uso, se necessita de substituição de partes, reparos ou se deve ser
+jogado fora. Os respiradores guardados para emergência ou resgates devem ser inspecionados, no mínimo,
+uma vez por mês.<br><br>
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong> A inspeção deve incluir:</strong><br><br>
+  · Condições da cobertura das vias respiratórias, tirantes, tubos, correias e filtros;<br>
+  · Datas de vencimento nas prateleiras;<br>
+  · Indicadores de vida útil;<br>
+  · Todo componente de borracha ou de outro elastômero deve ser inspecionado para verificar a sua
+  elasticidade e sinais de deterioração;<br>
+  · Em respiradores de resgate e emergência devem constar registros com data de cada manutenção;<br>
+  Os que não satisfazem os critérios da inspeção devem ser imediatamente retirados de uso, enviados para
+  reparo ou substituição. A substituição é feita por pessoas treinadas na manutenção e montagem de
+  respiradores. Somente devem ser usadas peças de substituição indicadas.<br><br>
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong> 15 - GUARDA</strong><br><br>
+  · Os respiradores devem ser guardados de modo a estarem protegidos contra agentes físicos e
+  químicos, tais como: vibração, choque, luz solar, externo, umidade excessiva ou agentes químicos
+  agressivos.<br>
+  · Não devem ser colocados em gavetas ou caixas de ferramentas, a menos que estejam protegidos
+  contra contaminação, distorção e outros danos.<br>
+  · Os equipamentos utilizados para emergências e resgates, que permaneçam na área de trabalho,
+  devem ser facilmente acessíveis, durante todo o tempo, e devem estar em armários ou estojos
+  marcados, de modo que sua identificação seja imediata.<br>
+  A eficiência do programa deve ser verificada por inspeções regulares e por uma auditoria anual feita pelo
+  sistema de auditoria interno.<br>
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong> 16 - AUDITORIA</strong><br><br>
+  Itens relevantes a serem auditados:<br>
+  · Existência da avaliação ambiental atualizada;<br>
+  · Interpretação dos resultados;<br>
+  · Aplicação da medidas de controle recomendadas;<br>
+  · Aplicação de EPR:<br>
+  · Registro da sua indicação e especificação;<br>
+  · Registro de indicação dessa especificação a área de compras;<br>
+  · Fornecimento do EPR;<br>
+  · Treinamentos dos usuários dos EPR;<br>
+  · Registros da realização dos ensaios de vedação dos EPR;<br>
+  · Monitorização da vida útil dos EPR;<br>
+  · Condições de higienização e guarda dos EPR;<br>
+  · Registro nos cartuchos químicos dos EPR (quando for o caso) da data do rompimento dos seus
+  lacres;<br>
+  · Registro nas fichas e controle de fornecimento de EPI dos EPR aos seus usuários.<br>
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong> 17- FORMULÁRIO DE TESTE DE SELAGEM DE PROTETOR RESPIRATÓRIO (MODELO)</strong><br><br>
+<strong>17.1 Controle do Registro:</strong><br><br>
+</p> 
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/TESTE-DE-SELAGEM-DE-PROTETOR-RESPIRATORIO1.png" alt="Hierarquia de medidas de controle">            
+<br>
+</p> 
+
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong>17.2 Referência:</strong>
+  <br><br>
+  · Programa de Proteção Respiratória – SSO-001
+</p> 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Local:</th>
+      <th scope="col">Área:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Unidade:</td>
+      <td>Responsável</td>
+    </tr>
+    TESTE DE SELAGEM DE PROTETOR RESPIRATÓRIO
+ 
+    <tr>
+      <td>KIT UTILIZADO / MARCA</td>
+      <td>MODELO</td>
+      <tr>
+        <td ></td>
+        <td></td>
+      </tr>
+  </tbody>
+</table>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong>Em cumprimento ao que determina a Instrução Normativa n.º 1/94 do Ministério do Trabalho e Emprego executamos
+    os testes de selagem dos protetores respiratórios no trabalhador abaixo identificado, utilizando o seguinte
+    procedimento:</strong>
+</p> 
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  1º - Teste de sensibilidade, utilizando o capuz e nebulizador n.0 1, para que o trabalhador possa detectar o sabor da solução
+  de teste na versão bastante diluída para o ensaio de vedação.<br>
+  2°- Ajuste do protetor respiratório no trabalhador.<br>
+  3° - Colocação do capuz no trabalhador com o protetor respiratório.<br>
+  4° - Injeção de solução para ensaio no interior do capuz, utilizando o nebulizador n0 2.<br>
+  5° - Após a injeção do aerossol, o trabalhador executou os seguintes exercícios durante o tempo de sessenta segundos
+  cada:<br>
+  a) respiração normal parado.<br>
+  b) respiração profunda - inspiração/expiração profunda.<br>
+  c) virar a cabeça de um lado para o outro - o movimento foi executado ao ritmo de um giro da cabeça a cada dois segundos.<br>
+  d) inclinar a cabeça para baixo e para cima - o movimento foi executado ao ritmo de uma inclinação da cabeça a cada dois
+  segundos.<br>
+  e) o trabalhador pronunciou as seguintes palavras: Luz, Sol, Gotas, Chuvas, Arco-íris, Ouro, Arredondado, Horizonte,
+  Trajetória e Pote.<br>
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  Resultado do Teste
+</p> 
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Protetor Respiratório Marca - Modelo</th>
+      <th scope="col">Vedação Satisfatória</th>
+      <th scope="col">Vedação Insatisfatória</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    </tr>
+   
+  </tbody>
+</table>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  Protetor(es) Respiratório(os) Indicado(s):
+</p> 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Marca/Modelo</th>
+      <th scope="col">Técnico Responsável</th>
+      <th scope="col">DRT ou Documento de Identidade</th>
+      <th scope="col">Assinatura</th>
+      <th scope="col">Local e Data</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td> 
+  </tbody>
+</table>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  Declaro que nesta data me submeti ao teste de selagem do(s) protetor(es) respiratório(s) acima descrito(s),
+  estando ciente do resultado obtido.<br><br>
+  Declaro também estar ciente de que a continuidade do resultado satisfatório, depende da correta adaptação do
+protetor respiratório, de sua manutenção e da ausência de barba durante sua utilização diária.
+</p> 
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nome do Empregado</th>
+      <th scope="col">DRT:</th>
+    
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Assinatura:</td>
+      <td>Local e Data</td>
+    
+  </tbody>
+</table>
+
+<div class="form-group">
+  <textarea placeholder="Parecer final:" class="form-control custom-border" id="exampleField" rows="5"></textarea>
+</div>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <br><br>
+  <strong>18 - Uso Correto de EPI's</strong><br><br>
+  Respiradores Sem Manutenção<br><br>
+  O respirador deve ser apoiado inicialmente no queixo. Depois, posicione-o de forma que a boca e o nariz
+  fiquem cobertos. Em seguida, puxe o elástico de baixo, passando-o pela cabeça e ajustando-o na nuca. Faça o
+  mesmo com o elástico superior, ajustando-o bem acima das orelhas.
+</p> 
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/mascara1.png" alt="Hierarquia de medidas de controle">            
+<br>
+Com dois dedos de cada mão, pressione a peça de alumínio de forma a moldá-lo ao seu formato de nariz.
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/mascara2.png" alt="Hierarquia de medidas de controle">            
+<br>
+Para verificar o ajuste, coloque as mãos na frente do respirador cobrindo toda sua superfície e inale. O ar não
+deve passar pelas laterais.</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/mascara3.png" alt="Hierarquia de medidas de controle">            
+  <br> Esta é a forma correta de utilizar este tipo de respirador.
+
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/mascara4.png" alt="Hierarquia de medidas de controle">            
+  <br> E não se esqueça: para que os Respiradores tenham um bom tempo de duração e conservação, são
+  necessários alguns cuidados.
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+<strong> Respiradores de Borracha, Silicone ou Elastômero com Manutenção</strong> 
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+  Coloque o respirador no rosto e posicione o elástico superior sobre a cabeça. Encaixe os elásticos
+  inferiores (de baixo) ligando as presilhas atrás do pescoço.<br>
+  Puxe as extremidades dos elásticos superiores, e depois os inferiores, para fazer ajuste do respirador ao
+  rosto.
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/07/mascara5.png" alt="Hierarquia de medidas de controle">            
+  <br> Para verificar a vedação com pressão positiva, coloque a palma da mão sobre a válvula de exalação e assopre
+  suavemente várias vezes. A peça facial deverá se expandir suavemente sem ocorrer vazamento.
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/mascara6.png" alt="Hierarquia de medidas de controle">            
+<br>
+  Para realizar o teste de pressão negativa, coloque as mãos sobre os cartuchos e/ou filtros e inale com força
+  várias vezes. A peça facial deverá comprimir-se levemente contra o rosto sem ocorrer vazamentos.
+</p>
+
+<p style="font-family: Arial; font-size: 12pt; text-align: center;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/mascara7.png" alt="Hierarquia de medidas de controle">            
+
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+ <strong> 19 - Setores da Empresa</strong>
+ <br><br>
+
+ Os setores e atividades na qual necessitam de proteção respiratória, avaliando-se qualitativamente, são os que possuem os Agentes
+ de riscos biológico e químico. Os setores que não possuem não podem ser considerados.
+</p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong>
+    Planejamento ações do PCR –Programa de Controle Respiratório
+ </strong><br><br>
+   </p>
+   <table class="table table-striped table-hover">
+     <thead>
+     <tr>
+       <th scope="col">Ação 1</th>
+       <th scope="col">Acompanhamento do uso correto e manutenção da Proteção
+        Respiratória.</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>Meses desta Ação</td>
+       <td>Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, outubro, Novembro e Dezembro do Ano
+         Vigente de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+       </td>
+     </tr>
+  
+     <tr>
+       <td>Setor Responsável </td>
+       <td>Administração</td> 
+     </tr>
+     <tr>
+       <td>Data de Inicio </td>
+       <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+     </tr>
+     <tr>
+       <td>Setor Responsável </td>
+       <td>Administração</td> 
+     </tr>
+     <tr>
+       <td>Data de Fim</td>
+       <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+     </tr>
+     <tr>
+       <td>Prazo</td>
+       <td>Controle diário e Permanente </td> 
+     </tr>
+     <tr>
+       <td>Frequência</td>
+       <td>Diário</td> 
+     </tr>
+     <tr>
+       <td>Método</td>
+       <td>Check List</td> 
+     </tr>
+   </tbody>
+ </table>   
+ <table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 2</th>
+    <th scope="col">Monitorização periódica dos contaminantes ambientais.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Meses desta Ação</td>
+    <td>Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, outubro, Novembro e Dezembro do Ano
+      Vigente de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Fim</td>
+    <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Prazo</td>
+    <td>Controle diário e Permanente </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Check List</td> 
+  </tr>
+</tbody>
+</table>   
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 3</th>
+    <th scope="col">Mapeamentos das fontes geradoras de riscos Químicos nas
+      seções.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Meses desta Ação</td>
+    <td>Pode ser feito a partir do quarto mês do período de vigência  que está entre os meses de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Fim</td>
+    <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Prazo</td>
+    <td>Controle diário e Permanente </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Check List</td> 
+  </tr>
+</tbody>
+</table> 
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 4</th>
+    <th scope="col">Avaliação quantitativa dos agentes químicos ambientais –
+      composição do mapeamento</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Meses desta Ação</td>
+    <td>Pode ser feito a partir do quarto mês do período de vigência  que está entre os meses de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Fim</td>
+    <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Prazo</td>
+    <td>Controle diário e Permanente </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Check List</td> 
+  </tr>
+</tbody>
+</table>     
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 5</th>
+    <th scope="col">Treinamento – Aplicação do treinamento apropriado sobre controle
+      dos riscos.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Meses desta Ação</td>
+    <td>Pode ser feito a partir do quarto mês do período de vigência  que está entre os meses de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Fim</td>
+    <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Prazo</td>
+    <td>Controle diário e Permanente </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Check List</td> 
+  </tr>
+</tbody>
+</table>     
+    
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 6</th>
+    <th scope="col">Monitoramento Biológico – Avaliação Médica do pessoal exposto
+      aos riscos ocupacionais.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Meses desta Ação</td>
+    <td>Pode ser feito a partir do quarto mês do período de vigência  que está entre os meses de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Fim</td>
+    <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Prazo</td>
+    <td>Controle diário e Permanente </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Check List</td> 
+  </tr>
+</tbody>
+</table>     
+    
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 7</th>
+    <th scope="col">Execução dos Testes de Selagem dos EPR -Equipamentos
+      Protetor Respiratório.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Meses desta Ação</td>
+    <td>Pode ser feito a partir do quarto mês do período de vigência  que está entre os meses de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Fim</td>
+    <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Prazo</td>
+    <td>Controle diário e Permanente </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Check List</td> 
+  </tr>
+</tbody>
+</table> 
+    
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 8</th>
+    <th scope="col">Auditorias</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Meses desta Ação</td>
+    <td>Pode ser feito a partir do nono mês do período de vigência  que está entre os meses de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Fim</td>
+    <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Prazo</td>
+    <td>Controle diário e Permanente </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Check List</td> 
+  </tr>
+</tbody>
+</table>     
+
+    
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 9</th>
+    <th scope="col">Reavaliação do Programa PPR – Programa de Proteção
+      Respiratória.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Meses desta Ação</td>
+    <td>Pode ser feito a partir do término do período de vigência  que está entre os meses de {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} a {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Fim</td>
+    <td>{{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+  <tr>
+    <td>Prazo</td>
+    <td>Controle diário e Permanente </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Check List</td> 
+  </tr>
+</tbody>
+</table>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong>21. Avaliação médica de trabalhadores candidatos a utilização de equipamentos de proteção
+  respiratória:</strong><br>
+  Nos exames admissionais, periódicos e de mudança de função, o médico do trabalho tomado conhecimento da
+tarefa do funcionário, e da necessidade do uso de respirador, fará uma analise clinica das condições do
+usuário, analisando se há algum fator que possa dificultar o uso do respirador.<br>
+O médico do trabalho fará as orientações necessárias ao usuário de respirador.<br>
+No caso da constatação de impedimento do uso do respirador, o médico do trabalho comunicará ao depto de
+segurança no trabalho, para sejam tomadas as devidas providências.
+
+</p> 
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong>22. Conclusão do Programa:</strong><br>
+  Tendo cumprido a determinação da empresa, encerramos o presente documento PPR. O PPR será implantado
+e coordenado pelo setor de segurança e medicina no trabalho. O PPR passará por avaliações e revisões
+anuais, juntamente com as atividades do PGR - Programa de Gerenciamento de Riscos Ambientais.
+</p> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+ <strong>23 - ASSINATURA DO RESPONSÁVEL</strong> 
+  </p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: center;">
+    <img src= "https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/assinatura-jesse-1.png" alt="Hierarquia de medidas de controle">            
+  </p>
+
+  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong>24 - CERTIFICADO DO RESPONSÁVEL</strong> 
+   </p>
+  
+   
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/certificado-1.png" alt="Hierarquia de medidas de controle">            
+
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/certificado-2.png" alt="Hierarquia de medidas de controle">            
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+    <strong>25 - REGISTRO DO RESPONSÁVEL</strong> 
+     </p>
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/cartao-tecnico-de-seguranca.png" alt="Hierarquia de medidas de controle">            
+</div>
+
+
+  </div>
+  
+  
+  <div class="row button-row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2 text-center">
+      <button class="btn btn-success" onclick="window.print()">Imprimir PCR</button>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
+  

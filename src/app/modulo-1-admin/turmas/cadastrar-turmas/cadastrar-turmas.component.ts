@@ -24,7 +24,7 @@ export class CadastrarTurmasComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos'
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos'
     )
     .subscribe({ 
       next: (data) => { 
@@ -36,7 +36,7 @@ export class CadastrarTurmasComponent implements OnInit {
       }
     });
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento')
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento')
     .subscribe({ 
       next: (data) => { 
         this.unidades = data as any[];
@@ -129,7 +129,7 @@ export class CadastrarTurmasComponent implements OnInit {
   
       // Enviar o formulário para o endpoint
       this.httpClient
-        .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas', this.formTurmas.value)
+        .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas', this.formTurmas.value)
         .subscribe({
           next: (data: any) => {
             this.mensagem = `Turma cadastrada com sucesso!`;

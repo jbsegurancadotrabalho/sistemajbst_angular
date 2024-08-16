@@ -52,7 +52,7 @@ export class ConsultarMatriculasPedidosComponent implements OnInit, AfterViewIni
   }
   ngOnInit(): void {
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas')
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas')
     .subscribe({ //capturando o retorno da API
       next: (data) => { //recebe o retorno de sucesso da API
         this.dtTrigger.next(null);

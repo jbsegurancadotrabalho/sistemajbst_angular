@@ -104,7 +104,7 @@ export class CadastrarPedidosDeComprasComponent implements OnInit, AfterViewInit
   
       // Enviar o formulário para o endpoint
       this.httpClient
-        .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras', this.formPedidos.value)
+        .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras', this.formPedidos.value)
         .subscribe({
           next: (data: any) => {
             this.mensagem = `Pedidos de Compras cadastrado com sucesso!`;

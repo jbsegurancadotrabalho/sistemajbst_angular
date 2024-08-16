@@ -101,7 +101,7 @@ export class ConsultarTurmasComponent implements AfterViewInit {
       }
     };
 
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor').subscribe({
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor').subscribe({
       next: (data) => {
         this.instrutores = data as any[];
       },
@@ -115,7 +115,7 @@ export class ConsultarTurmasComponent implements AfterViewInit {
   onDelete(idTurmas: number, numeroTurma: string): void {
     const confirmDelete = window.confirm(`Deseja realmente excluir a Turma selecionada?\n${numeroTurma}`);
     if (confirmDelete) {
-      this.httpClient.delete(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/${idTurmas}`).subscribe({
+      this.httpClient.delete(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/${idTurmas}`).subscribe({
         next: () => {
           this.ngOnInit();
         },
@@ -189,7 +189,7 @@ export class ConsultarTurmasComponent implements AfterViewInit {
 
       console.log('Enviando requestData:', requestData);
 
-      this.httpClient.put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/incluir-instrutor', requestData)
+      this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/incluir-instrutor', requestData)
         .subscribe({
           next: () => {
             console.log('Instrutores cadastrados com sucesso!');
@@ -207,7 +207,7 @@ export class ConsultarTurmasComponent implements AfterViewInit {
   excluirInstrutor(idTurmas: string, idInstrutor: string): void {
     const confirmDelete = window.confirm(`Deseja realmente excluir o Instrutor selecionado?\n${idInstrutor}`);
     if (confirmDelete) {
-      const url = `https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/${idTurmas}/instrutores/${idInstrutor}`;
+      const url = `http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/${idTurmas}/instrutores/${idInstrutor}`;
       this.httpClient.delete(url).subscribe({
         next: (data: any) => {
           this.ngOnInit();
@@ -256,7 +256,7 @@ export class ConsultarTurmasComponent implements AfterViewInit {
 
   abrirTurma(idTurmas: string): void {
     this.httpClient
-      .post(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/abrir/${idTurmas}`, {})
+      .post(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/abrir/${idTurmas}`, {})
       .subscribe({
         next: (data: any) => {
           this.mensagem = 'Turma aberta com sucesso!';
@@ -274,7 +274,7 @@ export class ConsultarTurmasComponent implements AfterViewInit {
   
   fecharTurma(idTurmas: string): void {
     this.httpClient
-      .post(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/fechar/${idTurmas}`, {})
+      .post(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/turmas/fechar/${idTurmas}`, {})
       .subscribe({
         next: (data: any) => {
           this.mensagem = 'Turma fechada com sucesso!';

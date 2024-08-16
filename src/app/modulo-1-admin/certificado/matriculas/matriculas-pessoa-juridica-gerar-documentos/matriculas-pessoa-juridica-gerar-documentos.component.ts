@@ -244,7 +244,7 @@ export class MatriculasPessoaJuridicaGerarDocumentosComponent implements OnInit{
 
 
   consultarMatriculas(): void {
-    const url = `http://empresa-jb-env.eba-vj7gm5ar.us-east-2.elasticbeanstalk.com/api/matriculas/consultar-matriculas-por-mes?mes=${this.mesAtual + 1}`;
+    const url = `http://matricula-empresa-job-env.eba-nvuifcdg.us-east-2.elasticbeanstalk.com/api/matriculas/consultar-matriculas-por-mes?mes=${this.mesAtual + 1}`;
 
 
     this.httpClient.get(url).subscribe({
@@ -284,7 +284,7 @@ export class MatriculasPessoaJuridicaGerarDocumentosComponent implements OnInit{
 
   CadastrarEvidenciaSubmit(): void {
     this.httpClient
-    .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/evidencias',
+    .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/evidencias',
     this.formCadastrarEvidencias.value  
 
    )
@@ -306,7 +306,7 @@ export class MatriculasPessoaJuridicaGerarDocumentosComponent implements OnInit{
 
 EditarEvidenciaSubmit(): void {
   this.httpClient
-  .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/evidencias',
+  .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/evidencias',
   this.formEditarEvidencias.value  
 
  )
@@ -329,7 +329,7 @@ EditarEvidenciaSubmit(): void {
  
 onSubmit(): void {
   this.httpClient
-  .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/editar-matriculas-cliente', this.EditarMatriculas.value)
+  .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/editar-matriculas-cliente', this.EditarMatriculas.value)
 
   .subscribe({
     next: (data: any) => {
@@ -382,7 +382,7 @@ if (this.inserir_evidencias) {
     formData.append('inserir_evidencias', this.inserir_evidencias);
 }
   this.httpClient
-    .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/evidencias/incluir-evidencia', formData)
+    .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/evidencias/incluir-evidencia', formData)
     .subscribe(
       (data: any) => {
         this.mensagem = `Proficiência atualizada com sucesso!`;
@@ -398,7 +398,7 @@ if (this.inserir_evidencias) {
 downloadEvidencias(evidencias: any) {
   if (evidencias && evidencias.idEvidencias) {
     const evidencia = evidencias.idEvidencias;
-    this.httpClient.get(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/evidencias/download-evidencia/${evidencia}`, {
+    this.httpClient.get(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/evidencias/download-evidencia/${evidencia}`, {
       responseType: 'arraybuffer' as 'json', // Specify that the response is binary data
       observe: 'response' // Ensure full response is returned, including headers
     }).subscribe(
@@ -466,7 +466,7 @@ IncluirUsuarioSubmit(): void {
 
     console.log('Enviando requestData:', requestData);
 
-    this.httpClient.put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/incluirUsuarios', requestData)
+    this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/incluirUsuarios', requestData)
     .subscribe({
       next: () => {
         console.log('Usuarios cadastrados com sucesso!');
@@ -483,7 +483,7 @@ IncluirUsuarioSubmit(): void {
 
 
 excluirUsuarioMatricula(idMatricula: string, idUsuario: string): void {
-  const url = `https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/${idMatricula}/usuarios/${idUsuario}`;
+  const url = `http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/${idMatricula}/usuarios/${idUsuario}`;
 
   this.httpClient.delete(url).subscribe(
     () => {

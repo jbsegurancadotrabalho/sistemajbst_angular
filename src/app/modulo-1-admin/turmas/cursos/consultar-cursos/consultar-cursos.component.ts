@@ -43,7 +43,7 @@ export class ConsultarCursosComponent implements OnInit {
 
     
     ngOnInit(): void {
-      this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos'
+      this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos'
       )
       .subscribe({ 
         next: (data) => { 
@@ -111,7 +111,7 @@ export class ConsultarCursosComponent implements OnInit {
               formData.append('avaliacao', incluiravaliacao, 'avaliacao'); // Adiciona o terceiro parâmetro para definir o nome do campo
   
               // Envia a requisição para a API usando o método PUT
-              this.httpClient.put('http://seguranca-do-trabalho.us-east-1.elasticbeanstalk.com/api/cursos/incluir-avaliacao', formData)
+              this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/incluir-avaliacao', formData)
                   .subscribe(
                       (data: any) => {
                           // Se a requisição for bem-sucedida, exibe uma mensagem de sucesso e redefina o formulário
@@ -155,7 +155,7 @@ export class ConsultarCursosComponent implements OnInit {
             formData.append('material', incluirmaterial, 'material'); // Adiciona o terceiro parâmetro para definir o nome do campo
 
             // Envia a requisição para a API usando o método PUT
-            this.httpClient.put('http://seguranca-do-trabalho.us-east-1.elasticbeanstalk.com/api/cursos/incluir-material', formData)
+            this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/incluir-material', formData)
                 .subscribe(
                     (data: any) => {
                         // Se a requisição for bem-sucedida, exibe uma mensagem de sucesso e redefina o formulário
@@ -199,7 +199,7 @@ IncluirGabaritoSubmit(): void {
           formData.append('gabarito', incluirgabarito, 'gabarito'); // Adiciona o terceiro parâmetro para definir o nome do campo
 
           // Envia a requisição para a API usando o método PUT
-          this.httpClient.put('http://seguranca-do-trabalho.us-east-1.elasticbeanstalk.com/api/cursos/incluir-gabarito', formData)
+          this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/incluir-gabarito', formData)
               .subscribe(
                   (data: any) => {
                       // Se a requisição for bem-sucedida, exibe uma mensagem de sucesso e redefina o formulário
@@ -314,7 +314,7 @@ IncluirGabaritoSubmit(): void {
     onDelete(idcurso: number, curso: string): void {
       if(window.confirm('Deseja realmente excluir o Endereco selecionado?\n' + curso)) {
         //enviando uma reqquisição para o serviço de exclusão da API
-        this.httpClient.delete('http://seguranca-do-trabalho.us-east-1.elasticbeanstalk.com/api/cursos/' + idcurso)
+        this.httpClient.delete('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/' + idcurso)
           .subscribe({
             next: (data: any) => {
               this.ngOnInit();
@@ -331,7 +331,7 @@ IncluirGabaritoSubmit(): void {
         const material = curso.idcurso;
     
         // Make a request to the server to get the proficiency file
-        this.httpClient.get(`http://seguranca-do-trabalho.us-east-1.elasticbeanstalk.com/api/cursos/download-material/${material}`, {
+        this.httpClient.get(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/download-material/${material}`, {
           responseType: 'arraybuffer' as 'json' // Specify that the response is binary data
         }).subscribe(
           (data: any) => {
@@ -352,7 +352,7 @@ IncluirGabaritoSubmit(): void {
         const avaliacao = curso.idcurso;
     
         // Make a request to the server to get the proficiency file
-        this.httpClient.get(`http://seguranca-do-trabalho.us-east-1.elasticbeanstalk.com/api/cursos/download-avaliacao/${avaliacao}`, {
+        this.httpClient.get(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/download-avaliacao/${avaliacao}`, {
           responseType: 'arraybuffer' as 'json' // Specify that the response is binary data
         }).subscribe(
           (data: any) => {
@@ -372,7 +372,7 @@ IncluirGabaritoSubmit(): void {
         const gabarito = curso.idcurso;
     
         // Make a request to the server to get the proficiency file
-        this.httpClient.get(`http://seguranca-do-trabalho.us-east-1.elasticbeanstalk.com/api/cursos/download-gabarito/${gabarito}`, {
+        this.httpClient.get(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/download-gabarito/${gabarito}`, {
           responseType: 'arraybuffer' as 'json' // Specify that the response is binary data
         }).subscribe(
           (data: any) => {

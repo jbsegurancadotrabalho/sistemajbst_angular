@@ -405,6 +405,18 @@
                         <li><a class="dropdown-item btn  btn-success" 
                            (click)="EmpresaDelete (e.idEmpresa)">
                               Excluir Empresa</a></li>
+                              <li> <a 							
+                                [routerLink]="['/cadastrar-funcionario', e.idEmpresa]"
+                                               (click)="setEmpresa(empresaSelecionada)"
+                                               (click)="setFuncionario (empresaSelecionada)"
+                                               class="dropdown-item btn  btn-success" 
+             
+                                               >                               
+                                                         Cadastrar Funcionário</a></li> 
+                                                         
+                                                         <li><a href="/consultar-funcionario"  class="dropdown-item btn btn-success" 
+                                                           [routerLink]="['/consultar-funcionario', e.idEmpresa]">
+                                                            Consultar Funcionário</a></li>
 
 
                               <li> <a 							
@@ -420,14 +432,7 @@
                                   [routerLink]="['/consultar-documentosfree', e.idEmpresa]"                
                                   class="dropdown-item btn  btn-success">                               
                                   Consultar Documentos Free</a></li>  
-								   <li> <a 							
-								   [routerLink]="['/cadastrar-funcionario', e.idEmpresa]"
-                                  (click)="setEmpresa(empresaSelecionada)"
-                                  (click)="setFuncionario (empresaSelecionada)"
-                                  class="dropdown-item btn  btn-success" 
-
-                                  >                               
-                                            Cadastrar Funcionário</a></li>     
+								
 											
 											    <li> <a 							
 							                (click)="setEmpresa(e)"
@@ -441,24 +446,7 @@
                   Cadastrar Contato</a></li>
 
                                             
-               
-                  <li><a href="/consultar-funcionario"  class="dropdown-item btn btn-success" 
-                    [routerLink]="['/consultar-funcionario', e.idEmpresa]">
-                     Consultar Funcionário</a></li>
-
-                     <li><a href="/consultar-unidadedoc"  class="dropdown-item btn btn-success" 
-                      [routerLink]="['/consultar-unidadedoc', e.idEmpresa]">
-                       Consultar Unidades</a></li>
-                        
-                                               <li>
-                                                <a [routerLink]="['/cadastrar-empresa-relatorios', e.idEmpresa]" class="dropdown-item btn  btn-success">
-                                                    Cadastrar Empresa Relatórios
-                                                </a>
-                                            </li>
-                                            
-                                            
-                            
-                                <li> <a 							
+                  <li> <a 							
                     data-bs-toggle="modal" 
                             data-bs-target="#contatoModal"
                             data-bs-whatever="@mdo"
@@ -470,6 +458,19 @@
                         
                                                     
                                                   Consultar Contato</a></li>
+             
+
+                
+                        
+                                               <li>
+                                                <a [routerLink]="['/cadastrar-empresa-relatorios', e.idEmpresa]" class="dropdown-item btn  btn-success">
+                                                    Cadastrar Empresa Relatórios
+                                                </a>
+                                            </li>
+                                            
+                                            
+                            
+                   
 
                                          
                                           

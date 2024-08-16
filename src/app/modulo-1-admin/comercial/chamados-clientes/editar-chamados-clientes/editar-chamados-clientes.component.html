@@ -1,0 +1,140 @@
+<app-perfil-empresa></app-perfil-empresa>
+<div class="container mt-5">
+		
+    <div class="card mt-5">
+        <div class="card-body">
+        
+           
+
+            <div class="row">
+            <div class="col-md-10 mt-3" >
+                <h5>Suporte ao Cliente</h5>
+                <p>Preencha os campos e dê o suporte necessário ao cliente e depois informe que 
+                    irá prosseguir via email.</p>             
+               </div>
+            
+            <div class="col-md-2 mt-3">
+                <a href="/consultar-suporte-ao-cliente  "
+                 class="btn btn-success"                
+                 >Voltar</a>
+               </div>
+            </div>
+
+
+        <div class="text-success">
+                    <strong></strong>
+                </div>
+                
+                <div class="text-danger">
+                    <strong></strong>
+                </div>
+                <div *ngIf="cadastroSucesso" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{ cadastroSucesso }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = ''"></button>
+                  </div>
+                  
+                  <div *ngIf="cadastroErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ cadastroErro }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = ''"></button>
+                  </div>
+                  
+                <form [formGroup]="chamadoForm" (ngSubmit)="criarChamado()">
+                    <input type="hidden" formControlName=" id_chamados_clientes" />
+
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <label>Nome:</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="nome_contato"/>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label>Email</label>
+                    <input type="text" name="email" id="email" class="form-control" formControlName="email"/>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <label>Telefone</label>
+                        <input  type="text" name="nome" id="nome" class="form-control"
+                        formControlName="telefone"/>
+                    </div>
+                    
+
+                    <div class="col-md-4 mt-3">
+                        <label>Empresa:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="empresa" 
+                        
+                        />
+                    </div>
+
+                    <div class="col-md-4 mt-3">
+                        <label>CNPJ:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="cnpj" 
+                        
+                        />
+                    </div>
+        
+                
+                    
+                
+                    <div class="col-md-4 mt-3">
+                        <label>Tipo de Serviço:</label>
+                        <input  type="text" name="valor" id="valor" class="form-control"
+                        formControlName="tipo_servico" 
+                        
+                        />
+                    </div>             
+                    </div>
+
+                    <div class="row">
+
+
+                        <div class="col-md-12 mt-3">
+                            <label class="form-label">Descreva com Riquezas de Detalhes o Chamado</label>
+                        
+                            <textarea class="form-control" formControlName="corpo_assunto" name="descreva_chamado" id="descreva_chamado"
+                                placeholder="Ex: 5 Alunos para o curso de NR-35" rows="5"></textarea>
+                        </div>
+
+                        <div class="col-md-12 mt-3" >
+                            <label>Status do Suporte ao Cliente:</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="status_chamado"
+                                name="valor" id="valor">
+                                <option value="Finalizado">Finalizado</option>
+                                <option value="Não Finalizado">Não Finalizado</option>
+                         
+    
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-12 mt-3">
+                            <label class="form-label">Resposta ao Chamado</label>
+                        
+                            <textarea class="form-control" formControlName="resposta_chamado" name="descreva_chamado" id="descreva_chamado"
+                                placeholder="Ex: Todos os nossos certificados são gerados via sistema. Em nosso 
+                                site temos o treinamento. Mas você pode ir em matrículas e gerar o certificado.
+
+                                Caso ele não esteja no sistema nos informe pelo email: operacional@jbsegurancadotrabalho.com.br.
+                                " rows="5"></textarea>
+                        </div>
+                        
+                     
+                    </div>
+                
+                <div class="row mb-2 mt-3">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-success" value="Suporte ao Cliente"/>
+                    </div>
+                </div>
+               
+
+            </form>
+          
+        </div>
+    </div>
+
+</div>

@@ -36,7 +36,7 @@ export class CriarCobrancaPessoaFisicaFaturamentoComponent {
     //capturando o id enviado na URL
     var id = this.activatedRoute.snapshot.paramMap.get('id') as string;
     //consultando o produto através do id
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/' + id)
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/' + id)
       .subscribe({
         next: (data: any) => {
           this.formCobranca.patchValue(data);
@@ -67,7 +67,7 @@ export class CriarCobrancaPessoaFisicaFaturamentoComponent {
     
           // Enviar o formulário para o endpoint
           this.httpClient
-            .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cobranca/cobrança-faturamento-pessoa-fisica', this.formCobranca.value)
+            .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cobranca/cobrança-faturamento-pessoa-fisica', this.formCobranca.value)
             .subscribe({
               next: (data: any) => {
                 this.mensagem = `Cobrança cadastrada com sucesso!`;

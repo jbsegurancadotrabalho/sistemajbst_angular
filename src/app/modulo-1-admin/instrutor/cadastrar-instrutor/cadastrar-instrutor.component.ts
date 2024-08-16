@@ -33,7 +33,7 @@ formInstrutor = new FormGroup({
 
      onSubmit(): void {
        this.httpClient
-       .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor',
+       .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor',
        this.formInstrutor.value
       
 

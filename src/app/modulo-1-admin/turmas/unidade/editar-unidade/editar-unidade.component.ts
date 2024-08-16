@@ -26,7 +26,7 @@ export class EditarUnidadeComponent implements OnInit {
     //capturando o id enviado na URL
     var idUnidadedetreinamento = this.activatedRoute.snapshot.paramMap.get('id') as string;
     //consultando o produto através do id
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento/' + idUnidadedetreinamento)
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento/' + idUnidadedetreinamento)
       .subscribe({
         next: (data: any) => {
           //preencher o formulário com os dados do produto obtido
@@ -55,7 +55,7 @@ export class EditarUnidadeComponent implements OnInit {
  
   onSubmit(): void {
    this.httpClient
-   .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento',
+   .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/unidadedetreinamento',
    this.formEditarUnidade.value 
   )
  

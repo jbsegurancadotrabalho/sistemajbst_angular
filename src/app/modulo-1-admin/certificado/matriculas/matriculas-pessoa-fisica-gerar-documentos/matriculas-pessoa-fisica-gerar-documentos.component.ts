@@ -143,7 +143,7 @@ export class MatriculasPessoaFisicaGerarDocumentosComponent  implements OnInit{
   }
  
   consultarMatriculas(): void {
-    const url = `https://matricula-pessoa-fisica-jb-env.eba-eccktdxj.us-east-1.elasticbeanstalk.com/api/matriculas-pessoafisica/consultar-matriculas-pessoafisica?mes=${this.mesAtual + 1}`;
+    const url = `http://matricula-pessoa-fisica-jb-env.eba-eccktdxj.us-east-1.elasticbeanstalk.com/api/matriculas-pessoafisica/consultar-matriculas-pessoafisica?mes=${this.mesAtual + 1}`;
       
 
     this.httpClient.get(url).subscribe({

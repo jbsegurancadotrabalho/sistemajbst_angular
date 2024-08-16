@@ -105,7 +105,7 @@ export class ConsultarFaturamentoPfComponent  implements OnInit{
   onDelete(id: number, pessoafisica: string): void {
     if(window.confirm('Deseja realmente excluir o Faturamento selecionado?\n' + pessoafisica)) {
       //enviando uma reqquisição para o serviço de exclusão da API
-      this.httpClient.delete('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/' + id)
+      this.httpClient.delete('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/' + id)
         .subscribe({
           next: (data: any) => {
             this.ngOnInit();
@@ -135,7 +135,7 @@ export class ConsultarFaturamentoPfComponent  implements OnInit{
 
 
   fecharFatura(idFaturamento: String): void {
-    this.httpClient.put(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/fechar-fatura/${idFaturamento}`, {})
+    this.httpClient.put(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/fechar-fatura/${idFaturamento}`, {})
       .subscribe({
         next: (data: any) => {
           console.log('Fatura fechada com sucesso.');
@@ -149,7 +149,7 @@ export class ConsultarFaturamentoPfComponent  implements OnInit{
   }
 
   reabrirFatura(idFaturamento: String): void {
-    this.httpClient.put(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/reabrir-fatura/${idFaturamento}`, {})
+    this.httpClient.put(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/reabrir-fatura/${idFaturamento}`, {})
       .subscribe({
         next: (data: any) => {
           console.log('Fatura reaberta com sucesso.');
@@ -176,7 +176,7 @@ export class ConsultarFaturamentoPfComponent  implements OnInit{
   
         // Enviar o formulário para o endpoint
         this.httpClient
-          .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cobranca/editar-cobranca', this.formEditarCobranca.value)
+          .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cobranca/editar-cobranca', this.formEditarCobranca.value)
           .subscribe({
             next: (data: any) => {
               const responsavelCobranca = data.responsavelCobranca; // Assuming this is how you get the faturamento number from the response

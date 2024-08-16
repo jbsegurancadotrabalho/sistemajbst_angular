@@ -22,7 +22,7 @@ export class EditarCursoComponent implements OnInit{
     //capturando o id enviado na URL
     var idcurso = this.activatedRoute.snapshot.paramMap.get('id') as string;
     //consultando o produto através do id
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/' + idcurso)
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos/' + idcurso)
       .subscribe({
         next: (data: any) => {
           this.formEditarCurso.patchValue(data);
@@ -58,7 +58,7 @@ export class EditarCursoComponent implements OnInit{
 
       onSubmit(): void {
         this.httpClient
-        .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos', this.formEditarCurso.value       
+        .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos', this.formEditarCurso.value       
 
        )
 

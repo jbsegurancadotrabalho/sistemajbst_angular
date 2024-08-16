@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GerarPgrFuncaodocComponent implements OnInit {
 
-  associacoes: any = {}; // Usaremos um objeto único, pois parece que recebemos um objeto único da API
+  associacoes: any[] = []; // Modificado para uma lista para melhor gerenciamento de dados
   paginaAtual: number = 1;
   itensPorPagina = 10;
   filtro: any = { nome_empresas: '' };

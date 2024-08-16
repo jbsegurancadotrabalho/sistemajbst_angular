@@ -24,7 +24,7 @@ export class EditarInstrutorComponent implements OnInit {
     //capturando o id enviado na URL
     var idinstrutor = this.activatedRoute.snapshot.paramMap.get('id') as string;
     //consultando o produto através do id
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor/' + idinstrutor)
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor/' + idinstrutor)
       .subscribe({
         next: (data: any) => {
           //preencher o formulário com os dados do produto obtido
@@ -54,7 +54,7 @@ formInstrutor = new FormGroup({
 
       onSubmit(): void {
         this.httpClient
-        .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor',
+        .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/instrutor',
         this.formInstrutor.value
        
 

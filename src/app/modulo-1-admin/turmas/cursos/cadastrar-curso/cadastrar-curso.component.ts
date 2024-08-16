@@ -41,7 +41,7 @@ export class CadastrarCursoComponent {
 
       onSubmit(): void {
         this.httpClient
-        .post('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos',
+        .post('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/cursos',
         this.formCurso.value
        
 

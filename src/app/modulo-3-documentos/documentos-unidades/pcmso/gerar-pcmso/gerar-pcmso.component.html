@@ -8,7 +8,12 @@
      ">
     <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/elementor/thumbs/LOGO03-oc8jb1cpek14ysk4x636pdjaeyldhzguodjnzc0ggu.png" 
     alt="Logo" class="print-logo mx-auto" />
+    <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/GSO-logo.jpg" alt="Hierarquia de medidas de controle">            
+
   </header>
+
+
+
   <div class="content" >
 
   <br>
@@ -35,24 +40,30 @@
       </tbody>
     </table>
   
-    <br><br><br><br>
-    <p style="font-family: Arial; font-size: 11pt; text-align: justify;">
-      1 – IDENTIFICAÇÃO E DADOS GERAIS  <br>
-      2 – QUADRO FUNCIONAL <br>
-      <strong>SUMÁRIO</strong><br>
-      3 - REFERÊNCIAS TÉCNICAS E LEGAIS <br>
-      4 – OBJETIVO <br>
-      5 – DIRETRIZES <br>
-      6 - RESPONSABILIDADES <br>
-      7 – DESENVOLVIMENTO DO PCMSO <br>
-      8 - PROCEDIMENTOS <br>
-      9 - O RELATÓRIO ANUAL <br>
-      10 - MATERIAL DE PRIMEIROS SOCORROS <br>
-      11 - PLANILHA DE EXAMES COMPLEMENTARES <br>
-      12 – ENCERRAMENTO <br>
-      </p>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+    <p style="font-family: Arial; font-size: 11pt; text-align: justify;">
+      <strong>SUMÁRIO</strong><br>
+      1 – IDENTIFICAÇÃO E DADOS GERAIS  <br>
+      2 –  REFERÊNCIAS TÉCNICAS E LEGAIS <br>
+      3 – OBJETIVO <br>
+      4 – DIRETRIZES <br>
+      5 - RESPONSABILIDADES <br>
+      6 – DESENVOLVIMENTO DO PCMSO <br>
+      7 - PROCEDIMENTOS <br>
+      8 - O RELATÓRIO ANUAL <br>
+      9 - MATERIAL DE PRIMEIROS SOCORROS <br>
+      10. PLANO DE AÇÃO DO PCMSO (Programa de Controle Médico de Saúde Ocupacional) <br>
+      11 – ENCERRAMENTO   
+      12 - ATESTADO DE SAÚDE OCUPACIONAL - ASO<br>
+      13 - CRM DO MÉDICO RESPONSÁVEL PELO PCMSO<br>
+      14 - DIPLOMA DO MÉDICO RESPONSÁVEL PELO PCMSO<br> 
+      15 - PLANILHA DE EXAMES CLÍNICOS E COMPLEMENTARES<br>
+
+
+      </p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
 
 
 
@@ -61,6 +72,9 @@
            <strong>Empresa:</strong> {{ a?.unidadedoc?.empresadoc?.razaosocial }} 
            <br>
          <strong>CNPJ:</strong> {{ a?.unidadedoc?.empresadoc?.cnpj }} <br>  
+         <strong>CNAE Principal:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.codigo }} <br>
+         <strong>Denominação:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.denominacao }} <br>
+         <strong>Grau de Risco:</strong> {{ a?.unidadedoc?.empresadoc?.cnaes?.[0]?.grau_de_risco }} <br>
          <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.empresadoc?.status  }}<br>      
          <strong>Horário da Empresa:</strong> {{  a?.unidadedoc?.horario_empresa  }}<br>      
          <strong>Inscrição Estadual:</strong> {{   a?.unidadedoc?.empresadoc?.inscricaoestadual  }}<br>      
@@ -79,7 +93,8 @@
 
           </p>
 
-     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <br><br><br><br><br><br><br><br><br><br><br><br>    <br><br><br><br><br><br>
+
 
 
      <p style="font-family: Arial; font-size: 12pt; text-align: justify;" >
@@ -318,7 +333,7 @@ das Leis do Trabalho, relativo à Segurança e Medicina do Trabalho.
        </p>
        <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
         <strong>8 - O RELATÓRIO ANUAL</strong>
-
+        <br>        
     8.1 O Relatório Anual deverá ser acompanhado de dois anexos:<br>
     8.1.1 O anexo I que deverá discriminar, por setores da Empresa, o número e a natureza dos exames médicos, incluindo avaliações clínicas e exames complementares, estatísticas de
     resultados considerados anormais, assim como o planejamento para o próximo ano.
@@ -455,69 +470,443 @@ das Leis do Trabalho, relativo à Segurança e Medicina do Trabalho.
                                   <br>
                               </p>
                         
-                              <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
-                                <strong>10 - PLANILHA DE EXAMES CLÍNICOS E COMPLEMENTARES</strong>
-                                </p>  
-                                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">		  
-                                  Tem por objetivo avaliar a exposição ocupacional de cada trabalhador. Identificando os riscos ocupacionais decorrentes dos processos ou métodos de trabalho, identificação das funções,
-                                  trabalhadores expostos, descrevendo os exames e a periodicidade dos exames, considerando grupo homogêneo de riscos.
-                                  </p>  
-                                 
-                             <br>
-                                
-               <ng-container *ngFor="let a of associacoes; let iA = index">
-                <ng-container *ngFor="let funcaoDoc of a?.unidadedoc?.funcaodoc; let iF = index">
-                  <ng-container *ngFor="let risco of funcaoDoc?.riscos; let iR = index">
-              
-                    <p></p>
-                    <p>
-                      <strong>LEVANTAMENTO DA FUNÇÃO  DE {{ funcaoDoc?.funcao?.nome_da_funcao | uppercase}}</strong><br>  
-                      <strong>1 - Função: </strong>{{ funcaoDoc?.funcao?.nome_da_funcao }}</p>
-                       <p><strong>2 - CBO: </strong> {{ funcaoDoc?.funcao?.cbo }}</p>
-                      <p> <strong>3 - Descrição: </strong>{{ funcaoDoc?.funcao?.descricao }}</p>
-                      <p> <strong>4 - Grupo de Risco: </strong>{{ risco?.grupo }}</p>
-                       <p><strong>5 - Tipo: </strong>{{ risco?.tipo }}</p>
-                      <p> <strong>6 - Fonte Geradora: </strong>{{ risco?.fonte_geradora }}</p>
-                      <p> <strong>7 - Meios de Propagação: </strong> {{ risco?.meios_de_propagacao }}</p>
-                      <p> <strong>8 - Categoria do Potencial de Severidade: </strong> {{ risco?.potencial_severidade_danos?.categoria_potencial_severidade }}</p>
-                      <p> <strong>9 - Tipo do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.tipo }}</p>
-                      <p> <strong>10 - Características do Potencial de Severidade: </strong>{{ risco?.potencial_severidade_danos?.caracteristicas_potencial_severidade }}</p>
-                       <p><strong>11 - Nível de Severidade: </strong>{{ risco?.nivel_severidade?.nivel_risco_MedidasDeControle }}</p>
-                      <p> <strong>12 - Número do Nível de Severidade: </strong> {{ risco?.nivel_severidade?.numero_risco_MedidasDeControle }}</p>
-                     <p>  <strong>13 - Descrição do Nível de Severidade: </strong>{{ risco?.nivel_severidade?.descricao_MedidasDeControle }}</p>
-                      <p> <strong>14 - Nível de Permissão: {{ risco?.nivel_severidade?.nivel_permissao_MedidasDeControle}} </strong></p>
-                      <p *ngFor="let c of funcaoDoc?.avaliacoesocupacionaisfuncoes;"> <strong >
-                        15 - Avaliações Ocupacionais:   </strong> {{ c?.nome_avaliacoes_funcao }}, {{c?.tipo_avaliacoes_funcao}}. {{ c?.descricao_avaliacoes_funcao}}
-                   
-                      </p>
-                      <p> <strong>16 - Categoria da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.categoria }}</p>
-                      <p> <strong>17 - Denominação da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.denominacao }}</p>
-                      <p> <strong>18 - Descrição da Probabilidade de Ocorrência: </strong>{{ risco?.probabilidadeocorrencia?.descricao }}</p>
-                      <p> <strong *ngFor="let epi of funcaoDoc?.epi; let iE = index">
-                        19 - Epis para Esta Função: {{ epi?.nome_epi }} - CA: {{ epi?.ca }}
-                      </strong></p>
-                     <p>  <strong *ngFor="let c of funcaoDoc?.cursodenrs; let iCNR = index">
-                       20 -  Curso de NR'S para Esta Função: {{ c?.nomeCurso }} - {{ c?.descricaoCurso }}
-                      </strong>
-                    </p>
-                  </ng-container>
-                </ng-container>
-              </ng-container>
+             
+<p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+  <strong>10. PLANO DE AÇÃO DO PCMSO (Programa de Controle Médico de Saúde Ocupacional) 
+ </strong><br><br>
+   </p>
+   <table class="table table-striped table-hover">
+     <thead>
+     <tr>
+       <th scope="col">Ação 1</th>
+       <th scope="col">Noções Básicas em Primeiros Socorros.</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>Mês</td>
+       <td>Pode ser realizado a partir do primeiro mês do Ano Vigente iniciando em  {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}.
+       </td>
+     </tr>
+  
+     <tr>
+       <td>Setor Responsável </td>
+       <td>Administração</td> 
+     </tr>
+     <tr>
+       <td>Data de Inicio </td>
+       <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+     </tr>
+   
+     <tr>
+       <td>Prazo</td>
+       <td>3 Meses a partir da data de inicio deste relatório </td> 
+     </tr>
+     <tr>
+       <td>Frequência</td>
+       <td>Anual</td> 
+     </tr>
+     <tr>
+       <td>Método</td>
+       <td>Treinamento</td> 
+     </tr>
+   </tbody>
+ </table>    
+                            
+ <table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 2</th>
+    <th scope="col">Divulgação do PCMSO integrado ao PGR</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Mês</td>
+    <td>Pode ser realizado a partir do primeiro mês do Ano Vigente iniciando em  {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}.
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração ou SMS</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+
+  <tr>
+    <td>Prazo</td>
+    <td>1 Mês a partir da data de inicio deste relatório </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Mensal</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Diálogo de Saúde e Segurança do Trabalho</td> 
+  </tr>
+</tbody>
+</table>    
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 3</th>
+    <th scope="col">Cuidados Saudáveis</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Mês</td>
+    <td>Pode ser realizado a partir do primeiro mês do Ano Vigente iniciando em  {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}.
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração ou SMS</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+
+  <tr>
+    <td>Prazo</td>
+    <td>1 Mes a partir da data de inicio deste relatório </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diário</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Supervisão, Treinamento, Check List</td> 
+  </tr>
+</tbody>
+</table>   
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 4</th>
+    <th scope="col">Cuidados com o corpo e Higiene</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Mês</td>
+    <td>Pode ser realizado a partir do primeiro mês do Ano Vigente iniciando em  {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}.
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+
+  <tr>
+    <td>Prazo</td>
+    <td>1 Mes a partir da data de inicio deste relatório </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Diária</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Treinamento, Diálogo</td> 
+  </tr>
+</tbody>
+</table>  
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 5</th>
+    <th scope="col">Combate a dengue ou qualquer outra doença.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Mês</td>
+    <td>Pode ser realizado a partir do primeiro mês do Ano Vigente iniciando em  {{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }}.
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+
+  <tr>
+    <td>Prazo</td>
+    <td>3 Meses a partir da data de inicio deste relatório </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Anual</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Contratação de Empresa especializada</td> 
+  </tr>
+</tbody>
+</table>   
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 6</th>
+    <th scope="col">Relatório anual do PCMSO.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Mês</td>
+    <td>Deve ser realizado a partir do primeiro mês em que o antigo PCMSO terminou a sua vigência.
+      Caso a empresa nunca tenha realizado, ele deve ser feito a partir do primeiro mês de contra
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+
+  <tr>
+    <td>Prazo</td>
+    <td>3 Meses a partir da data de inicio deste relatório </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Anual</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>Treinamento</td> 
+  </tr>
+</tbody>
+</table>     
+
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Ação 6</th>
+    <th scope="col">Revisão anual do PCMSO.</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Mês</td>
+    <td>Deve ser realizado após o dia {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }} 
+    </td>
+  </tr>
+
+  <tr>
+    <td>Setor Responsável </td>
+    <td>Administração</td> 
+  </tr>
+  <tr>
+    <td>Data de Inicio </td>
+    <td>{{ a?.relatorios?.datainicio | date: 'dd/MM/yyyy' }} </td> 
+  </tr>
+
+  <tr>
+    <td>Prazo</td>
+    <td>15 dias após o Término de Vigência do PCMSO </td> 
+  </tr>
+  <tr>
+    <td>Frequência</td>
+    <td>Anual</td> 
+  </tr>
+  <tr>
+    <td>Método</td>
+    <td>ChecList</td> 
+  </tr>
+</tbody>
+</table>  
               
               <br>
 
               <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
                 <strong>  11 - ENCERRAMENTO</strong><br><br>
                   
-                  Este documento PCMSO - Programa de Controle Médico de Saúde Ocupacional, elaborado por Dr. Adriano Cerri, contendo 15 páginas, inclusive esta, formalizado através da
-                  assinatura identificada abaixo.
-                                                </p>  
+                  Este documento PCMSO - Programa de Controle Médico de Saúde Ocupacional, elaborado pelo Médico do Trabalho tem o seu período Vigente até o dia {{ a?.relatorios?.vigencia | date: 'dd/MM/yyyy' }}.
+                  Após esta data deverá ser elaborado outro programa.
+                                                </p> 
+                                                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                                <br><br><br><br><br><br><br><br><br> 
+
+                                                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                                                  <strong>12 - ATESTADO DE SAÚDE OCUPACIONAL - ASO</strong> 
+<br>
+                                                  <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/aso.png" alt="Hierarquia de medidas de controle">            
+                                                </p>
+                                                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                                <br><br><br><br>
+
+                             <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                               <strong>13 - CRM DO MÉDICO RESPONSÁVEL PELO PCMSO</strong> 
+                                </p>
+                               
+                                
+                          
+                             <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                               <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/crm-frente.png" alt="Hierarquia de medidas de controle">            
+                             </p>
+
+                             <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                              <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/crm-tras.png" alt="Hierarquia de medidas de controle">            
+                            </p>
+                            <br><br><br><br><br><br><br><br><br>
+
+                            <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                              <strong>14 - DIPLOMA DO MÉDICO RESPONSÁVEL PELO PCMSO</strong> 
+                               </p>
+                             <p style="font-family: Arial; font-size: 12pt; text-align: justify;">
+                               <img src="https://jbsegurancadotrabalho.com.br/wp-content/uploads/2024/08/diploma-frente-medico-de-rosangela.png" alt="Hierarquia de medidas de controle">            
+                             </p>
+<br>                            
+<br>
+<br>
+<br>                            
+<br>
+<br>
+<br>                            
+<br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br>
+
+                                                                    
+<div >
+
+                 <p style="font-family: Arial; font-size: 12pt; text-align: left;">
+                                <strong>15 - PLANILHA DE EXAMES CLÍNICOS E COMPLEMENTARES</strong>
+                                </p>  
+                                <p style="font-family: Arial; font-size: 12pt; text-align: justify;">		  
+                                  Tem por objetivo avaliar a exposição ocupacional de cada trabalhador. Identificando os riscos ocupacionais decorrentes dos processos ou métodos de trabalho, identificação das funções,
+                                  trabalhadores expostos, descrevendo os exames e a periodicidade dos exames, considerando grupo homogêneo de riscos.
+                                  </p> 
+                                  
+                               
+                                 
+                             <br>
+                             
+
+<br>
+
+  <ng-container *ngFor="let a of associacoes;">
+    <ng-container *ngFor="let funcaodoc of a?.unidadedoc?.funcaodoc; ">
+      <br><br>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Função</th>
+              <th>CBO</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ funcaodoc?.funcao?.nome_da_funcao}}</td>
+              <td>{{ funcaodoc?.funcao?.cbo}}</td>
+              <td>{{ funcaodoc?.funcao?.descricao}}</td>
+          </tbody>
+        </table>
+     
+   
+
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Riscos</th>
+              <th>Tipo</th>
+              <th>Fonte Geradora</th>
+              <th>Meios de Propagação</th>
+            
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let perigo of funcaodoc?.riscos;">
+            <tr>
+              <td>{{ perigo?.grupo }}</td>
+              <td>{{ perigo?.tipo }}</td>
+              <td>{{ perigo?.fonte_geradora}}</td>
+              <td>{{ perigo?.meios_de_propagacao }}</td>
+          
+            </tr>
+          </ng-container>
+
+          </tbody>
+        </table>
+        <br>
+        <br>
+             
+        <div class="row bg-light border border-dark rounded p-3">
+         <div class="col-md-12 ">
+           <strong>Danos</strong>
+           <br>
+           Após o levantamento de todos os Riscos da função de {{ funcaodoc?.funcao?.nome_da_funcao }}, concluímos que o colaborador poderá sofrer os seguintes danos:
         
-                            <br>
-                   
+           <ng-container *ngFor="let perigo of funcaodoc?.riscos;">
+             <Strong  *ngFor="let dano of perigo?.danos">{{ dano?.nomeDano }}, </Strong>
+     </ng-container>
+     durante o período de trabalho.
+   </div>
+</div>
+<br>
+
+        <div class="row bg-light border border-dark rounded p-3">
+          <div class="col-md-12 ">
+            <strong>Meios de Controles para os Riscos da Função acima</strong>
+            <br>
+            Após o levantamento de todos os Riscos da função de {{ funcaodoc?.funcao?.nome_da_funcao }}, concluímos que as seguintes Medidas de Controles devem ser implementadas como:
+         
+        <ng-container *ngFor="let m of funcaodoc?.riscos;">
+          {{ m?.meios_de_controles }}, 
+      </ng-container>
+      durante o período de vigência deste relatório.
+    </div>
+ </div>
+        <br>
+
+        <div class="row bg-light border border-dark rounded p-3">
+          <div class="col-md-12 ">
+            <strong>Exames para a Função de  {{ funcaodoc?.funcao?.nome_da_funcao }}</strong>
+            <br>
+            Todos os colaboradores da Função de  {{ funcaodoc?.funcao?.nome_da_funcao }} devem fazer o Atestado de Saúde Ocupacional
+            Admissional, Periódico, Mudança de Função, Retorno ao Trabalho e Demissional.
+             Quanto ao tipo de Exames concluímos que os colaboradores desta função
+            deverão fazer os Exames de 
+            <ng-container *ngFor="let exame of funcaodoc?.exames_funcaodoc; let iEx = index">
+                  {{ exame?.nome_exames_funcaodoc }}                   {{ exame?.descricao_exames_funcaodoc }};
+
+          </ng-container>
+
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+</div>
+ 
                           </div>
+
               
 </div>
+
+
 </div>
 
 

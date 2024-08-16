@@ -149,7 +149,7 @@ export class FazerMatriculasPedidosDeComprasPerfilEmpresaComponent  implements O
   }
 
   obterPedidosEmAberto(userId: string): void {
-    const endpoint = `https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/api/pedidos-aberto/usuario/${userId}`;
+    const endpoint = `http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/api/pedidos-aberto/usuario/${userId}`;
   
     this.httpClient.get<any[]>(endpoint)
       .subscribe({
@@ -204,7 +204,7 @@ export class FazerMatriculasPedidosDeComprasPerfilEmpresaComponent  implements O
  // Envie os dados do formulário para a API ou realize outras ações necessárias
  // Exemplo: this.matriculaService.criarMatricula(this.formFaturamentoPJ.value);
 
-      this.httpClient.post(`https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/criarMatricula-pedidos/` + idPedidos,
+      this.httpClient.post(`http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/criarMatricula-pedidos/` + idPedidos,
         this.formFaturamentoPedidos.value
       ).subscribe({
         next: (data: any) => {

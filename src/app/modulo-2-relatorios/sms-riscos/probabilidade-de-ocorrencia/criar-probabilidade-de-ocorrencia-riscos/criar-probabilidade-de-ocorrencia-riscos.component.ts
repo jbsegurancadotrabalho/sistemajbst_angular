@@ -57,7 +57,7 @@ export class CriarProbabilidadeDeOcorrenciaRiscosComponent implements OnInit {
     if (this.formularioProbabilidadeDeOcorrencia.valid) {
       const novoRisco:  PostProbabilidadeDeOcorrenciaRiscosModel = this.formularioProbabilidadeDeOcorrencia.value as PostProbabilidadeDeOcorrenciaRiscosModel;
       console.log('Dados do formulário:', this.formularioProbabilidadeDeOcorrencia.value); // Verifique os valores do formulário
-      this. probabilidadeDeOcorrenciaService.criarProbabilidadeDeOcorrenciaRiscos(novoRisco).subscribe(
+      this.probabilidadeDeOcorrenciaService.criarProbabilidadeDeOcorrenciaRiscos(novoRisco).subscribe(
         response => {
           console.log('Probabilidade de Ocorrencia criado com sucesso:', response);
           this.cadastroSucesso = 'Probabilidade de Ocorrencia criada com sucesso!';

@@ -40,7 +40,7 @@ export class EditarFaturamentoPfComponent {
  
   ngOnInit(): void {
     var id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.httpClient.get('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/' + id)
+    this.httpClient.get('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf/' + id)
       .subscribe({
         next: (data: any) => {
           //preencher o formulário com os dados do produto obtido
@@ -68,7 +68,7 @@ export class EditarFaturamentoPfComponent {
     
         // Enviar o formulário para o endpoint
         this.httpClient
-          .put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf',this.formFaturamentopf.value)
+          .put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/faturamentopf',this.formFaturamentopf.value)
           .subscribe({
             next: (data: any) => {
               this.mensagem = `Faturamento Editado com sucesso!`;

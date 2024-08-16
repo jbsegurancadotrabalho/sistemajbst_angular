@@ -61,7 +61,7 @@ export class PedidosDeComprasPerfilEmpresaComponent implements OnInit{
     console.log('Mês atual:', this.mesAtual + 1);
     console.log('Ano atual:', this.anoAtual);
   
-    const endpoint = `https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/usuario/${this.userId}/${this.mesAtual + 1}/${this.anoAtual}`;
+    const endpoint = `http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/pedidos-de-compras/usuario/${this.userId}/${this.mesAtual + 1}/${this.anoAtual}`;
     const params = new HttpParams()
       .set('mes', (this.mesAtual + 1).toString())
       .set('ano', this.anoAtual.toString());
