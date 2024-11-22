@@ -1,0 +1,164 @@
+<br><br>
+<div class="container mb-3 ">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Buscar Exames por Localidade</h5>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="https://jbsegurancadotrabalho.com.br" target="_blank" class="btn btn-success">Voltar para o Site</a>
+                </div>
+            </div>
+<hr>
+
+<div class="card">
+  <div class="card-body">
+
+            <form (ngSubmit)="buscarExames()" [formGroup]="formularioEpi">
+             <div class="row mb-2 mt-3">
+
+                <div class="col-md-3 mt-3">
+                    <label for="">Exames</label>
+                    <ng-select
+                      [items]="exames1"
+                      bindLabel="nome_exame"
+                      bindValue="nome_exame"
+                      class="form-select custom-ng-select"
+                      formControlName="nome_exame"
+                      [ngClass]="{'is-invalid': formularioEpi.get('nome_exame')?.invalid && formularioEpi.get('nome_exame')?.touched}">
+                      <ng-template ng-label-tmp let-item="item">
+                        <div class="custom-bg">
+                          <span>{{ item.nome_exame }}</span> 
+                        </div>
+                      </ng-template>
+                      <ng-template ng-option-tmp let-item="item">
+                        <div>
+                          <span>{{ item.nome_exame }}</span> 
+                        </div>
+                      </ng-template>
+                    </ng-select>
+                  </div>
+                <div class="col-md-2 mt-3">
+                    <label for="enderecouff">Estado</label>
+                    <ng-select
+                    [items]="enderecouff"
+                    bindLabel="uf"
+                    bindValue="uf"
+                    class="form-select custom-ng-select"
+                    formControlName="uf"
+                    [ngClass]="{'is-invalid': formularioEpi.get('uf')?.invalid && formularioEpi.get('uf')?.touched}">
+                    <ng-template ng-label-tmp let-item="item">
+                      <div class="custom-bg">
+                        <span>{{ item.uf }} </span>  
+                      </div>
+                    </ng-template>
+                    <ng-template ng-placeholder-tmp let-item="item">
+                      <div>
+                        <span>Selecione o Estado</span> 
+                      </div>
+                    </ng-template>
+                  </ng-select>
+                  
+                </div>
+
+                <div class="col-md-3 mt-3">
+                  <label for="localidade">Municipio</label>
+                  <ng-select
+                  [items]="enderecoslocalidade"
+                  bindLabel="localidade"
+                  bindValue="localidade"
+                  class="form-select custom-ng-select"
+                  formControlName="localidade"
+                  [ngClass]="{'is-invalid': formularioEpi.get('localidade')?.invalid && formularioEpi.get('localidade')?.touched}">
+                  <ng-template ng-label-tmp let-item="item">
+                    <div class="custom-bg" style="z-index: 1000;">
+                      <span>{{ item.localidade }} </span>  
+                    </div>
+                  </ng-template>
+                  <ng-template ng-placeholder-tmp let-item="item">
+                    <div>
+                      <span> {{ item.localidade}} </span> 
+                    </div>
+                  </ng-template>
+                </ng-select>
+              </div>
+
+               
+                
+                
+                
+
+              <div class="col-md-3 mt-3">
+                <label for="bairro">Bairro</label>
+                <ng-select
+                [items]="enderecosbairro"
+                bindLabel="bairro"
+                bindValue="bairro"
+                class="form-select custom-ng-select"
+                formControlName="bairro"
+                [ngClass]="{'is-invalid': formularioEpi.get('bairro')?.invalid && formularioEpi.get('bairro')?.touched}">
+                <ng-template ng-label-tmp let-item="item">
+                  <div class="custom-bg" style="z-index: 1000;">
+                    <span>{{ item.bairro }} </span>  
+                  </div>
+                </ng-template>
+                <ng-template ng-placeholder-tmp let-item="item">
+                  <div>
+                    <span> {{ item.bairro}} </span> 
+                  </div>
+                </ng-template>
+              </ng-select>
+            </div>
+
+                <div class="form-group col-md-1 mt-3">
+                    <label for="idEndereco" style="color: white;">Estado</label>
+                    <button type="submit" class="btn btn-success">Buscar</button>
+                  </div>
+            </div>
+
+
+            <hr />
+            <div class="table-responsive mt-2" *ngFor="let exame of exames2">
+                <table id="consulta_epi" class="table table-sm table-hover">
+                    <thead>
+                      <tr >
+                        <th>Credenciado</th> 
+                        <th>Estado</th> 
+                        <th>Municipio</th> 
+                        <th>Bairro</th> 
+                        <th>Exame</th> 
+                        <th>Valor</th> 
+
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ec of exame?.examescredenciados">
+                    <td>{{ ec?.credenciados?.nomeCredenciado }}</td>
+                    <td>{{ ec?.credenciados?.endereco?.uf || 'N/A' }}</td>
+                    <td>{{ ec?.credenciados?.endereco?.localidade || 'N/A' }}</td>
+                    <td>{{ ec?.credenciados?.endereco?.bairro || 'N/A' }}</td>
+                    <td>{{ exame?.nome_exame }}</td>
+                    <td>{{ ec?.valorCredenciado }}</td>
+                  </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Existem {{ getTotalExams() }} Credenciados para este local.
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        
+    
+

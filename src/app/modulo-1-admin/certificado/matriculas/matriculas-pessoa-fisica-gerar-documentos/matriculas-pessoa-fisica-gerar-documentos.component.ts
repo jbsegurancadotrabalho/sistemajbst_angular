@@ -415,7 +415,7 @@ IncluirUsuarioSubmit(): void {
     };
 
     console.log('Enviando requestData:', requestData);
-    this.httpClient.put('https://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/incluirUsuarios', requestData)
+    this.httpClient.put('http://seguranca-do-trabalho-jb-env.eba-izb9phrg.us-east-1.elasticbeanstalk.com/api/matriculas/incluirUsuarios', requestData)
     .subscribe({
       next: () => {
         console.log('Usuarios cadastrados com sucesso!');

@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Atendimento</h5>
+                    <p>Preencha os campos para criar o Atendimento</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-credenciados" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+              </div>
+              
+              <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+              </div>
+              
+              <form (ngSubmit)="criarAtendimento()" [formGroup]="formularioAtendimento">
+                <input type="hidden" formControlName="idAgendamento" />
+              
+                <div class="row mb-2">
+                     
+                    <div class="col-md-3 mt-3">
+                        <label>Tipo:</label>
+                        <select class="form-select" formControlName="tipo" aria-label="Default select example">
+                          <option value="Atendimento Presencial">Atendimento Presencial</option>
+                          <option value="Atendimento Online">Atendimento Online</option>
+                        </select>
+                        <div *ngIf="formularioAtendimento.get('tipo')?.invalid && formularioAtendimento.get('tipo')?.touched" class="text-danger">
+                            Tipo é obrigatório.
+                          </div>
+                              
+                      </div>
+                      
+
+                <div class="col-md-3 mt-3">
+                    <label>Status:</label>                      
+                    <select class="form-select" 
+                    formControlName="status"
+                    aria-label="Default select example">
+                        <option value="Atendimento Finalizado">Atendimento Finalizado</option>
+                        <option value="Em Atendimento">Em Atendimento</option>
+
+                    </select>
+
+                </div>
+       
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Link</label>
+                        <input type="text" id="causasPerigo" formControlName="link" class="form-control">
+                    </div>  
+
+                            
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Profissional</label>
+                        <input type="text" id="causasPerigo" formControlName="profissional" class="form-control">
+                    </div>  
+                </div>
+
+                 
+                  <div class="col-md-12 mt-3" >
+                    <label>Descrição:</label>                      
+                   <textarea class="form-control" id="exampleTextarea" rows="5" formControlName="descricao"></textarea>
+              </div> 
+              
+                <div class="form-group col-md-6 mt-4">
+                  <button type="submit" class="btn btn-success">Criar Atendimento</button>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+</div>

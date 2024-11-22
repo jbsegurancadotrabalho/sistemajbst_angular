@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { PostEnderecoModel } from '../models/endereco/PostEnderecoModel';
 import { PutEnderecoModel } from '../models/endereco/PutEnderecoModel';
 import { GetEnderecoModel } from '../models/unidadedoc/GetEnderecoModel';
+import { GetUfModel } from '../models/endereco/GetUfModel';
 
 
 @Injectable({
@@ -39,12 +40,38 @@ export class EnderecoService {
 
 
   consultarEndereco(): Observable<GetEnderecoModel[]> {
-    const url = `${this.baseUrl}/enderecos'`;
+    const url = `http://relatorio-jb-env.eba-w4gjvqei.us-east-2.elasticbeanstalk.com/enderecos`;
     return this.http.get<GetEnderecoModel[]>(url)
       .pipe(
         catchError(this.handleError) // Tratar erros
       );
   }
+
+  consultarUfEndereco(): Observable<GetUfModel[]> {
+    const url = `http://localhost:8089/enderecos/ufs`;
+    return this.http.get<GetUfModel[]>(url)
+      .pipe(
+        catchError(this.handleError) // Tratar erros
+      );
+  }
+
+  consultarLocalidadeEndereco(): Observable<GetEnderecoModel[]> {
+    const url = `http://localhost:8089/enderecos/localidades`;
+    return this.http.get<GetEnderecoModel[]>(url)
+      .pipe(
+        catchError(this.handleError) // Tratar erros
+      );
+  }
+
+  consultarBairroEndereco(): Observable<GetEnderecoModel[]> {
+    const url = `http://localhost:8089/enderecos/bairros`;
+    return this.http.get<GetEnderecoModel[]>(url)
+      .pipe(
+        catchError(this.handleError) // Tratar erros
+      );
+  }
+
+
 
   consultarEnderecoPorId(id: string): Observable<GetEnderecoModel> {
     const url = `${this.baseUrl}/enderecos/${id}`;

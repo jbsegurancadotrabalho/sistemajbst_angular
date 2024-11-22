@@ -1,0 +1,1724 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Anamnese</h5>
+                    <p>Preencha os campos para criar a Anamnese.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-anamnese" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+            
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            
+            <form (ngSubmit)="editarAnamnese()" [formGroup]="formularioAnamnese">
+                <input type="hidden" formControlName="idAnamnese" />
+            
+
+                <div class="row mb-2">
+                    <div class="col-md-2 mt-3"> <label>Data</label> <input type="datetime-local"  formControlName="dia_hora" class="form-control" /></div>
+                    
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Nome</label>
+                        <input type="text" id="causasPerigo" formControlName="nome" class="form-control">
+                    </div> 
+                    
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Empresa</label>
+                        <input type="text" id="causasPerigo" formControlName="empresa" class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="causasPerigo">Telefone</label>
+                        <input type="text" id="causasPerigo" formControlName="telefone" 
+                        placeholder="Ex: (00) 00000-0000"
+                        mask="(00) 00000-0000"
+                        class="form-control">
+                    </div> 
+                    
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="causasPerigo">Data de Nascimento</label>
+                        <input type="text" id="causasPerigo" formControlName="data_nascimento" 
+                        placeholder="Ex: 00/00/0000"
+                        mask="00-00-0000"
+                        class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="causasPerigo">Data de Admissão</label>
+                        <input type="text" id="causasPerigo" formControlName="data_admissao" 
+                        placeholder="Ex: 00/00/0000"
+                        mask="00/00/0000"
+                        class="form-control">
+                    </div> 
+                    
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="causasPerigo">CPF</label>
+                        <input type="text" id="causasPerigo" formControlName="cpf" 
+                        placeholder="Ex: 000-000-000-00"
+                        mask=" 000-000-000-00"
+                        class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="causasPerigo">RG</label>
+                        <input type="text" id="causasPerigo" formControlName="rg" 
+                        placeholder="Ex: 000-000-000-00"
+                        class="form-control">
+                    </div>  
+
+                    
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="causasPerigo">Orgão Emissor</label>
+                        <input type="text" id="causasPerigo" formControlName="orgaoemissor" 
+                        placeholder="Ex: Detran"
+                        class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="causasPerigo">Setor</label>
+                        <input type="text" id="causasPerigo" formControlName="setor" 
+                        placeholder="Ex: Setor"
+                        class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-2 mt-3">
+                        <label for="causasPerigo">Função</label>
+                        <input type="text" id="causasPerigo" formControlName="funcao" 
+                        placeholder="Ex: Função"
+                        class="form-control">
+                    </div>  
+
+                <div class="col-md-2 mt-3">
+                    <label>Tipo Aso:</label>                      
+                    <select class="form-select" 
+                    formControlName="tipo_aso"
+                    aria-label="Default select example">
+                        <option value="Admissional">Admissional</option>
+                        <option value="Periodico">Periodico</option>
+                        <option value="Mudança de Função">Mudança de Função</option>
+                        <option value="Retorno ao Trabalho">Retorno ao Trabalho</option>
+                        <option value="Demissional">Demissional</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Tuberculose:</label>                      
+                    <select class="form-select" 
+                    formControlName="tubercolose"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Tuberculose">Há histórico em minha Família de Tuberculose</option>
+                        <option value="Não há histórico em minha Família de Tuberculose">Não há histórico em minha Família de Tuberculose</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Pressão Alta:</label>                      
+                    <select class="form-select" 
+                    formControlName="pressaoalta"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Pressão Alta">Há histórico em minha Família de Pressão Alta</option>
+                        <option value="Não há histórico em minha Família de Pressão Alta">Não há histórico em minha Família de Pressão Alta</option>
+                    </select>
+                </div>
+            
+                
+                <div class="col-md-2 mt-3">
+                    <label>Alcoolismo:</label>                      
+                    <select class="form-select" 
+                    formControlName="alcoolismo"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Alcoolismo">Há histórico em minha Família de Alcoolismo</option>
+                        <option value="Não há histórico em minha Família de Alcoolismo">Não há histórico em minha Família de Alcoolismo</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Câncer:</label>                      
+                    <select class="form-select" 
+                    formControlName="cancer"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Câncer">Há histórico em minha Família de Câncer</option>
+                        <option value="Não há histórico em minha Família de Câncer">Não há histórico em minha Família de Câncer</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Diabetes:</label>                      
+                    <select class="form-select" 
+                    formControlName="diabetes"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Diabetes">Há histórico em minha Família de Diabetes</option>
+                        <option value="Não há histórico em minha Família de Diabetes">Não há histórico em minha Família de Diabetes</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Infarto:</label>                      
+                    <select class="form-select" 
+                    formControlName="infarto"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Infarto">Há histórico em minha Família de Infarto</option>
+                        <option value="Não há histórico em minha Família de Infarto">Não há histórico em minha Família de Infarto</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Doença Nervosa:</label>                      
+                    <select class="form-select" 
+                    formControlName="doencao_nervosa"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Doença Nervosa">Há histórico em minha Família de Doença Nervosa</option>
+                        <option value="Não há histórico em minha Família de Doença Nervosa">Não há histórico em minha Família de Doença Nervosa</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Doença da Tireoide:</label>                      
+                    <select class="form-select" 
+                    formControlName="doenca_da_tireoide"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Tireoide">Há histórico em minha Família de Tireoide</option>
+                        <option value="Não há histórico em minha Família de Tireoide">Não há histórico em minha Família de Tireoide</option>
+                    </select>
+                </div>
+           
+
+                <div class="col-md-2 mt-3">
+                    <label>Alergias:</label>                      
+                    <select class="form-select" 
+                    formControlName="alergias"
+                    aria-label="Default select example">
+                        <option value="Há histórico em minha Família de Alergias">Há histórico em minha Família de Alergias</option>
+                        <option value="Não há histórico em minha Família de Alergias">Não há histórico em minha Família de Alergias</option>
+                    </select>
+                </div>
+
+           
+
+
+
+
+                <div class="col-md-2 mt-3">
+                    <label>Bebidas Alcoolicas:</label>                      
+                    <select class="form-select" 
+                    formControlName="bebidas_alcoolicas"
+                    aria-label="Default select example">
+                        <option value="Nunca Bebi">Nunca Bebi</option>
+                        <option value="Bebo Fim de Semana">Bebo no final de Semana</option>
+                        <option value="Bebo Eventualmente">Bebo Eventualmente</option>
+                        <option value="Bebo 3 a 4x por Semana">Bebo de 3 a 4x por Semana</option>
+                        <option value="Bebo Diariamente">Bebo Diariamente</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Atividade Fisica:</label>                      
+                    <select class="form-select" 
+                    formControlName="atividade_fisica"
+                    aria-label="Default select example">
+                        <option value="Nunca Faço Atividade Fisica">Nunca Faço Atividade Fisica</option>
+                        <option value="Faço Atividade Fisica final de Semana">Faço Atividade Fisica final de Semana</option>
+                        <option value="Faço Atividade Fisica Eventualmente">Faço Atividade Fisica Eventualmente</option>
+                        <option value="Faço Atividade Fisica de 3 a 4x por Semana">Faço Atividade Fisica de 3 a 4x por Semana</option>
+                        <option value="Faço Atividade Fisica Diariamente">Faço Atividade Fisica Diariamente</option>
+                    </select>
+                </div>
+
+            
+                <div class="col-md-2 mt-3">
+                    <label>Você Fuma:</label>                      
+                    <select class="form-select" 
+                    formControlName="tabagismo"
+                    aria-label="Default select example">
+                        <option value="Nunca Fumei">Nunca Fumei</option>
+                        <option value="Já Fumei">Já Fumei</option>
+
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Meios de Transporte:</label>                      
+                    <select class="form-select" 
+                    formControlName="transporte"
+                    aria-label="Default select example">
+                        <option value="Meu transporte é Onibus"> Onibus</option>
+                        <option value="Meu transporte é Metrô">Metrô</option>
+                        <option value="Meu transporte é Trem">Trem</option>
+                        <option value="Meu transporte é Onibus e Carro">Onibus e Carro</option>
+                        <option value="Meu transporte é Metrô e Carro">Metrô e Carro</option>
+                        <option value="Meu transporte é Trem e Carro">Trem e Carro</option>
+                        <option value="Meu transporte é Carro">Carro</option>
+                        <option value="Meu transporte é Onibus e Metrô">Onibus e Metrô</option>
+                        <option value="Meu transporte é Onibus e Trem">Onibus e Trem</option>
+                        <option value="Meu transporte é Onibus, Metrô e Trem">Onibus, Metrô e Trem</option>
+                        <option value="Meu transporte é Onibus, Metrô, Carro e Trem">Onibus, Metrô, Carro e Trem</option>
+                        <option value="Meu transporte é Trem e Metrô">Trem e Metrô</option>
+                        <option value="Meu transporte é Trem e Metrô">Trem, Metrô e Carro</option>
+                        <option value="Meu transporte são meios não convencionais como caminhada, bicleta e outros">Outros</option>
+
+                    </select>
+                </div>
+
+            
+                <div class="col-md-2 mt-3">
+                    <label>Horas de Deslocamento:</label>                      
+                    <select class="form-select" 
+                    formControlName="tempo_deslocamento"
+                    aria-label="Default select example">
+                        <option value="Meu deslocamento é até Meia Hora">Até Meia Hora</option>
+                        <option value="Meu deslocamento é de Meia a uma Hora">De Meia a 1 Hora</option>
+                        <option value="Meu deslocamento é entre 1 e 2 Horas">Entre 1 e 2 Horas</option>
+                        <option value="Meu deslocamento é mais de 2 Horas">Mais de 2 Horas</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Cinema ou Teatro:</label>                      
+                    <select class="form-select" 
+                    formControlName="cinema_teatro"
+                    aria-label="Default select example">
+                        <option value="Não vou a Cinema ou Teatro">Não vou a Cinema ou Teatro</option>
+                        <option value="Vou a Cinema ou Teatro">Não vou a Cinema ou Teatro</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2 mt-3">
+                    <label>Video Game:</label>                      
+                    <select class="form-select" 
+                    formControlName="videogame"
+                    aria-label="Default select example">
+                        <option value="Não jogo Video Game">Não jogo Video Game</option>
+                        <option value="Jogo Video Game">Jogo Video Game</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Instrumentos:</label>                      
+                    <select class="form-select" 
+                    formControlName="isntrumentos"
+                    aria-label="Default select example">
+                        <option value="Toco Instrumento">Toco Instrumento</option>
+                        <option value="Não Toco Instrumento">Não toco Instrumento</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Leitura:</label>                      
+                    <select class="form-select" 
+                    formControlName="leitura"
+                    aria-label="Default select example">
+                        <option value="Não Leio">Não Leio</option>
+                        <option value="Pratico Leitura">Pratico Leitura</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Canto:</label>                      
+                    <select class="form-select" 
+                    formControlName="canto"
+                    aria-label="Default select example">
+                        <option value="Não Canto">Não Canto</option>
+                        <option value="Pratico Canto">Canto</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>TV:</label>                      
+                    <select class="form-select" 
+                    formControlName="tv"
+                    aria-label="Default select example">
+                        <option value="Não vejo TV">Não vejo TV</option>
+                        <option value="Vejo TV">Vejo TV</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Baquetebol:</label>                      
+                    <select class="form-select" 
+                    formControlName="basquete_volei"
+                    aria-label="Default select example">
+                        <option value="Não Jogo Basquete">Não Jogo Basquete</option>
+                        <option value="Jogo Basquete">Jogo Basquete</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Modelagem:</label>                      
+                    <select class="form-select" 
+                    formControlName="modelagem"
+                    aria-label="Default select example">
+                        <option value="Não Pratico Modelagem">Não Pratico Modelagem</option>
+                        <option value="Pratico Modelagem">Pratico Modelagem</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Música:</label>                      
+                    <select class="form-select" 
+                    formControlName="musica_com_head_fone"
+                    aria-label="Default select example">
+                        <option value="Ouço Música com Head Fone">Ouço Música com Head Fone</option>
+                        <option value="Não Ouço Música com Head Fone">Não Ouço Música com Head Fone </option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Música:</label>                      
+                    <select class="form-select" 
+                    formControlName="musica_sem_head_fone"
+                    aria-label="Default select example">
+                        <option value="Não Ouço Música com Head Fone somente sem Head Fone">Não Ouço Música com Head Fone somente sem Head Fone</option>
+                        <option value="Não Ouço Música">Não Ouço Música</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Futebol:</label>                      
+                    <select class="form-select" 
+                    formControlName="futebol"
+                    aria-label="Default select example">
+                        <option value="Jogo Futebol">Jogo Futebol</option>
+                        <option value="Não Jogo Futebol">Não Jogo Futebol</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Lutas:</label>                      
+                    <select class="form-select" 
+                    formControlName="lutas"
+                    aria-label="Default select example">
+                        <option value="Prático Lutas">Prático Lutas</option>
+                        <option value="Não Prático Lutas">Não Prático Lutas</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Musculação:</label>                      
+                    <select class="form-select" 
+                    formControlName="musculacao"
+                    aria-label="Default select example">
+                        <option value="Pratico Musculação">Prático Musculação</option>
+                        <option value="Não Pratico Musculação">Não Prático Musculação</option>
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Jardinagem:</label>                      
+                    <select class="form-select" 
+                    formControlName="jardinagem"
+                    aria-label="Default select example">
+                        <option value="Pratico Jardinagem">Pratico Jardinagem</option>
+                        <option value="Não Pratico Jardinagem">Não Pratico Jardinagem</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Tênis:</label>                      
+                    <select class="form-select" 
+                    formControlName="tenis"
+                    aria-label="Default select example">
+                        <option value="Pratico Tenis">Pratico Tenis</option>
+                        <option value="Não Pratico Tenis">Não Pratico Tênis</option>
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Jogos no Computador</label>                      
+                    <select class="form-select" 
+                    formControlName="jogos_computador"
+                    aria-label="Default select example">
+                        <option value="Pratico jogos no computador">Pratico jogos no computador</option>
+                        <option value="Não Pratico jogos no computador">Não Pratico jogos no computador</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Navego na Internet  </label>                      
+                    <select class="form-select" 
+                    formControlName="navegar_internet"
+                    aria-label="Default select example">
+                        <option value="Navego na Internet">Navego na Internet</option>
+                        <option value="Não Navego na Internet">Não Navego na Internet</option>
+                    </select>
+                </div>
+
+            
+
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Outros</label>
+                    <input type="text" id="causasPerigo" formControlName="outros" 
+                    placeholder="Ex: Outros"
+                    class="form-control">
+                </div>  
+
+                <div class="col-md-2 mt-3">
+                    <label>Outro trabalho</label>                      
+                    <select class="form-select" 
+                    formControlName="historia_ocup1"
+                    aria-label="Default select example">
+                        <option value="Tenho outro trabalho Remunerado">Tenho outro trabalho Remunerado</option>
+                        <option value="Não Tenho outro trabalho Remunerado">Não Tenho outro trabalho Remunerado</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Meu Trabalho</label>                      
+                    <select class="form-select" 
+                    formControlName="historia_ocup2"
+                    aria-label="Default select example">
+                        <option value="Tenho outro trabalho Remunerado">Tenho outro trabalho Remunerado parecido com este</option>
+                        <option value="Tenho outro trabalho Remunerado">Tenho outro trabalho Remunerado não parecido com este</option>
+                        <option value="Não Tenho outro trabalho Remunerado">Não Tenho outro trabalho Remunerado</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Trabalho outra Empresa</label>                      
+                    <select class="form-select" 
+                    formControlName="historia_ocup3"
+                    aria-label="Default select example">
+                        <option value="Já trabalhei nesta função, ou em uma igual em outra empresa">Já trabalhei nesta função, ou em uma igual em outra empresa</option>
+                        <option value="Não trabalhei nesta função, ou em uma igual em outra empresa">Não trabalhei nesta função, ou em uma igual em outra empresa</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Quanto Tempo</label>                      
+                    <select class="form-select" 
+                    formControlName="historia_ocup4"
+                    aria-label="Default select example">
+                        <option value="Trabalhei nesta função, ou em uma igual em outra empresa menos de 1 Ano">Trabalhei nesta função, ou em uma igual em outra empresa menos de 1 Ano</option>
+                        <option value="Trabalhei nesta função, ou em uma igual em outra empresa de 1 a 2 Anos">Trabalhei nesta função, ou em uma igual em outra empresa de 1 a 2 Anos</option>
+                        <option value="Trabalhei nesta função, ou em uma igual em outra empresa mais de 2 Anos">Trabalhei nesta função, ou em uma igual em outra empresa mais de 2 Anos</option>
+                        <option value="Como disse nunca Trabalhei nesta Função em outra Empresa">Como disse nunca Trabalhei nesta Função em outra Empresa</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Já tive Lesão</label>                      
+                    <select class="form-select" 
+                    formControlName="historia_ocup5"
+                    aria-label="Default select example">
+                        <option value="Já tive acidente de Trabalho">Já tive acidente de Trabalho</option>
+                        <option value="Nunca tive acidente de Trabalho">Nunca tive acidente de Trabalho</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Já tive Lesão</label>                      
+                    <select class="form-select" 
+                    formControlName="historia_ocup6"
+                    aria-label="Default select example">
+                        <option value="No acidente de Trabalho fiquei com Lesão">No acidente de Trabalho fiquei com Lesão</option>
+                        <option value="No acidente de Trabalho não fiquei com Lesão">No acidente de Trabalho não fiquei com Lesão</option>
+
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Oculos</label>                      
+                    <select class="form-select" 
+                    formControlName="oculos"
+                    aria-label="Default select example">
+                        <option value="Uso Óculos ou Lente">Uso Óculos ou Lente</option>
+                        <option value="Não Uso Óculos ou Lente">Não Uso Óculos ou Lente</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Miopia</label>                      
+                    <select class="form-select" 
+                    formControlName="corrigir_miopia"
+                    aria-label="Default select example">
+                        <option value="Preciso corrigir Miopia">Preciso corrigir Miopia</option>
+                        <option value="Não Preciso corrigir Miopia">Não Preciso corrigir Miopia</option>
+                        <option value="Nunca tive Miopia">Nunca tive Miopia</option>
+
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Antigmatismo</label>                      
+                    <select class="form-select" 
+                    formControlName="corrigir_antigmatismo"
+                    aria-label="Default select example">
+                        <option value="Preciso corrigir Antigmatismo">Preciso corrigir Antigmatismo</option>
+                        <option value="Não Preciso corrigir Antigmatismo">Não Preciso corrigir Antigmatismo</option>
+                        <option value="Nunca tive Antigmatismo">Nunca tive Antigmatismo</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Hipermetropia</label>                      
+                    <select class="form-select" 
+                    formControlName="corrigir_hipermetropia"
+                    aria-label="Default select example">
+                        <option value="Preciso corrigir Hipermetropia">Preciso corrigir Hipermetropia</option>
+                        <option value="Não Preciso corrigir Hipermetropia">Não Preciso corrigir Hipermetropia</option>
+                        <option value="Nunca tive Hipermetropia">Nunca tive Hipermetropia</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Vista Cansada</label>                      
+                    <select class="form-select" 
+                    formControlName="corrigir_vista_cansada"
+                    aria-label="Default select example">
+                        <option value="Preciso corrigir Vista Cansada">Preciso corrigir Vista Cansada</option>
+                        <option value="Não Preciso corrigir Vista Cansada">Não Preciso corrigir Vista Cansada</option>
+                        <option value="Nunca tive Vista Cansada">Nunca tive Vista Cansada</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Não sei se tenho</label>                      
+                    <select class="form-select" 
+                    formControlName="corrigir_nao_sei"
+                    aria-label="Default select example">
+                        <option value="Não sei se tenho">Não sei se tenho</option>
+                        <option value="Não tenho Realmente">Não tenho Realmente</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Cistite</label>                      
+                    <select class="form-select" 
+                    formControlName="cistite"
+                    aria-label="Default select example">
+                    <option value="Tenho Cistite">Tenho Cistite</option>
+                        <option value="Tive Cistite">Tive Cistite</option>
+                        <option value="Nunca Tive Cistite">Nunca Tive Cistite</option>
+
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Diabete</label>                      
+                    <select class="form-select" 
+                    formControlName="diabete"
+                    aria-label="Default select example">
+                    <option value="Tenho Diabete">Tenho Diabete</option>
+                        <option value="Tive Diabete">Tive Diabete</option>
+                        <option value="Nunca Tive Diabete">Nunca tive Diabete</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Tonteiras</label>                      
+                    <select class="form-select" 
+                    formControlName="tonteiras"
+                    aria-label="Default select example">
+                    <option value="Tenho Tonteiras">Tenho Tonteiras</option>
+                        <option value="Tive Tonteiras">Tive Tonteiras</option>
+                        <option value="Nunca Tive Tonteiras">Nunca tive Tonteiras</option>
+
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Renite ou Sinusite</label>                      
+                    <select class="form-select" 
+                    formControlName="renite_sinusite"
+                    aria-label="Default select example">
+                    <option value="Tenho Renite ou Sinusite">Tenho Renite ou Sinusite</option>
+                        <option value="Tive Renite ou Sinusite">Tive Renite ou Sinusite</option>
+                        <option value="Nunca Tive Renite ou Sinusite">Nunca tive Renite ou Sinusite</option>
+
+                    </select>
+                </div>
+
+                        
+                <div class="col-md-2 mt-3">
+                    <label>Varises</label>                      
+                    <select class="form-select" 
+                    formControlName="varises"
+                    aria-label="Default select example">
+                    <option value="Tenho Varises">Tenho Varises</option>
+                        <option value="Tive Varises">Tive Varises</option>
+                        <option value="Nunca Tive Varises">Nunca tive Varises</option>
+
+                    </select>
+                </div>
+
+                            
+                <div class="col-md-2 mt-3">
+                    <label>Dor de cabeça</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_de_cabeca"
+                    aria-label="Default select example">
+                    <option value="Tenho Dores de cabeça">Tenho Dores de cabeça</option>
+                        <option value="Tive Dores de cabeça">Tive Dores de cabeça</option>
+                        <option value="Nunca Tive Dores de cabeça">Nunca Tive Dores de cabeça</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Prisao de Ventre</label>                      
+                    <select class="form-select" 
+                    formControlName="prisao_ventre"
+                    aria-label="Default select example">
+                        <option value="Tive Prisão de Ventre">Tive Prisão de Ventre</option>
+                        <option value="Nunca Tive Prisão de Ventre">Nunca Tive Prisão de Ventre</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Hemorraidas</label>                      
+                    <select class="form-select" 
+                    formControlName="hemorraidas"
+                    aria-label="Default select example">
+                    <option value="Tenho Hemorraidas">Tenho Hemorraidas</option>
+                        <option value="Tive Hemorraidas">Tive Hemorraidas</option>
+                        <option value="Nunca Tive Hemorraidas">Nunca tive Hemorraidas</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Dor no Peito</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_no_peito"
+                    aria-label="Default select example">
+                    <option value="Tenho dor no Peito">Tenho dor no Peito</option>
+                        <option value="Tive dor no Peito">Tive dor no Peito</option>
+                        <option value="Nunca Tive dor no Peito">Nunca tive dor no Peito</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Dores nas Pernas</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_nas_pernas"
+                    aria-label="Default select example">
+                    <option value="Tenho dores nas Pernas">Tenho dores nas Pernas</option>
+                        <option value="Tive dores nas Pernas">Tive dores nas Pernas</option>
+                        <option value="Nunca Tive dores nas Pernas">Nunca tive dores nas Pernas</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Resfriados</label>                      
+                    <select class="form-select" 
+                    formControlName="resfriados"
+                    aria-label="Default select example">
+                    <option value="Tenho Resfriados">Tenho Resfriados</option>
+                        <option value="Tive Resfriados">Tive Resfriados</option>
+                        <option value="Nunca Tive Resfriados">Nunca tive Resfriados</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Problemas de Tireoides</label>                      
+                    <select class="form-select" 
+                    formControlName="problemas_tireoides"
+                    aria-label="Default select example">
+                    <option value="Tenho Problemas de Tireoides">Tenho Problemas de Tireoides</option>
+                        <option value="Tive Problemas de Tireoides">Tive Problemas de Tireoides</option>
+                        <option value="Nunca Tive Problemas de Tireoides">Nunca tive Problemas de Tireoides</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Epilepsia e Convulções</label>                      
+                    <select class="form-select" 
+                    formControlName="epilepsia_convulcoes"
+                    aria-label="Default select example">
+                    <option value="Tenho Epilepsia e Convulções">Tenho Epilepsia e Convulções</option>
+                        <option value="Tive Epilepsia e Convulções">Tive Epilepsia e Convulções</option>
+                        <option value="Nunca Tive Epilepsia e Convulções">Nunca tive Epilepsia e Convulções</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Asma ou Bronquite</label>                      
+                    <select class="form-select" 
+                    formControlName="asma_bronquite"
+                    aria-label="Default select example">
+                    <option value="Tenho Asma ou Bronquite">Tenho Asma ou Bronquite</option>
+                        <option value="Tive Asma ou Bronquite">Tive Asma ou Bronquite</option>
+                        <option value="Nunca Tive Asma ou Bronquite">Nunca tive Asma ou Bronquite</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Tubercolose</label>                      
+                    <select class="form-select" 
+                    formControlName="tubercolose1"
+                    aria-label="Default select example">
+                    <option value="Tenho Tubercolose">Tenho Tubercolose</option>
+                        <option value="Tive Tubercolose">Tive Tubercolose</option>
+                        <option value="Nunca tive Tubercolose">Nunca tive Tubercolose</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Ulcera ou Gastrite</label>                      
+                    <select class="form-select" 
+                    formControlName="ulcera"
+                    aria-label="Default select example">
+                    <option value="Tenho Ulcera ou Gastrite">Tenho Ulcera ou Gastrite</option>
+                        <option value="Tive Ulcera ou Gastrite">Tive Ulcera ou Gastrite</option>
+                        <option value="Nunca Tive Ulcera ou Gastrite">Nunca tive Ulcera ou Gastrite</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Tosse Cronica</label>                      
+                    <select class="form-select" 
+                    formControlName="tosse_cronica"
+                    aria-label="Default select example">
+                    <option value="Tenho Tosse Cronica">Tenho Tosse Cronica</option>
+                        <option value="Tive Tosse Cronica">Tive Tosse Cronica</option>
+                        <option value="Nunca Tive Tosse Cronica">Nunca tive Tosse Cronica</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Pedra nos Rins</label>                      
+                    <select class="form-select" 
+                    formControlName="pedra_nos_rins"
+                    aria-label="Default select example">
+                    <option value="Tenho Pedra nos Rins">Tenho Pedra nos Rins</option>
+                        <option value="Tive Pedra nos Rins">Tive Pedra nos Rins</option>
+                        <option value="Nunca Tive Pedra nos Rins">Nunca tive Pedra nos Rins</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Remédios</label>                      
+                    <select class="form-select" 
+                    formControlName="remedios"
+                    aria-label="Default select example">
+                    <option value="Eu utilizo Remédios">Eu utilizo Remédios</option>
+                        <option value="Eu não utilizo Remédios">Eu não utilizo Remédios</option>
+                    </select>
+                </div>
+
+    
+
+                <div class="col-md-2 mt-3">
+                    <label>Hepatite A</label>                      
+                    <select class="form-select" 
+                    formControlName="hepatite_a"
+                    aria-label="Default select example">
+                    <option value="Tive Hepatite A">Tive Hepatite A</option>
+                        <option value="Eu não Tive Hepatite A">Eu não Tive Hepatite A</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Hepatite B</label>                      
+                    <select class="form-select" 
+                    formControlName="hepatite_b"
+                    aria-label="Default select example">
+                    <option value="Tive Hepatite B">Tive Hepatite B</option>
+                        <option value="Eu não Tive Hepatite B">Eu não Tive Hepatite B</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Hepatite C</label>                      
+                    <select class="form-select" 
+                    formControlName="hepatite_c"
+                    aria-label="Default select example">
+                    <option value="Tive Hepatite C">Tive Hepatite C</option>
+                        <option value="Eu não Tive Hepatite C">Eu não Tive Hepatite C</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Não sei se Tive Hepatite</label>                      
+                    <select class="form-select" 
+                    formControlName="hepatite_nao_sei"
+                    aria-label="Default select example">
+                    <option value="Não sei se Tive Hepatite">Não sei se Tive Hepatite</option>
+                        <option value="Nunca Tive Hepatite ">Nunca Tive Hepatite</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Operação</label>                      
+                    <select class="form-select" 
+                    formControlName="operacao"
+                    aria-label="Default select example">
+                    <option value="Fiz Operação">Fiz Operação</option>
+                        <option value="Nunca Fiz Operação ">Nunca Fiz Operação</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4 mt-3">
+                    <label for="causasPerigo">Tipo de Operação</label>
+                    <input type="text" id="causasPerigo" formControlName="tipo_operacao" class="form-control">
+                </div> 
+
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Ano da Operação</label>
+                    <input type="text" id="causasPerigo" formControlName="ano_operacao" class="form-control">
+                </div> 
+
+                <div class="col-md-2 mt-3">
+                    <label>Quebrou Osso</label>                      
+                    <select class="form-select" 
+                    formControlName="quebra_osso"
+                    aria-label="Default select example">
+                    <option value="Quebrei Osso">Quebrei Osso</option>
+                        <option value="Nunca Quebrei Osso ">Nunca Quebrei Osso</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 mt-3">
+                    <label for="causasPerigo">Se sim Qual Osso ?</label>
+                    <input type="text" id="causasPerigo" formControlName="quebra_osso_onde" class="form-control">
+                </div> 
+
+                <div class="col-md-2 mt-3">
+                    <label>Dedo Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_dedo_direito"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Dedo Direito">Sinto dor no Dedo Direito</option>
+                        <option value="Não Sinto dor no Dedo Direito">Não Sinto dor no Dedo Direito</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Dedo Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_dedo_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Dedo Esquerdo">Sinto dor no Dedo Esquerdo</option>
+                        <option value="Não Sinto dor no Dedo Esquerdo">Não Sinto dor no Dedo Esquerdo</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Mão Direita</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_maos_direito"
+                    aria-label="Default select example">
+                    <option value="Sinto dor na Mão Direita">Sinto dor na Mão Direita</option>
+                        <option value="Não Sinto dor na Mão Direita">Não Sinto dor na Mão Direita</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Mão Esquerda</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_maos_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Sinto dor na Mão Esquerda">Sinto dor nas Mão Esquerda</option>
+                        <option value="Não Sinto dor na Mão Esquerda">Não Sinto dor na Mão Esquerda</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Punho Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_punho_direito"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Punho Direito">Sinto dor no Punho Direito</option>
+                        <option value="Não Sinto dor no Punho Direito">Não Sinto dor no Punho Direito</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Punho Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_punho_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Punho Esquerdo">Sinto dor no Punho Esquerdo</option>
+                        <option value="Não Sinto dor no Punho Esquerdo">Não Sinto dor no Punho Esquerdo</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Cotovelo Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_cotovelo_direito"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Cotovelo Direito">Sinto dor no Cotovelo Direito</option>
+                        <option value="Não Sinto dor no Cotovelo Direito">Não Sinto dor no Cotovelo Direito</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Cotovelo Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_cotovelo_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Cotovelo Esquerdo">Sinto dor no Cotovelo Esquerdo</option>
+                        <option value="Não Sinto dor no Cotovelo Esquerdo">Não Sinto dor no Cotovelo Esquerdo</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Braço Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_braco_direito"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Antebraço ou Braço Direito">Sinto dor no Antebraço ou Braço Direito</option>
+                        <option value="Não Sinto dor no Antebraço ou Braço Direito">Não Sinto dor no Antebraço ou Braço Direito</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Braço Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_braco_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Antebraço ou Braço Esquerdo">Sinto dor no Antebraço ou Braço Esquerdo</option>
+                        <option value="Não Sinto dor no Antebraço ou Braço Esquerdo">Não Sinto dor no Antebraço ou Braço Esquerdo</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Ombro Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_ombro_direito"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Ombro Direito">Sinto dor no Ombro Direito</option>
+                        <option value="Não Sinto dor no Ombro Direito">Não Sinto dor no Ombro Direito</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Ombro Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_ombro_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Ombro Esquerdo">Sinto dor no Ombro Esquerdo</option>
+                        <option value="Não Sinto dor no Ombro Esquerdo">Não Sinto dor no Ombro Esquerdo</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Joelho Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_joelho_direito"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Joelho Direito">Sinto dor no Joelho Direito</option>
+                        <option value="Não Sinto dor no Joelho Direito">Não Sinto dor no Joelho Direito</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Joelho Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_joelho_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Joelho Esquerdo">Sinto dor no Joelho Esquerdo</option>
+                        <option value="Não Sinto dor no Joelho Esquerdo">Não Sinto dor no Joelho Esquerdo</option>
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Pescoço</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_pescoco"
+                    aria-label="Default select example">
+                    <option value="Sinto dor no Pescoço">Sinto dor no Pescoço</option>
+                        <option value="Não Sinto dor no Pescoço">Não Sinto dor no Pescoço</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label>Costas Superior</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_costas_superior"
+                    aria-label="Default select example">
+                    <option value="Sinto dor nas Costas Superior">Sinto dor nas Costas Superior</option>
+                        <option value="Não Sinto dor nas Costas Superior">Não Sinto dor nas Costas Superior</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Costas Médias</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_costas_medias"
+                    aria-label="Default select example">
+                    <option value="Sinto dor nas Costas Médias">Sinto dor nas Costas Médias</option>
+                        <option value="Não Sinto dor nas Costas Médias">Não Sinto dor nas Costas Médias</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Costas Inferior</label>                      
+                    <select class="form-select" 
+                    formControlName="dor_costas_inferior"
+                    aria-label="Default select example">
+                    <option value="Sinto dor nas Costas Inferior">Sinto dor nas Costas Inferior</option>
+                        <option value="Não Sinto dor nas Costas Inferior">Não Sinto dor nas Costas Inferior</option>
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Doença Transmissivel</label>                      
+                    <select class="form-select" 
+                    formControlName="doenca_sexualmente_transmissivel"
+                    aria-label="Default select example">
+                    <option value="Tenho Doença Sexualmente Transmissivel">Tenho Doença Sexualmente Transmissivel</option>
+                        <option value="Não Tenho Doença Sexualmente Transmissivel">Não Tenho Doença Sexualmente Transmissivel</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Prostata</label>                      
+                    <select class="form-select" 
+                    formControlName="prostata"
+                    aria-label="Default select example">
+                    <option value="Tive a Prostáta Examinada no último Ano">Tive a Prostáta Examinada no último Ano</option>
+                        <option value="Não Tive a Prostáta Examinada no último Ano">Não Tive a Prostáta Examinada no último Ano</option>
+                        <option value="Sou Mulher nao se aplica a Mim">Sou Mulher nao se aplica a Mim</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Anticosepsional</label>                      
+                    <select class="form-select" 
+                    formControlName="anticosepsional"
+                    aria-label="Default select example">
+                    <option value="Uso Anticosepsional">Uso Anticosepsional</option>
+                        <option value="Não Uso Anticosepsional">Não Uso Anticosepsional</option>
+                        <option value="Sou Homem nao se aplica a Mim">Sou Homem nao se aplica a Mim</option>
+
+                    </select>
+                </div>
+
+    
+
+                <div class="col-md-2 mt-3">
+                    <label>Aborto</label>                      
+                    <select class="form-select" 
+                    formControlName="aborto"
+                    aria-label="Default select example">
+                    <option value="Já fiz Aborto">Já fiz Aborto</option>
+                        <option value="Não fiz Aborto">Não fiz Aborto</option>
+                        <option value="Sou Homem nao se aplica a Mim">Sou Homem nao se aplica a Mim</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Preventivo</label>                      
+                    <select class="form-select" 
+                    formControlName="preventivo_no_ano"
+                    aria-label="Default select example">
+                    <option value="Fiz o Preventivo no último Ano">Fiz o Preventivo no último Ano</option>
+                        <option value="Não fiz o Preventivo no último Ano">Não fiz o Preventivo no último Ano</option>
+                        <option value="Sou Homem nao se aplica a Mim">Sou Homem nao se aplica a Mim</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Grávidez</label>                      
+                    <select class="form-select" 
+                    formControlName="gravidez"
+                    aria-label="Default select example">
+                    <option value="Já fiquei Grávida">Já fiquei Grávida</option>
+                        <option value="Nunca fiquei Grávida">Nunca fiquei Grávida</option>
+                        <option value="Sou Homem nao se aplica a Mim">Sou Homem nao se aplica a Mim</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Cólicas</label>                      
+                    <select class="form-select" 
+                    formControlName="colicas"
+                    aria-label="Default select example">
+                    <option value="Já tive Cólicas">Já tive Cólicas</option>
+                        <option value="Nunca tive Cólicas">Nunca tive Cólicas</option>
+                        <option value="Sou Homem nao se aplica a Mim">Sou Homem nao se aplica a Mim</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Status Mestruação</label>                      
+                    <select class="form-select" 
+                    formControlName="status_mestruacao"
+                    aria-label="Default select example">
+                    <option value="Regular">Regular</option>
+                        <option value="Irregular">Irregular</option>
+                        <option value="Não se aplica a Mim">Não se aplica a Mim</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Mestruação</label>                      
+                    <select class="form-select" 
+                    formControlName="tensao_mestruacao"
+                    aria-label="Default select example">
+                    <option value="Tenho Tensão Pre-Mestrual">Tenho Tensão Pre-Mestrual</option>
+                        <option value="Não Tenho Tensão Pre-Mestrual">Não Tenho Tensão Pre-Mestrual</option>
+                        <option value="Sou Homem nao se aplica a Mim">Sou Homem nao se aplica a Mim</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Data ou Não Aplica</label>
+                    <input type="text" id="causasPerigo" formControlName="data_mestruacao" 
+                    placeholder="00/00/0000-Não Aplica"
+                    mask="00/00/0000"
+                    class="form-control">
+                </div> 
+
+                <div class="col-md-2 mt-3">
+                    <label>Pressão Arterial</label>                      
+                    <select class="form-select" 
+                    formControlName="pressao_arterial"
+                    aria-label="Default select example">
+                    <option value="Eu sou Normotenso">Eu sou Normotenso</option>
+                        <option value="Eu sou Bordeline">Eu sou Bordeline</option>
+                        <option value="Eu sou Hipertenso">Eu sou Hipertenso</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Frequência Cardiaca</label>
+                    <input type="text" id="causasPerigo" formControlName="frequencia_cardiaca" 
+                    placeholder=""
+                    class="form-control">
+                </div> 
+
+                
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Batimentos por Minuto</label>
+                    <input type="text" id="causasPerigo" formControlName="batimentos_por_minuto" 
+                    placeholder=""
+                    class="form-control">
+                </div> 
+
+                <div class="col-md-2 mt-3">
+                    <label>Pressão Arterial</label>                      
+                    <select class="form-select" 
+                    formControlName="pressao_alta"
+                    aria-label="Default select example">
+                    <option value="Tenho Pressão Alta">Tenho Pressão Alta</option>
+                        <option value="Não Tenho Pressão Alta">Não Tenho Pressão Alta</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Indice Massa Corporal</label>
+                    <input type="text" id="causasPerigo" formControlName="icm" 
+                    placeholder=""
+                    class="form-control">
+                </div> 
+
+                
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Altura</label>
+                    <input type="text" id="causasPerigo" formControlName="altura" 
+                    placeholder=""
+                    class="form-control">
+                </div> 
+
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Peso</label>
+                    <input type="text" id="causasPerigo" formControlName="peso" 
+                    placeholder=""
+                    class="form-control">
+                </div> 
+
+                <div class="col-md-2 mt-3">
+                    <label>Ganglilos</label>                      
+                    <select class="form-select" 
+                    formControlName="ganglios"
+                    aria-label="Default select example">
+                    <option value="Meus Ganglilos são Normais">Meus Ganglilos são Normais</option>
+                        <option value="Meus Ganglilos são Alterados">Meus Ganglilos são Alterados</option>
+                        <option value="Não sei Informar sobre meus ganglilos">Não sei Informar</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Tireoide</label>                      
+                    <select class="form-select" 
+                    formControlName="tireoide"
+                    aria-label="Default select example">
+                    <option value="Tireoide Normal"> Tireoide Normal</option>
+                        <option value="Tireoide Alterada">Tireoide Alterada</option>
+                        <option value="Não sei Informar sobre a minha Tireoide">Não sei Informar sobre a minha Tireoide</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Dentes</label>                      
+                    <select class="form-select" 
+                    formControlName="dentes"
+                    aria-label="Default select example">
+                    <option value="Meus Dentes são Normais">Meus Dentes são Normais</option>
+                        <option value="Meus Dentes são Alterados">Meus Dentes são Alterados</option>
+                        <option value="Não sei Informar sobre meus dentes">Não sei Informar sobre meus dentes</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Orofaringe</label>                      
+                    <select class="form-select" 
+                    formControlName="orofaringe"
+                    aria-label="Default select example">
+                    <option value="Orofaringe Normais">Orofaringe Normais</option>
+                        <option value="Orofaringe Alterados">Orofaringe Alterados</option>
+                        <option value="Não sei Informar">Não sei Informar</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Acuidade Visual</label>                      
+                    <select class="form-select" 
+                    formControlName="acuidade_visual"
+                    aria-label="Default select example">
+                    <option value="Acuidade Visual Normal">Acuidade Visual Normal</option>
+                        <option value="Acuidade Visual Alterada">Acuidade Visual Alterada</option>
+                        <option value="Com correção">Com correção</option>
+                        <option value="Sem correção">Sem correção</option>
+                        <option value="Não sei Informar">Não sei Informar</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group col-md-2 mt-3">
+                    <label for="causasPerigo">Ritimo Cardiaco</label>
+                    <input type="text" id="causasPerigo" formControlName="ritimo_cardiaco" 
+                    placeholder=""
+                    class="form-control">
+                </div> 
+
+                <div class="form-group col-md-6 mt-3">
+                    <label for="causasPerigo">obs do Ritimo Cardiaco</label>
+                    <input type="text" id="causasPerigo" formControlName="ritimo_cardiaco_obs" 
+                    placeholder=""
+                    class="form-control">
+                </div> 
+
+                <div class="col-md-2 mt-3">
+                    <label>Sopros</label>                      
+                    <select class="form-select" 
+                    formControlName="sopros"
+                    aria-label="Default select example">
+                    <option value="Sopros Sim">Sopros Sim</option>
+                    <option value="Sopros Não">Sopros Não</option>
+
+                <option value="Não sei Informar">Não sei Informar</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Hérnia</label>                      
+                    <select class="form-select" 
+                    formControlName="hernia"
+                    aria-label="Default select example">
+                    <option value="Tenho Hérnia">Tenho Hérnia</option>
+                    <option value="Não Tenho Hérnia">Não Tenho Hérnia</option>
+                <option value="Não sei Informar">Não sei Informar</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Pulmões</label>                      
+                    <select class="form-select" 
+                    formControlName="pulmoes"
+                    aria-label="Default select example">
+                    <option value="Pulmão Normal">Pulmão Normal</option>
+                    <option value="Pulmão Alterado">Pulmão Alterado</option>
+                <option value="Não sei Informar">Não sei Informar</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Abdomen</label>                      
+                    <select class="form-select" 
+                    formControlName="abdomen"
+                    aria-label="Default select example">
+                    <option value="Abdomen Normal">Abdomen Normal</option>
+                    <option value="Abdomen Alterado">Abdomen Alterado</option>
+                <option value="Não sei Informar">Não sei Informar</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Mãos e Punhos 1</label>                      
+                    <select class="form-select" 
+                    formControlName="maos_punhos"
+                    aria-label="Default select example">
+                    <option value="Mãos e Punhos Normal">Mãos e Punhos Normal</option>
+                    <option value="Mãos e Punhos com Cistos sinovais">Mãos e Punhos com Cistos sinovais</option>
+                    <option value="Mãos e Punhos com Cicatrizes">Mãos e Punhos com Cicatrizes</option>
+
+                    <option value="Não sei Informar">Não sei Informar</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Mãos e Punhos 2</label>                      
+                    <select class="form-select" 
+                    formControlName="perda_forca_de_preensao"
+                    aria-label="Default select example">
+                    <option value="Tenho perda da força de preensão nas mãos e nos punhos">Tenho perda da força de preensão nas mãos e nos punhos</option>
+                    <option value="Tenho crepitação">Tenho crepitação</option>
+                    <option value="Tenho fraturas">Tenho fraturas</option>
+                    <option value="Não sei Informar">Não sei Informar</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Tinel</label>                      
+                    <select class="form-select" 
+                    formControlName="tinel"
+                    aria-label="Default select example">
+                    <option value="
+                    É Positivo que a Percussão na Base da Mão provoca dor ou paretesia no trajeto
+                        mediano = Túnel de Carpo">É Positivo que a Percussão na Base da Mão provoca dor ou paretesia no trajeto
+                        mediano = Túnel de Carpo</option>
+                        <option value="
+                        É Negativo que a Percussão na Base da Mão provoca dor ou paretesia no trajeto
+                            mediano = Túnel de Carpo">É Negativo que a Percussão na Base da Mão provoca dor ou paretesia no trajeto
+                            mediano = Túnel de Carpo</option>                   
+                            <option value="Não sei Informar">Não sei Informar</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Phalen</label>                      
+                    <select class="form-select" 
+                    formControlName="phalen"
+                    aria-label="Default select example">
+                    <option value="
+                    É Positivo que a flexão dos Punhos por 1 minuto
+                    provoca dor ou paretesia = túnel do carpo">É Positivo que a flexão dos Punhos por 1 minuto
+                    provoca dor ou paretesia = túnel do carpo
+                    </option>
+                        <option value="
+                        É Negativo que a flexão dos Punhos por 1 minuto
+                            provoca dor ou paretesia = túnel do carpo">É Negativo que a flexão dos Punhos por 1 minuto
+                            provoca dor ou paretesia = túnel do carpo</option>                   
+                            <option value="Não sei Informar">Não sei Informar</option>
+                    </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Filkenstein</label>                      
+                    <select class="form-select" 
+                    formControlName="filkenstein"
+                    aria-label="Default select example">
+                    <option value="É Positivo que o Polegar sob os outros dedos
+                    fechados, punho relaxado. Desvio unar forçado no Punho = dor">É Positivo que o Polegar sob os outros dedos
+                    fechados, punho relaxado. Desvio unar forçado no Punho = dor
+                    </option>
+
+                    <option value="É Negativo que o Polegar sob os outros dedos
+                    fechados, punho relaxado. Desvio unar forçado no Punho = dor">É Negativo que o Polegar sob os outros dedos
+                    fechados, punho relaxado. Desvio unar forçado no Punho = dor
+                    </option>
+                
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Cotovelo Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="cotovelo_direito"
+                    aria-label="Default select example">
+                    <option value="Flexão Normal no Cotovelo Direito">Flexão Normal no Cotovelo Direito</option>
+                    <option value="Flexão Alterada no Cotovelo Direito">Flexão Alterada no Cotovelo Direito</option>
+                    <option value="Extensão Normal no Cotovelo Direito">Extensão Normal no Cotovelo Direito</option>
+                    <option value="Extensão Alterada no Cotovelo Direito">Extensão Alterada no Cotovelo Direito</option>
+                    <option value="Não sei informar sobre o     Cotovelo Direito">Não sei informar sobre o Cotovelo Direito</option>
+
+                </select>
+                </div>  
+
+                <div class="col-md-2 mt-3">
+                    <label>Cotovelo Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="cotovelo_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Flexão Normal no Cotovelo Esquerdo">Flexão Normal no Cotovelo Esquerdo</option>
+                    <option value="Flexão Alterada no Cotovelo Esquerdo">Flexão Alterada no Cotovelo Esquerdo</option>
+                    <option value="Extensão Normal no Cotovelo Esquerdo">Extensão Normal no Cotovelo Esquerdo</option>
+                    <option value="Extensão Alterada no Cotovelo Esquerdo">Extensão Alterada no Cotovelo Esquerdo</option>
+                    <option value="Não sei informar a respeito do meu Cotovelo Esquerdo">Não sei informar a respeito do meu Cotovelo Esquerdo</option>
+
+                </select>
+                </div>
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Ombro Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="ombro_direito"
+                    aria-label="Default select example">
+                    <option value="Ombro direito Normal">Ombro direito Normal</option>
+                    <option value=" Ombro direito Alterado">Ombro direito Alterado</option>
+                    <option value="Não sei informar sobre meu ombro direito">Não sei informar sobre meu ombro direito</option>
+
+                    </select>
+                </div>  
+
+                <div class="col-md-2 mt-3">
+                    <label>Ombro Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="ombro_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Ombro Esquerdo Normal">Ombro Esquerdo Normal</option>
+                    <option value=" Ombro Esquerdo  Alterado">Ombro Esquerdo Alterado</option>
+                    <option value="Não sei informar sobre meu ombro esquerdo">Não sei informar sobre meu ombro esquerdo</option>
+
+                    </select>
+                </div> 
+
+                
+                <div class="col-md-2 mt-3">
+                    <label>Coluna</label>                      
+                    <select class="form-select" 
+                    formControlName="coluna"
+                    aria-label="Default select example">
+                    <option value="Coluna Normal">Coluna Normal</option>
+                    <option value="Coluna com Escoliose">Coluna com Escoliose</option>
+                    <option value="Coluna Cifose">Coluna Cifose</option>
+                    <option value="Coluna Lordose">Coluna Lordose</option>
+                    <option value="Coluna Normal">Coluna Normal</option>
+                    <option value="Coluna com Contratura supra escapular à direita">Coluna com Contratura supra escapular à direita</option>
+                    <option value="Coluna com Contratura supra escapular à esquerda">Coluna com Contratura supra escapular à esquerda</option>
+                    <option value="Não sei informar sobre minha coluna">Não sei informar sobre minha coluna</option>
+
+                    </select>
+                </div> 
+                <div class="form-group col-md-4  mt-3">
+                    <label for="causasPerigo">Outros</label>
+                    <input type="text" id="causasPerigo" formControlName="coluna_outros" class="form-control">
+                </div>   
+
+                <div class="col-md-2 mt-3">
+                    <label>Aparelho Muscular</label>                      
+                    <select class="form-select" 
+                    formControlName="aparelho_muscular"
+                    aria-label="Default select example">
+                    <option value="Aparelho Muscular Normal">Aparelho Muscular Normal</option>
+                    <option value="Aparelho Muscular com Hipotrofias">Aparelho Muscular com Hipotrofias</option>
+                    <option value="Aparelho Muscular com atrofias">Aparelho Muscular com atrofias</option>
+                    <option value="Não sei informar">Não sei informar</option>
+                    </select>
+                </div> 
+
+                <div class="col-md-2 mt-3">
+                    <label>Membros Inferiores</label>                      
+                    <select class="form-select" 
+                    formControlName="membros_inferiores"
+                    aria-label="Default select example">
+                    <option value=" Membros Inferiores Normal"> Membros Inferiores Normal</option>
+                    <option value="Membros Inferiores com Varizes">Membros Inferiores com Varizes</option>
+                    <option value="Membros Inferiores com Edemas">Membros Inferiores com Edemas</option>
+                    <option value="Não sei informar">Não sei informar</option>
+                    </select>
+                </div> 
+
+                <div class="form-group col-md-2  mt-3">
+                    <label for="causasPerigo">Outros</label>
+                    <input type="text" id="causasPerigo" formControlName="membros_inferiores_obs" class="form-control">
+                </div>  
+                
+                <div class="col-md-2 mt-3">
+                    <label>Joelho Direito</label>                      
+                    <select class="form-select" 
+                    formControlName="joelho_direito"
+                    aria-label="Default select example">
+                    <option value="Joelho Direito Normal">Joelho Direito Normal</option>
+                    <option value="Joelho Direito anormal">Joelho Direito anormal</option>
+                    <option value="Não sei informar">Não sei informar</option>
+                    </select>
+                </div>  
+
+                <div class="col-md-2 mt-3">
+                    <label>Joelho Esquerdo</label>                      
+                    <select class="form-select" 
+                    formControlName="joelho_esquerdo"
+                    aria-label="Default select example">
+                    <option value="Joelho Esquerdo Normal">Joelho Esquerdo Normal</option>
+                    <option value="Joelho Esquerdo anormal">Joelho Esquerdo anormal</option>
+                    <option value="Não sei informar">Não sei informar</option>
+                    </select>
+                </div>   
+                
+              
+                
+                <div class="col-md-2 mt-3">
+                    <label>Risco Quimico</label>                      
+                    <select class="form-select" 
+                    formControlName="risco_quimico"
+                    aria-label="Default select example">
+                    <option value="Risco Quimico Existente">Risco Quimico Existente</option>
+                    <option value="Risco Quimico Inexistente">Risco Quimico Inexistente</option>
+                    <option value="Não sei informar se tem Risco Quimico">Não sei informar se tem Risco Quimico</option>
+                    </select>
+                </div>  
+
+                <div class="col-md-2 mt-3">
+                    <label>Risco Fisico</label>                      
+                    <select class="form-select" 
+                    formControlName="risco_fisico"
+                    aria-label="Default select example">
+                    <option value="Risco Fisico Existente">Risco Fisico Existente</option>
+                    <option value="Risco Fisico Inexistente">Risco Fisico Inexistente</option>
+                    <option value="Não sei informar se tem Risco Fisico">Não sei informar se tem Risco Fisico</option>
+                    </select>
+                </div>  
+
+                <div class="col-md-2 mt-3">
+                    <label>Risco Biológico</label>                      
+                    <select class="form-select" 
+                    formControlName="risco_biologico"
+                    aria-label="Default select example">
+                    <option value="Risco Biológico Existente">Risco Biológico Existente</option>
+                    <option value="Risco Biológico Inexistente">Risco Biológico Inexistente</option>
+                    <option value="Não sei informar se tem Risco Biológico">Não sei informar se tem Risco Biológico</option>
+                    </select>
+                </div>  
+
+                <div class="col-md-2 mt-3">
+                    <label>Risco Ergonômico</label>                      
+                    <select class="form-select" 
+                    formControlName="risco_ergonomico"
+                    aria-label="Default select example">
+                    <option value="Risco Ergonômico Existente">Risco Ergonômico Existente</option>
+                    <option value="Risco Ergonômico Inexistente">Risco Ergonômico Inexistente</option>
+                    <option value="Não sei informar se tem Risco Quimico">Não sei informar se tem Risco Ergonômico</option>
+                    </select>
+                </div> 
+                
+                <div class="col-md-4 mt-3">
+                    <label>Há Risco Específico do PCMSO ?</label>                      
+                    <select class="form-select" 
+                    formControlName="risco_especifico"
+                    aria-label="Default select example">
+                    <option value="Há Risco Específico do PCMSO">Há Risco Específico do PCMSO</option>
+                    <option value="Não há Risco Específico do PCMSO">Não há Risco Específico do PCMSO</option>
+                    </select>
+                </div>  
+ 
+                
+                <div class="col-md-4 mt-3">
+                    <label>Foi solicitado Exame Complementar ?</label>                      
+                    <select class="form-select" 
+                    formControlName="exame_complementar"
+                    aria-label="Default select example">
+                    <option value="Foi solicitado Exame Complementar">Foi solicitado Exame Complementar </option>
+                        <option value="Não foi solicitado Exame Complementar">Não foi solicitado Exame Complementar</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-4 mt-3">
+                    <label>Há Exames Complementares ?</label>                      
+                    <select class="form-select" 
+                    formControlName="exames_complementares"
+                    aria-label="Default select example">
+                    <option value="Há Exames Complementar">Há Exames Complementar </option>
+                        <option value="Não há Exames Complementar">Não há Exames Complementar</option>
+
+                    </select>
+                </div>
+                 
+                <div class="col-md-4 mt-3">
+                    <label>Parecer do especialista</label>                      
+                    <select class="form-select" 
+                    formControlName="parecer_especialista"
+                    aria-label="Default select example">
+                    <option value="O Parecer do especialista indicou que  está tudo Normal">O Parecer do especialista indicou que  está tudo Normal</option>
+                        <option value="O Parecer do especialista indicou que não está normal">O Parecer do especialista indicou que não está normal</option>
+
+                    </select>
+                </div>
+
+
+        
+                
+              
+
+                <div class="col-md-4 mt-3">
+                    <label>Tem encaminhamento para o Perito ?</label>                      
+                    <select class="form-select" 
+                    formControlName="encaminhamento_perito"
+                    aria-label="Default select example">
+                    <option value="Tem encaminhamento para o Perito">Tem encaminhamento para o Perito </option>
+                        <option value="Não tem encaminhamento para o Perito">Não tem encaminhamento para o Perito</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-2 mt-3">
+                    <label>Há CAT ?</label>                      
+                    <select class="form-select" 
+                    formControlName="cat"
+                    aria-label="Default select example">
+                    <option value="Houve Cat">Houve CAT</option>
+                        <option value="Não houve CAT">Não houve CAT</option>
+
+                    </select>
+                </div>
+              
+
+
+                <div class="form-group col-md-4  mt-3">
+                    <label for="causasPerigo">Observações Gerais</label>
+                    <input type="text" id="causasPerigo" formControlName="observacoes" class="form-control">
+                </div> 
+
+                <div class="col-md-2 mt-3">
+                    <label>Status da Anamnese</label>                      
+                    <select class="form-select" 
+                    formControlName="status_anamnese"
+                    aria-label="Default select example">
+                    <option value="Anamnese Normal">Anamnese Normal</option>
+                        <option value="Anamnese anormal">Anamnese anormal</option>
+
+                    </select>
+                </div>
+                
+              
+
+            </div>
+            
+                <div class="form-group col-md-6 mt-4">
+                <button type="submit" class="btn btn-success">Editar Anamnese</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

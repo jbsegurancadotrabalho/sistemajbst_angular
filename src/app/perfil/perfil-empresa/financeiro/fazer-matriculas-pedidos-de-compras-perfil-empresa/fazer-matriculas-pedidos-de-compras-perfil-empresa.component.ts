@@ -115,7 +115,7 @@ export class FazerMatriculasPedidosDeComprasPerfilEmpresaComponent  implements O
 
 
   obterEmpresas(userId: string): void {
-    const endpoint = `http://empresa-jb-env.eba-vj7gm5ar.us-east-2.elasticbeanstalk.coms/api/funcionario/usuario/${userId}`;
+    const endpoint = `http://empresa-jb-env.eba-vj7gm5ar.us-east-2.elasticbeanstalk.com/api/funcionario/usuario/${userId}`;
 
     this.httpClient.get<any[]>(endpoint)
       .subscribe({

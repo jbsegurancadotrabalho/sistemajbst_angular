@@ -29,9 +29,6 @@ export class GerarCertificadoSemAssinarPessoaFisicaComponent implements OnInit{
           // Certifique-se de que 'certificado' seja uma matriz
           this.certificado = Array.isArray(data) ? data : [data];
              
-          
-
-
         },
         error: (e) => {
           console.log(e);

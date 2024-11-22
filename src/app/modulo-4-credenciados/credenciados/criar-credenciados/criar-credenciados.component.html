@@ -1,0 +1,126 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Credenciado</h5>
+                    <p>Preencha os campos para criar o Credenciado.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-credenciados" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="criarEpi()" [formGroup]="formularioEpi">
+                <div class="col-md-12 mt-3">
+                    <label for="idEndereco">Endereço:</label>
+                    <ng-select
+                    [items]="enderecos"
+                    bindLabel="cep"
+                    bindValue="idEndereco"
+                    class="form-select custom-ng-select"
+                    formControlName="idEndereco"
+                    [ngClass]="{'is-invalid': formularioEpi.get('idEndereco')?.invalid && formularioEpi.get('idEndereco')?.touched}">
+                    <ng-template ng-label-tmp let-item="item">
+                      <div class="custom-bg" style="z-index: 1000;">
+                        <span>Cep: {{ item.cep | uppercase }} </span>  <span> {{ item.logradouro }} </span>
+                        <span> {{ item.numero }} </span> <span> {{ item.bairro }}</span>
+                        <span>{{ item.localidade }} </span>  <span> {{ item.uf }} </span>
+                      </div>
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item">
+                      <div>
+                        <span>Cep: {{ item.cep | uppercase }} </span> <span> {{ item.logradouro }} </span>,
+                        <span> {{ item.numero }} </span> <span> {{ item.bairro }} </span>,
+                        <span> {{ item.localidade }} </span> <span> {{ item.uf }} </span>
+                      </div>
+                    </ng-template>
+                  </ng-select>
+                  
+
+                </div>
+                <div class="row mb-2">
+                    <div class="form-group col-md-5 mt-3">
+                        <label for="fonte_geradora">Razão Social</label>
+                        <input type="text" id="fonte_geradora" formControlName="razaosocial" class="form-control">
+                    </div>
+                    
+                    
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="causasPerigo">Nome Fantasia</label>
+                        <input type="text" id="causasPerigo" formControlName="nomeCredenciado" class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">CNPJ</label>
+                        <input type="text" id="causasPerigo" formControlName="cnpj" class="form-control">
+                    </div>  
+                  
+                </div>
+
+                <div class="row mb-2">
+                 
+                    
+                    <div class="col-md-5 mt-5">
+                        <select class="form-select" 
+                        formControlName="status"
+                        aria-label="Default select example">
+                            <option value="CLINICA">Clinica</option>
+                            <option value="CENTRO_DE_TREINAMENTO">Centro de Treinamento</option>
+                            <option value="HIGIENE_OCUPACIONAL">Higiene Ocupacional </option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="causasPerigo">Inscrição Municipal</label>
+                        <input type="text" id="causasPerigo" formControlName="inscricaomunicipal" class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Responsavel</label>
+                        <input type="text" id="causasPerigo" formControlName="responsavel_sistema" class="form-control">
+                    </div>  
+                  
+                </div>
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-5 mt-3">
+                        <label for="fonte_geradora">Email</label>
+                        <input type="text" id="fonte_geradora" formControlName="email_usuario" class="form-control">
+                    </div>
+                    
+                    
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="causasPerigo">Senha</label>
+                        <input type="text" id="causasPerigo" formControlName="senha_sistema" class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Telefone</label>
+                        <input type="text" id="causasPerigo" formControlName="telefone_responsavel" class="form-control">
+                    </div>  
+                  
+                </div>
+
+                
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Credenciado</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

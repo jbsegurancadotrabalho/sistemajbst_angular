@@ -1,0 +1,526 @@
+    <app-navbar></app-navbar>
+
+    <div class="container mt-5">
+        <div class="card mt-5">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h5>Criar ASO</h5>
+                        <p>Preencha os campos para criar o ASO  .</p>
+                    </div>
+                    <div class="col-md-2 mt-1">
+                        <a href="/consultar-atendimento" class="btn btn-success">Voltar</a>
+                    </div>
+                </div>
+
+                <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>{{ cadastroSucesso }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+                </div>
+                
+                <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ cadastroErro }}</strong>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+                </div>
+                
+                <form (ngSubmit)="criarAso()" [formGroup]="formularioAso">
+                    <input type="hidden" formControlName="idAtendimento" />
+                
+                    <div class="row mb-2">
+                        <div class="col-md-2 mt-3"> <label>Data</label> <input type="datetime-local"  formControlName="dia_hora" class="form-control" /></div>
+                        
+                        <div class="form-group col-md-4 mt-3">
+                            <label for="causasPerigo">Razão Social</label>
+                            <input type="text" id="causasPerigo" formControlName="razaosocial" class="form-control">
+                        </div> 
+                        
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="causasPerigo">Nome Fantasia</label>
+                            <input type="text" id="causasPerigo" formControlName="nomefantasia" class="form-control">
+                        </div>  
+
+                        <div class="form-group col-md-3 mt-3">
+                            <label for="causasPerigo">CNPJ</label>
+                            <input type="text" id="causasPerigo" formControlName="cnpj" class="form-control"
+                            mask="00.000.000.0000/00">
+                        </div>  
+
+                        <div class="form-group col-md-2 mt-3">
+                            <label for="cep">Cep</label>
+                            <input type="text" id="cep" formControlName="cep" class="form-control" (blur)="buscarCep()" mask="00000-000">
+                        </div>
+
+                           
+                            
+                            <div class="form-group col-md-4 mt-3">
+                                <label for="logradouro">Logradouro</label>
+                                <input type="text" id="logradouro" formControlName="logradouro" class="form-control">
+                            </div>
+                        
+                        <div class="form-group col-md-4 mt-3">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" id="complemento" formControlName="complemento" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-md-2 mt-3">
+                            <label for="numero">Número</label>
+                            <input type="text" id="numero" formControlName="numero" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-md-4 mt-3">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" formControlName="bairro" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-md-4 mt-3">
+                            <label for="localidade">Localidade</label>
+                            <input type="text" id="localidade" formControlName="localidade" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-md-2 mt-3">
+                            <label for="uf">UF</label>
+                            <input type="text" id="uf" formControlName="uf" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-md-2 mt-3">
+                            <label for="uf" class="text-white">Buscar Endereço</label>
+
+                            <button type="button" class="btn btn-success" (click)="buscarCep()">Buscar Endereço</button>
+                        </div>                      
+                        <!-- Campo para Nome -->
+<div class="form-group col-md-4 mt-3">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" formControlName="nome" class="form-control" placeholder="Digite o nome">
+</div>
+
+<div class="col-md-2 mt-3"> <label>Data de Nascimento</label> <input type="datetime-local"  formControlName="data_nascimento_funcionario" class="form-control" /></div>
+
+<!-- Campo para CPF -->
+<div class="form-group col-md-2 mt-3">
+    <label for="cpf">CPF</label>
+    <input 
+    mask="000-000-000-00"
+    type="text" id="cpf" formControlName="cpf" class="form-control" mask="000.000.000-00" placeholder="Digite o CPF">
+</div>
+
+<!-- Campo para RG -->
+<div class="form-group col-md-2 mt-3">
+    <label for="rg">RG</label>
+    <input type="text" id="rg" formControlName="rg" class="form-control" placeholder="Digite o RG">
+</div>
+
+<!-- Campo para Função -->
+<div class="form-group col-md-2 mt-3">
+    <label for="funcao">Função</label>
+    <input type="text" id="funcao" formControlName="funcao" class="form-control" placeholder="Digite a função">
+</div>
+
+<!-- Campo para Setor -->
+<div class="form-group col-md-2 mt-3">
+    <label for="setor">Setor</label>
+    <input
+         type="text" id="setor" formControlName="setor" class="form-control" placeholder="Digite o setor">
+</div>
+
+<!-- Campo para Nome do Profissional de Saúde -->
+<div class="form-group col-md-4 mt-3">
+    <label for="nome_profissionalsaude">Nome do Profissional de Saúde</label>
+    <input type="text" id="nome_profissionalsaude" formControlName="nome_profissionalsaude" class="form-control" placeholder="Digite o nome do profissional de saúde">
+</div>
+
+<!-- Campo para CPF do Profissional de Saúde -->
+<div class="form-group col-md-2 mt-3">
+    <label for="cpf1">CPF</label>
+    <input type="text" id="cpf1" formControlName="cpf1" class="form-control" mask="000.000.000-00" placeholder="Digite o CPF do profissional">
+</div>
+
+<!-- Campo para Formação na Área da Saúde -->
+<div class="form-group col-md-2 mt-3">
+    <label for="formacao_saude">Formação</label>
+    <input type="text" id="formacao_saude" formControlName="formacao_saude" class="form-control" placeholder="Digite a formação">
+</div>
+
+<!-- Campo para Conselho -->
+<div class="form-group col-md-2 mt-3">
+    <label for="conselho">Conselho</label>
+    <input type="text" id="conselho" formControlName="conselho" class="form-control" placeholder="Digite o conselho">
+</div>
+
+<!-- Campo para Registro no Conselho -->
+<div class="form-group col-md-1 mt-3">
+    <label for="registro">Registro</label>
+    <input type="text" id="registro" formControlName="registro" class="form-control" placeholder="registro">
+</div>
+
+<!-- Campo para Estado -->
+<div class="form-group col-md-1 mt-3">
+    <label for="estado">UF</label>
+    <input type="text" id="estado" formControlName="estado" class="form-control" placeholder="UF">
+</div>
+
+<div class="form-group col-md-4 mt-3">
+    <label for="nome_profissionalsaude">Médico do Trabalho</label>
+    <input type="text" id="nome_profissionalsaude" formControlName="medico_trabalho" class="form-control" placeholder="Digite o nome do profissional de saúde">
+    </div>
+    
+    <!-- Campo para CPF do Profissional de Saúde -->
+    <div class="form-group col-md-2 mt-3">
+    <label for="crm_medico_trabalho">CRM</label>
+    <input type="text" id="cpf1" formControlName="crm_medico_trabalho" class="form-control" mask="000.000.000-00" placeholder="Digite o CPF do profissional">
+    </div>
+    
+    <!-- Campo para Formação na Área da Saúde -->
+    <div class="form-group col-md-2 mt-3">
+    <label for="formacao_saude">CPF Médico</label>
+    <input type="text" id="formacao_saude" formControlName="cpf_medico_trabalho" class="form-control" placeholder="Digite a formação">
+    </div>
+
+<div class="col-md-2 mt-3">
+    <label>Tipo Aso:</label>                      
+    <select class="form-select" 
+    formControlName="tipo_aso"
+    aria-label="Default select example">
+        <option value="Admissional">Admissional</option>
+        <option value="Periodico">Periodico</option>
+        <option value="Mudança de Função">Mudança de Função</option>
+        <option value="Retorno ao Trabalho">Retorno ao Trabalho</option>
+        <option value="Demissional">Demissional</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Exame Clinico:</label>                      
+    <select class="form-select" 
+    formControlName="exame_clinico"
+    aria-label="Default select example">
+        <option value="Exame Clinico Finalizado">Exame Clinico Finalizado</option>
+        <option value="Exame Clinico não Realizado">Exame Clinico Não Realizado</option>
+        <option value="Exame Clinico Realizado mas precisa de Revisão">Exame Clinico Realizado mas precisa de Revisão</option>
+        <option value="Não fez ainda o Exame Clinico">Não fez ainda o Exame Clinico</option>
+
+    </select>
+</div>
+
+
+
+
+<div class="col-md-2 mt-3">
+     <label>Data Exame Clinico</label> <input type="datetime-local"  
+     formControlName="data_exame_clinico" class="form-control" />
+    </div>
+
+    <div class="col-md-2 mt-3">
+        <label>Acuidade Visual:</label>                      
+        <select class="form-select" 
+        formControlName="acuidadevisual"
+        aria-label="Default select example">
+            <option value="Fez Acuidade Visual">Fez Acuidade Visual</option>
+            <option value="Não fez Fez Acuidade Visual">Não fez Fez Acuidade Visual</option>
+        </select>
+    </div>
+    <div class="col-md-2 mt-3">
+         <label>Data Acuidade Visual</label> <input type="datetime-local"  
+         formControlName="data_acuidadevisual" class="form-control" />
+        </div>
+
+        <!-- Avaliação Psicossocial -->
+<div class="col-md-2 mt-3">
+    <label>Avaliação Psicossocial:</label>
+    <select class="form-select" formControlName="avaliacao_psicossocial" aria-label="Default select example">
+        <option value="Fez Avaliação Psicossocial">Fez Avaliação Psicossocial</option>
+        <option value="Não fez Avaliação Psicossocial">Não fez Avaliação Psicossocial</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data da Avaliação</label>
+    <input type="datetime-local" formControlName="data_avaliacao_psicossocial" class="form-control" />
+</div>
+
+<!-- Eletrocardiograma -->
+<div class="col-md-2 mt-3">
+    <label>Eletrocardiograma:</label>
+    <select class="form-select" formControlName="eletrocardiograma" aria-label="Default select example">
+        <option value="Fez Eletrocardiograma">Fez Eletrocardiograma</option>
+        <option value="Não fez Eletrocardiograma">Não fez Eletrocardiograma</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Eletrocardiograma</label>
+    <input type="datetime-local" formControlName="data_eletrocardiograma" class="form-control" />
+</div>
+
+<!-- Eletroencefalograma -->
+<div class="col-md-2 mt-3">
+    <label>Eletroencefalograma:</label>
+    <select class="form-select" formControlName="eletroencefalograma" aria-label="Default select example">
+        <option value="Fez Eletroencefalograma">Fez Eletroencefalograma</option>
+        <option value="Não fez Eletroencefalograma">Não fez Eletroencefalograma</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Eletroencefalograma</label>
+    <input type="datetime-local" formControlName="data_eletroencefalograma" class="form-control" />
+</div>
+
+<!-- Continue repetindo a estrutura para os demais atributos -->
+
+<!-- Espirometria -->
+<div class="col-md-2 mt-3">
+    <label>Espirometria:</label>
+    <select class="form-select" formControlName="espirometria" aria-label="Default select example">
+        <option value="Fez Espirometria">Fez Espirometria</option>
+        <option value="Não fez Espirometria">Não fez Espirometria</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Espirometria</label>
+    <input type="datetime-local" formControlName="data_espirometria" class="form-control" />
+</div>
+
+<!-- Outros Campos -->
+
+<!-- Glicemia -->
+<div class="col-md-2 mt-3">
+    <label>Glicemia:</label>
+    <select class="form-select" formControlName="glicemia" aria-label="Default select example">
+        <option value="Fez Glicemia">Fez Glicemia</option>
+        <option value="Não fez Glicemia">Não fez Glicemia</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Glicemia</label>
+    <input type="datetime-local" formControlName="data_glicemia" class="form-control" />
+</div>
+
+<!-- Audiometria -->
+<div class="col-md-2 mt-3">
+    <label>Audiometria:</label>
+    <select class="form-select" formControlName="audiometria" aria-label="Default select example">
+        <option value="Fez Audiometria">Fez Audiometria</option>
+        <option value="Não fez Audiometria">Não fez Audiometria</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Audiometria</label>
+    <input type="datetime-local" formControlName="data_audiometria" class="form-control" />
+</div>
+
+<!-- Fator RH -->
+<div class="col-md-2 mt-3">
+    <label>Fator RH:</label>
+    <select class="form-select" formControlName="fator_rh" aria-label="Default select example">
+        <option value="Fez Fator RH">Fez Fator RH</option>
+        <option value="Não fez Fator RH">Não fez Fator RH</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Fator RH</label>
+    <input type="datetime-local" formControlName="data_fator_rh" class="form-control" />
+</div>
+
+<!-- Grupo Sanguíneo -->
+<div class="col-md-2 mt-3">
+    <label>Grupo Sanguíneo:</label>
+    <select class="form-select" formControlName="grupo_sanguineo" aria-label="Default select example">
+        <option value="Fez Grupo Sanguíneo">Fez Grupo Sanguíneo</option>
+        <option value="Não fez Grupo Sanguíneo">Não fez Grupo Sanguíneo</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Grupo Sanguíneo</label>
+    <input type="datetime-local" formControlName="data_grupo_sanguineo" class="form-control" />
+</div>
+
+<!-- Hemograma Completo -->
+<div class="col-md-2 mt-3">
+    <label>Hemograma Completo:</label>
+    <select class="form-select" formControlName="hemograma_completo" aria-label="Default select example">
+        <option value="Fez Hemograma Completo">Fez Hemograma Completo</option>
+        <option value="Não fez Hemograma Completo">Não fez Hemograma Completo</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Hemograma</label>
+    <input type="datetime-local" formControlName="data_hemograma_completo" class="form-control" />
+</div>
+
+<!-- Teste Romberg -->
+<div class="col-md-2 mt-3">
+    <label>Teste Romberg:</label>
+    <select class="form-select" formControlName="testeromberg" aria-label="Default select example">
+        <option value="Fez Teste Romberg">Fez Teste Romberg</option>
+        <option value="Não fez Teste Romberg">Não fez Teste Romberg</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Teste Romberg</label>
+    <input type="datetime-local" formControlName="data_testeromberg" class="form-control" />
+</div>
+
+<!-- Raio-X Lombar Sacra -->
+<div class="col-md-2 mt-3">
+    <label>Raio-X Lombar Sacra:</label>
+    <select class="form-select" formControlName="raio_x_lombo_sacra" aria-label="Default select example">
+        <option value="Fez Raio-X Lombar Sacra">Fez Raio-X Lombar Sacra</option>
+        <option value="Não fez Raio-X Lombar Sacra">Não fez Raio-X Lombar Sacra</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Raio-X Lombar Sacra</label>
+    <input type="datetime-local" formControlName="data_raio_x_lombo_sacra" class="form-control" />
+</div>
+
+<div class="col-md-2 mt-3">
+    <label>Raio-X Joelho Direito:</label>
+    <select class="form-select" formControlName="raio_x_joelho_direito" aria-label="Default select example">
+        <option value="Fez Raio-X Joelho Direito">Fez Raio-X Joelho Direito</option>
+        <option value="Não fez Raio-X Joelho Direito">Não fez Raio-X Joelho Direito</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Raio-X Joelho Direito</label>
+    <input type="datetime-local" formControlName="data_raio_x_joelho_direito" class="form-control" />
+</div>
+
+<div class="col-md-2 mt-3">
+    <label>Raio-X Joelho Esquerdo:</label>
+    <select class="form-select" formControlName="raio_x_joelho_esquerdo" aria-label="Default select example">
+        <option value="Fez Raio-X Joelho Esquerdo">Fez Raio-X Joelho Esquerdo</option>
+        <option value="Não fez Raio-X Joelho Esquerdo">Não fez Raio-X Joelho Esquerdo</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Raio-X Joelho Esquerdo</label>
+    <input type="datetime-local" formControlName="data_raio_x_joelho_esquerdo" class="form-control" />
+</div>
+
+<div class="col-md-2 mt-3">
+    <label>Raio-X Joelho Coxofemorais Direito:</label>
+    <select class="form-select" formControlName="raio_x_joelho_coxofemorais_direito" aria-label="Default select example">
+        <option value="Fez Raio-X Joelho Coxofemorais Direito">Fez Raio-X Joelho Coxofemorais Direito</option>
+        <option value="Não fez Raio-X Joelho Coxofemorais Direito">Não fez Raio-X Joelho Coxofemorais Direito</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Raio-X Joelho Coxofemorais Direito</label>
+    <input type="datetime-local" formControlName="data_raio_x_joelho_coxofemorais_direito" class="form-control" />
+</div>
+
+<div class="col-md-2 mt-3">
+    <label>Raio-X Joelho Coxofemorais Esquerdo:</label>
+    <select class="form-select" formControlName="raio_x_joelho_coxofemorais_esquerdo" aria-label="Default select example">
+        <option value="Fez Raio-X Joelho Coxofemorais Esquerdo">Fez Raio-X Joelho Coxofemorais Esquerdo</option>
+        <option value="Não fez Raio-X Joelho Coxofemorais Esquerdo">Não fez Raio-X Joelho Coxofemorais Esquerdo</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Raio-X Joelho Coxofemorais Esquerdo</label>
+    <input type="datetime-local" formControlName="data_raio_x_joelho_coxofemorais_esquerdo" class="form-control" />
+</div>
+
+<div class="col-md-2 mt-3">
+    <label>Raio-X Ombro:</label>
+    <select class="form-select" formControlName="raio_x_ombro" aria-label="Default select example">
+        <option value="Fez Raio-X Ombro">Fez Raio-X Ombro</option>
+        <option value="Não fez Raio-X Ombro">Não fez Raio-X Ombro</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Raio-X Ombro</label>
+    <input type="datetime-local" formControlName="data_raio_x_ombro" class="form-control" />
+</div>
+
+
+
+<div class="col-md-2 mt-3">
+    <label>Ácido Fenil Mercapturico</label>
+    <select class="form-select" formControlName="acido_s_fenil_mercapturico" aria-label="Default select example">
+        <option value="Fez Ácido Fenil Mercapturico">Fez Ácido Fenil Mercapturico</option>
+        <option value="Não fez Ácido Fenil Mercapturico">Não Ácido Fenil Mercapturico</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data</label>
+    <input type="datetime-local" formControlName="data_acido_s_fenilmercapturico" class="form-control" />
+</div>
+
+
+<div class="col-md-2 mt-3">
+    <label>Ácido Hipurico</label>
+    <select class="form-select" formControlName="acido_s_acido_hipurico" aria-label="Default select example">
+        <option value="Fez Ácido Hipurico">Fez Ácido Hipurico</option>
+        <option value="Não fez Ácido Hipurico">Não fez Ácido Hipurico</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data Ácido Hipurico</label>
+    <input type="datetime-local" formControlName="data_acido_hipurico" class="form-control" />
+</div>
+
+
+<div class="col-md-2 mt-3">
+    <label>Ácido Trans Muconico</label>
+    <select class="form-select" formControlName="acido_trans_muconico" aria-label="Default select example">
+        <option value="Fez Ácido Hipurico">Fez Ácido Trans Muconico</option>
+        <option value="Não fez Ácido Trans Muconico">Não fez Ácido Trans Muconico</option>
+    </select>
+</div>
+<div class="col-md-2 mt-3">
+    <label>Data</label>
+    <input type="datetime-local" formControlName="data_acido_trans_muconico" class="form-control" />
+</div>
+
+<div class="col-md-2 mt-3">
+    <label>Altura:</label>
+    <select class="form-select" formControlName="parecer_medico_altura" aria-label="Default select example">
+        <option value="Funcionário apto para Trabalhos em Altura">Funcionário apto para Trabalhos em Altura</option>
+        <option value="Funcionário não apto para Trabalhos em Altura">Funcionário não apto para Trabalhos em Altura</option>
+        <option value="Não Aplica">Não Aplica</option>
+
+    </select>
+</div>
+
+<!-- Parecer Médico - Confinado -->
+<div class="col-md-4 mt-3">
+    <label>Parecer Médico - Confinado:</label>
+    <select class="form-select" formControlName="parecer_medico_confinado" aria-label="Default select example">
+        <option value="Funcionário apto para Trabalhos em Espaços Confinados">Funcionário apto para Trabalhos em Espaços Confinados</option>
+        <option value="Funcionário não apto para Trabalhos em Espaços Confinados">Funcionário não apto para Trabalhos em Espaços Confinados</option>
+        <option value="Não Aplica">Não Aplica</option>
+
+    </select>
+</div>
+
+<!-- Parecer Médico - Atividade Subaquática -->
+<div class="col-md-4 mt-3">
+    <label>Parecer Médico - Atividade Subaquática:</label>
+    <select class="form-select" formControlName="parecer_medico_atividade_subaquatica" aria-label="Default select example">
+        <option value="Funcionário apto para Atividades Subaquáticas">Funcionário apto para Atividades Subaquáticas</option>
+        <option value="Funcionário não apto para Atividades Subaquáticas">Funcionário não apto para Atividades Subaquáticas</option>
+        <option value="Não Aplica">Não Aplica</option>
+
+    </select>                
+</div>
+<!-- Observações -->
+
+
+<!-- Parecer Médico -->
+<div class="form-group col-md-12 mt-3">
+    <label for="parecer_medico">Observações</label>
+    <input type="text" id="parecer_medico" formControlName="observacoes" class="form-control" placeholder="Coloque aqui Observações">
+</div>
+<div class="form-group col-md-12 mt-3">
+    <label for="observacoes">Parecer Médico</label>
+    <textarea id="observacoes" formControlName="parecer_medico" class="form-control" rows="5" placeholder="Digite o Parecer Médico aqui."></textarea>
+</div>
+
+
+                    </div>  
+
+                    <div class="form-group col-md-6 mt-4">
+                        <button type="submit" class="btn btn-success">Criar Aso</button>
+                        </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>

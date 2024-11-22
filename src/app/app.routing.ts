@@ -276,6 +276,66 @@ import { EditarChamadosClientesComponent } from "./modulo-1-admin/comercial/cham
 import { ConsultarChamadosClientesComponent } from "./modulo-1-admin/comercial/chamados-clientes/consultar-chamados-clientes/consultar-chamados-clientes.component";
 import { ConsultarSuporteAoClienteComponent } from "./modulo-1-admin/comercial/chamados-clientes/consultar-suporte-ao-cliente/consultar-suporte-ao-cliente.component";
 import { RespostaSuporteAoClienteComponent } from "./modulo-1-admin/comercial/chamados-clientes/resposta-suporte-ao-cliente/resposta-suporte-ao-cliente.component";
+import { ConsultarCredenciadosComponent } from "./modulo-4-credenciados/credenciados/consultar-credenciados/consultar-credenciados.component";
+import { CriarCredenciadosComponent } from "./modulo-4-credenciados/credenciados/criar-credenciados/criar-credenciados.component";
+import { EditarCredenciadosComponent } from "./modulo-4-credenciados/credenciados/editar-credenciados/editar-credenciados.component";
+import { CriarExamesComponent } from "./modulo-4-credenciados/exames/criar-exames/criar-exames.component";
+import { EditarExamesComponent } from "./modulo-4-credenciados/exames/editar-exames/editar-exames.component";
+import { ConsultarExamesComponent } from "./modulo-4-credenciados/exames/consultar-exames/consultar-exames.component";
+import { ConsultarAvaliacoesOcupacionaisComponent } from "./modulo-4-credenciados/avaliacoes_ocupacionais/consultar-avaliacoes-ocupacionais/consultar-avaliacoes-ocupacionais.component";
+import { EditarAvaliacoesOcupacionaisComponent } from "./modulo-4-credenciados/avaliacoes_ocupacionais/editar-avaliacoes-ocupacionais/editar-avaliacoes-ocupacionais.component";
+import { CriarAvaliacoesOcupacionaisComponent } from "./modulo-4-credenciados/avaliacoes_ocupacionais/criar-avaliacoes-ocupacionais/criar-avaliacoes-ocupacionais.component";
+import { CriarExamesCredenciadosComponent } from "./modulo-4-credenciados/exames/exames-credenciados/criar-exames-credenciados/criar-exames-credenciados.component";
+import { EditarExamesCredenciadosComponent } from "./modulo-4-credenciados/exames/exames-credenciados/editar-exames-credenciados/editar-exames-credenciados.component";
+import { ConsultarExamesCredenciadosComponent } from "./modulo-4-credenciados/exames/exames-credenciados/consultar-exames-credenciados/consultar-exames-credenciados.component";
+import { CriarCursosCredenciadosComponent } from "./modulo-4-credenciados/cursos/criar-cursos-credenciados/criar-cursos-credenciados.component";
+import { ConsultarCursosCredenciadosComponent } from "./modulo-4-credenciados/cursos/consultar-cursos-credenciados/consultar-cursos-credenciados.component";
+import { EditarCursosCredenciadosComponent } from "./modulo-4-credenciados/cursos/editar-cursos-credenciados/editar-cursos-credenciados.component";
+import { CriarAvaliacoesOcupacionaisCredenciadosComponent } from "./modulo-4-credenciados/avaliacoes_ocupacionais/avaliacoes-ocupacionais-credenciados/criar-avaliacoes-ocupacionais-credenciados/criar-avaliacoes-ocupacionais-credenciados.component";
+import { EditarAvaliacoesOcupacionaisCredenciadosComponent } from "./modulo-4-credenciados/avaliacoes_ocupacionais/avaliacoes-ocupacionais-credenciados/editar-avaliacoes-ocupacionais-credenciados/editar-avaliacoes-ocupacionais-credenciados.component";
+import { ConsultarAvaliacoesOcupacionaisCredenciadosComponent } from "./modulo-4-credenciados/avaliacoes_ocupacionais/avaliacoes-ocupacionais-credenciados/consultar-avaliacoes-ocupacionais-credenciados/consultar-avaliacoes-ocupacionais-credenciados.component";
+import { CriarProfissionalSaudeComponent } from "./modulo-4-credenciados/profissional-saude/criar-profissional-saude/criar-profissional-saude.component";
+import { EditarProfissionalSaudeComponent } from "./modulo-4-credenciados/profissional-saude/editar-profissional-saude/editar-profissional-saude.component";
+import { ConsultarProfissionalSaudeComponent } from "./modulo-4-credenciados/profissional-saude/consultar-profissional-saude/consultar-profissional-saude.component";
+import { CriarAgendaComponent } from "./modulo-4-credenciados/agenda/criar-agenda/criar-agenda.component";
+import { EditarAgendaComponent } from "./modulo-4-credenciados/agenda/editar-agenda/editar-agenda.component";
+import { ConsultarAgendaComponent } from "./modulo-4-credenciados/agenda/consultar-agenda/consultar-agenda.component";
+import { CriarAgendamentoFuncionarioComponent } from "./modulo-4-credenciados/agendamento/criar-agendamento-funcionario/criar-agendamento-funcionario.component";
+import { ConsultarAgendamentosFuncionarioComponent } from "./modulo-4-credenciados/agendamento/consultar-agendamentos-funcionario/consultar-agendamentos-funcionario.component";
+import { EditarAgendamentoComponent } from "./modulo-4-credenciados/agendamento/editar-agendamento/editar-agendamento.component";
+import { CriarAgendamentoPessoaFisicaComponent } from "./modulo-4-credenciados/agendamento/criar-agendamento-pessoa-fisica/criar-agendamento-pessoa-fisica.component";
+import { ConsultarAgendamentoPessoaFisicaComponent } from "./modulo-4-credenciados/agendamento/consultar-agendamento-pessoa-fisica/consultar-agendamento-pessoa-fisica.component";
+import { CriarFormacaoSaudeComponent } from "./modulo-4-credenciados/profissional-saude/formacao/criar-formacao-saude/criar-formacao-saude.component";
+import { EditarFormacaoSaudeComponent } from "./modulo-4-credenciados/profissional-saude/formacao/editar-formacao-saude/editar-formacao-saude.component";
+import { ConsultarFormacaoSaudeComponent } from "./modulo-4-credenciados/profissional-saude/formacao/consultar-formacao-saude/consultar-formacao-saude.component";
+import { CriarEspecializacaoSaudeComponent } from "./modulo-4-credenciados/profissional-saude/especializacaosaude/criar-especializacao-saude/criar-especializacao-saude.component";
+import { ConsultarEspecializacaoSaudeComponent } from "./modulo-4-credenciados/profissional-saude/especializacaosaude/consultar-especializacao-saude/consultar-especializacao-saude.component";
+import { EditarEspecializacaoSaudeComponent } from "./modulo-4-credenciados/profissional-saude/especializacaosaude/editar-especializacao-saude/editar-especializacao-saude.component";
+import { ConsultarExamesPorLocalidadeComponent } from "./modulo-4-credenciados/exames/consultar-exames-por-localidade/consultar-exames-por-localidade.component";
+import { TodasAsTurmasJbComponent } from "./modulo-5-site/todas-as-turmas-jb/todas-as-turmas-jb.component";
+import { ComparadorDePrecosExamesComponent } from "./modulo-5-site/comparador-de-precos-exames/comparador-de-precos-exames.component";
+import { CriarEventoComponent } from "./modulo-5-site/eventos/criar-evento/criar-evento.component";
+import { EditarEventosComponent } from "./modulo-5-site/eventos/editar-eventos/editar-eventos.component";
+import { ConsultarEventosComponent } from "./modulo-5-site/eventos/consultar-eventos/consultar-eventos.component";
+import { CriarParticipanteComponent } from "./modulo-5-site/eventos/participantes/criar-participante/criar-participante.component";
+import { EditarParticipanteComponent } from "./modulo-5-site/eventos/participantes/editar-participante/editar-participante.component";
+import { ConsultarParticipanteComponent } from "./modulo-5-site/eventos/participantes/consultar-participante/consultar-participante.component";
+import { ConsultarEmpresaPorCnpjComponent } from "./modulo-1-admin/empresa/consultar-empresa-por-cnpj/consultar-empresa-por-cnpj.component";
+import { ConsultarEventosJbstComponent } from "./modulo-5-site/eventos/consultar-eventos-jbst/consultar-eventos-jbst.component";
+import { ConsultarFuncionarioPorCpfComponent } from "./modulo-1-admin/empresa/funcionario/consultar-funcionario-por-cpf/consultar-funcionario-por-cpf.component";
+import { ConsultarFuncaoPorNomeComponent } from "./modulo-1-admin/empresa/funcionario/funcao/consultar-funcao-por-nome/consultar-funcao-por-nome.component";
+import { ConsultarFuncaodocPorNomeComponent } from "./modulo-2-relatorios/funcao-doc/consultar-funcaodoc-por-nome/consultar-funcaodoc-por-nome.component";
+import { CriarAtendimentoComponent } from "./modulo-4-credenciados/atendimento/criar-atendimento/criar-atendimento.component";
+import { EditarAtendimentoComponent } from "./modulo-4-credenciados/atendimento/editar-atendimento/editar-atendimento.component";
+import { ConsultarAtendimentoComponent } from "./modulo-4-credenciados/atendimento/consultar-atendimento/consultar-atendimento.component";
+import { CriarAnamneseComponent } from "./modulo-4-credenciados/anamnese/criar-anamnese/criar-anamnese.component";
+import { EditarAnamneseComponent } from "./modulo-4-credenciados/anamnese/editar-anamnese/editar-anamnese.component";
+import { ConsultarAnamneseComponent } from "./modulo-4-credenciados/anamnese/consultar-anamnese/consultar-anamnese.component";
+import { CriarAsoComponent } from "./modulo-4-credenciados/aso/criar-aso/criar-aso.component";
+import { EditarAsoComponent } from "./modulo-4-credenciados/aso/editar-aso/editar-aso.component";
+import { ConsultarAsoComponent } from "./modulo-4-credenciados/aso/consultar-aso/consultar-aso.component";
+import { GerarAsoComponent } from "./modulo-4-credenciados/aso/gerar-aso/gerar-aso.component";
+import { GerarAnamneseComponent } from "./modulo-4-credenciados/anamnese/gerar-anamnese/gerar-anamnese.component";
 
 const routes: Routes = [
 
@@ -405,7 +465,7 @@ const routes: Routes = [
     { path: 'editar-empresa-cliente/:id', component: EditarEmpresaClienteComponent, canActivate: [AuthGuardsEmpresa] },
     { path: 'editar-empresa-relatorios/:id', component: EditarEmpresadocComponent, canActivate: [AuthGuardsMaster] },
     {path: 'cartao-de-acesso-cliente-empresa/:id', component: GerarAcessoClienteEmpresaComponent, canActivate: [AuthGuardsMaster]},
-
+    {path: 'consultar-empresa-por-cnpj', component: ConsultarEmpresaPorCnpjComponent},
 
 
 
@@ -522,11 +582,15 @@ const routes: Routes = [
     { path: 'editar-funcionario/:id', component: EditarFuncionarioComponent},
     { path: 'editar-funcionario-empresa/:id', component: EditarFuncionarioEmpresaComponent, canActivate: [AuthGuardsEmpresa]},
     { path: 'consultar-meus-funcionarios/:id', component: ConsultarFuncionarioPerfilEmpresaComponent},
+    { path: 'consultar-funcionario-por-cpf/:id', component: ConsultarFuncionarioPorCpfComponent},
 
 
 
     { path: 'consultar-funcao', component: ConsultarFuncaoComponent , canActivate: [AuthGuardsMaster]},
     { path: 'editar-funcao/:id', component: EditarFuncaoComponent , canActivate: [AuthGuardsMaster]},
+    {path: 'consultar-funcao-por-nome', component: ConsultarFuncaoPorNomeComponent},
+    {path: 'consultar-funcaodoc-por-nome', component: ConsultarFuncaodocPorNomeComponent},
+
 
 
     { path: 'cadastrar-turmas', component: CadastrarTurmasComponent, canActivate: [AuthGuardsMaster] },
@@ -724,9 +788,89 @@ const routes: Routes = [
 
 
 
-{path: 'perfil-master', component: PerfilMasterComponent, canActivate: [AuthGuardsMaster]}
+{path: 'perfil-master', component: PerfilMasterComponent, canActivate: [AuthGuardsMaster]},
 
 
+
+{path: 'consultar-credenciados', component: ConsultarCredenciadosComponent},
+{path: 'criar-credenciado', component: CriarCredenciadosComponent},
+{path: 'editar-credenciados/:id', component: EditarCredenciadosComponent},
+
+{path: 'criar-exames', component: CriarExamesComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-exames/:id', component: EditarExamesComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-exames', component: ConsultarExamesComponent, canActivate: [AuthGuardsMaster]},
+
+{path: 'criar-exames-credenciados/:id', component: CriarExamesCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-exames-credenciados/:id', component: EditarExamesCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-exames-credenciados/:id', component: ConsultarExamesCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-exames-por-localidade', component: ConsultarExamesPorLocalidadeComponent, canActivate: [AuthGuardsMaster]},
+
+{path: 'criar-cursos-credenciados/:id', component: CriarCursosCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-cursos-credenciados/:id', component: ConsultarCursosCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-cursos-credenciados/:id', component: EditarCursosCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+
+
+{path: 'consultar-avaliacoes-ocupacionais', component: ConsultarAvaliacoesOcupacionaisComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-avaliacoes-ocupacionais/:id', component: EditarAvaliacoesOcupacionaisComponent, canActivate: [AuthGuardsMaster]},
+{path: 'criar-avaliacoes-ocupacionais', component: CriarAvaliacoesOcupacionaisComponent, canActivate: [AuthGuardsMaster]},
+
+{path: 'criar-avaliacoes-credenciados/:id', component: CriarAvaliacoesOcupacionaisCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-avaliacoes-credenciados/:id', component: EditarAvaliacoesOcupacionaisCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-avaliacoes-credenciados/:id', component: ConsultarAvaliacoesOcupacionaisCredenciadosComponent, canActivate: [AuthGuardsMaster]},
+
+{path: 'criar-profissional-saude/:id', component: CriarProfissionalSaudeComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-profissional-saude/:id', component: EditarProfissionalSaudeComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-profissional-saude/:id',  component: ConsultarProfissionalSaudeComponent, canActivate: [AuthGuardsMaster]},
+
+{path: 'criar-agenda/:id', component: CriarAgendaComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-agenda/:id', component: EditarAgendaComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-agenda/:id', component: ConsultarAgendaComponent, canActivate: [AuthGuardsMaster]},
+
+{path: 'criar-agendamento-funcionario/:id', component: CriarAgendamentoFuncionarioComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-agendamento-funcionario', component: ConsultarAgendamentosFuncionarioComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-agendamento/:id', component: EditarAgendamentoComponent, canActivate: [AuthGuardsMaster]},
+{path: 'criar-agendamento-pessoa-fisica/:id', component: CriarAgendamentoPessoaFisicaComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-agendamentos-pacientes', component: ConsultarAgendamentoPessoaFisicaComponent, canActivate: [AuthGuardsMaster]},
+
+
+{path: 'criar-atendimento/:id', component: CriarAtendimentoComponent},
+{path: 'editar-atendimento/:id', component: EditarAtendimentoComponent},
+{path: 'consultar-atendimento', component: ConsultarAtendimentoComponent},
+
+
+{path: 'criar-anamnese/:id', component: CriarAnamneseComponent},
+{path: 'editar-anamnese/:id', component: EditarAnamneseComponent},
+{path: 'consultar-anamnese', component: ConsultarAnamneseComponent},
+{path: 'gerar-anamnese/:id', component: GerarAnamneseComponent},
+
+
+{path: 'criar-aso/:id', component: CriarAsoComponent},
+{path: 'editar-aso/:id', component: EditarAsoComponent},
+{path: 'consultar-aso', component: ConsultarAsoComponent},
+{path: 'gerar-aso/:id', component: GerarAsoComponent},
+
+
+{path: 'criar-formacao-saude/:id', component: CriarFormacaoSaudeComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-formacao-saude/:id', component: EditarFormacaoSaudeComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-formacao-saude/:id', component: ConsultarFormacaoSaudeComponent, canActivate: [AuthGuardsMaster]},
+
+{path: 'criar-especializacao-saude/:id', component: CriarEspecializacaoSaudeComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-especializacao-saude/:id', component: ConsultarEspecializacaoSaudeComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-especializacao-saude/:id', component: EditarEspecializacaoSaudeComponent, canActivate: [AuthGuardsMaster]},
+
+{path: 'nossas-turmas', component: TodasAsTurmasJbComponent},
+{path:'comparador-de-precos-para-exames', component: ComparadorDePrecosExamesComponent},
+
+{path: 'criar-evento', component: CriarEventoComponent, canActivate: [AuthGuardsMaster]},
+{path: 'editar-evento/:id', component: EditarEventosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'consultar-evento', component: ConsultarEventosComponent, canActivate: [AuthGuardsMaster]},
+{path: 'eventos-da-jbst', component: ConsultarEventosJbstComponent},
+
+
+
+{path: 'inscrever-para-este-evento/:id', component: CriarParticipanteComponent},
+{path: 'editar-participante/:id', component: EditarParticipanteComponent},
+{path: 'consultar-participante/:id', component: ConsultarParticipanteComponent}
 
 ];
 

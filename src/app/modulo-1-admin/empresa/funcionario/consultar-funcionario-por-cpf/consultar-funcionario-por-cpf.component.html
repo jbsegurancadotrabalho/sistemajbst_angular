@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<div class="container mb-3 ">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Consultar Funcionario pelo CPF</h5>
+                </div>
+           
+            </div>
+<hr>
+
+
+
+    <div class="row">
+        <form [formGroup]="formularioFuncionario" (ngSubmit)="buscarFuncionario()" class="d-flex align-items-center">
+            <input type="hidden" formControlName="idEmpresa" />
+
+            <div class="col-md-3 mt-3">
+              <input
+                type="text"
+                id="cnpj"
+                formControlName="cpf"
+                class="form-control me-2" 
+                placeholder="Digite o CPF"
+  
+              />
+              <div *ngIf="formularioFuncionario.get('cpf')?.invalid && formularioFuncionario.get('cpf')?.touched" class="text-danger">
+                CPF é obrigatório.
+              </div>
+            </div>
+        
+            <div class="col-md-4 mt-3 ms-3">
+              <button type="submit" class="btn btn-success" >
+                Buscar Funcionário por Cpf
+              </button>
+            </div>
+        </form>
+      </div>
+                 
+
+
+            <hr />
+            <table id="consulta_empresas" class="table table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>RG</th>
+                        <th>Funcao</th>
+
+                        <th>Operações</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let e of funcionarios  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresas, index as i">    
+                        <td>{{e.nome}}</td>
+                        <td>{{e.cpf}}</td>
+                        <td>{{e.rg}}</td>
+                        <td>{{e.funcao?.nome_da_funcao}}</td>
+
+                        <td>
+                            <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                          Ações
+                        </button>
+
+
+                        <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                        
+          
+
+                            
+                          <li><a href="/editar-funcionario"  class="dropdown-item btn btn-success" 
+                            [routerLink]="['/editar-funcionario', e.idFuncionario]">
+                            Editar</a></li>
+
+                            <li><a  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/gerar-ordem-de-servico', e.idFuncionario]">
+                                Gerar Ordem de Serviço</a></li>
+                        
+
+
+                            <li><a  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/gerar-ficha-de-epi', e.idFuncionario]">
+                                Gerar Ficha de Epi</a></li>
+
+                                <li><a  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/criar-documentos-free-funcionario', e.idFuncionario]">
+                                    Criar documentosFree</a></li>
+
+                                    <li><a  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/consultar-documentos-free-funcionario', e.idFuncionario]">
+                                        Consultar documentosFree</a></li>
+                        </ul>   
+                        </td>
+                     </tr>
+                </tbody>
+            </table>
+            </div>
+        
+    
+

@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Avaliações Ocupacionais</h5>
+                    <p>Preencha os campos para criar as Avaliações Ocupacionais.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-avaliacoes-ocupacionais" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="criarAvaliacoes()" [formGroup]="formularioAvaliacoes">
+                
+                  
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="fonte_geradora">Nome Exame</label>
+                        <input type="text" id="fonte_geradora" formControlName="nome_avaliacoes" class="form-control">
+                    </div>
+                    
+            
+
+                    <div class="form-group col-md-6 mt-3">
+                        <label for="causasPerigo">Descrição</label>
+                        <input type="text" id="causasPerigo" formControlName="descricao_avaliacoes" class="form-control">
+                    </div>  
+                  
+                </div>
+
+        
+
+                
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Avaliações Ocupacionais</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

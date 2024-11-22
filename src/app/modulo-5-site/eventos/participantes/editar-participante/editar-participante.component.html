@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Inscrição</h5>
+                    <p>Preencha os campos para atualizar uma Inscrição.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-evento" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+              </div>
+              
+              <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+              </div>
+              
+              <form (ngSubmit)="editarParticipante()" [formGroup]="formularioParticipante">
+                <input type="hidden" formControlName="idParticipante" />
+
+                <div class="row mb-2">
+                 
+                
+                  <div class="col-md-3 mt-3">
+                    <label>Meu Segmento</label>                      
+                    <select class="form-select" 
+                    formControlName="segmento"
+                    aria-label="Default select example">
+                        <option value="Contabilidade">Contabilidade</option>
+                        <option value="Engenharia">Engenharia</option>
+                        <option value="Manutenção">Manutenção</option>
+                        <option value="Servicos">Servicos</option>
+                        <option value="Comércio">Comércio</option>
+                        <option value="Outros">Outros</option>
+
+                    </select>
+                </div>
+               
+                  <div class="form-group col-md-4 mt-3">
+                    <label for="valorCredenciado">Empresa</label>
+                    <input type="text" id="valorCredenciado" formControlName="empresa" class="form-control">
+                  </div>  
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">CNPJ</label>
+                    <input type="text" id="valorCredenciado" formControlName="cnpj" 
+                    mask="00-000-000-0000/00"
+                    class="form-control">
+                  </div>
+                  
+                  <div class="form-group col-md-2 mt-3">
+                    <label for="Whatsapp">Whatsapp</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    formControlName="whatsapp"
+                    placeholder="Ex: (00) 00000-0000"
+                    mask="(00) 00000-0000"
+                    />
+                  </div> 
+
+                <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Nome</label>
+                    <input type="text" id="valorCredenciado" formControlName="nome" class="form-control">
+                  </div>  
+                  <div class="form-group col-md-4 mt-3">
+                    <label for="valorCredenciado">Email</label>
+                    <input type="text" id="valorCredenciado" formControlName="email" class="form-control">
+                  </div> 
+
+                  
+
+                 
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Funcao</label>
+                    <input type="text" id="valorCredenciado" formControlName="funcao" class="form-control">
+                  </div> 
+
+
+                </div> 
+
+                 
+              
+                <div class="form-group col-md-6 mt-4">
+                  <button type="submit" class="btn btn-success">Editar Participante</button>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+</div>

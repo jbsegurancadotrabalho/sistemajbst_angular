@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Avaliações Ocupacionaiss</h5>
+                    <p>Preencha os campos para criar a Avaliação Ocupacional específica do Credenciado.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-credenciados" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+              </div>
+              
+              <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+              </div>
+              
+              <form (ngSubmit)="criarAvaliacoesCredenciados()" [formGroup]=" formularioAvaliacoesCredenciados">
+                <input type="hidden" formControlName="idCredenciado" />
+              
+                <div class="row mb-2">
+                  <div class="col-md-3 mt-3">
+                    <label for="cursos">Cursos</label>
+                    <ng-select
+                      [items]="avaliacoes"
+                      bindLabel="nome_avaliacoes"
+                      bindValue="idAvaliacoes"
+                      class="form-select custom-ng-select"
+                      formControlName="idAvaliacoes"
+                      [ngClass]="{'is-invalid':  formularioAvaliacoesCredenciados.get('idAvaliacoes')?.invalid &&  formularioAvaliacoesCredenciados.get('idAvaliacoes')?.touched}">
+                      <ng-template ng-label-tmp let-item="item">
+                        <div class="custom-bg">
+                          <span>{{ item.nome_avaliacoes }}</span> 
+                        </div>
+                      </ng-template>
+                      <ng-template ng-option-tmp let-item="item">
+                        <div>
+                          <span>{{ item.nome_avaliacoes }}</span> 
+                        </div>
+                      </ng-template>
+                    </ng-select>
+                  </div>
+
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Avaliação</label>
+                    <input type="text" id="nome_avaliacoes" formControlName="nome_avaliacoes" class="form-control">
+                  </div>  
+                  
+             
+
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Valor Credenciado</label>
+                    <input type="text" id="valorCredenciado" formControlName="valorCredenciado" class="form-control">
+                  </div>  
+              
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorJb">Valor JB</label>
+                    <input type="text" id="valorJb" formControlName="valorJB" class="form-control">
+                  </div>  
+                </div>
+              
+                <div class="form-group col-md-6 mt-4">
+                  <button type="submit" class="btn btn-success">Criar Avaliação Ocupacional</button>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+</div>

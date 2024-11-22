@@ -1,0 +1,109 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5  >Nossos Eventos</h5>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <a href="criar-evento" class="btn btn-success">Criar Evento</a>
+                    
+                </div>
+
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Eventos" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_epi" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Descrição</th>
+                            <th>Horário</th>
+                            <th>Organizadores</th>
+                            <th>Local</th>
+                            <th>palestrante</th>
+                            <th>Status</th>
+                            <th>Data</th>
+                            <th>Valor</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of eventos  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresa">
+                            <td>{{e?.nome_evento}}</td>
+                            <td> {{e?.descricao }}</td>
+                            <td> {{e?.carga_horaria }}</td>
+                            <td>{{e?.organizadores }}</td>
+                            <td>{{e?.local}}</td>
+                            <td>{{e.palestrante}}</td>
+                            <td>{{e?.status }}</td>
+                            <td>{{e?.dia_hora | date: 'dd/MM/yyyy' }}</td>
+
+                            <td>{{e?.valor }}</td>
+
+                         
+
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+                                <li><a  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/editar-evento', e.idEvento]">
+                                    Editar</a></li>
+
+                              
+
+                                        <li><a  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/criar-participante', e.idEvento]">
+                                            Incluir Participante</a></li>
+
+                                            <li><a  class="dropdown-item btn btn-success" 
+                                                [routerLink]="['/consultar-participante', e.idEvento]">
+                                                Consultar Participante</a></li>
+                          
+                                
+                        
+                            </ul>   
+                          
+                             
+
+
+                         
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Eventos: {{(eventos).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

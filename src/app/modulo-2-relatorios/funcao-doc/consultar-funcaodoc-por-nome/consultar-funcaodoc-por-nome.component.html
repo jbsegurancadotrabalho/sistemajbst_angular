@@ -1,0 +1,162 @@
+<app-navbar></app-navbar>
+<div class="container mb-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Consultar FunçãoDoc</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <form [formGroup]="formularioFuncao" (ngSubmit)="onSubmit()" class="d-flex align-items-center">
+                    <div class="col-md-3 mt-3">
+                        <input
+                            type="text"
+                            id="funcao"
+                            formControlName="nome_da_funcao"
+                            class="form-control me-2"
+                            placeholder="Digite a Função"
+                        />
+                        <div *ngIf="formularioFuncao.get('funcao')?.invalid && formularioFuncao.get('funcao')?.touched" class="text-danger">
+                            Função é obrigatório.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3 ms-3">
+                        <button type="submit" class="btn btn-success">
+                            Buscar Função pelo nome
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_chamados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Função</th>
+                            <th>Cenário</th>
+                            <th>Setor</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let f of funcoes | paginate: { itemsPerPage: itensPorPaginas, currentPage: paginaAtual1 }">
+                            <td>{{ f.nome_da_funcao | uppercase }}</td>
+                            <td>{{ f.cenario_funcaodoc }}</td>
+                            <td>{{ f.setor_gho }}</td>
+                            <td>
+
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+            
+
+                                
+                            <li><a href="/editar-funcaodoc"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/editar-funcaodoc', f.idFuncaoDoc]">
+                                Editar</a></li>
+
+                                
+                                      
+
+                                <li><a href="/criar-perigo"  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/criar-perigo', f.idFuncaoDoc]">
+                                    Criar Perigo</a></li>
+
+                                    <li><a href="/criar-riscos"  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-riscos', f.idFuncaoDoc]">
+                                        Criar Riscos</a></li>
+                                        
+                                        <li><a href="/criar-epi"  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/criar-epi', f.idFuncaoDoc]">
+                                            Criar Epi</a></li>
+
+                                        <li><a href="/criar-cursos-para-funcoes"  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/criar-cursos-para-funcoes', f.idFuncaoDoc]">
+                                            Criar Cursos</a></li>
+
+
+                                                <li><a href="/criar-exames-funcaodoc"  class="dropdown-item btn btn-success" 
+                                                    [routerLink]="['/criar-exames-funcaodoc', f.idFuncaoDoc]">
+                                                    Criar Exames</a></li>
+
+                                                    <li><a href="/criar-avaliacao-funcaodoc"  class="dropdown-item btn btn-success" 
+                                                        [routerLink]="['/criar-avaliacao-funcaodoc', f.idFuncaoDoc]">
+                                                        Criar Avaliações Ocupacionais</a></li>
+                            </ul>    
+                            
+                            <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                           Consultar
+                        </button>
+
+
+                        <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                        
+        
+
+                                      
+                            
+                            <li><a href="/consultar-perigo"  class="dropdown-item btn btn-success" 
+                                [routerLink]="['/consultar-perigo', f.idFuncaoDoc]">
+                                Perigo</a></li>
+
+                                <li><a href="/consultar-riscos"  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/consultar-riscos', f.idFuncaoDoc]">
+                                    Riscos</a></li>
+
+                                    <li><a href="/consultar-epi"  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/consultar-epi', f.idFuncaoDoc]">
+                                        Epi</a></li>
+                            
+                                        <li><a href="/consultar-cursos-para-funcoes"  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/consultar-cursos-para-funcoes', f.idFuncaoDoc]">
+                                            Cursos</a></li>
+                                            <li><a href="/consultar-exames-funcaodoc"  class="dropdown-item btn btn-success" 
+                                                [routerLink]="['/consultar-exames-funcaodoc', f.idFuncaoDoc]">
+                                                Exames</a></li>
+
+                                                <li><a href="/consultar-avaliacao-funcaodoc"  class="dropdown-item btn btn-success" 
+                                                    [routerLink]="['/consultar-avaliacao-funcaodoc', f.idFuncaoDoc]">
+                                                    Avaliações Ocupacionais</a></li>
+                    
+                        </ul>                  
+
+                        </td>                  
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            Quantidade de Unidades: {{(funcoes).length}}
+                            <pagination-controls 
+                            (pageChange)="paginaAtual1 = $event"
+                            previousLabel="Página anterior"
+                            nextLabel="Próxima página"
+                            [maxSize]="10" 
+                            [itemsPerPage1]="itensPorPagina" 
+                        ></pagination-controls> 
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+     
+
+
+
+
+      
+          
+    </div>
+</div>
+</div>

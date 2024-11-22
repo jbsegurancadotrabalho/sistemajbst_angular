@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Criar Exames</h5>
+                    <p>Preencha os campos para criar o Exame.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-exames" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+            </div>
+              
+            <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+            </div>
+            <hr />
+
+            <form (ngSubmit)="criarExames()" [formGroup]="formularioExames">
+                
+                  
+
+                <div class="row mb-2">
+                    <div class="form-group col-md-5 mt-3">
+                        <label for="fonte_geradora">Nome Exame</label>
+                        <input type="text" id="fonte_geradora" formControlName="nome_exame" class="form-control">
+                    </div>
+                    
+                    
+                    <div class="form-group col-md-4 mt-3">
+                        <label for="causasPerigo">Tipo</label>
+                        <input type="text" id="causasPerigo" formControlName="tipo_exame" class="form-control">
+                    </div>  
+
+                    <div class="form-group col-md-3 mt-3">
+                        <label for="causasPerigo">Descrição</label>
+                        <input type="text" id="causasPerigo" formControlName="descricao_exame" class="form-control">
+                    </div>  
+                  
+                </div>
+
+        
+
+                
+             
+                <div class="form-group col-md-6 mt-4">
+                    <button type="submit" class="btn btn-success">Criar Exames</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

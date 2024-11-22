@@ -1,0 +1,135 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5>Lista de Todos os Credenciados</h5>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <a href="criar-credenciado" class="btn btn-success">Criar Credenciado</a>
+                    
+                </div>
+
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Credenciados" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_epi" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Credenciado</th>
+                            <th>CNPJ</th>
+                            <th>Telefone</th> <!-- Nova coluna -->
+                            <th>Email</th> 
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of credenciados  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresa">
+                            <td>{{e.nomeCredenciado }}</td>
+                            <td>{{e.cnpj}}</td>
+                            <td>{{e.telefone_responsavel}}</td>
+                            <td>{{e.email_usuario}}</td>
+
+                         
+
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+                                <li><a  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/editar-credenciados', e.idCredenciado]">
+                                    Editar</a></li>
+
+                                    <li><a   class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-agenda', e.idCredenciado]">
+                                        Criar Agenda </a></li>
+
+                                <li><a   class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/criar-exames-credenciados', e.idCredenciado]">
+                                    Criar Exames</a></li>
+
+                                    <li><a   class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-cursos-credenciados', e.idCredenciado]">
+                                        Criar Cursos</a></li>
+
+                                        
+                                    <li><a  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-avaliacoes-credenciados', e.idCredenciado]">
+                                        Criar Avaliações Ocupacionais</a></li>
+
+                                        <li><a   class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/criar-profissional-saude', e.idCredenciado]">
+                                            Criar Profissional Saúde </a></li>
+                                
+                        
+                            </ul>   
+                          
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Consultar
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+                                <li><a   class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/consultar-agenda', e.idCredenciado]">
+                                    Agenda </a></li>
+
+                                <li><a   class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/consultar-exames-credenciados', e.idCredenciado]">
+                                    Exames</a></li>
+
+                                    <li><a   class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/consultar-cursos-credenciados', e.idCredenciado]">
+                                        Cursos</a></li>
+
+                                        
+                                    <li><a  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/consultar-avaliacoes-credenciados', e.idCredenciado]">
+                                        Avaliações Ocupacionais</a></li>
+
+                                        <li><a   class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/consultar-profissional-saude', e.idCredenciado]">
+                                            Profissional Saúde </a></li>
+                                
+                        
+                            </ul>   
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Credenciados: {{(credenciados).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

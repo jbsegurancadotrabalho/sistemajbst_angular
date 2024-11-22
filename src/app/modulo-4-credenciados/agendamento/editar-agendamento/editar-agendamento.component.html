@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Agendamento</h5>
+                    <p>Preencha os campos para editar o Agendamento do Credenciado.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-credenciados" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+              </div>
+              
+              <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+              </div>
+              
+              <form (ngSubmit)="editarAgendamento()" [formGroup]="formularioAgendamento">
+                <input type="hidden" formControlName="idAgendamento" />
+              
+                <div class="row mb-2">
+                
+                  
+                  <div class="form-group col-md-4 mt-3">
+                    <label for="valorCredenciado">Venda</label>
+                    <input type="text" id="valorCredenciado" formControlName="venda" class="form-control">
+                  </div>  
+
+                  <div class="col-md-4 mt-3">
+                    <label>Status:</label>                      
+                    <select class="form-select" 
+                    formControlName="status"
+                    aria-label="Default select example">
+                        <option value="Agendamento Cancelado">Agendamento Cancelado</option>
+                        <option value="Exame Realizado">Exame Realizado</option>
+                        <option value="Funcionário Faltou">Funcionário Faltou</option>
+                        <option value="Médico Faltou">Médico Faltou</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-4 mt-3">
+                    <label>Tipo de Pagamento:</label>                      
+                    <select class="form-select" 
+                    formControlName="tipo_de_pagamento"
+                    aria-label="Default select example">
+                        <option value="A Vista">A Vista</option>
+                   
+                    </select>
+                </div>
+              
+                </div>
+
+                <div class="col-md-12 mt-3" >
+                    <label>Observações Gerais:</label>                      
+                   <textarea class="form-control" id="exampleTextarea" rows="5" formControlName="observacoes"></textarea>
+              </div> 
+              
+                <div class="form-group col-md-6 mt-4">
+                  <button type="submit" class="btn btn-success">Editar Agendamento</button>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+</div>

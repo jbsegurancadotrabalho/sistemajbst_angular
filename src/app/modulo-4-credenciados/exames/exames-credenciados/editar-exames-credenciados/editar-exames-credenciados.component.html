@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Exames Credenciados</h5>
+                    <p>Preencha os campos para editar o Exame específico do Credenciado.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-credenciados" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+              </div>
+              
+              <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+              </div>
+              
+              <form (ngSubmit)="EditarExamesCredenciados()" [formGroup]="formularioExames">
+                <input type="hidden" formControlName="idExameCredenciado" />
+              
+                <div class="row mb-2">
+                  <div class="col-md-5 mt-3">
+                    <label for="exames">Exames</label>
+                    <ng-select
+                      [items]="exames1"
+                      bindLabel="nome_exame"
+                      bindValue="idExames"
+                      class="form-select custom-ng-select"
+                      formControlName="idExames"
+                      [ngClass]="{'is-invalid': formularioExames.get('idExames')?.invalid && formularioExames.get('idExames')?.touched}">
+                      <ng-template ng-label-tmp let-item="item">
+                        <div class="custom-bg">
+                          <span>{{ item.nome_exame }}</span> 
+                        </div>
+                      </ng-template>
+                      <ng-template ng-option-tmp let-item="item">
+                        <div>
+                          <span>{{ item.nome_exame }} {{ item.tipo_exame }} {{ item.descricao_exame }}</span> 
+                        </div>
+                      </ng-template>
+                    </ng-select>
+                  </div>
+                  
+                  <div class="form-group col-md-4 mt-3">
+                    <label for="valorCredenciado">Valor Credenciado</label>
+                    <input type="text" id="valorCredenciado" formControlName="valorCredenciado" class="form-control">
+                  </div>  
+              
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorJb">Valor JB</label>
+                    <input type="text" id="valorJb" formControlName="valorJb" class="form-control">
+                  </div>  
+                </div>
+              
+                <div class="form-group col-md-6 mt-4">
+                  <button type="submit" class="btn btn-success">Editar Exames</button>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+</div>

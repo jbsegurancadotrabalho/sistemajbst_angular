@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5  >Lista de Exames da Clinica {{ credenciadoDetalhes?.razaosocial }}</h5>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <a href="consultar-credenciados" class="btn btn-success">Voltar</a>
+                    
+                </div>
+
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Agenda deste Credenciado" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_epi" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Agenda</th>
+                            <th>Exames</th>
+                            <th>Preço</th>
+                            <th>Status</th>
+                            <th>Observações</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of credenciados  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresa">
+                            <td>{{e?.dia_hora | date: 'dd/MM/yyyy' }}</td>
+                            <td>{{e?.examescredenciados?.exames?.nome_exame }}</td>
+                            <td>R$ {{e?.examescredenciados?.valorJb }}</td>
+                            <td>{{e?.status }}</td>
+                            <td>{{e.observacoes_agenda}}</td>
+
+                         
+
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                              Ações
+                            </button>
+
+
+                            <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                            
+                                <li><a  class="dropdown-item btn btn-success" 
+                                    [routerLink]="['/editar-agenda', e.idAgenda]">
+                                    Editar</a></li>
+
+                                    <li><a  class="dropdown-item btn btn-success" 
+                                        [routerLink]="['/criar-agendamento-funcionario', e.idAgenda]">
+                                        Criar Agendamento Funcionário</a></li>
+
+                                        <li><a  class="dropdown-item btn btn-success" 
+                                            [routerLink]="['/criar-agendamento-pessoa-fisica', e.idAgenda]">
+                                            Criar Agendamento Pessoa Fisica</a></li>
+                          
+                                
+                        
+                            </ul>   
+                          
+                             
+
+
+                         
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Agendas deste Credenciado: {{(credenciados).length}}
+                                <pagination-controls 
+                                    (pageChange)="paginaAtual1 = $event"
+                                    previousLabel="Página anterior"
+                                    nextLabel="Próxima página"
+                                    [maxSize]="10" 
+                                    [itemsPerPage]="itensPorPagina">
+                                </pagination-controls> 
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

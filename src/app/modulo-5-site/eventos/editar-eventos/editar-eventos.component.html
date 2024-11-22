@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Editar Evento</h5>
+                    <p>Preencha os campos para editar o Evento da JBST.</p>
+                </div>
+                <div class="col-md-2 mt-1">
+                    <a href="/consultar-evento" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+
+            <div *ngIf="cadastroSucesso !== null" class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroSucesso }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroSucesso = null"></button>
+              </div>
+              
+              <div *ngIf="cadastroErro !== null" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ cadastroErro }}</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="cadastroErro = null"></button>
+              </div>
+              
+              <form (ngSubmit)="editarEvento()" [formGroup]="formularioExames">
+              
+                <div class="row mb-2">
+                 
+                
+                    <div class="col-md-3 mt-3"> <label>Data</label> <input type="datetime-local"  formControlName="dia_hora" class="form-control" /></div>
+   
+                  <div class="col-md-3 mt-3">
+                    <label>Status:</label>                      
+                    <select class="form-select" 
+                    formControlName="status"
+                    aria-label="Default select example">
+                        <option value="Evento Online">Evento Online</option>
+                    
+                    </select>
+                </div>
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Nome</label>
+                    <input type="text" id="valorCredenciado" formControlName="nome_evento" class="form-control">
+                  </div>  
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Horarios do Evento</label>
+                    <input type="text" id="valorCredenciado" formControlName="carga_horaria" class="form-control">
+                  </div>  
+                </div>  
+                <div class="row mb-2">
+
+                <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Organizadores</label>
+                    <input type="text" id="valorCredenciado" formControlName="organizadores" class="form-control">
+                  </div>  
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Palestrante</label>
+                    <input type="text" id="valorCredenciado" formControlName="palestrante" class="form-control">
+                  </div> 
+
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Local</label>
+                    <input type="text" id="valorCredenciado" formControlName="local" class="form-control">
+                  </div>  
+                  <div class="form-group col-md-3 mt-3">
+                    <label for="valorCredenciado">Valor</label>
+                    <input type="text" id="valorCredenciado" formControlName="valor" class="form-control">
+                  </div> 
+
+                </div> 
+
+                  <div class="col-md-12 mt-3" >
+                    <label>Descriçao:</label>                      
+                   <textarea class="form-control" id="exampleTextarea" rows="5" formControlName="descricao"></textarea>
+              </div> 
+              
+                <div class="form-group col-md-6 mt-4">
+                  <button type="submit" class="btn btn-success">Editar Evento</button>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+</div>

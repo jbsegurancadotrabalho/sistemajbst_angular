@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { PutFuncionarioModel } from '../models/Funcionario/PutFuncionarioModel';
 import { GetFuncionarioModel } from '../models/Funcionario/GetFuncionarioModel';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,22 @@ export class FuncionarioService {
       );
   }
 
+  
+  consultarFuncionariosPorEmpresaECpf(idEmpresa: string, cpf: string): Observable<GetFuncionarioModel[]> {
+    const url = `http://relatorio-jb-env.eba-w4gjvqei.us-east-2.elasticbeanstalk.com/funcionarios/buscar`;
+    const params = new HttpParams()
+      .set('idEmpresa', idEmpresa)
+      .set('cpf', cpf);
+
+    return this.http.get<GetFuncionarioModel[]>(url, { params })
+      .pipe(
+        catchError(error => {
+          console.error('Erro ao buscar funcionários:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
   consultarFuncionarioPorId(id: string): Observable<GetFuncionarioModel> {
     const url = `http://relatorio-jb-env.eba-w4gjvqei.us-east-2.elasticbeanstalk.com/funcionarios/relatorios/${id}`;
     return this.http.get<GetFuncionarioModel>(url)
@@ -64,6 +81,14 @@ export class FuncionarioService {
       );
   }
 
+  consultarFuncionariosLocalHost(): Observable<GetFuncionarioModel[]> {
+    const url = `http://relatorio-jb-env.eba-w4gjvqei.us-east-2.elasticbeanstalk.com/funcionarios`;
+    return this.http.get<GetFuncionarioModel []>(url)
+      .pipe(
+        catchError(this.handleError) // Tratar erros
+      );
+  }
+  
 
   excluirEpi(id: string): Observable<any> {
     const url = `${this.baseUrl}/epi/excluir/${id}`;

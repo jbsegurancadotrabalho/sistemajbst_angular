@@ -1,0 +1,80 @@
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-2 mt-4">
+                <div class="col-md-10 mt-1">
+                    <h5  >Nossos Eventos</h5>
+                </div>
+               
+
+            </div>
+            <hr />
+            <div class="row mb-2">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" [(ngModel)]="filtro.nome_empresas"
+                        placeholder="Pesquisar Eventos" />
+                </div>
+            </div>
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_epi" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Descrição</th>
+                            <th>Horário</th>
+                            <th>Organizadores</th>
+                            <th>Local</th>
+                            <th>palestrante</th>
+                            <th>Status</th>
+                            <th>Data</th>
+                            <th>Valor</th>
+                            <th>Inscrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of eventos  | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual1 } | ngxSearchPipe:filtro.nome_empresa">
+                            <td>{{e?.nome_evento}}</td>
+                            <td> {{e?.descricao }}</td>
+                            <td> {{e?.carga_horaria }}</td>
+                            <td>{{e?.organizadores }}</td>
+                            <td>{{e?.local}}</td>
+                            <td>{{e.palestrante}}</td>
+                            <td>{{e?.status }}</td>
+                            <td>{{e?.dia_hora | date: 'dd/MM/yyyy' }}</td>
+
+                            <td>{{e?.valor }}</td>
+
+                         
+
+                            <td>
+                                <button type="button" class="btn btn-success" [routerLink]="['/inscrever-para-este-evento', e.idEvento]">
+                                    Me Inscrever
+                                  </button>
+
+
+                          
+                          
+                             
+
+
+                         
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                Quantidade de Eventos: {{(eventos).length}}
+                           
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

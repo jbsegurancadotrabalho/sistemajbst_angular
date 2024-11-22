@@ -1,0 +1,310 @@
+<div class=" mt-3" *ngFor="let  e of anamnese ">
+    <strong style="display: block; text-align: center;">ANAMNESE</strong>
+    <br>
+    <div>             
+        <strong>EMPRESA </strong>    
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="font-size: 12px;">Empresa</th>
+        
+                    <th style="font-size: 12px;">Setor</th>
+                    <th style="font-size: 12px;">Aso</th>
+                    <th style="font-size: 12px;">Data</th>
+        
+        
+                </tr>
+            </thead>
+            <tbody>
+                <tr> 
+                    <td style="font-size: 12px;"> {{e?.empresa}}</td> 
+                    <td style="font-size: 12px;"> {{e?.setor}}</td>
+                    <td style="font-size: 12px;"> {{e?.tipo_aso}}</td>        
+                    <td style="font-size: 12px;">{{e?.dia_hora | date: 'dd/MM/yyyy'}}</td>
+        
+                </tr>                  
+            </tbody>    
+        </table>
+        <strong>FUNCIONÁRIO </strong>    
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="font-size: 12px;">Funcionário</th>
+            <th style="font-size: 12px;">RG</th>
+            <th style="font-size: 12px;">CPF</th>
+            <th style="font-size: 12px;">Função</th>
+            <th style="font-size: 12px;">Telefone</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td style="font-size: 12px;"> {{e?.nome}}</td>
+            <td style="font-size: 12px;"> {{e?.rg}} - {{e?.orgaoemissor}}</td>
+            <td style="font-size: 12px;"> {{e?.cpf}}</td>
+            <td style="font-size: 12px;"> {{e?.funcao}}</td>
+            <td style="font-size: 12px;"> {{e?.telefone}}</td>
+
+
+        </tr>                  
+    </tbody>    
+</table>
+                                          
+                            
+                               
+                                
+
+
+                                        
+                         <strong>ESTA É A MINHA DECLARAÇÃO </strong>    
+                    <br>
+
+                           <br>
+                           <strong>DOENÇAS NA FAMÍLIA</strong>
+                          <br>
+                          
+                                    {{e?.tubercolose}} 
+                                    {{e?.pressaoalta}} 
+                                    {{e?.alcoolismo}} 
+                                    {{e?.cancer}} 
+                                    {{e?.diabetes}}         
+                                    {{e?.infarto}}
+                                    {{e?.doencao_nervosa}}
+                                    {{e?.doenca_da_tireoide}}
+                                    {{e?.alergias}}
+                                        <br>
+                                <strong>HISTÓRICO SOCIAL</strong>
+                                        <br>
+                                            {{e?.bebidas_alcoolicas}}
+                                    {{e?.atividade_fisica}}
+                                    {{e?.tabagismo}}
+                                    <br>
+                                    <strong>MEIOS DE TRANSPORTE QUE UTILIZA OU UTILIZARÁ PARA IR DE CASA 
+
+                                        PARA O TRABALHO
+                                    </strong>
+                                         <br>
+                                    {{e?.transporte}}
+                                    <br>    
+                                    <strong>QUANTO TEMPO LEVA PARA IR DE CASA 
+
+                                        PARA O TRABALHO
+                                    </strong>
+                                    <br>
+
+                                    {{e?.tempo_deslocamento}}
+
+                                    <br>    
+                                    <strong>HÁBITOS DE LAZER
+                                    </strong>
+                                    <br>
+                                    {{e?.leitura}}
+                                    {{e?.cinema_teatro}}
+                                    {{e?.videogame}}
+                                    {{e?.instrumentos}}
+                                    {{e?.canto}}
+                                    {{e?.tv}}
+                                    {{e?.basquete_volei}}
+                                    {{e?.modelagem}}
+                                    {{e?.musica_com_head_fone}}
+                                    {{e?.futebol}}
+                                    {{e?.lutas}}
+                                    {{e?.musculacao}}
+                                    {{e?.jardinagem}}
+                                    {{e?.tenis}}
+                                    {{e?.jogos_computador}}
+                                    {{e?.navegar_internet}}
+                                    {{e?.outros}}
+
+                                    <br>    
+                                    <strong>HISTÓRICO OCUPACIONAL   
+                                    </strong>
+                                    <br>
+                                    {{e?.historia_ocup1}}
+                                    {{e?.historia_ocup2}}
+                                    {{e?.historia_ocup3}}
+                                    {{e?.historia_ocup4}}
+                                    {{e?.historia_ocup5}}
+                                    {{e?.historia_ocup6}}
+
+                                    <br>    
+                                    <strong>ANTECEDENTES PESSOAIS   
+                                    </strong>
+                                    <br>
+                                    {{e?.oculos}}
+                                    {{e?.corrigir_miopia}}
+                                    {{e?.corrigir_antigmatismo}}
+                                    {{e?.corrigir_hipermetropia}}
+                                    {{e?.corrigir_vista_cansada}}
+                                    {{e?.corrigir_nao_sei}}
+                                    <br>    
+                                    <strong>VOCÊ TEVE OU TEM:             
+                                    </strong>
+                                    <br>
+                                    {{e?.cistite}}
+                                    {{e?.diabete}}
+                                    {{e?.tonteiras}}
+                                    {{e?.renite_sinusite}}
+                                    {{e?.varises}}
+                                    {{e?.dor_de_cabeca}}
+                                    {{e?.prisao_ventre}}
+                                    {{e?.hemorraidas}}
+                                    {{e?.pressao_alta}}
+                                    {{e?.hernia}}
+                                    {{e?.dor_no_peito}}
+                                    {{e?.dor_nas_pernas}}
+                                    {{e?.resfriados}}
+                                    {{e?.problemas_tireoides}}
+                                    {{e?.epilepsia_convulcoes}}
+                                    {{e?.asma_bronquite}}
+                                    {{e?.tubercolose1}}
+                                    {{e?.ulcera}}
+                                    {{e?.tosse_cronica}}
+                                    {{e?.pedra_nos_rins}}
+                                    {{e?.remedios}}
+                                    {{e?.hepatite_a}}
+                                    {{e?.hepatite_b}}
+                                    {{e?.hepatite_c}}
+                                    {{e?.hepatite_nao_sei}}
+                                    {{e?.operacao}}
+                                    {{e?.tipo_operacao}}
+                                    {{e?.ano_operacao}}
+                                    {{e?.quebra_osso}}
+                                    {{e?.quebra_osso_onde}}
+
+                                    <br>    
+                                    <strong>VOCÊ SENTE DORES EM ALGUM DESTES LOCAIS ? 
+                                    </strong>
+                                    <br>
+                                    {{e?.dor_dedo_direito}}
+                                    {{e?.dor_dedo_esquerdo}}
+                                    {{e?.dor_maos_direito}}
+                                    {{e?.dor_maos_esquerdo}}
+                                    {{e?.dor_punho_direito}}
+                                    {{e?.dor_punho_esquerdo}}
+                                    {{e?.dor_cotovelo_direito}}
+                                    {{e?.dor_cotovelo_esquerdo}}
+                                    {{e?.dor_braco_direito}}
+                                    {{e?.dor_braco_esquerdo}}
+                                    {{e?.dor_ombro_direito}}
+                                    {{e?.dor_ombro_esquerdo}}
+                                    {{e?.dor_joelho_direito}}
+                                    {{e?.dor_joelho_esquerdo}}
+                                    {{e?.dor_pescoco}}
+                                    {{e?.dor_costas_superior}}
+                                    {{e?.dor_costas_medias}}
+                                    {{e?.dor_costas_inferior}}
+                                    {{e?.doenca_sexualmente_transmissivel}}
+
+                                    <br>    
+                                    <strong>SOMENTE PARA HOMENS     
+                                    </strong>
+                                    <br>
+                                    {{e?.prostata}}
+                                    <br>    
+                                    <strong>SOMENTE PARA MULHERES     
+                                    </strong>
+                                    <br>
+                                    {{e?.anticosepsional}}
+                                    {{e?.aborto}}
+                                    {{e?.preventivo_no_ano}}
+                                    {{e?.data_mestruacao}}
+                                    {{e?.tensao_mestruacao}}
+                                    {{e?.status_mestruacao}}
+                                    {{e?.colicas}}
+                                    {{e?.gravidez}}
+
+                                    <br>    
+                                    <strong>PRESSÃO ARTERIAL, MASSA CORPORAL E ALTURA
+                                    </strong>
+                                    <br>
+                                   {{e?.pressao_arterial}}, 
+                                    minha frequência Cardíaca é de {{e?.frequencia_cardiaca}},
+                                   meus batimentos cardíacos são de  {{e?.batimentos_por_minuto}},
+                                    indice de massa corporal de {{e?.icm}}
+                                   minha altura é {{e?.altura}}
+                                    Eu peso {{e?.peso}}
+                                    <br>    
+                                    <strong>PRESSÃO ARTERIAL, MASSA CORPORAL E ALTURA
+                                    </strong>
+                                    <br>
+                                    {{e?.ganglios}}
+                                    {{e?.dentes}}
+                                    {{e?.tireoide}}
+                                    {{e?.orofaringe}}
+                                    {{e?.acuidade_visual}}
+                                    {{e?.ritimo_cardiaco}}
+                                    {{e?.ritimo_cardiaco_obs}}
+                                    {{e?.sopros}}
+                                    {{e?.pulmoes}}
+                                    {{e?.abdomen}}
+                                    {{e?.maos_punhos}}
+                                    {{e?.perda_forca_de_preensao}}
+                                    {{e?.tinel}}
+                                    {{e?.phalen}}
+                                    {{e?.filkenstein}}
+                                    <br>    
+                                    <strong>COTOVELOS, OMBROS, COLUNA, JOELHOS, APARELHO MUSCULAR E OUTROS
+                                    </strong>
+                                    <br>
+                                    {{e?.cotovelo_direito}}
+                                    {{e?.cotovelo_esquerdo}}
+                                    {{e?.ombro_direito}}
+                                    {{e?.ombro_esquerdo}}
+                                    {{e?.coluna}}
+                                    {{e?.coluna_outros}}
+                                    {{e?.aparelho_muscular}}
+                                    {{e?.membros_inferiores}}
+                                    {{e?.membros_inferiores_obs}}
+                                    {{e?.joelho_direito}}
+                                    {{e?.joelho_esquerdo}}
+                                    <br>    
+                                    <strong>EXAMES COMPLEMENTARES
+                                    </strong>
+                                    <br>
+                                    {{e?.exames_complementares}}
+                                    {{e?.exame_complementar}}
+
+                                    <br>    
+                                    <strong>RISCOS QUIMICO, FISICO, BIOLÓGICO, ERGONÔMICO E  ESPECÍFICO
+                                    </strong>
+                                    <br>
+                                    {{e?.risco_quimico}}
+                                    {{e?.risco_fisico}}
+                                    {{e?.risco_biologico}}
+                                    {{e?.risco_ergonomico}}
+                                    {{e?.risco_especifico}}
+                                    <br>    
+                                    <strong>PARECER MÉDICO
+                                    </strong>
+                                    <br>
+                                    {{e?.parecer_especialista}}
+                                    {{e?.encaminhamento_perito}}
+                                    {{e?.status_anamnese}}
+                                    <br>    
+                                    <strong>CAT E OBSERVAÇÕES FINAIS
+                                    </strong>
+                                    <br>
+                                    {{e?.cat}}
+                                    {{e?.observacoes}}
+                                
+                                
+
+      
+<div class="row">
+
+    <div class="col-md-5 mt-1 mb-1 center">
+    </div>
+    <div class="col-md-4 mt-1 mb-1 center">
+        <button (click)="printPage()">Anamnese</button>
+    </div>   
+    <div class="col-md-3 mt-1 mb-1 center">
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div class="container mb-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>Consultar Função</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <form [formGroup]="formularioFuncao" (ngSubmit)="onSubmit()" class="d-flex align-items-center">
+                    <div class="col-md-3 mt-3">
+                        <input
+                            type="text"
+                            id="funcao"
+                            formControlName="funcao"
+                            class="form-control me-2"
+                            placeholder="Digite a Função"
+                        />
+                        <div *ngIf="formularioFuncao.get('funcao')?.invalid && formularioFuncao.get('funcao')?.touched" class="text-danger">
+                            Função é obrigatório.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3 ms-3">
+                        <button type="submit" class="btn btn-success">
+                            Buscar Função pelo nome
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <hr />
+            <div class="table-responsive mt-2">
+                <table id="consulta_chamados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Função</th>
+                            <th>CBO</th>
+                            <th>Periculosidade</th>
+                            <th>Insalubridade</th>
+                            <th>Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let f of funcoes | paginate: { itemsPerPage: itensPorPaginas, currentPage: paginaAtual1 }">
+                            <td>{{ f.funcao | uppercase }}</td>
+                            <td>{{ f.cbo }}</td>
+                            <td>{{ f.gp }}</td>
+                            <td>{{ f.gro }}</td>
+                            <td>
+                                <button class="btn btn-success m-1 btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                </button>
+                                <ul class="dropdown-menu btn-sm border dropdown-menu-success">
+                                    <li><a class="dropdown-item btn btn-success" [routerLink]="['/cadastrar-funcaodoc', f.idFuncao]">Cadastrar Função para Relatórios</a></li>
+                                    <li><a class="dropdown-item btn btn-success" [routerLink]="['/editar-funcao', f.idFuncao]">Editar Função</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
